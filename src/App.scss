@@ -1,1 +1,17 @@
 @import "./assets/styles/styles.scss";
+.App{
+    border: black 1px solid;
+    display: flex;
+    // justify-content: space-between;
+    width: 100vw;
+    height: 900px;
+    .SaagarBaargar{
+        width: 307px;
+        height: 900px;
+        border: 1px solid black;
+    }
+    .AngaarBangaar{
+        width: 1133px;
+        height: 900px;
+    }
+}

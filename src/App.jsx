@@ -1,11 +1,17 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.scss';
-import Example from './pages/example/example.jsx';
+import Students from './pages/students/students.jsx';
+
 
 function App() {
   return (
     <div className="App">
-        <Example></Example>
+        <div className="SaagarBaargar">
+          <p>deez</p>
+        </div>
+        <div className="AngaarBangaar">
+          <Students/>
+        </div>
     </div>
   );
 }
