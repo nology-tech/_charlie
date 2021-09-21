@@ -1,12 +1,14 @@
 import React from 'react'
 import StudentsTopNav from "./studentstopnav/studentstopnav"
-import StudentsList from "./studentlist/studentlist"
+import StudentsList from "./studentlist/studentlist";
+import "./students.scss"; 
 
-const students = () => {
+const students = (props) => {
+    const {studentsData} = props; 
     return (
-        <div>
+        <div className="students">
             <StudentsTopNav/>
-            <StudentsList/>
+            <StudentsList studentsData = {studentsData} />
         </div>
     )
 }

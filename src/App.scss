@@ -1,17 +1,15 @@
 @import "./assets/styles/styles.scss";
-.App{
+.app {
     border: black 1px solid;
-    display: flex;
-    // justify-content: space-between;
     width: 100vw;
-    height: 900px;
-    .SaagarBaargar{
-        width: 307px;
-        height: 900px;
+    height: 100vh;
+    .placeholderNavbar{
         border: 1px solid black;
+        height: 100%;
+        width: 20%;  
     }
-    .AngaarBangaar{
-        width: 1133px;
-        height: 900px;
+    .students {
+        height: 100%;
+        width: 80%; 
     }
 }

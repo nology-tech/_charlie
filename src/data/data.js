@@ -2,66 +2,129 @@ const students= [
         {
             studentName: "Wei-Tong Tang",
             courseName: "Ibiza",
-            githubLink: "github.com/wei-tong-tang",
-            portfolioLink : "www.wei.com",
-            resumeLink: "www.wei.com/cv"
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
         },
         {
-        studentName: "Wei-Tong Tang",
-        courseName: "Ibiza",
-        githubLink: "github.com/wei-tong-tang",
-        portfolioLink : "www.wei.com",
-        resumeLink: "www.wei.com/cv"
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
         },
-    {
-        studentName: "Wei-Tong Tang",
-        courseName: "Ibiza",
-        githubLink: "github.com/wei-tong-tang",
-        portfolioLink : "www.wei.com",
-        resumeLink: "www.wei.com/cv"
-    },
-    {
-    studentName: "Wei-Tong Tang",
-    courseName: "Ibiza",
-    githubLink: "github.com/wei-tong-tang",
-    portfolioLink : "www.wei.com",
-    resumeLink: "www.wei.com/cv"
-    },
-    {
-    studentName: "Wei-Tong Tang",
-    courseName: "Ibiza",
-    githubLink: "github.com/wei-tong-tang",
-    portfolioLink : "www.wei.com",
-    resumeLink: "www.wei.com/cv"
-    },
-    {
-    studentName: "Wei-Tong Tang",
-    courseName: "Ibiza",
-    githubLink: "github.com/wei-tong-tang",
-    portfolioLink : "www.wei.com",
-    resumeLink: "www.wei.com/cv"
-    },
-    {
-    studentName: "Wei-Tong Tang",
-    courseName: "Ibiza",
-    githubLink: "github.com/wei-tong-tang",
-    portfolioLink : "www.wei.com",
-    resumeLink: "www.wei.com/cv"
-    },
-    {
-    studentName: "Wei-Tong Tang",
-    courseName: "Ibiza",
-    githubLink: "github.com/wei-tong-tang",
-    portfolioLink : "www.wei.com",
-    resumeLink: "www.wei.com/cv"
-    },
-    {
-    studentName: "Wei-Tong Tang",
-    courseName: "Ibiza",
-    githubLink: "github.com/wei-tong-tang",
-    portfolioLink : "www.wei.com",
-    resumeLink: "www.wei.com/cv"
-    }
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
+        {
+            studentName: "Wei-Tong Tang",
+            courseName: "Ibiza",
+            githubAccount: "github.com/wei-tong-tang",
+            portfolio : "www.wei.com",
+            resume: "www.wei.com/cv"
+        },
 ];
 
 

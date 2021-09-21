@@ -1,5 +1,11 @@
-.topNav{
-    width: 1133px;
-    height: 157px;
-    border: 1px solid orange;
+.topNav {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    &__pageNameAndCreate {
+        width: 100%; 
+    }
+    &__studentTypes {
+        width: 50%; 
+    }
 }
