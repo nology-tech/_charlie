@@ -9,6 +9,7 @@ const students = (props) => {
         <div className="students">
             <StudentsTopNav/>
             <StudentsList studentsData = {studentsData} />
+
         </div>
     )
 }

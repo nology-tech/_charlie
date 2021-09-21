@@ -1,5 +1,5 @@
 import React from 'react';
-import Student from '../student/student';
+import Student from './student/student';
 import "./studentlist.scss";
 
 
