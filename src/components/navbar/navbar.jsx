@@ -3,18 +3,28 @@ import { Link } from "react-router-dom";
 import "./navbar.scss";
 
 const Navbar = () => {
-    // const navItems = [
-    //     {text: "Dashboard", icon: ""},
-    //     {text: "Students", icon: ""},
-    //     {text: "Projects", icon: ""},
-    //     {text: "Enrollment", icon: ""},
-    //     {text: "Settings", icon: ""},
-    // ];
+    const navItems = [
+        {link: "/", text: "Dashboard", icon: ""},
+        {link: "/students", text: "Students", icon: ""},
+        {link: "/projects", text: "Projects", icon: ""},
+        {link: "/enrollment", text: "Enrollment", icon: ""},
+        {link: "/settings", text: "Settings", icon: ""},
+    ];
+    
+    const x = navItems.map(({ link, text, icon }) => {
+        return (
+            <>
+                <Link to={link}>
+                    {text}
+                    <img src={icon} alt={text} />
+                </Link>
+            </>
+        )
+    });
     
     return (
         <div>
-            {/* {navItems} */}
-            nav
+            {x}
         </div>
     )
 }
