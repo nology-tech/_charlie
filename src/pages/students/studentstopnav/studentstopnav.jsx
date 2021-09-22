@@ -1,14 +1,14 @@
 import React from 'react'
 import "./studentstopnav.scss"
 
-const studentlisttopnav = () => {
+const StudentListTopNav = () => {
     return (
-        <nav className="topNav">
-            <div className="row topNav__pageNameAndCreate">
-                <h1 className="col"> Students </h1>
-                <button className="col">Create</button>
+        <nav className="top-nav">
+            <div className="row top-nav__header">
+                <h1 className="col-2"> Students </h1>
+                <button className="col-2 offset-8 btn-primary">+ Create</button>
             </div>
-            <div className="row topNav__studentTypes">
+            <div className="row top-nav__student-types">
                 <p className="col">All</p>
                 <p className="col">Full-Time</p>
                 <p className="col">Self-Paced</p>
@@ -18,4 +18,4 @@ const studentlisttopnav = () => {
     )
 }
 
-export default studentlisttopnav; 
+export default StudentListTopNav; 

@@ -1,8 +1,8 @@
 import React from 'react'
 import "./student.scss";
 
-const student = (props) => {
-  const { studentName, enrolledOn, githubAccount, portfolio, resume } = props; 
+const Student = (props) => {
+  const { studentName, enrolledOn, githubAccount, portfolio, resume } = props.student; 
   return (
     <div className="student row">
       <p className="col">{studentName}</p>
@@ -14,4 +14,4 @@ const student = (props) => {
   )
 }
 
-export default student
+export default Student

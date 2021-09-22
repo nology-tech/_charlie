@@ -1,17 +1,11 @@
 @import "_variables.scss";
 
-.btn {
-    padding: 10px 20px;
-    border: none;
-    outline: none;
-}
+.btn-primary{
+    width: 130px;
+    height: 50px;
 
-.btn-primary {
-    background-color: $primary;
+    background: $accent-primary;
+    box-shadow: 0px 20px 40px rgba(114, 75, 203, 0.2);
+    border-radius: 7px;
     color: white;
-}
-
-.btn-secondary {
-    background-color: $default;
-    color: $secondary;
 }

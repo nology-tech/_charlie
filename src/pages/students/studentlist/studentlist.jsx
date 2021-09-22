@@ -3,11 +3,11 @@ import Student from './student/student';
 import "./studentlist.scss";
 
 
-const studentlist = (props) => {
+const StudentList = (props) => {
     const { studentsData } = props; 
-    const students = studentsData && studentsData.map(student => { return (
-        <Student studentName={student.studentName} enrolledOn={student.courseName} githubAccount={student.githubAccount} portfolio = {student.portfolio} resume = {student.resume}/>)
-    })
+    const students = studentsData && studentsData.map(student => (
+        <Student student={student}/>)
+    )
     return (
         <>
         <div className = "studentList row">
@@ -22,4 +22,4 @@ const studentlist = (props) => {
     )
 }
 
-export default studentlist
+export default StudentList
