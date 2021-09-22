@@ -4,7 +4,7 @@ import "./student.scss";
 const Student = (props) => {
   const { studentName, enrolledOn, githubAccount, portfolio, resume } = props.student; 
   return (
-    <div className="student row">
+    <div className="student row d-flex align-items-center justify-content-start">
       <p className="col">{studentName}</p>
       <p className="col">{enrolledOn}</p>
       <p className="col">{githubAccount}</p>

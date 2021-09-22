@@ -10,7 +10,7 @@ const StudentList = (props) => {
     )
     return (
         <>
-        <div className = "studentList row">
+        <div className = "studentList row d-flex align-items-center">
             <p className="col">Student Name</p>
             <p className="col">Enrolled On</p>
             <p className="col">Github Account</p>

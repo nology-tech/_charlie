@@ -1,11 +1,13 @@
 @import "./assets/styles/styles.scss";
 @import "./assets/styles/typography.scss";
+@import "./assets/styles/_variables.scss";
 
 .app {
     border: black 1px solid;
     width: 100vw;
     height: 100vh;
     font-family: $font-primary;
+    background-color: $color-primary;
     .placeholderNavbar{
         border: 1px solid black;
         height: 100%;
