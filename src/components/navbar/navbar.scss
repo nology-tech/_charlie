@@ -1,0 +1,11 @@
+@use "../../assets/styles/_variables" as *;
+
+.navbar {
+    background-color: $nav-background;
+    
+    a {
+        color: white;
+        text-decoration: none;
+
+    }
+}
