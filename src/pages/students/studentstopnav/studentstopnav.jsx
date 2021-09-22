@@ -4,11 +4,11 @@ import "./studentstopnav.scss"
 const StudentListTopNav = () => {
     return (
         <nav className="top-nav">
-            <div className="row top-nav__header">
+            <div className="row top-nav__header d-flex align-items-center">
                 <h1 className="col-2"> Students </h1>
                 <button className="col-2 offset-8 btn-primary">+ Create</button>
             </div>
-            <div className="row top-nav__student-types">
+            <div className="row top-nav__student-types d-flex justify-content-start">
                 <p className="col">All</p>
                 <p className="col">Full-Time</p>
                 <p className="col">Self-Paced</p>

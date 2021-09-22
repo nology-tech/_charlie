@@ -1,3 +1,13 @@
+@use "../../../assets/styles/_typography" as *; 
+
 .studentList {
   width: 100%;
+  text-align: center; 
+  margin-bottom: 8px; 
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  letter-spacing: 0.03em;
+  color: #595959;
 }
