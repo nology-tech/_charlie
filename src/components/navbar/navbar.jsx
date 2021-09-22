@@ -1,50 +1,44 @@
-// import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import { Link } from "react-router-dom";
 import "./navbar.scss";
+
+import Logo from "../../assets/images/Navbar-Logo-Colour.svg";
+import { Link } from "react-router-dom";
 import { FaHome, FaFileAlt, FaUsers, FaIdBadge, FaCog } from 'react-icons/fa';
 
 const Navbar = () => {
-    
     const navItems = [
         {link: "/", text: "Dashboard", icon: <FaHome /> },
         {link: "/students", text: "Students", icon: <FaFileAlt />},
         {link: "/projects", text: "Projects", icon: <FaUsers />},
-        {link: "/enrollment", text: "Enrollment", icon: <FaIdBadge />},
-        {link: "/settings", text: "Settings", icon: <FaCog />},
+        {link: "/enrollment", text: "Enrollment", icon: <FaIdBadge />}
     ];
     
-    const x = navItems.map(({ link, text, icon }) => {
-        return (
-            <>
-
-                <Link to={link}>
+    const mappedNavItems = navItems.map(({ link, text, icon }) => (
+            <Link to={link} className="navbar__link">
+                <span className="navbar__link__icon">
                     {icon}
+                </span>
+                <span className="navbar__link__text">
                     {text}
-
-                </Link>
-            </> 
-        )
-    });
+                </span>
+            </Link>
+        ));
     
     return (
-        <div>
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                    <Link to="/">Logo</Link>
-                    </div>
-                    <ul class="nav navbar-nav">
-                        {/* <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Page 1</a></li>
-                        <li><a href="#">Page 2</a></li>
-                        <li><a href="#">Page 3</a></li> */}
-                        {x}
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    )
+        <div className="navbar" >
+            <img src={Logo} alt="logo" className="navbar__link" />
+            <hr />
+            {mappedNavItems} 
+            <hr />
+            <Link to="/settings"  className="navbar__settings navbar__link" >
+                <span className="navbar__link__icon">
+                    <FaCog />
+                </span>
+                <span className="navbar__link__text">
+                    Settings
+                </span>
+            </Link>
+        </div>  
+        )
 }
 
 export default Navbar;

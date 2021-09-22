@@ -1,4 +1,6 @@
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
+
 import Navbar from "./components/navbar/navbar";
 
 import Dashboard from "./pages/dashboard/dashboard";
@@ -12,37 +14,30 @@ import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
       <Router>
-        <div className="App">
-        
-            <Navbar />
+        <Navbar />
+          <Switch>
+            <Route path="/students"> 
+              <Students />
+            </Route>
             
-            <Switch>
+            <Route path="/projects"> 
+              <Projects />
+            </Route>
+            
+            <Route path="/enrollment"> 
+              <Enrollment />
+            </Route>
 
-              <Route path="/students"> 
-                <Students />
-              </Route>
+            <Route path="/settings"> 
+              <Settings />
+            </Route>
 
-              <Route path="/projects"> 
-                <Projects />
-              </Route>
-
-              <Route path="/enrollment"> 
-                <Enrollment />
-              </Route>
-
-              <Route path="/settings"> 
-                <Settings />
-              </Route>
-
-              <Route path="/"> 
-                <Dashboard />
-              </Route>
-            </Switch>
-
-      </div>
-    </Router>
-        
-  );
-}
+            <Route path="/"> 
+              <Dashboard />
+            </Route>
+          </Switch>
+        </Router>
+      );
+    }
 
 export default App;
