@@ -1,12 +1,12 @@
 import React from 'react';
 import "./students.scss";
 
-const students = () => {
+const Students = () => {
     return (
         <div>
-            students
+            
         </div>
     )
 }
 
-export default students;
+export default Students;

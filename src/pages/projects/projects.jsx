@@ -1,12 +1,12 @@
 import React from 'react';
 import "./projects.scss";
 
-const projects = () => {
+const Projects = () => {
     return (
         <div>
-            projects
+            
         </div>
     )
 }
 
-export default projects;
+export default Projects;
