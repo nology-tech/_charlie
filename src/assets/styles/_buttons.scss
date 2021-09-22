@@ -7,11 +7,12 @@
 }
 
 .btn-primary {
-    background-color: $primary;
+    background-color: $accent;
     color: white;
 }
 
 .btn-secondary {
-    background-color: $default;
-    color: $secondary;
+    background-color: white;
+    color: $primary;
+    outline-color: $primary;
 }

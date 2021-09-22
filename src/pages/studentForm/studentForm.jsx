@@ -15,13 +15,23 @@ const StudentForm = () => {
         console.log('this is the student data object:', studentData);
     }
 
+    const previewImage = (input) =>{
+        /*if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#student-thumbanil').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }*/
+    }
+
     return (
         <>
-        <div className="row text-center">
+        <div className="row text-center form__add-student">
             <form class="row" onSubmit={handleSubmit}>
                 <div className="col-6"> 
                     <div className="col-md-12">                
-                        <label htmlFor="">First Name</label>
+                        <label class="" htmlFor="">First Name</label>
                         <input type="text" {...register("firstName")} id="firstName" />
                     </div>
                     <div className="col-md-12">   
@@ -47,9 +57,15 @@ const StudentForm = () => {
                         </div>
                 </div>
                 <div className="col-6">
-                    <div className="col-md-12">                
-                        <label htmlFor="">First Name</label>
-                        <input type="text" {...register("firstName")} id="firstName" />
+                    <div className="col-md-12">
+
+                        <label htmlFor="">Student Thumbnail</label>
+                        <img id="student-thumbanil" src="http://placehold.it/180" alt="" />
+                        <input type="file" name="thumbnail-upload" id="thumbnail-upload" onChange={previewImage} />
+
+                        <label htmlFor="">CV Upload</label>
+                        <input type="file" name="cv-upload" id="cv-upload" />
+
                         <input type="submit" value="Save" />
                     </div>  
                 </div>
