@@ -9,7 +9,7 @@
       height: 100vh;
       justify-content: flex-start;
       &__link {
-          color: white;
+          color: $text-grey;
           text-decoration: none;
           margin: 20px;
           width: 50%;
@@ -19,9 +19,10 @@
           }
         }
       img {
-        color: white;
+        
         text-align: center;
         margin-bottom: 20px;
+        
       }
       hr {
         color: white;

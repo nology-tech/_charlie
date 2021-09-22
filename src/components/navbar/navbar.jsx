@@ -1,6 +1,6 @@
 import "./navbar.scss";
 
-import Logo from "../../assets/images/Navbar-Logo-Colour.svg";
+import Logo from "../../assets/images/Logo.png";
 import { Link } from "react-router-dom";
 import { FaHome, FaFileAlt, FaUsers, FaIdBadge, FaCog } from 'react-icons/fa';
 
@@ -25,7 +25,9 @@ const Navbar = () => {
     
     return (
         <div className="navbar" >
-            <img src={Logo} alt="logo" className="navbar__link" />
+            <Link to="/" >
+                <img src={Logo} alt="logo" className="navbar__link" />
+            </Link>
             <hr />
             {mappedNavItems} 
             <hr />
