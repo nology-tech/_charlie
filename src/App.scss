@@ -7,14 +7,25 @@
     width: 100vw;
     height: 100vh;
     font-family: $font-primary;
-    background-color: $color-primary;
+
     .placeholderNavbar{
         border: 1px solid black;
+        background-color:#102B3F;
         height: 100%;
         width: 20%;  
     }
     .students {
         height: 100%;
         width: 80%; 
+        .white-space{
+            width: auto;
+            background-color: red;
+            height: 157px;
+        }
+        .white-space1{
+            width: auto;
+            background-color: red;
+            height: 157px;
+        }
     }
 }

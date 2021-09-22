@@ -1,0 +1,21 @@
+.page-nav{
+    width: 100%;
+    font-size: 14px;
+    &__rows-selector{
+        display: flex;
+        flex-direction: row;
+    }
+    &__rows-of-total{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 0;
+        &__left-arrow{
+            margin-right: 30px;
+            margin-left: 33px;
+            justify-content: space-between;
+        }
+        &__right-arrow{
+        }
+    }
+}
