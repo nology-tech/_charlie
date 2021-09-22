@@ -11,11 +11,12 @@ const StudentList = (props) => {
     return (
         <>
         <div className = "studentList row d-flex align-items-center">
-            <p className="col">Student Name</p>
-            <p className="col">Enrolled On</p>
-            <p className="col">Github Account</p>
-            <p className="col">Portfolio</p>
-            <p className="col">Resume</p>
+            <p className="col studentList__property-label">Student Name</p>
+            <p className="col studentList__property-label">Enrolled On</p>
+            <p className="col studentList__property-label">Github Account</p>
+            <p className="col studentList__property-label">Portfolio</p>
+            <p className="col studentList__property-label">Resume</p>
+            <p className="col-1 studentList__property-label"></p>
         </div>
         {students}
         </>

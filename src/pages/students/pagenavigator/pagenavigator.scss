@@ -1,21 +1,37 @@
 .page-nav{
     width: 100%;
     font-size: 14px;
-    &__rows-selector{
-        display: flex;
-        flex-direction: row;
+    padding: 0; 
+    margin: 0; 
+    &__rows-selector {
+        text-align: center;
+        &__label {
+            padding: 0; 
+            margin: 0; 
+        }
+        &__button {
+            padding: 0; 
+            margin: 0;
+            &-icon, &-value {
+                padding: 0; 
+                margin: 0;
+                margin-left: 5px;  
+            } 
+        }
+    } 
+    &__arrows {
+        text-align: right;
+        padding: 0; 
+        &__right {
+            margin-left: 30px;  
+        }
     }
     &__rows-of-total{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
         padding: 0;
-        &__left-arrow{
-            margin-right: 30px;
-            margin-left: 33px;
-            justify-content: space-between;
-        }
-        &__right-arrow{
+        text-align: right;
+        &__text {
+            margin: 0;
+            padding: 0;  
         }
     }
 }

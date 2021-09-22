@@ -9,8 +9,16 @@
   font-weight: 600;
   font-size: 10px;
   letter-spacing: 0.03em;
-  .student-right{
-    width: 7.42px;
-    height: 12px;
+  &__property {
+    margin: 0; 
+    padding: 0; 
+  }
+  &__right-arrow {
+    text-align: right;
+    &__icon {
+      width: 7.42px;
+      height: 12px; 
+      margin-right: 30px; 
+    }
   }
 }

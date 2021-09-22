@@ -8,13 +8,13 @@ function App() {
 
   return (
     <div className="app row">
-        <div className="placeholderNavbar col-2">
-          <p> Placeholder navbar. Replace with shared navbar component once Saagars done it. </p>
+        <div className="placeholderNavbar col-2 d-flex align-items-center justify-content-center">
+          <p> _nology </p>
         </div>
-        <div className="students col-10">
-          <div className="white-space"></div>
+        <div className="main col-10 d-flex justify-content-space-between">
+          <div className="main__white-space"></div>
           <Students/>
-          <div className="white-space1"></div>
+          <div className="main__white-space"></div>
         </div>
     </div>
   );

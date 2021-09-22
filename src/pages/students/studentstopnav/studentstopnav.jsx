@@ -8,11 +8,11 @@ const StudentListTopNav = () => {
                 <h1 className="col-2"> Students </h1>
                 <button className="col-2 offset-8 btn-primary">+ Create</button>
             </div>
-            <div className="row top-nav__student-types d-flex justify-content-start">
-                <p className="col">All</p>
-                <p className="col">Full-Time</p>
-                <p className="col">Self-Paced</p>
-                <p className="col">Corporate</p>
+            <div className="row top-nav__student-types d-flex justify-content-start align-items-center">
+                <p className="col top-nav__student-types__item">All</p>
+                <p className="col top-nav__student-types__item">Full-Time</p>
+                <p className="col top-nav__student-types__item">Self-Paced</p>
+                <p className="col top-nav__student-types__item">Corporate</p>
             </div> 
         </nav>
     )
