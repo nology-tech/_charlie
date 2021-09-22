@@ -3,8 +3,15 @@ import studentData from '../../data/studentForm';
 
 const StudentForm = () => {
 
-    const handleSubmit = () =>{
-        const data = new FormData();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = {}
+        formData.forEach((value, key) => (data[key] = value))
+        // Log the data.
+        console.log(JSON.stringify(data))
+        studentData.push(JSON.stringify(data))
+        console.log('this is the student data object:', studentData);
     }
 
     return (
