@@ -3,10 +3,12 @@ import Student from './student/student';
 import "./studentlist.scss";
 
 
+
 const StudentList = (props) => {
-    const { studentsData, pageData } = props; 
+    const {pageData} = props; 
     const students = pageData && pageData.map(student => (
-        <Student student={student}/>)
+            <Student student={student}/>
+        )
     )
     return (
         <>

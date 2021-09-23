@@ -17,7 +17,7 @@ const StudentSearchBar = (props) => {
         <button className="search-bar__view-buttons-btn"> <img src={GridView} alt="grid view"></img></button>
       </div>
 
-      <input className="search-bar__input col-2 offset-3" onChange={generateSearchResults}></input>
+      <input className="search-bar__input col-2 offset-3" onInput={generateSearchResults}></input>
 
       <div className="search-bar__sort-filter-buttons col-3 d-flex align-items-center justify-content-end"> 
         <button className = "search-bar__sort-filter-buttons-btn"> <img src={Sort} alt="sort"></img></button>

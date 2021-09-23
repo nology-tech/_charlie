@@ -4,7 +4,8 @@ import LeftArrow from "../../../assets/images/left.png";
 import RightArrow from "../../../assets/images/right.png";
 import "./pagenavigator.scss"
 
-const PageNavigator = () => {
+const PageNavigator = (props) => {
+    const {totalNumberStudents, firstNumber, secondNumber, switchToPreviousPage, switchToNextPage} = props
     return (
         <div className="page-nav row d-flex align-items-center">
             <div className="page-nav__rows-selector col-3 offset-6 row d-flex align-items-center">
@@ -15,11 +16,12 @@ const PageNavigator = () => {
                 </div>
             </div>
             <div className="page-nav__rows-of-total col-2">
-                <p className="page-nav__rows-of-total__text">1-9 of 420</p>
+                <p className="page-nav__rows-of-total__text">{`${firstNumber+1}-${secondNumber} of ${totalNumberStudents}`}</p>
             </div>
             <div className="page-nav__arrows col-1">
-                <img className="page-nav__arrows__left" src={LeftArrow} alt="left arrow" />
-                <img className="page-nav__arrows__right" src={RightArrow} alt="right arrow" />
+
+                <img className="page-nav__arrows__left" src={LeftArrow} alt="left arrow" onClick={switchToPreviousPage}/>
+                <img className="page-nav__arrows__right" src={RightArrow} alt="right arrow" onClick={switchToNextPage}/>
             </div>
         </div>
     )
