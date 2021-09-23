@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import studentData from '../../data/studentForm';
 import {useForm} from "react-hook-form";
 
 const StudentForm = () => {
     const {register} = useForm();
+    const [{alt, src}, setImg] = useState({
+        src: "placeholder",
+        alt: ""
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,16 +20,12 @@ const StudentForm = () => {
     }
 
 
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                ('#blah')
-                    .attr('src', e.target.result);
-            };
-
-            reader.readAsDataURL(input.files[0]);
+    const readURL = (e) => {
+        if(e.target.files[0]) {
+            setImg({
+                src: URL.createObjectURL(e.target.files[0]),
+                alt: e.target.files[0].name
+            });    
         }
     }
 
@@ -74,8 +74,8 @@ const StudentForm = () => {
                 </div>
                 <div className="col-12">
                     <input type="submit" value="Save" /> */}
-                    <input type='file' onchange={readURL} />
-                <img id="blah" src="http://placehold.it/180" alt="your image" />
+                    <input type='file' onChange={readURL} />                    
+                    <img id="studentImage"  src={src} alt={alt} /> 
               {/*   </div> */}
             </form>
         </div>
