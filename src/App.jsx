@@ -13,31 +13,39 @@ import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-      <Router>
-        <Navbar />
-          <Switch>
-            <Route path="/students"> 
-              <Students />
-            </Route>
-            
-            <Route path="/projects"> 
-              <Projects />
-            </Route>
-            
-            <Route path="/enrollment"> 
-              <Enrollment />
-            </Route>
+    <div className="container">
+        <div className="row">
+          <Router>
+            <div className="col">
+              <Navbar />
+            </div>
+            <div className="col">
+              <Switch>
+                <Route path="/students"> 
+                  <Students />
+                </Route>
+                
+                <Route path="/projects"> 
+                  <Projects />
+                </Route>
+                
+                <Route path="/enrollment"> 
+                  <Enrollment />
+                </Route>
 
-            <Route path="/settings"> 
-              <Settings />
-            </Route>
+                <Route path="/settings"> 
+                  <Settings />
+                </Route>
 
-            <Route path="/"> 
-              <Dashboard />
-            </Route>
-          </Switch>
-        </Router>
-      );
-    }
+                <Route path="/"> 
+                  <Dashboard />
+                </Route>
+              </Switch>
+            </div>
+          </Router>
+        </div>
+      </div>
+    );
+  }
 
 export default App;

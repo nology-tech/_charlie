@@ -13,11 +13,16 @@
           text-decoration: none;
           margin: 20px;
           width: 50%;
+
+          &:hover {
+            background: #293954;
+          }
+
           &__icon {
             width: 50%;
             margin-right: 15% ;
           }
-        }
+      }
       img {
         
         text-align: center;
