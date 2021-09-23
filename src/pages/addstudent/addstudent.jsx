@@ -1,5 +1,5 @@
 import React from 'react'
-import AddStudentTopNav from '../addstudenttopnav/addstudenttopnav';
+import AddStudentTopNav from './addstudenttopnav/addstudenttopnav';
 import StudentForm from '../studentform/studentform';
 import "./addstudent.scss";
 
