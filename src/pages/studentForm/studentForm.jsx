@@ -19,7 +19,6 @@ const StudentForm = () => {
         console.log('this is the student data object:', studentData);
     }
 
-
     const readURL = (e) => {
         if(e.target.files[0]) {
             setImg({
