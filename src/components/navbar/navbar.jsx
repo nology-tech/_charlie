@@ -12,16 +12,16 @@ const Navbar = () => {
         {link: "/enrollment", text: "Enrollment", icon: <FaIdBadge />}
     ];
     
-    const mappedNavItems = navItems.map(({ link, text, icon }) => (
-            <Link to={link} className="navbar__link">
-                <span className="navbar__link__icon">
-                    {icon}
-                </span>
-                <span className="navbar__link__text">
-                    {text}
-                </span>
-            </Link>
-        ));
+    const mappedNavItems = navItems.map(({ link, text, icon }, index) => (
+        <Link to={link} className="navbar__link" key={index}>
+            <span className="navbar__link-icon">
+                {icon}
+            </span>
+            <span className="navbar__link-text">
+                {text}
+            </span>
+        </Link>
+    ));
     
     return (
         <div className="navbar" >
@@ -29,18 +29,20 @@ const Navbar = () => {
                 <img src={Logo} alt="logo" className="navbar__link" />
             </Link>
             <hr />
-            {mappedNavItems} 
+
+            {mappedNavItems}
+
             <hr />
             <Link to="/settings"  className="navbar__settings navbar__link" >
-                <span className="navbar__link__icon">
+                <span className="navbar__link-icon">
                     <FaCog />
                 </span>
-                <span className="navbar__link__text">
+                <span className="navbar__link-text">
                     Settings
                 </span>
             </Link>
         </div>  
-        )
+    );
 }
 
 export default Navbar;
