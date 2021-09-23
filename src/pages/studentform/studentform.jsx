@@ -1,14 +1,23 @@
 import React, {useState} from 'react';
-import studentData from '../../data/studentForm';
+//import studentData from '../../data/studentForm';
 import {useForm} from "react-hook-form";
 
 const StudentForm = () => {
-    const {register} = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    console.log(errors);
     const [{alt, src}, setImg] = useState({
         src: "placeholder",
         alt: ""
     });
 
+    const FormValues = {
+        firstName: '',
+        lastName: '',
+        enrolledOn: '',
+        githubAccount: '',
+        portfolioLink: ''
+    }
+    /*
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -17,6 +26,10 @@ const StudentForm = () => {
         console.log(JSON.stringify(data));
         studentData.push(JSON.stringify(data));
         console.log('this is the student data object:', studentData);
+    }*/
+
+    const onSubmit = (data) =>{
+        console.log(data)
     }
 
     const readURL = (e) => {
@@ -31,51 +44,50 @@ const StudentForm = () => {
     return (
         <>
         <div className="row text-center">
-            <form className="row" onSubmit={handleSubmit}>
-            {/*               
+            <form className="row" onSubmit={handleSubmit(onSubmit)}>
                 <div className="col-6"> 
-                    <div className="col-md-10">                
-                        <label htmlFor="">First Name</label>
-                        <input className="form-control" type="text" {...register("firstName")} id="firstName" />
+                    <div className="col-md-12">                
+                        <label htmlFor="firstName">First Name</label>
+                        <input { ...register("firstName", { required: true, maxLength:12 } )} name='firstName' className="form-control" type="text" id="firstName"/>
+                        {errors.firstName && <p>This is required</p>}
                     </div>
+                    
                     <div className="col-md-12">
-                        <label htmlFor="">Last Name</label>
-                        <input type="text" {...register("lastName")} id="lastName" />
-                        </div>
+                    <label htmlFor="">Last Name</label>
+                    <input {...register("lastName", { required: true, maxLength:12 } )} name='lastName' className="form-control" type="text" id="lastName"/>
+                    </div>
+
                     <div className="col-md-12"> 
-                        <label htmlFor="">Enrolled On</label>
-                        <select id="enrolled-course" {...register("enrolled-course")}>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                        </div>
+                        <label htmlFor="">Enrolled on</label>
+                        <select {...register("enrolledOn")} name='enrolledOn' className="form-select form-control" id="enrolledOn">
+                        <option defaultValue>Please select one of the following...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    </div>
+
                     <div className="col-md-12"> 
                         <label htmlFor="">Github Account</label>
-                        <input type="text" {...register("github-account")} id="github-account" />
-                        </div>
+                        <input {...register("githubAccount")} name='githubAccount' className="form-control" type="text" id="github-account"/>
+                    </div>
+
                     <div className="col-md-12"> 
                         <label htmlFor="">Portfolio Link</label>
-                        <input type="text" {...register("portfolio-link")} id="portfolio-link" />
-                        </div>
+                        <input {...register("portfolioLink")} name='portfolioLink' className="form-control" type="text" id="portfolio-link" />
+                    </div>
                 </div>
                 <div className="col-6">
                     <div className="col-md-12">
-
-                        <label htmlFor="">Student Thumbnail</label>
-                        <img id="student-thumbanil" src="http://placehold.it/180" alt="" />
-                        <input type="file" name="thumbnail-upload" id="thumbnail-upload" onChange={previewImage} />
+                        <label htmlFor="">Student Thumbnail</label>                        
+                        <input type='file' onChange={readURL} />                    
+                        <img id="studentImage"  src={src} alt={alt} />
 
                         <label htmlFor="">CV Upload</label>
                         <input type="file" name="cv-upload" id="cv-upload" />
+                        <input type="submit" value="Save" />
                     </div>  
                 </div>
-                <div className="col-12">
-                    <input type="submit" value="Save" /> */}
-                    <input type='file' onChange={readURL} />                    
-                    <img id="studentImage"  src={src} alt={alt} /> 
-              {/*   </div> */}
             </form>
         </div>
         </>
