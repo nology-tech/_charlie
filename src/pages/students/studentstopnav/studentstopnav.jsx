@@ -4,9 +4,9 @@ import "./studentstopnav.scss"
 const StudentListTopNav = () => {
     return (
         <nav className="top-nav">
-            <div className="row top-nav__header d-flex align-items-center">
-                <h1 className="col-2"> Students </h1>
-                <button className="col-2 offset-8 btn-primary">+ Create</button>
+            <div className="top-nav__header d-flex align-items-center justify-content-between">
+                <h1> Students </h1>
+                <button className="btn-primary">+ Create</button>
             </div>
             <div className="row top-nav__student-types d-flex justify-content-start align-items-center">
                 <p className="col top-nav__student-types__item">All</p>

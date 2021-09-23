@@ -4,8 +4,8 @@ import "./studentlist.scss";
 
 
 const StudentList = (props) => {
-    const { studentsData } = props; 
-    const students = studentsData && studentsData.map(student => (
+    const { studentsData, pageData } = props; 
+    const students = pageData && pageData.map(student => (
         <Student student={student}/>)
     )
     return (
