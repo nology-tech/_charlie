@@ -40,13 +40,13 @@ const StudentForm = () => {
                 <div className="col-6"> 
                     <div className="col-md-12">                
                         <label htmlFor="firstName">First Name</label>
-                        <input { ...register("firstName", { required: true, pattern:/^{A-Za-z]+$/i } )} name='firstName' className="form-control" type="text" id="firstName"/>
+                        <input { ...register("firstName", { required: true, pattern: /^[A-Za-z]+$/i})} name='firstName' className="form-control" type="text" id="firstName"/>
                         {errors.firstName && <p>This is required</p>}
                     </div>
                     
                     <div className="col-md-12">
                     <label htmlFor="">Last Name</label>
-                    <input {...register("lastName", { required: true, pattern:/^{A-Za-z]+$/i })} name='lastName' className="form-control" type="text" id="lastName"/>
+                    <input {...register("lastName", { required: true, pattern: /^[A-Za-z]+$/i})} name='lastName' className="form-control" type="text" id="lastName"/>
                     {errors.lastName && <p>This is required</p>}
                     </div>
 
