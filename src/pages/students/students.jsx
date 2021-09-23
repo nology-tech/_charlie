@@ -6,7 +6,7 @@ import PageNavigator from './pagenavigator/pagenavigator';
 import "./students.scss"; 
 import Data from "../../data/data"; 
 
-const Students = () => {
+const Students = (props) => {
     const [studentsData, setStudentsData] = useState([]); 
     const [pageData, setPageData] = useState([]);
     const [pageNumber, setPageNumber] = useState("");  
@@ -28,6 +28,10 @@ const Students = () => {
         setPageNumber(prev => prev - 1)
     }
 
+    const generateSearchResults = (e) => {
+        setStudentsData(studentsData.filter(student=> student.studentName.includes(e.target.value)))
+    }
+
 
     useEffect(fetchStudentData, []); 
     useEffect(displayStudents, [studentsData]); 
@@ -35,7 +39,7 @@ const Students = () => {
     return (
         <div className="students">
             <StudentsTopNav className="students__topNav"/>
-            <StudentSearchBar/>
+            <StudentSearchBar generateSearchResults={generateSearchResults}/>
             <StudentList className="students__list d-flex justify-content-start" studentsData={studentsData} pageData={pageData} />
             <PageNavigator/>
         </div>

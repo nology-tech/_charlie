@@ -6,7 +6,8 @@ import Sort from "../../../assets/images/sort.png";
 import "./studentsearchbar.scss"; 
 
 
-const StudentSearchBar = () => {
+const StudentSearchBar = (props) => {
+  const {generateSearchResults} = props; 
   return (
     <div className="search-bar row d-flex align-items-center">
       <p className="search-bar__heading col-2 ">Student List</p>
@@ -16,7 +17,7 @@ const StudentSearchBar = () => {
         <button className="search-bar__view-buttons-btn"> <img src={GridView} alt="grid view"></img></button>
       </div>
 
-      <input className="search-bar__input col-2 offset-3"></input>
+      <input className="search-bar__input col-2 offset-3" onChange={generateSearchResults}></input>
 
       <div className="search-bar__sort-filter-buttons col-3 d-flex align-items-center justify-content-end"> 
         <button className = "search-bar__sort-filter-buttons-btn"> <img src={Sort} alt="sort"></img></button>
