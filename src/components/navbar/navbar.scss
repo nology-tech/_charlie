@@ -9,6 +9,10 @@
   height: 100vh;
   justify-content: flex-start;
 
+  .active {
+    background: #293954;
+  }
+
   &__link {
     color: $text-grey;
     text-decoration: none;
