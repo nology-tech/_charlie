@@ -10,7 +10,7 @@ const StudentSearchBar = (props) => {
   const {generateSearchResults} = props; 
   return (
     <div className="search-bar row d-flex align-items-center">
-      <p className="search-bar__heading col-2 ">Student List</p>
+      <h2 className="search-bar__heading col-2 ">Student List</h2>
 
       <div className="search-bar__view-buttons offset-1 col-1  d-flex"> 
         <button className="search-bar__view-buttons-btn"> <img src={HamburgerMenu} alt="hamburger"></img></button>

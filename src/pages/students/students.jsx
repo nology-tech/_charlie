@@ -7,27 +7,26 @@ import "./students.scss";
 import Data from "../../data/data"; 
 
 const Students = () => {
-    const [numberOfPages, setNumberOfPages] =useState([]);
     const [studentsData, setStudentsData] = useState([]); 
     const [pageData, setPageData] = useState([]);
     const [pageNumber, setPageNumber] = useState(1);  
     const [numberOfRows, setNumberOfRows] = useState(9); 
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length)
     
-    
-    
-    const firstNumber= numberOfRows*pageNumber-9;
-    const secondNumber= numberOfRows*pageNumber;
+    const firstIndex= numberOfRows*pageNumber-numberOfRows;
+    const secondIndex= numberOfRows*pageNumber;
 
     const fetchStudentData = () => {
-      // placeholder just for now
         setStudentsData(Data);
     }
 
+    const changeNumberOfRows = (e) => {
+        setNumberOfRows(e.target.value); 
+    }
     const displayStudents = (pageNumber) => {
-        const firstNumber= numberOfRows*pageNumber-9;
-        const secondNumber= numberOfRows*pageNumber;
-        setPageData(studentsData.slice((firstNumber), (secondNumber)));
+        const firstIndex= numberOfRows*pageNumber-numberOfRows;
+        const secondIndex= numberOfRows*pageNumber;
+        setPageData(studentsData.slice((firstIndex), (secondIndex)));
         setTotalNumberStudents(studentsData.length)
     }
 
@@ -49,16 +48,22 @@ const Students = () => {
     }
 
     const generateSearchResults = (e) => {
-        if(e.target.value){
-            
-        }
-        setStudentsData(Data.filter(student=> student.studentName.includes(e.target.value)))
+        setStudentsData(Data.filter(student=> {
+            return (
+            student.studentName.toLowerCase().includes(e.target.value.toLowerCase()) ||
+            student.enrolledOn.toLowerCase().includes(e.target.value.toLowerCase()) ||
+            student.githubAccount.toLowerCase().includes(e.target.value.toLowerCase()) ||
+            student.portfolio.toLowerCase().includes(e.target.value.toLowerCase()));
+        })
+        )
     }
-
+        
 
     useEffect(fetchStudentData, []); 
-    useEffect(()=> {displayStudents(pageNumber)}, [studentsData]); 
-    // useEffect(switchToNextPage, []);
+    useEffect(()=> {displayStudents(pageNumber)}, [studentsData, pageNumber]); 
+    
+    
+   
     
     return (
         <div className="students">
@@ -66,11 +71,10 @@ const Students = () => {
             <StudentSearchBar generateSearchResults={generateSearchResults}/>
             <StudentList className="students__list d-flex justify-content-start" studentsData={studentsData} pageData={pageData} />
             <PageNavigator totalNumberStudents={totalNumberStudents} 
-            numberOfPages={numberOfPages} 
-            firstNumber={firstNumber}
-            secondNumber={secondNumber}
+            firstIndex={firstIndex}
+            secondIndex={secondIndex}
             switchToPreviousPage={switchToPreviousPage} 
-            switchToNextPage={switchToNextPage}/>
+            switchToNextPage={switchToNextPage} changeNumberOfRows={changeNumberOfRows} />
         </div>
     )
 }

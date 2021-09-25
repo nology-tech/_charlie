@@ -1,37 +1,25 @@
-.page-nav{
+@import "../../../assets/styles/variables"; 
+
+.page-nav {
+    color: $color-tertiary;
     width: 100%;
     font-size: 14px;
-    padding: 0; 
-    margin: 0; 
-    &__rows-selector {
-        text-align: center;
-        &__label {
-            padding: 0; 
-            margin: 0; 
-        }
-        &__button {
-            padding: 0; 
-            margin: 0;
-            &-icon, &-value {
-                padding: 0; 
-                margin: 0;
-                margin-left: 5px;  
-            } 
-        }
-    } 
-    &__arrows {
-        text-align: right;
-        padding: 0; 
-        &__right {
-            margin-left: 30px;  
-        }
+    &__arrows__right {
+        margin-left: 30px;
     }
-    &__rows-of-total{
-        padding: 0;
-        text-align: right;
-        &__text {
-            margin: 0;
-            padding: 0;  
-        }
+    &__arrows__right:hover, &__arrows__left:hover {
+        transform: scale(1.5,1.5); 
+        cursor: pointer; 
     }
+}
+
+#rows {
+    appearance: none; 
+    background-image: url("../../../assets/images/down.png");
+    padding: .5em;
+    padding-right: 1.5em;
+    background-position: right 50%;
+    background-repeat: no-repeat;
+    border: transparent; 
+    background-color: $color-primary;
 }

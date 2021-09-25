@@ -8,7 +8,7 @@ const Student = (props) => {
   const { studentName, enrolledOn, githubAccount, portfolio, resume } = props.student; 
   return (
     <div className="student row d-flex align-items-center">
-                <p className="col student__property">{studentName}</p>
+                <p className="col student__property student__name">{studentName}</p>
                 <p className="col student__property">{enrolledOn}</p>
                 <p className="col student__property">{githubAccount}</p>
                 <p className="col student__property">{portfolio}</p>
@@ -16,7 +16,7 @@ const Student = (props) => {
                 <div className="col-1 student__property student__right-arrow">
                 <Link to="/studentdetails">
                   <img className="student__right-arrow__icon" src={StudentRight} alt={StudentRight}/>
-              </Link>
+                </Link>
                 </div>
               </div>
   )
