@@ -12,18 +12,15 @@ const Students = () => {
     const [pageNumber, setPageNumber] = useState(1);  
     const [numberOfRows, setNumberOfRows] = useState(9); 
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length)
-    
-    const firstIndex= numberOfRows*pageNumber-numberOfRows;
-    const secondIndex= numberOfRows*pageNumber;
 
     const fetchStudentData = () => {
         setStudentsData(Data);
     }
 
     const changeNumberOfRows = (e) => {
-        setNumberOfRows(e.target.value); 
+        setNumberOfRows(e.target.value);
     }
-    const displayStudents = (pageNumber) => {
+    const displayStudents = () => {
         const firstIndex= numberOfRows*pageNumber-numberOfRows;
         const secondIndex= numberOfRows*pageNumber;
         setPageData(studentsData.slice((firstIndex), (secondIndex)));
@@ -60,10 +57,7 @@ const Students = () => {
         
 
     useEffect(fetchStudentData, []); 
-    useEffect(()=> {displayStudents(pageNumber)}, [studentsData, pageNumber]); 
-    
-    
-   
+    useEffect(()=> {displayStudents(pageNumber)}, [studentsData, pageNumber, changeNumberOfRows]); 
     
     return (
         <div className="students">
@@ -71,10 +65,9 @@ const Students = () => {
             <StudentSearchBar generateSearchResults={generateSearchResults}/>
             <StudentList className="students__list d-flex justify-content-start" studentsData={studentsData} pageData={pageData} />
             <PageNavigator totalNumberStudents={totalNumberStudents} 
-            firstIndex={firstIndex}
-            secondIndex={secondIndex}
             switchToPreviousPage={switchToPreviousPage} 
-            switchToNextPage={switchToNextPage} changeNumberOfRows={changeNumberOfRows} />
+            switchToNextPage={switchToNextPage} changeNumberOfRows={changeNumberOfRows} numberOfRows={numberOfRows}
+            pageNumber={pageNumber}/>
         </div>
     )
 }
