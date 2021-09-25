@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 const Student = (props) => {
   const { studentName, enrolledOn, githubAccount, portfolio, resume } = props.student; 
   return (
-    <div className="student row d-flex align-items-center">
+    <div className="student row d-flex align-items-center text-center">
                 <p className="col student__property student__name">{studentName}</p>
                 <p className="col student__property">{enrolledOn}</p>
                 <p className="col student__property">{githubAccount}</p>

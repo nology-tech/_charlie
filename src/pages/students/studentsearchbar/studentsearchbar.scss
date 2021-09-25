@@ -3,15 +3,11 @@
 .search-bar {
   width: 100%; 
   margin-bottom: 27px; 
-  text-align: left;
-  margin-left: 0;
-  margin-right: 0;
   &__view-buttons{
     &-btn {
-      border: 0px;
+      border: none; 
       background: none;
       margin: 11px;
-      padding: 0;
     }
   }
   &__input {
@@ -30,19 +26,13 @@
     line-height: 24px; 
   }
   &__sort-filter-buttons{
-    padding: 0;
-    margin: 0;
     color: #4B506D; 
     &-btn {
       border: none; 
       background-color: $color-primary;
-      padding: 0; 
-      margin: 0;
       margin-left: 70px;
     }
     &-label {
-      padding: 0;
-      margin: 0; 
       margin-left: 10px;
       font-weight: 400;
     }
