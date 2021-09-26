@@ -24,7 +24,7 @@ const Students = () => {
         const firstIndex = numberOfRows*pageNumber-numberOfRows;
         const secondIndex = numberOfRows*pageNumber;
         setPageData(studentsData.slice((firstIndex), (secondIndex)));
-        setTotalNumberStudents(studentsData.length)
+        setTotalNumberStudents(studentsData.length); 
     }
 
 
@@ -46,6 +46,7 @@ const Students = () => {
 
     const generateSearchResults = (e) => { 
         if (e.target.value) {
+            setPageNumber(1); 
         const filteredData = Data.filter(student=> {
             return (
             student.studentName.toLowerCase().includes(e.target.value.toLowerCase()) ||

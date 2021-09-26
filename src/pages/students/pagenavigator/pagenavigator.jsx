@@ -6,7 +6,7 @@ import "./pagenavigator.scss";
 const PageNavigator = (props) => {
     const {totalNumberStudents, switchToPreviousPage, switchToNextPage, changeNumberOfRows, numberOfRows, pageNumber, pageData} = props; 
     const firstIndex= numberOfRows*pageNumber-numberOfRows;
-    let secondIndex; 
+    let secondIndex = numberOfRows*pageNumber
     pageData ? secondIndex = pageData.length*pageNumber : secondIndex = numberOfRows*pageNumber;
     return (
         <div className="page-nav row d-flex align-items-center m-0 p-0 justify-content-end">
