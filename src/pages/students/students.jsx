@@ -21,9 +21,9 @@ const Students = () => {
         setNumberOfRows(e.target.value);
     }
     const displayStudents = () => {
-        const firstIndex = numberOfRows*pageNumber-numberOfRows;
-        const secondIndex = numberOfRows*pageNumber;
-        setPageData(studentsData.slice((firstIndex), (secondIndex)));
+        const firstSliceIndex = numberOfRows*pageNumber-numberOfRows;
+        const secondSliceIndex = numberOfRows*pageNumber;
+        setPageData(studentsData.slice((firstSliceIndex), (secondSliceIndex)));
         setTotalNumberStudents(studentsData.length); 
     }
 
@@ -63,6 +63,11 @@ const Students = () => {
 
     useEffect(fetchStudentData, []); 
     useEffect(displayStudents, [studentsData, pageNumber, numberOfRows]); 
+
+    // The following logic is for the row selection portion of the PageNavigator component. Placed here as PageNavigator is a presentational component. 
+    const firstIndex = numberOfRows*pageNumber-numberOfRows;
+    let secondIndex;
+    pageData.length < numberOfRows ? secondIndex = pageData.length + firstIndex : secondIndex = numberOfRows*pageNumber;
     
     return (
         <div className="students d-flex flex-column align-items-center p-0">
@@ -71,8 +76,7 @@ const Students = () => {
             <StudentList className="students__list d-flex justify-content-start" studentsData={studentsData} pageData={pageData} />
             <PageNavigator totalNumberStudents={totalNumberStudents} 
             switchToPreviousPage={switchToPreviousPage} 
-            switchToNextPage={switchToNextPage} changeNumberOfRows={changeNumberOfRows} numberOfRows={numberOfRows}
-            pageNumber={pageNumber} pageData={pageData}/>
+            switchToNextPage={switchToNextPage} changeNumberOfRows={changeNumberOfRows} numberOfRows={numberOfRows} firstIndex={firstIndex} secondIndex={secondIndex}/>
         </div>
     )
 }

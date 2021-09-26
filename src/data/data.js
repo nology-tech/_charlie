@@ -15,7 +15,7 @@ const students= [
         },
         {
             studentName: "Student 3",
-            enrolledOn: "Ibiza",
+            enrolledOn: "Mariana",
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv"
@@ -29,7 +29,7 @@ const students= [
         },
         {
             studentName: "Student 5",
-            enrolledOn: "Ibiza",
+            enrolledOn: "Jersey",
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv"
@@ -43,7 +43,7 @@ const students= [
         },
         {
             studentName: "Student 7",
-            enrolledOn: "Ibiza",
+            enrolledOn: "Mariana",
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv"
@@ -57,14 +57,14 @@ const students= [
         },
         {
             studentName: "Student 9",
-            enrolledOn: "Ibiza",
+            enrolledOn: "Jersey",
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv"
         },
         {
             studentName: "Student 10",
-            enrolledOn: "Ibiza",
+            enrolledOn: "Hawaii",
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv"
@@ -120,14 +120,14 @@ const students= [
         },
         {
             studentName: "Student 18",
-            enrolledOn: "Ibiza",
+            enrolledOn: "Mariana",
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv"
         },
         {
             studentName: "Student 19",
-            enrolledOn: "Ibiza",
+            enrolledOn: "Florida",
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv"

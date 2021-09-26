@@ -4,10 +4,8 @@ import RightArrow from "../../../assets/images/right.png";
 import "./pagenavigator.scss";
 
 const PageNavigator = (props) => {
-    const {totalNumberStudents, switchToPreviousPage, switchToNextPage, changeNumberOfRows, numberOfRows, pageNumber, pageData} = props; 
-    const firstIndex= numberOfRows*pageNumber-numberOfRows;
-    let secondIndex = numberOfRows*pageNumber
-    pageData ? secondIndex = pageData.length*pageNumber : secondIndex = numberOfRows*pageNumber;
+    const {totalNumberStudents, switchToPreviousPage, switchToNextPage, changeNumberOfRows, firstIndex, secondIndex} = props; 
+    
     return (
         <div className="page-nav row d-flex align-items-center m-0 p-0 justify-content-end">
             <div className="page-nav__rows-selector col-2 offset-8 d-flex align-items-center text-center p-0">
