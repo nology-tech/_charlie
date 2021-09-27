@@ -14,7 +14,7 @@ const Student = (props) => {
                 <p className="col student__property">{portfolio}</p>
                 <a className="col student__property" href = {resume}> <img className="adobe" src={Adobe} alt="Adobe"/> </a>
                 <div className="col-1 student__property student__right-arrow">
-                <Link to="/studentdetails">
+                <Link to="/studentdetails:ID">
                   <img className="student__right-arrow__icon" src={StudentRight} alt={StudentRight}/>
                 </Link>
                 </div>

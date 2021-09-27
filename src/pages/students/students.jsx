@@ -12,6 +12,11 @@ const Students = () => {
     const [pageNumber, setPageNumber] = useState(1);  
     const [numberOfRows, setNumberOfRows] = useState(9); 
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length); 
+    const [enrolledFilter, setEnrolledFilter] = useState("");
+    const [underLineAll, setUnderLineAll] = useState(true);
+    const [underLineFull, setUnderLineFull] = useState(false)
+    const [underLineSelf, setUnderLineSelf] = useState(false)
+    const [underLineCorp, setUnderLineCorp] = useState(false)
 
     const fetchStudentData = () => {
         setStudentsData(Data);
@@ -44,10 +49,58 @@ const Students = () => {
         }
     }
 
+    const allData = (e) => {
+        if(underLineAll == true){
+            e.target.style.fontWeight="500";
+            e.target.style.color="black";
+            e.target.style.borderBottom="#724BCB 2px solid"
+            setUnderLineFull(false)
+            setUnderLineSelf(false)
+            setUnderLineCorp(false)
+        }
+        setEnrolledFilter("All")
+        setStudentsData(Data)
+        }
+
+    const fullData = (e) => {
+        setUnderLineFull(true)
+        if(underLineFull == true){
+            e.target.style.fontWeight="500";
+            e.target.style.color="black";
+            e.target.style.borderBottom="#724BCB 2px solid"
+            setUnderLineAll(false)
+            setUnderLineSelf(false)
+            setUnderLineCorp(false)
+        }
+        setEnrolledFilter("Full-Time")
+        setStudentsData(Data.filter(student => {
+            return student.enrolledType.includes("Full-Time")
+        }))
+    }
+
+    const selfData = (e) => {
+        e.target.style.fontWeight="500";
+        e.target.style.color="black";
+        e.target.style.borderBottom="#724BCB 2px solid"
+        setEnrolledFilter("Self-Paced")
+        setStudentsData(Data.filter(student => {
+            return student.enrolledType.includes("Self-Paced")
+        }))
+    }
+    const corpData = (e) => {
+        e.target.style.fontWeight="500";
+        e.target.style.color="black";
+        e.target.style.borderBottom="#724BCB 2px solid"
+        setEnrolledFilter("Corporate")
+        setStudentsData(Data.filter(student => {
+            return student.enrolledType.includes("Corporate")
+        }))
+    }
+
     const generateSearchResults = (e) => { 
         if (e.target.value) {
             setPageNumber(1); 
-        const filteredData = Data.filter(student=> {
+        const filteredData = studentsData.filter(student=> {
             return (
             student.studentName.toLowerCase().includes(e.target.value.toLowerCase()) ||
             student.enrolledOn.toLowerCase().includes(e.target.value.toLowerCase()) ||
@@ -55,11 +108,20 @@ const Students = () => {
             student.portfolio.toLowerCase().includes(e.target.value.toLowerCase()));
         }) 
         setStudentsData(filteredData); 
-    } else {
-        fetchStudentData();  
+    } else  {
+        if(enrolledFilter === "All"){
+            fetchStudentData();  
+        }else if(enrolledFilter === "Self-Paced"){
+            selfData();
+        }else if(enrolledFilter === "Full-Time"){
+            fullData();
+        }else{
+            corpData();
+        }
     };
 };
-        
+
+    
 
     useEffect(fetchStudentData, []); 
     useEffect(displayStudents, [studentsData, pageNumber, numberOfRows]); 
@@ -71,7 +133,11 @@ const Students = () => {
     
     return (
         <div className="students d-flex flex-column align-items-center p-0">
-            <StudentsTopNav className="students__topNav"/>
+            <StudentsTopNav className="students__topNav" 
+            allData={allData}
+            fullData={fullData}
+            selfData={selfData}
+            corpData={corpData}/>
             <StudentSearchBar generateSearchResults={generateSearchResults}/>
             <StudentList className="students__list d-flex justify-content-start" studentsData={studentsData} pageData={pageData} />
             <PageNavigator totalNumberStudents={totalNumberStudents} 
