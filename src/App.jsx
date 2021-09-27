@@ -3,6 +3,7 @@ import './App.scss';
 
 import Navbar from "./components/navbar/navbar";
 
+
 import Dashboard from "./pages/dashboard/dashboard";
 import Students from "./pages/students/students";
 import Projects from "./pages/projects/projects";
@@ -14,19 +15,20 @@ import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
     <div className="container">
-        <div className="row">
-          <Router>
-            <div className="col">
+        <Router>
+            <div className="col1">
               <Navbar />
             </div>
-            <div className="col">
+            <div className="col2">
               <Switch>
                 <Route path="/students"> 
                   <Students />
+                  
                 </Route>
                 
                 <Route path="/projects"> 
                   <Projects />
+                  
                 </Route>
                 
                 <Route path="/enrollment"> 
@@ -44,7 +46,7 @@ function App() {
             </div>
           </Router>
         </div>
-      </div>
+    
     );
   }
 
