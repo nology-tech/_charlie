@@ -3,7 +3,7 @@ import "./studentstopnav.scss";
 // import {Link} from "react-router-dom"
 
 const StudentListTopNav = (props) => {
-    const {allData, selfData, corpData, fullData} = props;
+    const {filterDataByCorporate, filterDataByAll, filterDataByFullTime, filterDataBySelfPaced, enrolledFilter} = props;
     return (
         <nav className="top-nav d-flex flex-column justify-content-between">
             <div className="top-nav__header d-flex align-items-center justify-content-between">
@@ -13,10 +13,10 @@ const StudentListTopNav = (props) => {
                 {/* </Link> */}
             </div>
             <div className="top-nav__student-types d-flex justify-content-start align-items-center">
-                <div className="top-nav__student-types__all" setDefault={true} onClick={allData}>All</div>
-                <div className="top-nav__student-types__full" onClick={fullData}>Full-Time</div>
-                <div className="top-nav__student-types__self" onClick={selfData}>Self-Paced</div>
-                <div className="top-nav__student-types__corp" onClick={corpData}>Corporate</div>
+                <div className={enrolledFilter === "All" ? "top-nav__student-types__all selectedFilterClass" : "top-nav__student-types__all"} onClick={filterDataByAll}>All</div>
+                <div className={enrolledFilter === "Full-Time" ? "top-nav__student-types__full-time selectedFilterClass" : "top-nav__student-types__full-time"}  onClick={filterDataByFullTime}>Full-Time</div>
+                <div className={enrolledFilter === "Self-Paced" ? "top-nav__student-types__self-paced selectedFilterClass" : "top-nav__student-types__self-paced"}  onClick={filterDataBySelfPaced}>Self-Paced</div>
+                <div className={enrolledFilter === "Corporate" ? "top-nav__student-types__corporate selectedFilterClass" : "top-nav__student-types__corporate"}  onClick={filterDataByCorporate}>Corporate</div>
             </div> 
         </nav>
     )

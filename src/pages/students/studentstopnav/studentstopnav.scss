@@ -24,14 +24,23 @@
         font-size: 16px;
         letter-spacing: 0.03em;
         font-weight: normal;
-        &__all{
+        &__all {
             margin-right: 36px;
+            cursor: pointer;
         }
-        &__full{
+        &__full-time {
             margin-right: 40px;
+            cursor: pointer;
         }
-        &__self{
+        &__self-paced {
             margin-right: 33px;
+            cursor: pointer;
         }
     }
+}
+
+.selectedFilterClass {
+    font-weight: 500;
+    color: "black";
+    border-bottom: #724BCB 2px solid;
 }
