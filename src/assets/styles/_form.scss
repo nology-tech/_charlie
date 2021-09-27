@@ -1,3 +1,5 @@
+@import "./typography.scss";
+
 .form-input {
   width: 350px;
   height: 50px;
@@ -9,6 +11,12 @@
   background: #FFFFFF;
   box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
   border-radius: 7px;
+  font-family: 'Poppins';
+}
+
+.form-button{
+  height:50px;
+  width: 168px;
 }
 
 .student-thumbnail {
