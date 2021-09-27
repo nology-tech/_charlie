@@ -40,7 +40,7 @@ const StudentForm = () => {
   };
 
   return (
-    <div className="row mt-5 form-container">
+    <div className="row mt-5 offset-2 form-container">
       <form className="row" onSubmit={handleSubmit(onSubmit)}>
         <div className="col-6">
           <div className="col-md-12 mt-3">
