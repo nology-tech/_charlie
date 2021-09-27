@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 //import studentData from '../../data/studentForm';
 import { useForm } from "react-hook-form";
-import "../../assets/styles/_form.scss";
+import "../../../assets/styles/_form.scss";
 
 const StudentForm = () => {
   const {
