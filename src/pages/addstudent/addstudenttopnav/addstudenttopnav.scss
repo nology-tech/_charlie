@@ -1,6 +1,18 @@
 @import "../../../assets/styles/nav.scss";
+@import "../../../assets/styles/typography";
 
-.top-nav{
-    height: 157px;
+.topnav{
+    height: 120px;
     background: #ffffff;
+    font: $font-primary;
+
+    &__title{
+    font: $font-primary;
+    font-weight: 700;
+    }
+
+    &__button{
+        height: 50px;
+        width: 130px;
+    }
 }
