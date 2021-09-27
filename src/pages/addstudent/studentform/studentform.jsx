@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 //import studentData from '../../data/studentForm';
 import { useForm } from "react-hook-form";
-import "../../assets/styles/_form.scss";
+import "../../../assets/styles/_form.scss";
 
 const StudentForm = () => {
   const {
@@ -40,7 +40,7 @@ const StudentForm = () => {
   };
 
   return (
-    <div className="row mt-5 form-container">
+    <div className="row mt-5 offset-2 form-container">
       <form className="row" onSubmit={handleSubmit(onSubmit)}>
         <div className="col-6">
           <div className="col-md-12 mt-3">
