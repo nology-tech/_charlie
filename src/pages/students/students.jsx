@@ -52,22 +52,16 @@ const Students = () => {
 
     const filterDataByFullTime = (e) => {
         setEnrolledFilter("Full-Time")
-        setStudentsData(Data.filter(student => {
-            return student.enrolledType.includes("Full-Time")
-        }))
+        setStudentsData(Data.filter(student => student.enrolledType.includes("Full-Time")))
     }
 
     const filterDataBySelfPaced = (e) => {
         setEnrolledFilter("Self-Paced")
-        setStudentsData(Data.filter(student => {
-            return student.enrolledType.includes("Self-Paced")
-        }))
+        setStudentsData(Data.filter(student => student.enrolledType.includes("Self-Paced")))
     }
     const filterDataByCorporate = (e) => {
         setEnrolledFilter("Corporate");
-        setStudentsData(Data.filter(student => {
-            return student.enrolledType.includes("Corporate")
-        }))
+        setStudentsData(Data.filter(student =>student.enrolledType.includes("Corporate")))
     }
 
     const generateSearchResults = (e) => { 
@@ -121,7 +115,11 @@ const Students = () => {
             <StudentList className="students__list d-flex justify-content-start" studentsData={studentsData} pageData={pageData} />
             <PageNavigator totalNumberStudents={totalNumberStudents} 
             switchToPreviousPage={switchToPreviousPage} 
-            switchToNextPage={switchToNextPage} changeNumberOfRows={changeNumberOfRows} numberOfRows={numberOfRows} firstIndex={firstIndex} secondIndex={secondIndex}/>
+            switchToNextPage={switchToNextPage} 
+            changeNumberOfRows={changeNumberOfRows} 
+            numberOfRows={numberOfRows} 
+            firstIndex={firstIndex} 
+            secondIndex={secondIndex}/>
         </div>
     )
 }
