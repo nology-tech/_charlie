@@ -55,7 +55,7 @@ const StudentForm = () => {
                 type="text"
                 id="firstName"
                 />
-                {errors.firstName && <p>This is required</p>}
+                {errors.firstName && <p>Required</p>}
             </div>
 
             <div className="col-12 mt-3">
@@ -70,7 +70,7 @@ const StudentForm = () => {
                 type="text"
                 id="lastName"
                 />
-                {errors.lastName && <p>This is required</p>}
+                {errors.lastName && <p>Required</p>}
             </div>
 
             <div className="col-12 mt-3">
