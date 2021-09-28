@@ -117,13 +117,13 @@ const StudentForm = () => {
             </div>
             <div className="col-6">
             <div className="col-12 mt-4">
-                <label htmlFor="thumbnail-upload">Student Thumbnail</label>
-                <input
-                    type="file"
-                    onChange={readURL}
-                    name="thumbnail-upload"
-                    id="thumbnail-upload"
-                    hidden
+                <label htmlFor="">Student Thumbnail</label>
+                <input {...register("studentThumb")}
+                type="file"
+                onChange={readURL}
+                name="thumbnail-upload"
+                id="thumbnail-upload"
+                hidden
                 />
                 <img id="studentImage" src={src} alt={alt} className="student-thumbnail my-2" />
                 <label htmlFor="thumbnail-upload" className="btn upload-btn mt-4">
@@ -134,12 +134,12 @@ const StudentForm = () => {
                 <label className="my-3">CV Upload</label>
                 <div>
                     <label htmlFor="cv-upload" className="btn upload-btn mt-2">Upload</label>
-                    <input
-                        type="file"
-                        className="btn btn-upload"
-                        name="cv-upload"
-                        id="cv-upload"
-                        hidden
+                    <input {...register("cv")}
+                    type="file"
+                    className="btn btn-upload"
+                    name="cv-upload"
+                    id="cv-upload"
+                    hidden
                     />
                 </div>
             </div>
