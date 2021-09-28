@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 //import studentData from '../../data/studentForm';
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
 import "../../../assets/styles/_form.scss";
 
 const StudentForm = () => {
     const {register, handleSubmit, formState: { errors }, reset } = useForm();
+    const history = useHistory();
+
     console.log(errors);
     const [{ alt, src }, setImg] = useState({
         src: "https://via.placeholder.com/150",
@@ -25,10 +28,12 @@ const StudentForm = () => {
     const onSubmit = (data) => {
         console.log(data);
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4));
+        history.goBack();
     };
     
     const handleClick = () => {
         reset();
+        history.goBack();
     };
 
     const readURL = (e) => {
