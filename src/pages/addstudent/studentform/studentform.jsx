@@ -4,11 +4,7 @@ import { useForm } from "react-hook-form";
 import "../../../assets/styles/_form.scss";
 
 const StudentForm = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
+    const {register, handleSubmit, formState: { errors }, reset } = useForm();
     console.log(errors);
     const [{ alt, src }, setImg] = useState({
         src: "https://via.placeholder.com/150",
@@ -28,6 +24,11 @@ const StudentForm = () => {
 
     const onSubmit = (data) => {
         console.log(data);
+        alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4));
+    };
+    
+    const handleClick = () => {
+        reset();
     };
 
     const readURL = (e) => {
@@ -76,12 +77,12 @@ const StudentForm = () => {
             <div className="col-12 mt-3">
                 <label htmlFor="">Enrolled on</label>
                 <select
-                {...register("Enrolled On", { required: true })}
+                {...register("enrolledOn", { required: true })}
                 name="enrolledOn"
                 className="form-select form-control form-input  my-2"
                 id="enrolledOn"
                 >
-                <option selected="true" value="default" disabled>
+                <option selected="true" value="default">
                     Select on of the following
                 </option>
                 <option value="ibiza">Ibiza</option>
@@ -143,7 +144,7 @@ const StudentForm = () => {
                 </div>
             </div>
             <div className="col-12 mt-5">
-                <input type="reset" className="btn btn-secondary mx-2 form-button" value="Cancel" />
+                <input type="reset" className="btn btn-secondary mx-2 form-button" value="Cancel" onClick={handleClick} />
                 <input type="submit" className="btn btn-primary form-button" value="Save" />
             </div>
             </div>
