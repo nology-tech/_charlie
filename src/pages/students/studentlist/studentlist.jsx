@@ -10,17 +10,17 @@ const StudentList = (props) => {
             <Student student={student} toggleView = {toggleView}/>
         )
     )
-    return (
+    return ( 
         <>
-        <div className={toggleView===false ? "studentList row d-flex align-items-center text-center": "hider"}>
+        <div className={toggleView === false ? "studentList d-flex align-items-center text-center": "hide-student-list-labels"}>
             <p className="col studentList__property-label">Student Name</p>
             <p className="col studentList__property-label">Enrolled On</p>
             <p className="col studentList__property-label">Github Account</p>
             <p className="col studentList__property-label">Portfolio</p>
             <p className="col studentList__property-label">Resume</p>
-            <p className="col-1 studentList__property-label m-0 p-0"></p>
+            <p className="col-1 studentList__property-label"></p>
         </div>
-        <div className={toggleView===false ? "nostyling" : "student-grid"}>
+        <div className={toggleView === false ? "hamburger-styling" : "student-grid"}>
             {students}
         </div>
         </>

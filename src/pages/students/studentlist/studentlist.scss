@@ -1,5 +1,6 @@
 @use "../../../assets/styles/_typography" as *; 
 @import "../../../assets/styles/variables";
+
 a{
   text-decoration: none;
 }
@@ -12,16 +13,18 @@ a{
   letter-spacing: 0.03em;
   color: #595959;
 }
-.nostyling{
+.hamburger-styling{
   width: 100%; 
-  background-color: $color-primary;
 }
 .student-grid{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 18px;
+  width: 100%;
+  grid-template-columns: repeat(4, auto);
+  grid-row-gap: 18px; 
+  justify-content: space-between;
+  align-items: center;
 }
 
-.hider{
+.hide-student-list-labels {
   display: none;
 }

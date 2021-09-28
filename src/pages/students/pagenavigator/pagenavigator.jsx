@@ -4,7 +4,7 @@ import RightArrow from "../../../assets/images/right.png";
 import "./pagenavigator.scss";
 
 const PageNavigator = (props) => {
-    const {toggleView, totalNumberStudents, switchToPreviousPage, switchToNextPage, changeNumberOfRows, firstIndex, secondIndex} = props; 
+    const {totalNumberStudents, switchToPreviousPage, switchToNextPage, changeNumberOfRows, firstIndex, secondIndex} = props; 
     
     return (
         <div className="page-nav row d-flex align-items-center m-0 p-0 justify-content-end ">
