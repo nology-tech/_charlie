@@ -14,17 +14,6 @@ const StudentForm = () => {
         alt: "",
     });
 
-    /*
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const data = {}
-            formData.forEach((value, key) => (data[key] = value));
-            console.log(JSON.stringify(data));
-            studentData.push(JSON.stringify(data));
-            console.log('this is the student data object:', studentData);
-        }*/
-
     const onSubmit = (data) => {
         console.log(data);
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4));
@@ -46,7 +35,7 @@ const StudentForm = () => {
     };
 
     return (
-        <div className="row mt-4 my-4 px-4 offset-1 form-container">
+        <div className="row mt-4 my-4 px-4 offset-1 form__container">
         <form className="row" onSubmit={handleSubmit(onSubmit)}>
             <div className="col-6">
             <div className="col-12 mt-4">
@@ -57,7 +46,7 @@ const StudentForm = () => {
                     pattern: /^[A-Za-z]+$/i,
                 })}
                 name="firstName"
-                className="form-control form-input  my-2"
+                className="form-control form__input  my-2"
                 type="text"
                 id="firstName"
                 />
@@ -65,14 +54,14 @@ const StudentForm = () => {
             </div>
 
             <div className="col-12 mt-3">
-                <label htmlFor="">Last Name</label>
+                <label htmlFor="lastName">Last Name</label>
                 <input
                 {...register("lastName", {
                     required: true,
                     pattern: /^[A-Za-z]+$/i,
                 })}
                 name="lastName"
-                className="form-control form-input my-2"
+                className="form-control form__input my-2"
                 type="text"
                 id="lastName"
                 />
@@ -84,7 +73,7 @@ const StudentForm = () => {
                 <select
                 {...register("enrolledOn", { required: true })}
                 name="enrolledOn"
-                className="form-select form-control form-input  my-2"
+                className="form-select form-control form__input  my-2"
                 id="enrolledOn"
                 >
                 <option selected="true" value="default">
@@ -97,11 +86,11 @@ const StudentForm = () => {
             </div>
 
             <div className="col-12 mt-3">
-                <label htmlFor="">Github Account</label>
+                <label htmlFor="github-account">Github Account</label>
                 <input
                 {...register("githubAccount", { required: true })}
-                name="githubAccount"
-                className="form-control form-input  my-2"
+                name="github-account"
+                className="form-control form__input  my-2"
                 type="text"
                 id="github-account"
                 />
@@ -113,7 +102,7 @@ const StudentForm = () => {
                 <input
                 {...register("portfolioLink", { required: true })}
                 name="portfolioLink"
-                className="form-control form-input  my-2"
+                className="form-control form__input  my-2"
                 type="text"
                 id="portfolio-link"
                 />
@@ -122,7 +111,7 @@ const StudentForm = () => {
             </div>
             <div className="col-6">
             <div className="col-12 mt-4">
-                <label htmlFor="">Student Thumbnail</label>
+                <label htmlFor="thumbnail-upload">Student Thumbnail</label>
                 <input {...register("studentThumb")}
                 type="file"
                 onChange={readURL}
@@ -149,8 +138,8 @@ const StudentForm = () => {
                 </div>
             </div>
             <div className="col-12 mt-5">
-                <input type="reset" className="btn btn-secondary mx-2 form-button" value="Cancel" onClick={handleClick} />
-                <input type="submit" className="btn btn-primary form-button" value="Save" />
+                <input type="reset" className="btn btn-secondary mx-2 form__button" value="Cancel" onClick={handleClick} />
+                <input type="submit" className="btn btn-primary form__button" value="Save" />
             </div>
             </div>
         </form>
