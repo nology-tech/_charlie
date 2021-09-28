@@ -68,7 +68,7 @@ const StudentForm = () => {
                 {errors.lastName && <p className="text-danger">*Required</p>}
             </div>
 
-{/*             <div className="col-12 mt-3">
+            <div className="col-12 mt-3">
                 <label htmlFor="">Enrolled on</label>
                 <select
                 {...register("enrolledOn", { required: true })}
@@ -83,56 +83,56 @@ const StudentForm = () => {
                 <option value="hawaii">Hawaii</option>
                 <option value="jersey">Jersey</option>
                 </select>
-            </div> */}
+            </div> 
 
             <div className="col-12 mt-3">
-                <label htmlFor="github-account">Github Account</label>
+                <label htmlFor="githubAccount">Github Account</label>
                 <input
                 {...register("githubAccount", { required: true })}
-                name="github-account"
-                className="form-control form-input  my-2"
+                name="githubAccount"
+                className="form-control form__input my-2"
                 type="text"
-                id="github-account"
+                id="githubAccount"
                 />
                 {errors.githubAccount && <p className="text-danger">*Required</p>}
             </div>
 
             <div className="col-12 mt-3">
-                <label htmlFor="portfolio-link">Portfolio Link</label>
+                <label htmlFor="">Portfolio Link</label>
                 <input
                     {...register("portfolioLink", { required: true })}
-                    name="portfolio-link"
-                    className="form-control form-input  my-2"
+                    name="portfolioLink"
+                    className="form-control form__input my-2"
                     type="text"
-                    id="portfolio-link"
+                    id="portfolioLink"
                 />
                 {errors.portfolioLink && <p className="text-danger">*Required</p>}
             </div>
             </div>
             <div className="col-6">
             <div className="col-12 mt-4">
-                <label htmlFor="thumbnail-upload">Student Thumbnail</label>
+                <label htmlFor="studentThumb">Student Thumbnail</label>
                 <input {...register("studentThumb")}
                 type="file"
                 onChange={readURL}
-                name="thumbnail-upload"
-                id="thumbnail-upload"
+                name="studentThumb"
+                id="studentThumb"
                 hidden
                 />
                 <img id="studentImage" src={src} alt={alt} className="student-thumbnail my-2" />
-                <label htmlFor="thumbnail-upload" className="btn upload-btn mt-4">
+                <label htmlFor="studentThumb" className="btn upload-btn mt-4">
                 Upload
                 </label>
             </div>
             <div className="col-12 mt-3">
                 <label className="my-3">CV Upload</label>
                 <div>
-                    <label htmlFor="cv-upload" className="btn upload-btn mt-2">Upload</label>
-                    <input {...register("cv")}
+                    <label htmlFor="cvUpload" className="btn upload-btn mt-2">Upload</label>
+                    <input {...register("cvUpload")}
                     type="file"
                     className="btn btn-upload"
-                    name="cv-upload"
-                    id="cv-upload"
+                    name="cvUpload"
+                    id="cvUpload"
                     hidden
                     />
                 </div>
