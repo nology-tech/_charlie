@@ -56,26 +56,26 @@ const Students = () => {
         }
     }
 
-    const filterDataByAll = (e) => {
+    const filterDataByAll = () => {
         setEnrolledFilter("All");
         setStudentsData(Data)
         }
 
-    const filterDataByFullTime = (e) => {
+    const filterDataByFullTime = () => {
         setEnrolledFilter("Full-Time")
         setStudentsData(Data.filter(student => student.enrolledType.includes("Full-Time")))
     }
 
-    const filterDataBySelfPaced = (e) => {
+    const filterDataBySelfPaced = () => {
         setEnrolledFilter("Self-Paced")
         setStudentsData(Data.filter(student => student.enrolledType.includes("Self-Paced")))
     }
-    const filterDataByCorporate = (e) => {
+    const filterDataByCorporate = () => {
         setEnrolledFilter("Corporate");
         setStudentsData(Data.filter(student =>student.enrolledType.includes("Corporate")))
     }
 
-    const generateSearchResults = (e) => { 
+    const generateSearchResults = (e) => {  
         if (e.target.value) {
             setPageNumber(1); 
         const filteredData = studentsData.filter(student=> {
@@ -116,9 +116,9 @@ const Students = () => {
     
     // Sorting logic 
 
-    const sortAlphabetically = () => {
-        setStudentsData(studentsData.sort((a, b) => a.firstname.localeCompare(b.firstname))); 
-      }
+    // const sortAlphabetically = () => {
+    //     setStudentsData(studentsData.sort((a, b) => a.firstname.localeCompare(b.firstname))); 
+    //   }
 
     return (
         <div className="students d-flex flex-column align-items-center p-0 ">
@@ -132,7 +132,7 @@ const Students = () => {
 
             <StudentSearchBar 
             generateSearchResults={generateSearchResults} 
-            sortAlphabetically = {sortAlphabetically}
+            // sortAlphabetically = {sortAlphabetically}
             changeToGridView={changeToGridView}
             changeToBurgerView={changeToBurgerView}/>
 
