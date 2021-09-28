@@ -1,4 +1,6 @@
+@use "./assets/styles/variables";
 @import "./assets/styles/styles.scss";
+
 
 * {
     padding: 0;
@@ -6,12 +8,15 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: $color-primary;
+}
+
 .container {
+    
     padding: 0;
     margin: 0;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    .col2 {
-        margin:0 20px;
-    }
+    
 }
