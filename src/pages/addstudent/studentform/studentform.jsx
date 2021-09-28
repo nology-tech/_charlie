@@ -56,11 +56,11 @@ const StudentForm = () => {
                 type="text"
                 id="firstName"
                 />
-                {errors.firstName && <p className="text-danger">*Required</p>}
+                {errors.firstName && <div className="text-danger">*Required</div>}
             </div>
 
             <div className="col-12 mt-3">
-                <label htmlFor="">Last Name</label>
+                <label htmlFor="lastName">Last Name</label>
                 <input
                 {...register("lastName", {
                     required: true,
@@ -74,7 +74,7 @@ const StudentForm = () => {
                 {errors.lastName && <p className="text-danger">*Required</p>}
             </div>
 
-            <div className="col-12 mt-3">
+{/*             <div className="col-12 mt-3">
                 <label htmlFor="">Enrolled on</label>
                 <select
                 {...register("enrolledOn", { required: true })}
@@ -89,13 +89,13 @@ const StudentForm = () => {
                 <option value="hawaii">Hawaii</option>
                 <option value="jersey">Jersey</option>
                 </select>
-            </div>
+            </div> */}
 
             <div className="col-12 mt-3">
-                <label htmlFor="">Github Account</label>
+                <label htmlFor="github-account">Github Account</label>
                 <input
                 {...register("githubAccount", { required: true })}
-                name="githubAccount"
+                name="github-account"
                 className="form-control form-input  my-2"
                 type="text"
                 id="github-account"
@@ -104,26 +104,26 @@ const StudentForm = () => {
             </div>
 
             <div className="col-12 mt-3">
-                <label htmlFor="">Portfolio Link</label>
+                <label htmlFor="portfolio-link">Portfolio Link</label>
                 <input
-                {...register("portfolioLink", { required: true })}
-                name="portfolioLink"
-                className="form-control form-input  my-2"
-                type="text"
-                id="portfolio-link"
+                    {...register("portfolioLink", { required: true })}
+                    name="portfolio-link"
+                    className="form-control form-input  my-2"
+                    type="text"
+                    id="portfolio-link"
                 />
                 {errors.portfolioLink && <p className="text-danger">*Required</p>}
             </div>
             </div>
             <div className="col-6">
             <div className="col-12 mt-4">
-                <label htmlFor="">Student Thumbnail</label>
+                <label htmlFor="thumbnail-upload">Student Thumbnail</label>
                 <input
-                type="file"
-                onChange={readURL}
-                name="thumbnail-upload"
-                id="thumbnail-upload"
-                hidden
+                    type="file"
+                    onChange={readURL}
+                    name="thumbnail-upload"
+                    id="thumbnail-upload"
+                    hidden
                 />
                 <img id="studentImage" src={src} alt={alt} className="student-thumbnail my-2" />
                 <label htmlFor="thumbnail-upload" className="btn upload-btn mt-4">
@@ -132,14 +132,14 @@ const StudentForm = () => {
             </div>
             <div className="col-12 mt-3">
                 <label className="my-3">CV Upload</label>
-                <div>                
+                <div>
                     <label htmlFor="cv-upload" className="btn upload-btn mt-2">Upload</label>
                     <input
-                    type="file"
-                    className="btn btn-upload"
-                    name="cv-upload"
-                    id="cv-upload"
-                    hidden
+                        type="file"
+                        className="btn btn-upload"
+                        name="cv-upload"
+                        id="cv-upload"
+                        hidden
                     />
                 </div>
             </div>
