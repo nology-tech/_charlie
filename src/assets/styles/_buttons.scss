@@ -12,7 +12,11 @@
     color: white;
 }
 
-.btn-secondary {
+.btn-primary:hover{
+    background-color: $accent;
+}
+
+.btn-secondary, .btn-secondary:hover{
     background-color: white;
     color: $accent;
     border: $accent solid 2px;

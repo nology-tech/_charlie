@@ -40,7 +40,7 @@ const StudentForm = () => {
     };
 
     return (
-        <div className="row mt-4 offset-2 form-container">
+        <div className="row mt-4 my-4 px-4 offset-1 form-container">
         <form className="row" onSubmit={handleSubmit(onSubmit)}>
             <div className="col-6">
             <div className="col-12 mt-4">
@@ -51,11 +51,11 @@ const StudentForm = () => {
                     pattern: /^[A-Za-z]+$/i,
                 })}
                 name="firstName"
-                className="form-control form-input  my-3"
+                className="form-control form-input  my-2"
                 type="text"
                 id="firstName"
                 />
-                {errors.firstName && <p>Required</p>}
+                {errors.firstName && <p className="text-danger">*Required</p>}
             </div>
 
             <div className="col-12 mt-3">
@@ -66,11 +66,11 @@ const StudentForm = () => {
                     pattern: /^[A-Za-z]+$/i,
                 })}
                 name="lastName"
-                className="form-control form-input my-3"
+                className="form-control form-input my-2"
                 type="text"
                 id="lastName"
                 />
-                {errors.lastName && <p>Required</p>}
+                {errors.lastName && <p className="text-danger">*Required</p>}
             </div>
 
             <div className="col-12 mt-3">
@@ -78,7 +78,7 @@ const StudentForm = () => {
                 <select
                 {...register("Enrolled On", { required: true })}
                 name="enrolledOn"
-                className="form-select form-control form-input  my-3"
+                className="form-select form-control form-input  my-2"
                 id="enrolledOn"
                 >
                 <option selected="true" value="default" disabled>
@@ -95,11 +95,11 @@ const StudentForm = () => {
                 <input
                 {...register("githubAccount", { required: true })}
                 name="githubAccount"
-                className="form-control form-input  my-3"
+                className="form-control form-input  my-2"
                 type="text"
                 id="github-account"
                 />
-                {errors.githubAccount && <p>This is required</p>}
+                {errors.githubAccount && <p className="text-danger">*Required</p>}
             </div>
 
             <div className="col-12 mt-3">
@@ -107,11 +107,11 @@ const StudentForm = () => {
                 <input
                 {...register("portfolioLink", { required: true })}
                 name="portfolioLink"
-                className="form-control form-input  my-3"
+                className="form-control form-input  my-2"
                 type="text"
                 id="portfolio-link"
                 />
-                {errors.portfolioLink && <p>This is required</p>}
+                {errors.portfolioLink && <p className="text-danger">*Required</p>}
             </div>
             </div>
             <div className="col-6">
