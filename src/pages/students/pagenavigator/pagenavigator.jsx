@@ -4,12 +4,13 @@ import RightArrow from "../../../assets/images/right.png";
 import "./pagenavigator.scss";
 
 const PageNavigator = (props) => {
-    const {totalNumberStudents, switchToPreviousPage, switchToNextPage, changeNumberOfRows, firstIndex, secondIndex} = props; 
+    const {toggleView, totalNumberStudents, switchToPreviousPage, switchToNextPage, changeNumberOfRows, firstIndex, secondIndex} = props; 
     
     return (
-        <div className="page-nav row d-flex align-items-center m-0 p-0 justify-content-end">
+        <div className="page-nav row d-flex align-items-center m-0 p-0 justify-content-end ">
             <div className="page-nav__rows-selector col-2 offset-8 d-flex align-items-center text-center p-0">
                 <p className="page-nav__rows-selector__label me-1">Rows per page: </p>
+                {/* figure out how to update the option value to 8 on grid click */}
                 <select name="rows" defaultValue="9" className="page-nav__rows-selector__button" onChange= {changeNumberOfRows}>
                     <option value="1">1</option>
                     <option value="2">2</option>

@@ -19,8 +19,14 @@ const Students = () => {
         setStudentsData(Data);
     }
 
-    const changeView =() => {
-        setToggleView(!toggleView);
+    const changeToGridView =() => {
+        setToggleView(true);
+        setNumberOfRows(8);
+    }
+
+    const changeToBurgerView = () => {
+        setToggleView(false)
+        setNumberOfRows(9);
     }
 
     const changeNumberOfRows = (e) => {
@@ -115,7 +121,7 @@ const Students = () => {
       }
 
     return (
-        <div className="students d-flex flex-column align-items-center p-0">
+        <div className="students d-flex flex-column align-items-center p-0 ">
 
             <StudentsTopNav className="students__topNav" 
             filterDataByAll={filterDataByAll}
@@ -127,12 +133,14 @@ const Students = () => {
             <StudentSearchBar 
             generateSearchResults={generateSearchResults} 
             sortAlphabetically = {sortAlphabetically}
-            changeView={changeView}/>
+            changeToGridView={changeToGridView}
+            changeToBurgerView={changeToBurgerView}/>
 
             <StudentList className="students__list d-flex justify-content-start" 
             studentsData={studentsData} 
             pageData={pageData}
             toggleView={toggleView} />
+
 
             <PageNavigator totalNumberStudents={totalNumberStudents} 
             switchToPreviousPage={switchToPreviousPage} 
@@ -140,7 +148,9 @@ const Students = () => {
             changeNumberOfRows={changeNumberOfRows} 
             numberOfRows={numberOfRows} 
             firstIndex={firstIndex} 
-            secondIndex={secondIndex}/>
+            secondIndex={secondIndex}
+            toggleView={toggleView}/>
+            
 
         </div>
     )

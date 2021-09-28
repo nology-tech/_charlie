@@ -24,11 +24,13 @@ const Student = (props) => {
   )
 } else if (toggleView === true) {
   return (
-  <div>
-    <img src={pictureLink}/>
-    <p>{studentName}</p>
-    <p>{portfolio}</p>
-  </div> 
+    <div className="student-grid">
+      <div className="student-grid__card d-flex justify-content-center align-items-center flex-column">
+        <img className="student-grid__card__img" src={pictureLink}/>
+        <p className="student-grid__card__name">{studentName}</p>
+        <p className="student-grid__card__email">{portfolio}</p>
+      </div> 
+    </div>  
   )
 }
 }
