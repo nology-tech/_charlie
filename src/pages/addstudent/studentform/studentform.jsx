@@ -118,7 +118,7 @@ const StudentForm = () => {
             <div className="col-6">
             <div className="col-12 mt-4">
                 <label htmlFor="">Student Thumbnail</label>
-                <input
+                <input {...register("studentThumb")}
                 type="file"
                 onChange={readURL}
                 name="thumbnail-upload"
@@ -134,7 +134,7 @@ const StudentForm = () => {
                 <label className="my-3">CV Upload</label>
                 <div>                
                     <label htmlFor="cv-upload" className="btn upload-btn mt-2">Upload</label>
-                    <input
+                    <input {...register("cv")}
                     type="file"
                     className="btn btn-upload"
                     name="cv-upload"
