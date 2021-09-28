@@ -38,5 +38,13 @@
 }
 .student:hover{
   cursor: pointer;
-  box-shadow: 3px 5px 5px $color-secondary;
+  box-shadow: 3px 3px 3px $color-secondary;
+}
+
+.newdiv {
+  width: 100%;
+  height: 100%;
+  font-size: 30px; 
+  border: 2px solid black;
+  background-color: red;
 }

@@ -5,9 +5,9 @@ import "./studentlist.scss";
 
 
 const StudentList = (props) => {
-    const {pageData} = props; 
+    const {pageData, toggleView} = props; 
     const students = pageData && pageData.map(student => (
-            <Student student={student}/>
+            <Student student={student} toggleView = {toggleView}/>
         )
     )
     return (

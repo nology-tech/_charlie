@@ -13,9 +13,14 @@ const Students = () => {
     const [numberOfRows, setNumberOfRows] = useState(9); 
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length); 
     const [enrolledFilter, setEnrolledFilter] = useState("All");
+    const [toggleView, setToggleView] = useState(false); 
 
     const fetchStudentData = () => {
         setStudentsData(Data);
+    }
+
+    const changeView =() => {
+        setToggleView(!toggleView);
     }
 
     const changeNumberOfRows = (e) => {
@@ -103,16 +108,32 @@ const Students = () => {
     let secondIndex;
     pageData.length < numberOfRows ? secondIndex = pageData.length + firstIndex : secondIndex = numberOfRows*pageNumber;
     
+    // Sorting logic 
+
+    const sortAlphabetically = () => {
+        setStudentsData(studentsData.sort((a, b) => a.firstname.localeCompare(b.firstname))); 
+      }
+
     return (
         <div className="students d-flex flex-column align-items-center p-0">
+
             <StudentsTopNav className="students__topNav" 
             filterDataByAll={filterDataByAll}
             filterDataByFullTime={filterDataByFullTime}
             filterDataBySelfPaced={filterDataBySelfPaced}
             filterDataByCorporate={filterDataByCorporate}
             enrolledFilter={enrolledFilter}/>
-            <StudentSearchBar generateSearchResults={generateSearchResults}/>
-            <StudentList className="students__list d-flex justify-content-start" studentsData={studentsData} pageData={pageData} />
+
+            <StudentSearchBar 
+            generateSearchResults={generateSearchResults} 
+            sortAlphabetically = {sortAlphabetically}
+            changeView={changeView}/>
+
+            <StudentList className="students__list d-flex justify-content-start" 
+            studentsData={studentsData} 
+            pageData={pageData}
+            toggleView={toggleView} />
+
             <PageNavigator totalNumberStudents={totalNumberStudents} 
             switchToPreviousPage={switchToPreviousPage} 
             switchToNextPage={switchToNextPage} 
@@ -120,6 +141,7 @@ const Students = () => {
             numberOfRows={numberOfRows} 
             firstIndex={firstIndex} 
             secondIndex={secondIndex}/>
+
         </div>
     )
 }

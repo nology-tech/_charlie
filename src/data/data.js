@@ -1,3 +1,6 @@
+import StudentPhoto from "../assets/images/student-photo.png"
+import React from "react";
+
 const students= [
         {
             studentName: "Student 1",
@@ -5,7 +8,8 @@ const students= [
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv", 
-            enrolledType: "Full-Time"
+            enrolledType: "Full-Time", 
+            pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
         },
         {
             studentName: "Student 2",
@@ -13,7 +17,8 @@ const students= [
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv",
-            enrolledType: "Self-Paced"
+            enrolledType: "Self-Paced",
+            pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
         },
         {
             studentName: "Student 3",
@@ -21,7 +26,8 @@ const students= [
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv",
-            enrolledType: "Corporate"
+            enrolledType: "Corporate",
+            pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
         },
         {
             studentName: "Student 4",
@@ -29,7 +35,8 @@ const students= [
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv",
-            enrolledType: "Full-Time"
+            enrolledType: "Full-Time",
+            pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
         },
         {
             studentName: "Student 5",
@@ -37,7 +44,8 @@ const students= [
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv",
-            enrolledType: "Full-Time"
+            enrolledType: "Full-Time",
+            pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
         },
         {
             studentName: "Student 6",
@@ -45,7 +53,8 @@ const students= [
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv",
-            enrolledType: "Full-Time"
+            enrolledType: "Full-Time",
+            pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
         },
         {
             studentName: "Student 7",
@@ -53,7 +62,8 @@ const students= [
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv",
-            enrolledType: "Self-Paced"
+            enrolledType: "Self-Paced",
+            pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
         },
         {
             studentName: "Student 8",
@@ -61,7 +71,7 @@ const students= [
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
             resume: "www.wei.com/cv",
-            enrolledType: "Corporate"
+            enrolledType: "Corporate",
         },
         {
             studentName: "Student 9",
