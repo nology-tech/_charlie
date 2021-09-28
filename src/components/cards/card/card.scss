@@ -1,6 +1,8 @@
 @use "../../../assets/styles/variables" as *;
 
 .card {
+  width: 270px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -30,7 +32,7 @@
     height: 30px;
     width: 120px;
     border-radius: 7px;
-    font-size: small;
+    font-size: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;

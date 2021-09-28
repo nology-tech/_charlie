@@ -1,7 +1,10 @@
 import React from 'react';
 import "./projects.scss";
-import Cards from "../../components/cards/cards";
+import projects from "../../data/projects"
 
+
+import Cards from "../../components/cards/cards";
+import Card from "../../components/cards/card/card";
 import Button from "../../components/button/button";
 
 const Projects = () => {
@@ -16,6 +19,14 @@ const Projects = () => {
                 <Button btnText="Initialize" btnType="primary" />
             </div>
             </div>
+            <section className="projects__overview">
+                <h6>Overview</h6>
+                <Card project={projects[0]} btnText="Intialize Project"/>
+                <div>
+                    <h6></h6>
+                </div>
+
+             </section>   
             <div>
             <Cards />
             </div>
