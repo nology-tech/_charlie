@@ -9,18 +9,20 @@
     padding: 0;
     margin: 0; 
     box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 300px auto;
 
     .placeholderNavbar{
         background-color:#102B3F;
         height: 100%;
-        width: 20%;  
+        width: 300px;  
         color: white; 
         border-top-right-radius: 50px; 
         border: black 2px solid; 
     }
     .main {
         height: 100%;
-        width: 80%; 
+        width: 100%; 
         background-color: $color-primary;
         padding: 0; 
         &__white-space {
