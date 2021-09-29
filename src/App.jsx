@@ -1,4 +1,4 @@
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 import Navbar from "./components/navbar/navbar";
@@ -9,9 +9,11 @@ import Projects from "./pages/projects/projects";
 import Enrollment from "./pages/enrollment/enrollment";
 import Settings from "./pages/settings/settings";
 
-import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import StudentDetails from './pages/studentdetails/studentdetails';
 
 function App() {
+
   return (
     <div className="container">
         <div className="row">
@@ -23,6 +25,10 @@ function App() {
               <Switch>
                 <Route path="/students"> 
                   <Students />
+                </Route>
+
+                <Route path="/studentdetails">
+                  <StudentDetails/>
                 </Route>
                 
                 <Route path="/projects"> 

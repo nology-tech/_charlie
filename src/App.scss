@@ -1,4 +1,6 @@
 @import "./assets/styles/styles.scss";
+@import "./assets/styles/_variables.scss";
+@import "./assets/styles/typography.scss";
 
 * {
     padding: 0;
@@ -11,4 +13,27 @@
     margin: 0;
     display: grid;
     grid-template-columns: 1fr 4fr;
+}
+
+.app {
+    border: black 1px solid;
+    width: 100vw;
+    height: 100vh;
+    font-family: $font-primary;
+    padding: 0;
+    margin: 0; 
+    box-sizing: border-box;
+
+    .main {
+        height: 100%;
+        width: 80%; 
+        background-color: $color-primary;
+        padding: 0; 
+        
+        &__white-space {
+            background-color: white;
+            height: 157px;
+            width: 10%;
+        }
+    } 
 }

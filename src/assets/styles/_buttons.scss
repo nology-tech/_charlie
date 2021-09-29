@@ -6,12 +6,20 @@
     outline: none;
 }
 
-.btn-primary {
-    background-color: $accent-primary;
-    color: $color-primary;
-}
+// .btn-primary {
+//     background-color: $accent-primary;
+//     color: $color-primary;
+// }
 
 .btn-secondary {
     background-color: $accent-secondary;
     color: $color-secondary;
+}
+
+.btn-primary{
+    width: 130px;
+    height: 50px;
+    background: $accent-primary;
+    border-radius: 7px;
+    color: white;
 }
