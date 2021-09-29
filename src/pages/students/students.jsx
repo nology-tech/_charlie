@@ -70,7 +70,7 @@ const Students = () => {
     pageData.length < numberOfRows ? secondIndex = pageData.length + firstIndex : secondIndex = numberOfRows*pageNumber;
     
     return (
-        <div className="students d-flex flex-column align-items-center p-0">
+        <div className="students d-flex flex-column align-items-center p-3">
             <StudentsTopNav className="students__topNav"/>
             <StudentSearchBar generateSearchResults={generateSearchResults}/>
             <StudentList className="students__list d-flex justify-content-start" studentsData={studentsData} pageData={pageData} />

@@ -9,49 +9,47 @@ import Projects from "./pages/projects/projects";
 import Enrollment from "./pages/enrollment/enrollment";
 import Settings from "./pages/settings/settings";
 
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StudentDetails from './pages/studentdetails/studentdetails';
 
 function App() {
 
   return (
-    <div className="container">
-        <div className="row">
-          <Router>
-            <div className="col">
-              <Navbar />
-            </div>
-            <div className="col">
-              <Switch>
-                <Route path="/students"> 
-                  <Students />
-                </Route>
-
-                <Route path="/studentdetails">
-                  <StudentDetails/>
-                </Route>
-                
-                <Route path="/projects"> 
-                  <Projects />
-                </Route>
-                
-                <Route path="/enrollment"> 
-                  <Enrollment />
-                </Route>
-
-                <Route path="/settings"> 
-                  <Settings />
-                </Route>
-
-                <Route path="/"> 
-                  <Dashboard />
-                </Route>
-              </Switch>
-            </div>
-          </Router>
+    <div className="app">
+      <Router>
+        <div className="col">
+          <Navbar />
         </div>
-      </div>
-    );
-  }
+        <div className="col">
+          <Switch>
+            <Route path="/students">
+              <Students />
+            </Route>
+
+            <Route path="/studentdetails">
+              <StudentDetails />
+            </Route>
+
+            <Route path="/projects">
+              <Projects />
+            </Route>
+
+            <Route path="/enrollment">
+              <Enrollment />
+            </Route>
+
+            <Route path="/settings">
+              <Settings />
+            </Route>
+
+            <Route path="/">
+              <Dashboard />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </div>
+  );
+}
 
 export default App;
