@@ -12,3 +12,17 @@ a{
   letter-spacing: 0.03em;
   color: #595959;
 }
+.hamburger-styling{
+  width: 100%; 
+}
+.student-grid{
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, auto);
+  grid-row-gap: 18px; 
+  justify-content: space-between;
+  align-items: center;
+}
+.hide-student-list-labels {
+  display: none;
+}

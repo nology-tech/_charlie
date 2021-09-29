@@ -1,5 +1,24 @@
 @import "../../../assets/styles/variables";
-.students {
-  width: 100%; 
-  background-color: $color-primary;
+
+.main{
+        height: 100%;
+        width: 100%;
+        background-color: $color-primary;
+        padding: 0;
+        .students {
+          width: 80%;
+          background-color: $color-primary;
+          margin: 0;
+
+          &__white-space {
+            background-color: white;
+            height: 157px;
+            width: 10%;
+          }
+        }
+        }
+footer{
+            position: fixed;
+            bottom: 35px;
+            width: 67.5%;
 }

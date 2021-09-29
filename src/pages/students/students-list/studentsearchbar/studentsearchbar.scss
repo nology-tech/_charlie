@@ -38,3 +38,13 @@
     }
   }
 }
+.sort-menu {
+  appearance: none; 
+  background-image: url("../../../../assets/images/down.png");
+  padding: .5em;
+  padding-right: 1.5em;
+  background-position: right 50%;
+  background-repeat: no-repeat;
+  border: transparent; 
+  background-color: $color-primary;
+}

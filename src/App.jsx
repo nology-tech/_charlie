@@ -36,8 +36,6 @@ function App() {
               <StudentDetails></StudentDetails>
             </Route>
 
-           
-
             <Route path="/projects">
               <Projects />
             </Route>
