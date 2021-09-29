@@ -14,7 +14,7 @@ const Students = () => {
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length); 
     const [enrolledFilter, setEnrolledFilter] = useState("All");
     const [toggleView, setToggleView] = useState(false); 
-    const [topNavData, setTopNavData] = useState(Data); 
+    const [enrollmentData, setEnrollmentData] = useState(Data); 
 
     const fetchStudentData = () => {
         setStudentsData(Data);
@@ -59,27 +59,33 @@ const Students = () => {
 
     const filterDataByAll = () => {
         setEnrolledFilter("All");
-        fetchStudentData();  
+        fetchStudentData();
+        setEnrollmentData(Data);  
         }
 
     const filterDataByFullTime = () => {
         setEnrolledFilter("Full-Time")
-        setTopNavData(Data.filter(student => student.enrolledType.includes("Full-Time")))
+        setStudentsData(Data.filter(student => student.enrolledType.includes("Full-Time")));
+        setEnrollmentData(Data.filter(student => student.enrolledType.includes("Full-Time")));
     }
 
     const filterDataBySelfPaced = () => {
         setEnrolledFilter("Self-Paced")
-        setTopNavData(Data.filter(student => student.enrolledType.includes("Self-Paced")))
+        setStudentsData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
+        setEnrollmentData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
+        
     }
     const filterDataByCorporate = () => {
         setEnrolledFilter("Corporate");
-        setTopNavData(Data.filter(student =>student.enrolledType.includes("Corporate")))
+        setStudentsData(Data.filter(student =>student.enrolledType.includes("Corporate")));
+        setEnrollmentData(Data.filter(student =>student.enrolledType.includes("Corporate")));
+        
     }
 
     const generateSearchResults = (e) => { 
         if (e.target.value) {
             setPageNumber(1); 
-        const filteredData = topNavData.filter(student=> {
+        const filteredData = enrollmentData.filter(student=> {
             return (
             student.studentName.toLowerCase().includes(e.target.value.toLowerCase()) ||
             student.enrolledOn.toLowerCase().includes(e.target.value.toLowerCase()) ||
