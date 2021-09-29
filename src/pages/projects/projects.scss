@@ -2,49 +2,51 @@
 
 .projects {
     margin: 0 100px;
+
     &__header {
-    // background-color: white;
-    padding: 60px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    &-button Button {
-       margin-left: 20px; 
+        // background-color: white;
+        padding: 60px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        &-button Button {margin-left: 20px;}
     }
-    }
+    
     &__overview {
         &-flex{
             display: grid;
             grid-template-columns: 1fr 2fr;
             grid-template-rows: repeat(5, 130px);
             gap: 30px;
-            Card {
-                grid-row: span 2;
-            }
+            
+            Card {grid-row: span 2;}
+
             .getting-started {
                 grid-row: span 1;
                 width: 570px;
                 height: 120px;
                 background-color: white;
                 padding: 20px;
+                
                 p {
                     margin-top: 15px;
                     color:#95accb;
                 }
                 
             }
+
             .additional-notes {
                 grid-column: 1/2;
                 grid-row: 3/4;
                 background-color: white;
             }
+
             .challenge-brief {
                 grid-column: 2/3;
                 grid-row: 2/5;
                 background-color: white;
             }
-
         }
     }
-    
 }
