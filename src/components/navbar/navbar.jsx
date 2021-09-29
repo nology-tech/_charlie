@@ -6,7 +6,7 @@ import { FaHome, FaFileAlt, FaUsers, FaAward, FaCog } from 'react-icons/fa';
 
 const Navbar = () => {
     const navItems = [
-        {link: "/", text: "Dashboard", icon: <FaHome /> },
+        {link: "/", text: "Dashboard", icon: <FaHome />},
         {link: "/students", text: "Students", icon: <FaFileAlt />},
         {link: "/projects", text: "Projects", icon: <FaUsers />},
         {link: "/enrollment", text: "Enrollment", icon: <FaAward/>}
@@ -37,7 +37,7 @@ const Navbar = () => {
             {mappedNavItems}
 
             <hr />
-            <NavLink exact to="/settings" activeClassName="active" className="navbar__settings navbar__link" >
+            <NavLink exact to="/settings" activeClassName="active" className="navbar__settings navbar__link">
                 <span className="navbar__link-icon">
                     <FaCog />
                 </span>
