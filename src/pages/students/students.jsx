@@ -14,6 +14,7 @@ const Students = () => {
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length); 
     const [enrolledFilter, setEnrolledFilter] = useState("All");
     const [toggleView, setToggleView] = useState(false); 
+    const [topNavData, setTopNavData] = useState(Data); 
 
     const fetchStudentData = () => {
         setStudentsData(Data);
@@ -58,27 +59,27 @@ const Students = () => {
 
     const filterDataByAll = () => {
         setEnrolledFilter("All");
-        setStudentsData(Data)
+        fetchStudentData();  
         }
 
     const filterDataByFullTime = () => {
         setEnrolledFilter("Full-Time")
-        setStudentsData(Data.filter(student => student.enrolledType.includes("Full-Time")))
+        setTopNavData(Data.filter(student => student.enrolledType.includes("Full-Time")))
     }
 
     const filterDataBySelfPaced = () => {
         setEnrolledFilter("Self-Paced")
-        setStudentsData(Data.filter(student => student.enrolledType.includes("Self-Paced")))
+        setTopNavData(Data.filter(student => student.enrolledType.includes("Self-Paced")))
     }
     const filterDataByCorporate = () => {
         setEnrolledFilter("Corporate");
-        setStudentsData(Data.filter(student =>student.enrolledType.includes("Corporate")))
+        setTopNavData(Data.filter(student =>student.enrolledType.includes("Corporate")))
     }
 
-    const generateSearchResults = (e) => {  
+    const generateSearchResults = (e) => { 
         if (e.target.value) {
             setPageNumber(1); 
-        const filteredData = studentsData.filter(student=> {
+        const filteredData = topNavData.filter(student=> {
             return (
             student.studentName.toLowerCase().includes(e.target.value.toLowerCase()) ||
             student.enrolledOn.toLowerCase().includes(e.target.value.toLowerCase()) ||

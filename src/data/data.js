@@ -1,6 +1,6 @@
 const students= [
         {
-            studentName: "Student 1",
+            studentName: "John",
             enrolledOn: "Ibiza",
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
@@ -9,7 +9,7 @@ const students= [
             pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
         },
         {
-            studentName: "Student 2",
+            studentName: "Johnette",
             enrolledOn: "Ibiza",
             githubAccount: "github.com/wtang98",
             portfolio : "www.wei.com",
