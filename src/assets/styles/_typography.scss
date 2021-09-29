@@ -1,11 +1,3 @@
-$font-primary: 'Poppins', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-$spacer: 10px; 
-$spacers: (
-  0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
-);
+$font-primary: 'Poppins', sans-serif;

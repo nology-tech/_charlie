@@ -11,6 +11,7 @@ import Settings from "./pages/settings/settings";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StudentDetails from './pages/studentdetails/studentdetails';
+import AddStudent from './pages/addstudent/addstudent';
 
 function App() {
 
@@ -26,8 +27,12 @@ function App() {
               <Students />
             </Route>
 
-            <Route path="/studentdetails">
+            <Route path="/student/:id">
               <StudentDetails />
+            </Route>
+
+            <Route path="/student/create" exact>
+              <AddStudent />
             </Route>
 
             <Route path="/projects">

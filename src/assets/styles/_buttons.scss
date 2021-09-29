@@ -4,6 +4,7 @@
     padding: 10px 20px;
     border: none;
     outline: none;
+    border-radius: 7px;
 }
 
 // .btn-primary {
@@ -27,4 +28,18 @@
 .btn-tertiary {
     background-color: $color-primary;
     color: $accent-primary;
+}
+
+.btn-primary:hover{
+    background-color: $accent;
+}
+
+.btn-secondary, .btn-secondary:hover{
+    background-color: white;
+    color: $accent;
+    border: $accent solid 2px;
+}
+
+.btn-upload {
+    background-color: #f5f5f5;
 }
