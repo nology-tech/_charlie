@@ -1,0 +1,41 @@
+@use "../../../assets/styles/variables" as *;
+
+.card {
+  width: 270px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0px 30px 40px 0px #724BCB0F; ;
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+  }
+  h5 {
+    margin-bottom: 5px;
+  }
+  h6 {
+    font-weight: 400;
+    margin-bottom: 15px;
+    color:#95accb;
+  }
+  .btn.btn-quaternary.violet {
+    background-color: #Ebebf5;
+    color: $accent-primary;
+    height: 30px;
+    width: 120px;
+    border-radius: 7px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,4 +1,3 @@
-//import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 import Navbar from "./components/navbar/navbar";

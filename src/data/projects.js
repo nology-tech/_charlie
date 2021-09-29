@@ -34,7 +34,7 @@ const projects = [
     id: 3,
     title: "Punk Api",
     imgSrc: PunkApi,
-    languagesUsed: ["React", "SASS"],
+    languagesUsed: ["React"],
     hasStarted: false
   },
   {
