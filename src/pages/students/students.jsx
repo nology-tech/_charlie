@@ -65,18 +65,21 @@ const Students = () => {
 
     const filterDataByFullTime = () => {
         setEnrolledFilter("Full-Time")
+        setPageNumber(1);
         setStudentsData(Data.filter(student => student.enrolledType.includes("Full-Time")));
         setEnrollmentData(Data.filter(student => student.enrolledType.includes("Full-Time")));
     }
 
     const filterDataBySelfPaced = () => {
         setEnrolledFilter("Self-Paced")
+        setPageNumber(1);
         setStudentsData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
         setEnrollmentData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
         
     }
     const filterDataByCorporate = () => {
         setEnrolledFilter("Corporate");
+        setPageNumber(1);
         setStudentsData(Data.filter(student =>student.enrolledType.includes("Corporate")));
         setEnrollmentData(Data.filter(student =>student.enrolledType.includes("Corporate")));
         
