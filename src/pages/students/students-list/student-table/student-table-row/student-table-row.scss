@@ -1,4 +1,4 @@
-@import "../../../../assets/styles/variables";
+@import "../../../../../assets/styles/variables";
 
 .student {
   width: 100%;
@@ -11,7 +11,7 @@
   font-size: 12px;
   letter-spacing: 0.03em;
   &__property {
-    margin: 0; 
+    margin: 0;  
     padding: 0;
     color: $color-tertiary;  
   }

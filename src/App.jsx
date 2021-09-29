@@ -3,14 +3,16 @@ import './App.scss';
 import Navbar from "./components/navbar/navbar";
 
 import Dashboard from "./pages/dashboard/dashboard";
-import Students from "./pages/students/students";
+
 import Projects from "./pages/projects/projects";
 import Enrollment from "./pages/enrollment/enrollment";
 import Settings from "./pages/settings/settings";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import StudentDetails from './pages/studentdetails/studentdetails';
-import AddStudent from './pages/addstudent/addstudent';
+
+import Students from "./pages/students/students-list/students";
+import StudentDetails from './pages/students/student-details/studentdetails';
+import AddStudent from './pages/students/student-add/addstudent';
 
 function App() {
 
@@ -26,13 +28,15 @@ function App() {
               <Students />
             </Route>
 
+            <Route path="/student/create">
+              <AddStudent></AddStudent>
+            </Route>
+            
             <Route path="/student/:id">
-              <StudentDetails />
+              <StudentDetails></StudentDetails>
             </Route>
 
-            <Route path="/student/create" exact>
-              <AddStudent />
-            </Route>
+           
 
             <Route path="/projects">
               <Projects />

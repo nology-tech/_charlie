@@ -2,7 +2,6 @@ import React, { useState } from "react";
 //import studentData from '../../data/studentForm';
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
-import "../../../assets/styles/_form.scss";
 
 const StudentForm = () => {
     const {register, handleSubmit, formState: { errors }, reset } = useForm();

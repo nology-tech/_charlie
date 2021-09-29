@@ -1,10 +1,10 @@
 import React,{useEffect, useState}  from 'react'
 import StudentsTopNav from "./studentstopnav/studentstopnav"
-import StudentList from "./studentlist/studentlist";
+import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './studentsearchbar/studentsearchbar';
 import PageNavigator from './pagenavigator/pagenavigator';
 import "./students.scss"; 
-import Data from "../../data/data"; 
+import Data from "../../../data/data"; 
 
 const Students = () => {
     const [studentsData, setStudentsData] = useState([]); 
@@ -73,7 +73,7 @@ const Students = () => {
         <div className="students d-flex flex-column align-items-center p-3">
             <StudentsTopNav className="students__topNav"/>
             <StudentSearchBar generateSearchResults={generateSearchResults}/>
-            <StudentList className="students__list d-flex justify-content-start" studentsData={studentsData} pageData={pageData} />
+            <StudentTable className="students__list d-flex justify-content-start" studentsData={studentsData} pageData={pageData} />
             <PageNavigator totalNumberStudents={totalNumberStudents} 
             switchToPreviousPage={switchToPreviousPage} 
             switchToNextPage={switchToNextPage} changeNumberOfRows={changeNumberOfRows} numberOfRows={numberOfRows} firstIndex={firstIndex} secondIndex={secondIndex}/>

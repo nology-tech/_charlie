@@ -1,4 +1,4 @@
-@import "../../../assets/styles/variables"; 
+@import "../../../../assets/styles/variables"; 
 
 .page-nav {
     color: $color-tertiary;
@@ -13,7 +13,7 @@
     }
     &__rows-selector__button {
         appearance: none; 
-        background-image: url("../../../assets/images/down.png");
+        background-image: url("../../../../assets/images/down.png");
         padding: .5em;
         padding-right: 1.5em;
         background-position: right 50%;
