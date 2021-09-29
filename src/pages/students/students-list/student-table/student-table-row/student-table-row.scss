@@ -44,8 +44,11 @@
 }
 .student-grid{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-    &__card{
+  grid-template-columns: repeat(4, auto);
+  width: 100%;  
+  justify-content: between; 
+  grid-row-gap: 18px; 
+    &__card {
       min-width: 215px;
       min-height: 215px;
       border: transparent;

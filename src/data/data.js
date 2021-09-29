@@ -1,8 +1,8 @@
 const students= [
     {
-        studentName: "Wei-Tong Tang",
+        studentName: "Martin Harrison",
         enrolledOn: "Ibiza",
-        githubAccount: "github.com/wtang98",
+        githubAccount: "github.com/mharrison98",
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv", 
         enrolledType: "Full-Time", 

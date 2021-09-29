@@ -25,7 +25,7 @@ const StudentTableRow = (props) => {
 } else if (toggleView === true) {
   return (
     <div className="student-grid">
-      <div className="student-grid__card d-flex justify-content-center align-items-center flex-column">
+      <div className="student-grid__card d-flex justify-content-around align-items-center flex-column">
         <img className="student-grid__card__img" src={pictureLink} alt="student"/>
         <p className="student-grid__card__name">{studentName}</p>
         <p className="student-grid__card__email">{portfolio}</p>

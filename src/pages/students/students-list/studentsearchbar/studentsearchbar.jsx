@@ -21,10 +21,9 @@ const StudentSearchBar = (props) => {
       <div className="search-bar__sort-filter-buttons col-3 d-flex align-items-center justify-content-end"> 
         <img className = "search-bar__sort-filter-buttons-btn p-0" src={Sort} alt="sort"></img>
         <select name="rows" defaultValue="1" className="sort-menu" onChange={sortNameAlphabetically}>
-          <option value="1">Sort</option>
-          <option value="2">A-Z</option>
-          <option value="3">Student Names Z-A</option>
-          <option value="4">A-Z</option>
+          <option value="1">Sort Students</option>
+          <option value="2">Name (A-Z)</option>
+          <option value="3">Name (Z-A)</option>
         </select>
         <img src={Filter} alt="filter" className = "search-bar__sort-filter-buttons-btn p-0"></img>
         <p className="search-bar__sort-filter-buttons-label">Filter</p>

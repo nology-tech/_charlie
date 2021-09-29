@@ -1,4 +1,4 @@
-import React,{useEffect, useState}  from 'react'
+import React,{useEffect, useState }  from 'react'
 import StudentsTopNav from "./studentstopnav/studentstopnav"
 import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './studentsearchbar/studentsearchbar';
@@ -107,41 +107,33 @@ const Students = () => {
         }
     }
 };
+
+// Sorting logic (A-Z, Z-A) - THIS NEEDS FIXING
+
     const sortFunction = () => {
-        if(sortedSelector == 1){
-            return studentsData;
-        }else if(sortedSelector == 2){
-            setStudentsData(studentsData.sort((a, b)=> a.studentName.localeCompare(b.studentName)));
-        }else if(sortedSelector == 3){
-            setStudentsData(studentsData.sort((b, a)=> a.studentName.localeCompare(b.studentName))); 
-        }else if(sortedSelector == 4){
-            
-        }
-    }
-    // Sorting logic 
-    const sortNameAlphabetically = (e) => {
-        setSortedSelector(e.target.value);
-        if(sortedSelector == 1){
-            return studentsData;
-        }else if(sortedSelector == 2){
-            setStudentsData(studentsData.sort((a, b)=> a.studentName.localeCompare(b.studentName)));
-        }else if(sortedSelector == 3){
-            setStudentsData(studentsData.sort((b, a)=> a.studentName.localeCompare(b.studentName))); 
-        }else if(sortedSelector == 4){
-            
+        if (sortedSelector === 2) {
+            setStudentsData(studentsData => {studentsData.sort((a, b)=> a.studentName.localeCompare(b.studentName))})
+        } else if (sortedSelector === 3) {
+            setStudentsData(studentsData => {studentsData.sort((a, b)=> a.studentName.localeCompare(b.studentName)).reverse()});
         }
     }
     
+    const sortNameAlphabetically = (e) => {
+        setSortedSelector(e.target.value);
+    }
+
+    // useEffect Calls
+
     useEffect(fetchStudentData, []); 
-    useEffect(displayStudents, [studentsData, pageNumber, numberOfRows, sortedSelector]); 
-    useEffect(sortFunction, [sortedSelector])
-    // The following logic is for the row selection portion of the PageNavigator component. Placed here as PageNavigator is a presentational component. 
+    useEffect(displayStudents, [studentsData, pageNumber, numberOfRows]);
+    
+    // The following logic is for the row selection portion of the PageNavigator component. It is placed here as PageNavigator is a presentational component. 
     const firstIndex = numberOfRows*pageNumber-numberOfRows;
     let secondIndex;
     pageData.length < numberOfRows ? secondIndex = pageData.length + firstIndex : secondIndex = numberOfRows*pageNumber;
     
     return (
-        <div className="main col-10 m-0 d-flex justify-content-space-between">
+        <div className="main col-10 m-0 d-flex justify-content-between">
             <div className="students__white-space"></div>
                 <div className="students d-flex flex-column align-items-center p-0 ">
                     <StudentsTopNav className="students__topNav" 
