@@ -29,14 +29,12 @@ function App() {
             </Route>
 
             <Route path="/student/create">
-              <AddStudent></AddStudent>
+              <AddStudent />
             </Route>
             
             <Route path="/student/:id">
-              <StudentDetails></StudentDetails>
+              <StudentDetails />
             </Route>
-
-           
 
             <Route path="/projects">
               <Projects />
