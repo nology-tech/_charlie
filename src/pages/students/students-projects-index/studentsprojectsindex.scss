@@ -5,13 +5,13 @@
     margin: 0 100px;
 
     &__header {
-        height: 120px;
+        // height: 120px;
         font: $font-primary;
-        // background-color: white;
-        //padding: 60px 0;
-        //display: flex;
-        //justify-content: space-between;
-        //align-items: center;
+        background-color: white;
+        padding: 60px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         
         &-button Button {
             height: 50px;
@@ -19,92 +19,95 @@
         }
 
     }
+
+
+
     
-    &__overview {
-        p, li {
-            color:#95accb;
-            font-size: 12px;
+    // &__overview {
+    //     p, li {
+    //         color:#95accb;
+    //         font-size: 12px;
 
-        }
-        &-flex{
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            grid-template-rows: repeat(8, 60px);
-            gap: 20px;
+    //     }
+    //     &-flex{
+    //         display: grid;
+    //         grid-template-columns: 1fr 2fr;
+    //         grid-template-rows: repeat(8, 60px);
+    //         gap: 20px;
             
-            Card {
-                grid-row: span 4;
-                margin: 0 auto;
-                border: 5px solid black;
-            }
+    //         Card {
+    //             grid-row: span 4;
+    //             margin: 0 auto;
+    //             border: 5px solid black;
+    //         }
 
-            .description-box1 {
-                grid-row: span 2;
-                width: 570px;
-                height: 120px;
-                background-color: white;
-                padding: 20px;
-                border: 1px solid black;
+    //         .description-box1 {
+    //             grid-row: span 2;
+    //             width: 570px;
+    //             height: 120px;
+    //             background-color: white;
+    //             padding: 20px;
+    //             border: 1px solid black;
                 
-                p {
-                    margin-top: 15px;
-                }
+    //             p {
+    //                 margin-top: 15px;
+    //             }
                 
-            }
+    //         }
 
-            .additional-notes {
-                grid-column: 1/2;
-                grid-row: 6/8;
-                background-color: white;
-                border: 1px solid black;
-                padding: 20px;
-                width: 270px;
-                height: 120px;
-                h6 {
-                    margin-bottom: 15px;
-                }
-                input {
-                    height: 40px;
-                    width: 225px;
-                    font-size: 8px;
-                    color:#95accb;
-                }
+    //         .additional-notes {
+    //             grid-column: 1/2;
+    //             grid-row: 6/8;
+    //             background-color: white;
+    //             border: 1px solid black;
+    //             padding: 20px;
+    //             width: 270px;
+    //             height: 120px;
+    //             h6 {
+    //                 margin-bottom: 15px;
+    //             }
+    //             input {
+    //                 height: 40px;
+    //                 width: 225px;
+    //                 font-size: 8px;
+    //                 color:#95accb;
+    //             }
 
-            }
-            .overview-btns {
-                grid-column: 1/2;
-                grid-row: 5/6;
-                width: 270px;
-                padding: 13px 25px;
-                display: flex;
-                justify-content: space-between;
-                border: 1px solid black;
-                button {
-                    font-size: 9px !important;
-                    display: flex;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    gap: 8px;
-                    &.btn-git {
-                        color: white;
-                        background-color: $color-secondary;
-                    }
-                }
+    //         }
+    //         .overview-btns {
+    //             grid-column: 1/2;
+    //             grid-row: 5/6;
+    //             width: 270px;
+    //             padding: 13px 25px;
+    //             display: flex;
+    //             justify-content: space-between;
+    //             border: 1px solid black;
+    //             button {
+    //                 font-size: 9px !important;
+    //                 display: flex;
+    //                 justify-content: space-evenly;
+    //                 align-items: center;
+    //                 gap: 8px;
+    //                 &.btn-git {
+    //                     color: white;
+    //                     background-color: $color-secondary;
+    //                 }
+    //             }
 
-            }
+    //         }
 
-            .description-box2 {
-                width: 570px;
-                grid-column: 2/3;
-                grid-row: 3/8;
-                background-color: white;
-                padding: 25px;
-                border: 1px solid black;
-                p {
-                    margin-bottom: 35px;
-                }
+    //         .description-box2 {
+    //             width: 570px;
+    //             grid-column: 2/3;
+    //             grid-row: 3/8;
+    //             background-color: white;
+    //             padding: 25px;
+    //             border: 1px solid black;
+    //             p {
+    //                 margin-bottom: 35px;
+    //             }
 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 }
