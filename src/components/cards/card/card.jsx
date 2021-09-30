@@ -3,11 +3,12 @@ import Button from "../../button/button"
 
 const Card = ({project, btnText}) => {
   const card = (
-    <div className="card" key={project.title}>
+    <div className="col-md-3" key={project.title}>
       <img src={project.imgSrc} alt={project.title} />
       <h5>{project.title}</h5>
       <h6>{project.languagesUsed.join("/")}</h6>
-      <Button btnText={btnText} btnType={`btn btn-quaternary violet`} />
+      
+      <button className="btn btn-quaternary violet">{btnText}</button>
     </div>
     )
   

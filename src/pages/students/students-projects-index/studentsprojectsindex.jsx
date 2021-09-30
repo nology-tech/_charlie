@@ -77,11 +77,11 @@ const SubmissionDetails = () => {
                         </div>
                     </div>
                 </div>
+                <div className="row">
+                    <Cards />
+                </div>
             </div>
 
-            <div className="row">
-                <Cards />
-            </div>
         </div>
     )
 }
