@@ -1,5 +1,6 @@
 import React from 'react'
 import "./studentstopnav.scss";
+import {Link} from "react-router-dom";
 
 
 const StudentListTopNav = (props) => {
@@ -8,9 +9,9 @@ const StudentListTopNav = (props) => {
         <nav className="top-nav d-flex flex-column justify-content-between">
             <div className="top-nav__header d-flex align-items-center justify-content-between">
                 <h1 className="top-nav__header-title"> Students </h1>
-                {/* <Link to="/studentcreate"> */}
+                <Link to="/student/create">
                     <button className="btn-primary top-nav__header-button border-0 me-2">+ Create</button>
-                {/* </Link> */}
+                </Link>
             </div>
             <div className="top-nav__student-types d-flex justify-content-start align-items-center">
                 <div className={enrolledFilter === "All" ? "top-nav__student-types__all selectedFilterClass" : "top-nav__student-types__all"} onClick={filterDataByAll}>All</div>

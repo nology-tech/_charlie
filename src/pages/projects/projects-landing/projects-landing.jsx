@@ -34,6 +34,10 @@ const ProjectsLanding = () => {
         setProjectsData(projectsDataFile.filter(project =>project.language.includes("React")));
     }
 
+    const filterDataByLanguage = () => {
+        
+    }
+
     // useEffect Calls
 
     useEffect(fetchProjectsData, []); 

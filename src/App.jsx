@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import './App.scss';
 import Navbar from "./components/navbar/navbar";
-
+import ProjectsCreate from "./pages/projects/projects-create/projects-create"
 import ProjectsLanding from "./pages/projects/projects-landing/projects-landing";
 import Settings from "./pages/settings/settings";
 import Students from "./pages/students/students-list/students";
@@ -22,7 +22,11 @@ const App = () => {
           <Switch>
             
 
-            {/* 2. Project routes for list, create, and details */}
+            {/* 2. Project routes for projects list, create, and details */}
+            <Route path="/projects/projects-create">
+              <ProjectsCreate />
+            </Route>
+
             <Route path="/projects">
               <ProjectsLanding />
             </Route>
@@ -40,8 +44,8 @@ const App = () => {
               <Settings />
             </Route>
 
-            {/* 1. Student routes for list, create, and details */}
-            <Route path={["/students", "/"]}>
+            {/* 1. Student routes for students list, create, and details */}
+            <Route path="/students">
               <Students />
             </Route>
             <Route path="/student/create">

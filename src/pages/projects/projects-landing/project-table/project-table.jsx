@@ -4,7 +4,7 @@ import ProjectTableRow from './project-table-row/project-table-row';
 
 const ProjectTable = (props) => {
     const {pageData} = props; 
-    const projects = pageData && pageData.map(project => <ProjectTableRow project={project}/>)
+    const projects = pageData.map(project => <ProjectTableRow project={project}/>)
     return ( 
         <>
         <div className="project-list d-flex align-items-center text-center">
