@@ -1,51 +1,75 @@
 @use "../../../assets/styles/variables" as *;
 @import "../../../assets/styles/typography";
 
+.container-fluid {margin: 0 auto;}
 .projects {
-    margin: 0 100px;
-
+    margin: 0 65px;
+    
     &__header {
-        // height: 120px;
+        margin: 0 auto;
         font: $font-primary;
-        background-color: white;
         padding: 60px 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
-        
-        // &-button Button {height: 50px; width: 130px;}
 
+        &__review{
+            width: 150px;
+        }
     }
 
     &__additional-notes {
-        display: flex;
-        // border: 1px solid #a9a9a9;
-        justify-content: space-between;
-        align-items: center;
+        background-color: white;
+        width: 250px;
+        margin: 0 auto;
         
-        input {
-            width: 200px;
-            padding: 10px;
-            background-color: white;
-            border: 1px solid lightgray;
+        &-inputs {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-            &[type='text'] {
-                border-radius: 10px 0 0 10px;
-                border-right: none;
-            }
-            
-            &[type="button"] {
-                border-radius: 0 10px 10px 0;
-                border-left: none;
-                font-size: x-large;
-                color: #95ACCB;
+            input {
+                // width: 200px;
+                // padding: 10px;
+                background-color: white;
+                border: 1px solid lightgray;
+    
+                &[type='text'] {
+                    font-size: 12px;
+                    border-radius: 10px 0 0 10px;
+                    border-right: none;
+                }
+                
+                &[type="button"] {
+                    min-width: unset;
+                    width: 50px;
+                    border-radius: 0 10px 10px 0;
+                    border-left: none;
+                    font-size: x-large;
+                    color: #95ACCB;
+                }
             }
         }
-
-
     }
 
+    &__overview {
+        &-buttons {
+            background-color: white;
+            width: 250px;
+            height: 55px;
+            margin: 0 auto;
+            
+            button {
+                margin: 0 auto;
+                font-size: 11px;
+                min-width: unset;
+                width: 100px;
+                height: 40px;
+            }
+        }
+    }
 
+    
 
     
     // &__overview {

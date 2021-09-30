@@ -1,7 +1,7 @@
 import React from 'react';
 import "./studentsprojectsindex.scss";
 import projects from "../../../data/projects";
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaEye } from 'react-icons/fa';
 import "../student-add/addstudenttopnav/addstudenttopnav.scss";
 
 
@@ -21,13 +21,13 @@ const SubmissionDetails = () => {
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-11 projects__header">
+                    <div class="col-md-12 projects__header">
                         <h2>[student name] - Calculator</h2>
                         <p>
                             <button className="col-3 btn btn-tertiary mx-2">
                                 Go Back
                             </button>
-                            <button className="col-4 btn btn-primary mx-2">
+                            <button className="col-4 btn btn-primary mx-2 projects__header__review">
                                 Leave Review
                             </button>
                         </p>
@@ -42,15 +42,19 @@ const SubmissionDetails = () => {
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <button className="btn btn-git"><FaGithub /><span>View Repo</span></button>
-                                <button className="btn btn-secondary">Live preview</button>
+                            <div class="col-md-12 d-flex projects__overview-buttons">
+                                <button className="btn btn-dark">
+                                    <FaGithub />&nbsp;View Repo
+                                </button>
+                                <button className="btn btn-secondary">
+                                    <FaEye />&nbsp;Live preview
+                                </button>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 projects__additional-notes">
                                 <h6>Additional Notes:</h6>
-                                <div className="projects__additional-notes">
+                                <div className="projects__additional-notes-input">
                                     <input type="text" class="btn form-control" placeholder="lorem ipsum..." />
                                     <input type="button" className="btn form-control" value="+" />
                                 </div>

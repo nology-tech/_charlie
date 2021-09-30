@@ -7,7 +7,7 @@ const Card = ({project, btnText}) => {
       <h5>{project.title}</h5>
       <h6>{project.languagesUsed.join("/")}</h6>
       
-      <button className="btn btn-quaternary violet">{btnText}</button>
+      <button className="btn btn-quaternary">{btnText}</button>
     </div>
     )
   
