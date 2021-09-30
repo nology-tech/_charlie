@@ -1,13 +1,13 @@
 import React from 'react';
-import "./projects.scss";
-import projects from "../../data/projects"
+import "./initialize-project.scss";
+import projects from "../../../data/projects"
 
 
-import Cards from "../../components/cards/cards";
-import Card from "../../components/cards/card/card";
-import Button from "../../components/button/button";
+import Cards from "../../../components/cards/cards";
+import Card from "../../../components/cards/card/card";
+import Button from "../../../components/button/button";
 
-const Projects = () => {
+const InitializeProject = () => {
     return (
         <div className="projects">
             <div className="projects__header">
@@ -53,4 +53,4 @@ const Projects = () => {
     )
 }
 
-export default Projects;
+export default InitializeProject;

@@ -36,8 +36,8 @@ function App() {
               <StudentDetails></StudentDetails>
             </Route>
 
-            <Route path="/projects">
-              <Projects />
+            <Route path="/projects/projects-list">
+              <ProjectsLanding />
             </Route>
 
             <Route path="/enrollment">
