@@ -1,3 +1,4 @@
+// necessary for implementing absolute paths imports (not working yet)
 {
   "compilerOptions": {
     "baseUrl": "src"
