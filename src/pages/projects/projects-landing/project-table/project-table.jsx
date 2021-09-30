@@ -3,20 +3,19 @@ import "./project-table.scss";
 import ProjectTableRow from './project-table-row/project-table-row';
 
 const ProjectTable = (props) => {
-
     const {pageData} = props; 
     const projects = pageData && pageData.map(project => <ProjectTableRow project={project}/>)
     return ( 
         <>
-        <div className="studentList d-flex align-items-center text-center">
-            <p className="col studentList__property-label">Student Name</p>
-            <p className="col studentList__property-label">Enrolled On</p>
-            <p className="col studentList__property-label">Github Account</p>
-            <p className="col studentList__property-label">Portfolio</p>
-            <p className="col studentList__property-label">Resume</p>
-            <p className="col-1 studentList__property-label"></p>
+        <div className="project-list d-flex align-items-center text-center">
+            <p className="col project-list__property-label">Project Name</p>
+            <p className="col project-list__property-label">Language</p>
+            <p className="col project-list__property-label">Students Enrolled</p>
+            <p className="col project-list__property-label">Number Reviewed</p>
+            <p className="col project-list__property-label">% Reviewed</p>
+            <p className="col-1 project-list__property-label"></p>
         </div>
-        <div className="hamburger-styling">
+        <div className="w-100">
             {projects}
         </div>
         </>

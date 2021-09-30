@@ -6,7 +6,7 @@
     min-height: 157px;
     padding-top: 59px;
     background:#FFFFFF;
-    margin-bottom: 30px; 
+    margin-bottom: 50px; 
     border-bottom: 1px #EDE8F8 solid;
     &__header {
         width: 100%; 
@@ -18,7 +18,7 @@
             color: $color-quaternary; 
         }
     }
-    &__student-types {
+    &__language-types {
         width: 100%;
         color: $color-tertiary;
         font-size: 16px;

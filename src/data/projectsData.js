@@ -7,7 +7,7 @@ const projectsData = [
         percentageReviewed: "85%"
     },
     {
-        projectName: "Portfolie",
+        projectName: "Portfolio",
         language: "HTML/CSS",
         studentsEnrolled: "325",
         numberReviewed: "278",

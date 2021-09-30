@@ -3,10 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.scss';
 import Navbar from "./components/navbar/navbar";
 
-import Dashboard from "./pages/dashboard/dashboard";
-
 import ProjectsLanding from "./pages/projects/projects-landing/projects-landing";
-import Enrollment from "./pages/enrollment/enrollment";
 import Settings from "./pages/settings/settings";
 import Students from "./pages/students/students-list/students";
 import StudentDetails from './pages/students/student-details/studentdetails';
