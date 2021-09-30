@@ -68,6 +68,21 @@ const StudentForm = () => {
             </div>
 
             <div className="col-12 mt-3">
+                <label htmlFor="email">Email</label>
+                <input
+                {...register("email", {
+                    required: true,
+                    pattern: /^[A-Za-z]+$/i,
+                })}
+                name="email"
+                className="form-control form__input my-2"
+                type="email"
+                id="email"
+                />
+                {errors.email && <p className="text-danger">*Required</p>}
+            </div>
+
+            <div className="col-12 mt-3">
                 <label htmlFor="">Enrolled on</label>
                 <select
                 {...register("enrolledOn", { required: true })}
