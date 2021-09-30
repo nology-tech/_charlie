@@ -1,12 +1,10 @@
 @use "../../../assets/styles/variables" as *;
 @import "../../../assets/styles/typography";
 
-.container-fluid {margin: 0 auto;}
 .projects {
     margin: 0 65px;
     
     &__header {
-        margin: 0 auto;
         font: $font-primary;
         padding: 60px 0;
         display: flex;
@@ -21,32 +19,32 @@
     &__additional-notes {
         background-color: white;
         width: 250px;
-        margin: 0 auto;
+        border-radius: 7px;
         
-        &-inputs {
+        &-input {
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             input {
-                // width: 200px;
-                // padding: 10px;
-                background-color: white;
-                border: 1px solid lightgray;
-    
-                &[type='text'] {
+                padding: 10px;
+                border: 1px solid black;
+                border: none;
+                color: #95ACCB;
+                
+                &[type="text"] {
+                    
                     font-size: 12px;
-                    border-radius: 10px 0 0 10px;
-                    border-right: none;
                 }
                 
                 &[type="button"] {
-                    min-width: unset;
-                    width: 50px;
-                    border-radius: 0 10px 10px 0;
-                    border-left: none;
+                    background-color: none;
                     font-size: x-large;
-                    color: #95ACCB;
+
+                    &:hover {
+                        border: none; 
+                        background-color: none;
+                    }
                 }
             }
         }
@@ -57,13 +55,13 @@
             background-color: white;
             width: 250px;
             height: 55px;
-            margin: 0 auto;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
             
             button {
-                margin: 0 auto;
-                font-size: 11px;
+                font-size: 10px;
                 min-width: unset;
-                width: 100px;
                 height: 40px;
             }
         }

@@ -19,9 +19,9 @@ const SubmissionDetails = () => {
                 </div>
             </div> */}
 
-            <div class="container-fluid">
+            <div class="container-fluid mx-auto">
                 <div class="row">
-                    <div class="col-md-12 projects__header">
+                    <div class="col-md-12 projects__header mx-auto">
                         <h2>[student name] - Calculator</h2>
                         <p>
                             <button className="col-3 btn btn-tertiary mx-2">
@@ -42,21 +42,26 @@ const SubmissionDetails = () => {
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12 d-flex projects__overview-buttons">
-                                <button className="btn btn-dark">
+                            <div class="col-md-12 d-flex projects__overview-buttons mx-auto mt-4">
+                                <button className="btn btn-dark mx-auto">
                                     <FaGithub />&nbsp;View Repo
                                 </button>
-                                <button className="btn btn-secondary">
+                                <button className="btn btn-secondary mx-auto">
                                     <FaEye />&nbsp;Live preview
                                 </button>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12 projects__additional-notes">
+                            <div class="col-md-12 projects__additional-notes mt-4 mx-auto">
                                 <h6>Additional Notes:</h6>
-                                <div className="projects__additional-notes-input">
-                                    <input type="text" class="btn form-control" placeholder="lorem ipsum..." />
-                                    <input type="button" className="btn form-control" value="+" />
+                                <div className="projects__additional-notes-input row d-flex">
+                                    <div className="col-md-9">
+                                        <input type="text" placeholder="lorem ipsum..." 
+                                        className="form-control" />
+                                    </div>
+                                    <div className="col-md-3">
+                                        <input type="button" className="btn-secondary" value="+" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +90,9 @@ const SubmissionDetails = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <Cards />
+                    <div class="col-md-12 mt-4 mb-4">
+                        <Cards />
+                    </div>
                 </div>
             </div>
 
