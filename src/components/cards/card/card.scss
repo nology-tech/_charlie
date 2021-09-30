@@ -10,34 +10,20 @@
   text-align: center;
   background-color: white;
   border-radius: 7px;
-  box-shadow: 0px 30px 40px 0px #724BCB0F; ;
+  box-shadow: 0px 30px 40px 0px #724BCB0F;
   
   img {
     width: 80%;
     height: auto;
-    margin-bottom: 40px;
     margin: 0 auto;
   }
 
-  h5 {margin-bottom: 5px;}
-  h6 {
+  h5 {font-weight: 700;}
+  p {
     font-weight: 400;
-    margin-bottom: 15px;
     color:#95accb;
+    font-size: 10px;
   }
-
-  // .btn.btn-quaternary.violet {
-  //   background-color: #Ebebf5;
-  //   color: $accent-primary;
-  //   height: 30px;
-  //   width: 120px;
-  //   border-radius: 7px;
-  //   font-size: 10px;
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  // }
 
   button {
     width: 120px;
