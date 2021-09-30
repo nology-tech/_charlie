@@ -50,11 +50,14 @@ const SubmissionDetails = () => {
                         <div class="row">
                             <div class="col-md-12">
                                 <h6>Additional Notes:</h6>
-                                <input placeholder="lorem ipsum..." type="text" />
+                                <div className="projects__additional-notes">
+                                    <input type="text" class="btn form-control" placeholder="lorem ipsum..." />
+                                    <input type="button" className="btn form-control" value="+" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-12">
                                 <h6>Getting Started</h6>

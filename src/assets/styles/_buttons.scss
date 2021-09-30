@@ -44,7 +44,21 @@
     border: 1px solid $accent-primary;
 }
 
-.btn-quaternary .violet {
+// .btn-quaternary.violet {
+//     background-color: #Ebebf5;
+//     color: $accent-primary;
+// }
+
+.btn.btn-quaternary .violet {
     background-color: #Ebebf5;
     color: $accent-primary;
+    border: 1px solid green;
+    height: 30px;
+    width: 120px;
+    border-radius: 7px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
