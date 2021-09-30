@@ -1,13 +1,12 @@
 import React from 'react';
-import "./projects.scss";
-import projects from "../../data/projects"
+import "./studentsprojectsindex.scss";
+import projects from "../../../data/projects"
 
 
-import Cards from "../../components/cards/cards";
-import Card from "../../components/cards/card/card";
-import Button from "../../components/button/button";
+import Cards from "../../../components/cards/cards";
+import Card from "../../../components/cards/card/card";
 
-const Projects = () => {
+const StudentsProjectsIndex = () => {
     return (
         <div className="projects">
             <div className="projects__header">
@@ -15,8 +14,8 @@ const Projects = () => {
                 <h3>Calculator</h3>
             </div>
             <div className="projects__header-button">
-                <Button btnText="Go Back" btnType="tertiary" />
-                <Button btnText="Initialize" btnType="primary" />
+                <button className="btn btn-tertiary">Go Back</button>
+                <button className="btn btn-primary">Initialize</button>
             </div>
             </div>
             <section className="projects__overview">
@@ -53,4 +52,4 @@ const Projects = () => {
     )
 }
 
-export default Projects;
+export default StudentsProjectsIndex;
