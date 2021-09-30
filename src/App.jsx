@@ -4,7 +4,7 @@ import Navbar from "./components/navbar/navbar";
 
 import Dashboard from "./pages/dashboard/dashboard";
 
-import Projects from "./pages/projects/projects";
+import ProjectsLanding from "./pages/projects/projects-landing/projects-landing";
 import Enrollment from "./pages/enrollment/enrollment";
 import Settings from "./pages/settings/settings";
 
@@ -36,7 +36,7 @@ function App() {
               <StudentDetails></StudentDetails>
             </Route>
 
-            <Route path="/projects/projects-list">
+            <Route path="/projects">
               <ProjectsLanding />
             </Route>
 

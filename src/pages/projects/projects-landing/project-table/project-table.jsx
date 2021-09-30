@@ -1,14 +1,14 @@
 import React from 'react';
-import "./student-table.scss";
-import StudentTableRow from './project-table-row/student-table-row';
+import "./project-table.scss";
+import ProjectTableRow from './project-table-row/project-table-row';
 
 const ProjectTable = (props) => {
 
-    const {pageData, toggleView} = props; 
-    const students = pageData && pageData.map(student => <StudentTableRow student={student} toggleView = {toggleView}/>)
+    const {pageData} = props; 
+    const projects = pageData && pageData.map(project => <ProjectTableRow project={project}/>)
     return ( 
         <>
-        <div className={toggleView === false ? "studentList d-flex align-items-center text-center": "hide-student-list-labels"}>
+        <div className="studentList d-flex align-items-center text-center">
             <p className="col studentList__property-label">Student Name</p>
             <p className="col studentList__property-label">Enrolled On</p>
             <p className="col studentList__property-label">Github Account</p>
@@ -16,8 +16,8 @@ const ProjectTable = (props) => {
             <p className="col studentList__property-label">Resume</p>
             <p className="col-1 studentList__property-label"></p>
         </div>
-        <div className={toggleView === false ? "hamburger-styling" : "student-grid"}>
-            {students}
+        <div className="hamburger-styling">
+            {projects}
         </div>
         </>
     )

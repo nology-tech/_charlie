@@ -49,3 +49,5 @@ const projectsData = [
         percentageReviewed: "85%"
     }
 ]
+
+export default projectsData;
