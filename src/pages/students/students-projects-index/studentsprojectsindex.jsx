@@ -1,12 +1,13 @@
 import React from 'react';
 import "./studentsprojectsindex.scss";
-import projects from "../../../data/projects"
+import projects from "../../../data/projects";
+import { FaGithub } from 'react-icons/fa';
 
 
 import Cards from "../../../components/cards/cards";
 import Card from "../../../components/cards/card/card";
 
-const StudentsProjectsIndex = () => {
+const SubmissionDetails = () => {
     return (
         <div className="projects">
             <div className="projects__header">
@@ -15,22 +16,24 @@ const StudentsProjectsIndex = () => {
             </div>
             <div className="projects__header-button">
                 <button className="btn btn-tertiary">Go Back</button>
-                <button className="btn btn-primary">Initialize</button>
+                <button className="btn btn-primary">Leave Review</button>
             </div>
             </div>
             <section className="projects__overview">
                 <h6>Overview</h6>
                 <div className="projects__overview-flex">
                 <Card project={projects[0]} btnText="Intialize Project"/>
-                <div className="getting-started">
+                <div className="description-box1">
                     <h6>Getting Started</h6>
                     <p>Please use the intialize button above to start a new project.</p>
                 </div>
-                <div className="additional-notes">
-                    <h6>Additional Notes:</h6>
-                    <input placeholder="lorem ipsum..." type="text" />
-                </div>
-                <div className="challenge-brief">
+                
+                <div className="overview-btns">
+                    <button className="btn btn-git"><FaGithub /><span>View Repo</span></button>
+                    <button className="btn btn-secondary">Live preview</button>
+                </div>    
+
+                <div className="description-box2">
                     <h6>Challenge Brief</h6>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui convallis feugiat vel, sit malesuada commodo nullam. Urna, mattis parturient ullamcorper imperdiet platea iaculis. Malesuada nulla fermentum elit, ac diam at id. In aliquet vestibulum in lacus, id. Semper amet, vitae risus, hendrerit adipiscing consectetur. Elementum aliquam sit quis bibendum in eu auctor tristique.
                     Ac id sit velit cras. Rhoncus nam aenean nisl commodo. Dictum dignissim sit adipiscing odio volutpat in. Tempus ultricies tristique cursus varius dui libero. Orci nisl neque, at sem nibh id sed augue odio. </p>
@@ -42,6 +45,10 @@ const StudentsProjectsIndex = () => {
                     </ul>
                     <p>Good Luck from the coaches!</p>
                 </div>
+                <div className="additional-notes">
+                    <h6>Additional Notes:</h6>
+                    <input placeholder="lorem ipsum..." type="text" />
+                </div>
                 </div>
 
             </section>   
@@ -52,4 +59,4 @@ const StudentsProjectsIndex = () => {
     )
 }
 
-export default StudentsProjectsIndex;
+export default SubmissionDetails;

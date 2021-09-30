@@ -4,7 +4,7 @@ import Navbar from "./components/navbar/navbar";
 
 import Dashboard from "./pages/dashboard/dashboard";
 
-import StudentsProjectsIndex from "./pages/students/students-projects-index/studentsprojectsindex";
+import SubmissionDetails from "./pages/students/students-projects-index/studentsprojectsindex";
 import Enrollment from "./pages/enrollment/enrollment";
 import Settings from "./pages/settings/settings";
 
@@ -32,8 +32,10 @@ function App() {
               <StudentDetails></StudentDetails>
             </Route>
             
-            <Route path="/student/project-index">
-              <StudentsProjectsIndex />
+            
+
+            <Route path="/student/:id/project/:id">
+              <SubmissionDetails />
             </Route>
 
             <Route path="/students">
@@ -41,7 +43,7 @@ function App() {
             </Route>
             
             <Route path="/projects">
-              <StudentsProjectsIndex />
+            <SubmissionDetails />
             </Route>
 
             <Route path="/enrollment">

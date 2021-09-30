@@ -1,6 +1,8 @@
 @import "_variables.scss";
 
 .btn {
+    width: 130px;
+    height: 50px;
     padding: 10px 20px;
     border: none;
     outline: none;
@@ -12,14 +14,13 @@
 //     color: $color-primary;
 // }
 
-.btn-secondary {
-    background-color: $accent-secondary;
-    color: $color-secondary;
-}
+// .btn-secondary {
+//     background-color: $accent-secondary;
+//     color: $color-secondary;
+// }
 
 .btn-primary {
-    width: 130px;
-    height: 50px;
+    
     background: $accent-primary;
     border-radius: 7px;
     color: white;
@@ -28,13 +29,14 @@
 .btn-tertiary {
     background-color: $color-primary;
     color: $accent-primary;
+    border: 2px solid $accent-primary;
 }
 
 
 .btn-secondary, .btn-secondary:hover{
     background-color: white;
     color: $accent-primary;
-    border: $accent-primary solid 2px;
+    border: 2px solid $accent-primary;
 }
 
 .btn-upload {
