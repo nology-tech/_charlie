@@ -1,18 +1,18 @@
-import './App.scss';
+import 'App.scss';
 
-import Navbar from "./components/navbar/navbar";
+import Navbar from "components/navbar/navbar";
 
-import Dashboard from "./pages/dashboard/dashboard";
+import Dashboard from "pages/dashboard/dashboard";
 
-import Projects from "./pages/projects/projects";
-import Enrollment from "./pages/enrollment/enrollment";
-import Settings from "./pages/settings/settings";
+import Projects from "pages/projects/projects";
+import Enrollment from "pages/enrollment/enrollment";
+import Settings from "pages/settings/settings";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Students from "./pages/students/students-list/students";
-import StudentDetails from './pages/students/student-details/studentdetails';
-import AddStudent from './pages/students/student-add/addstudent';
+import Students from "pages/students/students-list/students";
+import StudentDetails from 'pages/students/student-details/studentdetails';
+import AddStudent from 'pages/students/student-add/addstudent';
 
 function App() {
 
