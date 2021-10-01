@@ -15,7 +15,7 @@ const SubmissionDetails = () => {
                 <h1 className="project__header-title col-3 offset-1">Calculator</h1>                
                 <div className="projects__header-button col-5 offset-3">
                     <button className="col-3 btn btn-tertiary projects__header-button mx-2">Go Back</button>
-                    <button className="col-4 btn btn-primary projects__header-button">Leave Review</button>
+                    <button className="col-3 btn btn-primary projects__header-button">Leave Review</button>
                 </div>
             </div>
             <div className="projects__overview row">
@@ -49,7 +49,6 @@ const SubmissionDetails = () => {
                         <input placeholder="lorem ipsum..." type="text" />
                     </div>
                 </div>
-
             </div>
             <div className="row">
                 <Cards />

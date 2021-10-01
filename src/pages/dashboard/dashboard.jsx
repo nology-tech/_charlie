@@ -7,7 +7,7 @@ const Dashboard = () => {
     const history = useHistory();
     return (
         <div>
-            <button onClick={() => history.push('/student-details')}>Add Student</button>
+            <button onClick={() => history.push('/student/create')}>Add Student</button>
         </div>
     )
 }
