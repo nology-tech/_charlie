@@ -1,7 +1,7 @@
 @import "_variables.scss";
 
 .btn {
-    width: 130px;
+    min-width: 130px;
     height: 50px;
     padding: 10px 20px;
     border: none;
@@ -9,18 +9,7 @@
     border-radius: 7px;
 }
 
-// .btn-primary {
-//     background-color: $accent-primary;
-//     color: $color-primary;
-// }
-
-// .btn-secondary {
-//     background-color: $accent-secondary;
-//     color: $color-secondary;
-// }
-
 .btn-primary {
-    
     background: $accent-primary;
     border-radius: 7px;
     color: white;
@@ -31,7 +20,6 @@
     color: $accent-primary;
     border: 2px solid $accent-primary;
 }
-
 
 .btn-secondary, .btn-secondary:hover{
     background-color: white;
@@ -44,7 +32,12 @@
     border: 1px solid $accent-primary;
 }
 
-.btn-quaternary .violet {
+.btn-quaternary {
     background-color: #Ebebf5;
     color: $accent-primary;
+}
+
+.btn-dark {
+    color: white;
+    background-color: $color-secondary;
 }

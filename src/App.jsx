@@ -5,7 +5,6 @@ import Navbar from "./components/navbar/navbar";
 import Dashboard from "./pages/dashboard/dashboard";
 
 import SubmissionDetails from "./pages/students/students-projects-index/studentsprojectsindex";
-import Enrollment from "./pages/enrollment/enrollment";
 import Settings from "./pages/settings/settings";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -42,10 +41,6 @@ function App() {
             
             <Route path="/projects">
             <SubmissionDetails />
-            </Route>
-
-            <Route path="/enrollment">
-              <Enrollment />
             </Route>
 
             <Route path="/settings">
