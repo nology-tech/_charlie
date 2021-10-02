@@ -22,8 +22,8 @@ const App = () => {
           <Switch>
             
 
-            {/* 2. Project routes for projects list, create, and details */}
-            <Route path="/projects/projects-create">
+            {/* 2. Project routes for list, create, and details */}
+            <Route path="/projects-create">
               <ProjectsCreate />
             </Route>
 
@@ -44,7 +44,7 @@ const App = () => {
               <Settings />
             </Route>
 
-            {/* 1. Student routes for students list, create, and details */}
+            {/* 1. Student routes for list, create, and details */}
             <Route path="/students">
               <StudentsList/>
             </Route>
