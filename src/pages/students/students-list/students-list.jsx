@@ -1,8 +1,8 @@
 import React,{useEffect, useState }  from 'react'
-import StudentsTopNav from "./studentstopnav/studentstopnav"
+import StudentsTopNav from "./studentstopnav/students-top-nav"
 import StudentTable from "./student-table/student-table";
-import StudentSearchBar from './studentsearchbar/studentsearchbar';
-import PageNavigator from './pagenavigator/pagenavigator';
+import StudentSearchBar from './students-searchbar/student-searchbar';
+import PageNavigator from './page-navigator/page-navigator';
 import "./students-list.scss"; 
 import Data from "../../../data/data.js"; 
 

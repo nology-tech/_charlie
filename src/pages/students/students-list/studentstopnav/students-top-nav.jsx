@@ -1,5 +1,5 @@
 import React from 'react'
-import "./studentstopnav.scss";
+import "./students-top-nav.scss";
 
 
 const StudentListTopNav = (props) => {

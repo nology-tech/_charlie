@@ -5,7 +5,7 @@ import Navbar from "./components/navbar/navbar";
 import Projects from "./pages/projects/projects";
 import Settings from "./pages/settings/settings";
 import StudentsList from "./pages/students/students-list/students-list";
-import StudentDetails from './pages/students/student-details/studentdetails';
+import StudentDetails from './pages/students/student-details/student-details';
 import AddStudent from './pages/students/student-add/addstudent';
 import ReviewList from './pages/reviews/review-list/review-list';
 import AddReview from './pages/reviews/add-review/add-review';
@@ -21,7 +21,7 @@ const App = () => {
           <Switch>
             
 
-            {/* 2. Project routes for list, create, and details */}
+            {/* 2. Project routes for projects list, create, and details */}
             <Route path="/projects">
               <Projects />
             </Route>
@@ -39,9 +39,9 @@ const App = () => {
               <Settings />
             </Route>
 
-            {/* 1. Student routes for list, create, and details */}
-            <Route path={["/students", "/"]}>
-              <StudentsList />
+            {/* 1. Student routes for students list, create, and details */}
+            <Route path="/students">
+              <StudentsList/>
             </Route>
             <Route path="/student/create">
               <AddStudent></AddStudent>
