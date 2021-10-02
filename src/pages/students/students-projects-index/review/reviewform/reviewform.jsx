@@ -1,12 +1,16 @@
 // import React, { useState } from "react";
 // //import studentData from '../../data/studentForm';
+import './reviewform.scss';
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import Star from '../../../../../components/star/star';
 
 const ReviewForm = () => {
-    const {register, handleSubmit, formState: { errors }, reset } = useForm();
+    const {register, handleSubmit,  reset } = useForm();
     const history = useHistory();
+
+
+    // formState: { errors },
 
     // console.log(errors);
     // const [{ alt, src }, setImg] = useState({
@@ -41,9 +45,10 @@ const ReviewForm = () => {
                 <div className="col-12 mt-4">
                     <h6>Knowledge of Module</h6>
                     <Star />
+                    <br/>
                       <label htmlFor="moduleKnowledge">Additional Notes:</label>
                       <input
-                      // {...register("moduleKnowledge")}
+                      {...register("moduleKnowledge")}
                       name="moduleKnowledge"
                       className="form-control form__input  my-2"
                       type="text"
@@ -55,12 +60,10 @@ const ReviewForm = () => {
                 <div className="col-12 mt-3">
                     <h6>Quality of HTML/CSS</h6>
                     <Star />
+                    <br/>
                     <label htmlFor="HTML-CSSKnowledge">Additional Notes:</label>
                     <input
-                // {...register("lastName", {
-                //     required: true,
-                //     pattern: /^[A-Za-z]+$/i,
-                // })}
+                {...register("HTML-CSSKnowledge")}
                     name="HTML-CSSKnowledge"
                     className="form-control form__input my-2"
                     type="text"
@@ -72,12 +75,10 @@ const ReviewForm = () => {
                 <div className="col-12 mt-3">
                     <h6>Quality of Javascript</h6>
                     <Star />
+                    <br/>
                     <label htmlFor="jsKnowledge">Additional Notes:</label>
                     <input
-                // {...register("lastName", {
-                //     required: true,
-                //     pattern: /^[A-Za-z]+$/i,
-                // })}
+                {...register("jsKnowledge")}
                     name="jsKnowledge"
                     className="form-control form__input my-2"
                     type="text"
@@ -90,7 +91,7 @@ const ReviewForm = () => {
             <div className="col-6">
                 <div className="col-12 mt-4">
                   <h6>Summary</h6>
-                  <input type="text" />
+                  <textarea {...register("summary")} type="text" className="summary form-control my-2" />
                 
                 </div>
             <div className="col-12 mt-5">
