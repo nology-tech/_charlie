@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.scss';
 import Navbar from "./components/navbar/navbar";
 import ProjectsCreate from "./pages/projects/projects-create/projects-create"
-import ProjectsLanding from "./pages/projects/projects-landing/projects-landing";
+import ProjectsList from "./pages/projects/projects-list/projects-list";
 import Settings from "./pages/settings/settings";
 import StudentsList from "./pages/students/students-list/students-list";
-import StudentDetails from './pages/students/student-details/studentdetails';
+import StudentDetails from './pages/students/student-details/student-details';
 import AddStudent from './pages/students/student-add/addstudent';
 import ReviewList from './pages/reviews/review-list/review-list';
 import AddReview from './pages/reviews/add-review/add-review';
@@ -28,7 +28,7 @@ const App = () => {
             </Route>
 
             <Route path="/projects">
-              <ProjectsLanding />
+              <ProjectsList />
             </Route>
 
             {/* 3. Project routes for list and create */}

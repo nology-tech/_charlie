@@ -3,7 +3,7 @@ import Filter from "../../../../assets/images/filter.png";
 import GridView from "../../../../assets/images/grid-view.png";
 import HamburgerMenu from "../../../../assets/images/hamburger-menu.png";
 import Sort from "../../../../assets/images/sort.png";
-import "./studentsearchbar.scss"; 
+import "./student-searchbar.scss"; 
 
 
 const StudentSearchBar = (props) => {

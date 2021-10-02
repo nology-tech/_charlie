@@ -1,11 +1,11 @@
 import React,{useEffect, useState }  from 'react'
 import ProjectsTopNav from "./projects-top-nav/projects-top-nav"
 import ProjectTable from "./project-table/project-table";
-import "./projects-landing.scss"; 
+import "./projects-list.scss"; 
 import projectsDataFile from "../../../data/projectsData"; 
 // import PageHeader from "../../../components/page-header/page-header"; 
 
-const ProjectsLanding = () => {
+const ProjectsList = () => {
     const [projectsData, setProjectsData] = useState([]); 
     const [pageData, setPageData] = useState([]);  
     const [languageFilter, setLanguageFilter] = useState("All");
@@ -64,4 +64,4 @@ const ProjectsLanding = () => {
         </div>
     )
 }
-export default ProjectsLanding;
+export default ProjectsList;
