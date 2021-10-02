@@ -2,7 +2,6 @@ import React,{useEffect, useState }  from 'react'
 import StudentsTopNav from "./studentstopnav/students-top-nav"
 import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './students-searchbar/student-searchbar';
-import PageNavigator from './page-navigator/page-navigator';
 import "./students-list.scss"; 
 import Data from "../../../data/data.js"; 
 
@@ -118,7 +117,7 @@ const StudentsList = () => {
         }
     }
     
-    const sortNameAlphabetically = (e) => {
+    const sortNamesAlphabetically = (e) => {
         setSortedSelector(e.target.value);
     }
 
@@ -144,23 +143,20 @@ const StudentsList = () => {
                     enrolledFilter={enrolledFilter}/>
                     <StudentSearchBar 
                     generateSearchResults={generateSearchResults} 
-                    sortNameAlphabetically = {sortNameAlphabetically}
+                    sortNamesAlphabetically = {sortNamesAlphabetically}
                     changeToGridView={changeToGridView}
                     changeToBurgerView={changeToBurgerView}/>
-                    <StudentTable className="students__list d-flex justify-content-start" 
+                    <StudentTable 
                     studentsData={studentsData} 
                     pageData={pageData}
-                    toggleView={toggleView} />
-                    <footer className=" p-0 m-0">
-                        <PageNavigator totalNumberStudents={totalNumberStudents} 
-                        switchToPreviousPage={switchToPreviousPage} 
-                        switchToNextPage={switchToNextPage} 
-                        changeNumberOfRows={changeNumberOfRows} 
-                        numberOfRows={numberOfRows} 
-                        firstIndex={firstIndex} 
-                        secondIndex={secondIndex}
-                        toggleView={toggleView}/>
-                    </footer>
+                    toggleView={toggleView}
+                    totalNumberStudents={totalNumberStudents}
+                    switchToPreviousPage={switchToPreviousPage}
+                    switchToNextPage={switchToNextPage}
+                    changeNumberOfRows = {changeNumberOfRows}
+                    numberOfRows={numberOfRows}
+                    firstIndex={firstIndex}
+                    secondIndex={secondIndex} />
                 </div>
             <div className="students__white-space"></div>
         </div>

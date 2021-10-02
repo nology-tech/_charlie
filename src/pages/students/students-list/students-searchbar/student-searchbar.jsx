@@ -8,7 +8,7 @@ import "./student-searchbar.scss";
 
 const StudentSearchBar = (props) => {
   
-  const {generateSearchResults, changeToGridView, changeToBurgerView, sortNameAlphabetically} = props;
+  const {generateSearchResults, changeToGridView, changeToBurgerView, sortNamesAlphabetically} = props;
   return (
     <div className="search-bar row d-flex align-items-center text-start ms-0 me-0">
   
@@ -17,13 +17,13 @@ const StudentSearchBar = (props) => {
         <button className="search-bar__view-buttons-btn p-0" onClick={changeToBurgerView}> <img src={HamburgerMenu} alt="hamburger"></img></button>
         <button className="search-bar__view-buttons-btn p-0" onClick={changeToGridView}> <img src={GridView} alt="grid view"></img></button>
       </div>
-      <input className="search-bar__input col-2 offset-3" onInput={generateSearchResults}></input>
+      <input className="search-bar__input col-2 offset-3" onInput={generateSearchResults} placeholder="Course, Name..."></input>
       <div className="search-bar__sort-filter-buttons col-3 d-flex align-items-center justify-content-end"> 
         <img className = "search-bar__sort-filter-buttons-btn p-0" src={Sort} alt="sort"></img>
-        <select name="rows" defaultValue="1" className="sort-menu" onChange={sortNameAlphabetically}>
-          <option value="1">Sort Students</option>
-          <option value="2">Name (A-Z)</option>
-          <option value="3">Name (Z-A)</option>
+        <select name="rows" defaultValue="1" className="sort-menu" onChange={sortNamesAlphabetically}>
+          <option value="1">Sort</option>
+          <option value="2">A-Z</option>
+          <option value="3">Z-A</option>
         </select>
         <img src={Filter} alt="filter" className = "search-bar__sort-filter-buttons-btn p-0"></img>
         <p className="search-bar__sort-filter-buttons-label">Filter</p>
