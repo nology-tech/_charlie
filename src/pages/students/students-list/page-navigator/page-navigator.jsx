@@ -7,7 +7,7 @@ const PageNavigator = (props) => {
     const {totalNumberStudents, switchToPreviousPage, switchToNextPage, changeNumberOfRows, firstIndex, secondIndex} = props; 
     
     return (
-        <div className="page-nav row d-flex align-items-center m-0 p-0 justify-content-end ">
+        <div className="page-nav row d-flex align-items-center p-0 w-100 ms-0">
             <div className="page-nav__rows-selector col-2 offset-8 d-flex align-items-center text-center p-0">
                 <p className="page-nav__rows-selector__label me-1">Students per page: </p>
                 {/* figure out how to update the option value to 8 on grid click */}
