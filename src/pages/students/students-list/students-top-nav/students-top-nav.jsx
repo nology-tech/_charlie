@@ -2,7 +2,6 @@ import React from 'react'
 import "./students-top-nav.scss";
 import {Link} from "react-router-dom";
 
-
 const StudentListTopNav = (props) => {
     const {filterDataByCorporate, filterDataByAll, filterDataByFullTime, filterDataBySelfPaced, enrolledFilter} = props;
     return (
