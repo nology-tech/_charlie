@@ -1,7 +1,7 @@
 import React,{useEffect, useState }  from 'react'
 import StudentsTopNav from "./studentstopnav/students-top-nav"
 import StudentTable from "./student-table/student-table";
-import StudentSearchBar from './students-searchbar/student-searchbar';
+import StudentSearchBar from './student-searchbar/student-searchbar';
 import "./students-list.scss"; 
 import Data from "../../../data/data.js"; 
 
