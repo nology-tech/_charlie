@@ -3,10 +3,10 @@ import StudentsTopNav from "./studentstopnav/studentstopnav"
 import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './studentsearchbar/studentsearchbar';
 import PageNavigator from './pagenavigator/pagenavigator';
-import "./students.scss"; 
+import "./students-list.scss"; 
 import Data from "../../../data/data.js"; 
 
-const Students = () => {
+const StudentsList = () => {
     const [studentsData, setStudentsData] = useState([]); 
     const [pageData, setPageData] = useState([]);
     const [pageNumber, setPageNumber] = useState(1);  
@@ -166,4 +166,4 @@ const Students = () => {
         </div>
     )
 }
-export default Students
+export default StudentsList;

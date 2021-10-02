@@ -4,7 +4,7 @@ import './App.scss';
 import Navbar from "./components/navbar/navbar";
 import Projects from "./pages/projects/projects";
 import Settings from "./pages/settings/settings";
-import Students from "./pages/students/students-list/students";
+import StudentsList from "./pages/students/students-list/students-list";
 import StudentDetails from './pages/students/student-details/studentdetails';
 import AddStudent from './pages/students/student-add/addstudent';
 import ReviewList from './pages/reviews/review-list/review-list';
@@ -41,7 +41,7 @@ const App = () => {
 
             {/* 1. Student routes for list, create, and details */}
             <Route path={["/students", "/"]}>
-              <Students />
+              <StudentsList />
             </Route>
             <Route path="/student/create">
               <AddStudent></AddStudent>
