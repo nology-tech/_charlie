@@ -6,7 +6,7 @@ import StudentRight from "../../../../../assets/images/studentRight.png";
 const ProjectTableRow = (props) => {
   const { projectName, language, studentsEnrolled, numberReviewed, percentageReviewed} = props.project; 
   return (
-    <div className="student row d-flex align-items-center text-center">
+    <div className="student row d-flex align-items-center text-center" data-testid="project">
       <p className="col student__property student__name">{projectName}</p>
       <p className="col student__property">{language}</p>
       <p className="col student__property">{studentsEnrolled}</p>
