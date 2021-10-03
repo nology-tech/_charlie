@@ -4,7 +4,7 @@ import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './studentsearchbar/studentsearchbar';
 import PageNavigator from './pagenavigator/pagenavigator';
 import "./students.scss"; 
-import Data from "../../../data/data"; 
+import students from "../../../data/students"; 
 
 const Students = () => {
     const [studentsData, setStudentsData] = useState([]); 
@@ -14,7 +14,7 @@ const Students = () => {
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length); 
 
     const fetchStudentData = () => {
-        setStudentsData(Data);
+        setStudentsData(students);
     }
 
     const changeNumberOfRows = (e) => {
@@ -47,7 +47,7 @@ const Students = () => {
     const generateSearchResults = (e) => { 
         if (e.target.value) {
             setPageNumber(1); 
-        const filteredData = Data.filter(student=> {
+        const filteredData = students.filter(student=> {
             return (
             student.studentName.toLowerCase().includes(e.target.value.toLowerCase()) ||
             student.enrolledOn.toLowerCase().includes(e.target.value.toLowerCase()) ||
