@@ -11,7 +11,8 @@ import Card from "../../../components/cards/card/card";
 const SubmissionDetails = () => {
     return (
         <div className="projects">
-            <div className="row">
+            <div className="container-fluid mx-auto">
+                <div className="row">
                     <div className="col-md-12 projects__header mx-auto d-flex">
                         <h2>[Student name] - Calculator</h2>
                         <p>
@@ -24,14 +25,7 @@ const SubmissionDetails = () => {
                         </p>
                     </div>
                 </div>
-            <div className="projects__overview row">
-                <h6>Overview</h6>
-                <div className="projects__overview-flex">
-                    <Card project={projects[0]} btnText="Intialize Project" />
-                    <div className="description-box1">
-                        <h6>Getting Started</h6>
-                        <p>Please use the intialize button above to start a new project.</p>
-                    </div>
+
                 <div className="row">
                     <div className="col-md-4">
                         <div className="row">
@@ -102,11 +96,7 @@ const SubmissionDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className="row">
-                <Cards />
-            </div>
 
-        </div>
         </div>
     )
 }
