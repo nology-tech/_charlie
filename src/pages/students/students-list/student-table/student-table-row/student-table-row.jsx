@@ -9,7 +9,7 @@ const StudentTableRow = (props) => {
   const { toggleView } = props; 
   if (toggleView === false) {
   return (
-    <div className="student row d-flex align-items-center text-center">
+    <div className="student row d-flex align-items-center text-center" data-testid="student">
       <p className="col student__property student__name">{studentName}</p>
       <p className="col student__property">{enrolledOn}</p>
       <p className="col student__property">{githubAccount}</p>
