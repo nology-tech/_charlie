@@ -17,18 +17,6 @@ it("8 students render on the page when the page is first rendered", async() => {
   expect(firstPageStudents.length).toBe(8); 
 }); 
 
-it("should render 8 students on the page when the page is first loaded", async() => {
-  // 1. Arrange
-  render(
-  <BrowserRouter>
-  <StudentList/>
-  </BrowserRouter> );
-  // 2. Act
-  const firstPageStudents = await screen.findAllByTestId("student");
-  // 3. Assert
-  expect(firstPageStudents.length).toBe(8); 
-}); 
-
 it("should populate the first page with 8 students on the Ibiza course when searching for Ibiza.", async() => {
    // 1. Arrange
   render(
