@@ -18,7 +18,7 @@ const StudentTable = (props) => {
             <p className="col-1 student-table__property-label"></p>
         </div>
         <div className="w-100 d-flex flex-column justify-content-between m-0 p-0 h-100">
-        <div className={toggleView === false ? "w-100" : "student-grid"}>
+        <div className={toggleView === false ? "w-100" : "student-grid"} data-testid="student-grid">
             {students}
         </div>
         <PageNavigator totalNumberStudents={totalNumberStudents} 
