@@ -14,10 +14,9 @@ const StudentsList = () => {
     const [enrolledFilter, setEnrolledFilter] = useState("All");
     const [toggleView, setToggleView] = useState(false); 
     const [enrollmentData, setEnrollmentData] = useState(Data); 
-    const [sortedSelector, setSortedSelector] = useState(1);
 
     const fetchStudentData = () => {
-        setStudentsData(Data);
+        setStudentsData(Data.sort((a,b) => a.studentName.localeCompare(b.studentName)));
     }
     const changeToGridView =() => {
         setToggleView(true);
@@ -107,24 +106,19 @@ const StudentsList = () => {
     }
 };
 
-// Sorting logic (A-Z, Z-A) - THIS NEEDS FIXING
-
-    const sortFunction = () => {
-        if (sortedSelector === 2) {
-            setStudentsData(studentsData => {studentsData.sort((a, b)=> a.studentName.localeCompare(b.studentName))})
-        } else if (sortedSelector === 3) {
-            setStudentsData(studentsData => {studentsData.sort((a, b)=> a.studentName.localeCompare(b.studentName)).reverse()});
+// Sorting logic (A-Z, Z-A) - THIS NEEDS FIXING // needs fixing man-0--
+    const sortFunction = (e) => {
+        if(e.target.value == 2){
+            setStudentsData(studentsData.sort((a, b)=> a.studentName.localeCompare(b.studentName)));
+        }else if (e.target.value == 3){
+            setStudentsData(studentsData.sort((a, b)=> a.studentName.localeCompare(b.studentName)).reverse());
         }
-    }
-    
-    const sortNamesAlphabetically = (e) => {
-        setSortedSelector(e.target.value);
     }
 
     // useEffect Calls
 
     useEffect(fetchStudentData, []); 
-    useEffect(displayStudents, [studentsData, pageNumber, numberOfRows]);
+    useEffect(displayStudents, [studentsData, pageNumber, numberOfRows, sortFunction]);
     
     // The following logic is for the row selection portion of the PageNavigator component. It is placed here as PageNavigator is a presentational component. 
     const firstIndex = numberOfRows*pageNumber-numberOfRows;
@@ -143,7 +137,7 @@ const StudentsList = () => {
                     enrolledFilter={enrolledFilter}/>
                     <StudentSearchBar 
                     generateSearchResults={generateSearchResults} 
-                    sortNamesAlphabetically = {sortNamesAlphabetically}
+                    sortFunction = {sortFunction}
                     changeToGridView={changeToGridView}
                     changeToBurgerView={changeToBurgerView}/>
                     <StudentTable 
@@ -156,7 +150,7 @@ const StudentsList = () => {
                     changeNumberOfRows = {changeNumberOfRows}
                     numberOfRows={numberOfRows}
                     firstIndex={firstIndex}
-                    secondIndex={secondIndex} />
+                    secondIndex={secondIndex}/>
                 </div>
             <div className="students__white-space"></div>
         </div>
