@@ -14,9 +14,8 @@ const StudentsList = () => {
     const [enrolledFilter, setEnrolledFilter] = useState("All");
     const [toggleView, setToggleView] = useState(false); 
     const [enrollmentData, setEnrollmentData] = useState(Data); 
-    const [option, setOption] = useState("1");
-    const [option2, setOption2] = useState("1");
-    const [courseFilter, setCourseFilter] = useState(enrollmentData)
+    const [sortOption, setSortOption] = useState("1");
+    const [filterOption, setFilterOption] = useState("1");
 
     const fetchStudentData = () => {
         setStudentsData(Data.sort((a,b) => a.studentName.localeCompare(b.studentName)));
@@ -36,7 +35,6 @@ const StudentsList = () => {
     const displayStudents = () => {
         const firstSliceIndex = numberOfRows*pageNumber-numberOfRows;
         const secondSliceIndex = numberOfRows*pageNumber;
-        // const sortedData = studentsData.sort((a, b)=> a.studentName.localeCompare(b.studentName));
         setPageData(studentsData.slice((firstSliceIndex), (secondSliceIndex)));
         setTotalNumberStudents(studentsData.length); 
     }
@@ -55,32 +53,32 @@ const StudentsList = () => {
         }
     }
     const filterDataByAll = () => {
-        setOption("1");
-        setOption2("1");
+        setSortOption("1");
+        setFilterOption("1");
         setPageNumber(1);
         setEnrolledFilter("All");
         fetchStudentData();
         setEnrollmentData(Data);  
         }
     const filterDataByFullTime = () => {
-        setOption("1");
-        setOption2("1");
+        setSortOption("1");
+        setFilterOption("1");
         setPageNumber(1);
         setEnrolledFilter("Full-Time");
         setStudentsData(Data.filter(student => student.enrolledType.includes("Full-Time")));
         setEnrollmentData(Data.filter(student => student.enrolledType.includes("Full-Time")));
     }
     const filterDataBySelfPaced = () => {
-        setOption("1");
-        setOption2("1");
+        setSortOption("1");
+        setFilterOption("1");
         setPageNumber(1);
         setEnrolledFilter("Self-Paced");
         setStudentsData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
         setEnrollmentData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
     }
     const filterDataByCorporate = () => {
-        setOption("1");
-        setOption2("1");
+        setSortOption("1");
+        setFilterOption("1");
         setEnrolledFilter("Corporate");
         setPageNumber(1);
         setStudentsData(Data.filter(student =>student.enrolledType.includes("Corporate")));
@@ -119,35 +117,35 @@ const StudentsList = () => {
 };
 
 // Sorting logic (A-Z, Z-A) - THIS NEEDS FIXING // needs fixing man-0--
-    const sortFunction = (e) => {
+    const sortStudents = (e) => {
         if(e.target.value === "1"){
-            setOption("1");
+            setSortOption("1");
             const studentCopy = [...studentsData];
             studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName))
             setStudentsData(studentCopy);
         }else if (e.target.value === "2"){
-            setOption("2");
+            setSortOption("2");
             const studentCopy = [...studentsData];
             studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName)).reverse()
             setStudentsData(studentCopy);
         }
     }
 
-    const filterFunction = (e) => {
-        if(e.target.value === "1"){
-            setOption2("1");
+    const filterStudentsByCourse = (e) => {
+        if (e.target.value === "1") {
+            setFilterOption("1");
             setStudentsData(enrollmentData)
-        }else if(e.target.value === "2"){
-            setOption2("2");
+        }else if (e.target.value === "2") {
+            setFilterOption("2");
             setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Mariana"))));
-        }else if(e.target.value === "3"){
-            setOption2("3");
+        }else if (e.target.value === "3") {
+            setFilterOption("3");
             setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Ibiza"))));
-        }else if(e.target.value === "4"){
-            setOption2("4");
+        }else if (e.target.value === "4") {
+            setFilterOption("4");
             setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Jersey"))));
-        }else{
-            setOption2("5");
+        } else {
+            setFilterOption("5");
             setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Hawaii"))));
         }
     }
@@ -158,6 +156,7 @@ const StudentsList = () => {
     useEffect(displayStudents, [studentsData, pageNumber, numberOfRows]);
     
     // The following logic is for the row selection portion of the PageNavigator component. It is placed here as PageNavigator is a presentational component. 
+
     const firstIndex = numberOfRows*pageNumber-numberOfRows;
     let secondIndex;
     pageData.length < numberOfRows ? secondIndex = pageData.length + firstIndex : secondIndex = numberOfRows*pageNumber;
@@ -174,12 +173,12 @@ const StudentsList = () => {
                     enrolledFilter={enrolledFilter}/>
                     <StudentSearchBar 
                     generateSearchResults={generateSearchResults} 
-                    sortFunction={sortFunction}
+                    sortStudents={sortStudents}
                     changeToGridView={changeToGridView}
                     changeToBurgerView={changeToBurgerView}
-                    option={option}
-                    filterFunction={filterFunction}
-                    option2={option2}/>
+                    sortOption={sortOption}
+                    filterStudentsByCourse={filterStudentsByCourse}
+                    filterOption={filterOption}/>
                     <StudentTable 
                     studentsData={studentsData} 
                     pageData={pageData}

@@ -28,10 +28,11 @@ it("should populate the first page with 8 students on the Ibiza course when sear
   userEvent.type(searchInput, "Ibiza");
   const firstPageStudents = await screen.findAllByText(/Ibiza/i);
   // 3. Assert
-  expect(firstPageStudents.length).toBe(8);
+  expect(firstPageStudents.length).toBe(9);
+  // Note - 9 is returned as 1 instance of "Ibiza" is rendered in the filter dropdown. 
 }); 
 
-it("should only display Mariana students on the first page when searching for mariana", async() => {
+it("should only display students of a specific course when it is searched for, e.g. Mariana students should only be displayed on the first page when searching for mariana", async() => {
   // 1. Arrange
   render(
   <BrowserRouter>
@@ -40,11 +41,16 @@ it("should only display Mariana students on the first page when searching for ma
   // 2. Act
   const searchInput = screen.getByRole("textbox");
   userEvent.type(searchInput, "Mariana") 
-  const IbizaResults = screen.queryByText('Ibiza');
-  const JerseyResults = screen.queryByText('Ibiza')
+  const IbizaResults = screen.queryAllByText('Ibiza');
+  const JerseyResults = screen.queryAllByText('Jersey');
+  const HawaiiResults = screen.queryAllByText('Hawaii');
+  const MarianaResults = screen.queryAllByText('Mariana');
+
   // Assert
-  expect(IbizaResults).toBeNull() // it doesn't exist
-  expect(JerseyResults).toBeNull() // it doesn't exist
+  expect(IbizaResults.length).toBe(1) // 1 instance exists on the filter dropdown. It doesn't exist on the page otherwise.
+  expect(JerseyResults.length).toBe(1) // 1 instance exists on the filter dropdown. It doesn't exist on the page otherwise.
+  expect(HawaiiResults.length).toBe(1) // 1 instance exists on the filter dropdown. It doesn't exist on the page otherwise.
+  expect(MarianaResults.length).toBeGreaterThanOrEqual(2) // 1 instance exists on the filter dropdown. There's at least one student in Mariana also.
 }); 
 
 it("should return one student on the page when searching for a student with a unique name on a specific course", async() => {
@@ -58,7 +64,7 @@ it("should return one student on the page when searching for a student with a un
   userEvent.type(searchInput, "Angaar Uriakhil") 
   const uniqueStudentName = await screen.findAllByText(/Angaar Uriakhil/i);
   expect(uniqueStudentName.length).toBe(1);
-  const firstPageStudents = await screen.findAllByText(/Ibiza/i);
+  const firstPageStudents = await screen.findAllByTestId("student");
   // 3. Assert
   expect(firstPageStudents.length).toBe(1);
 }); 
@@ -74,7 +80,7 @@ it("should return one student on the page when searching for a student with a un
   userEvent.type(searchInput, "angaar96") 
   const uniqueStudentName = await screen.findAllByText(/angaar96/i);
   expect(uniqueStudentName.length).toBe(1);
-  const firstPageStudents = await screen.findAllByText(/Ibiza/i);
+  const firstPageStudents = await screen.findAllByTestId("student");
   // 3. Assert 
   expect(firstPageStudents.length).toBe(1);
 }); 
@@ -250,4 +256,25 @@ it("should display 9 students on the page when the row selector value is updated
   expect(firstPageStudents.length).toBe(9); 
 });
 
-
+it("should filter students to only the Mariana students when pressing the Mariana dropdown filter button after the page loads", async() => {
+  // 1. Arrange
+  render(
+  <BrowserRouter>
+  <StudentList/>
+  </BrowserRouter> );
+  // 2. Act
+  const courseSelector = screen.getByTestId("course-selector");
+  // note: did not use getByRole as there is more than one dropdown on the page. 
+  userEvent.selectOptions(courseSelector, 'Mariana');
+  const firstPageStudents = await screen.findAllByTestId("student");
+  const marianaStudentsOnPage = await screen.findAllByText(/Mariana/i);
+  const ibizaStudentsOnPage = await screen.findAllByText(/Ibiza/i);
+  const jerseyStudentsOnPage = await screen.findAllByText(/Jersey/i);
+  const hawaiiStudentsOnPage = await screen.findAllByText(/Hawaii/i);
+  // There are no text indicators for enrolledType of each student on the page. So will have to test using JS array iterator method. 
+  // 3. Assert
+  expect(firstPageStudents.length).toBe(marianaStudentsOnPage.length-1); // -1 is there because 1 instance of Mariana is in dropdown menu. 
+  expect(ibizaStudentsOnPage.length).toBe(1); // as one instance is in filter dropdown, none actually on page though. 
+  expect(jerseyStudentsOnPage.length).toBe(1); // as one instance is in filter dropdown, none actually on page though.
+  expect(hawaiiStudentsOnPage.length).toBe(1); // as one instance is in filter dropdown, none actually on page though.
+});
