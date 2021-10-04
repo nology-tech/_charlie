@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from "react-router";
 
 import "./studentsprojectsindex.scss";
@@ -12,15 +12,23 @@ import Card from "../../../components/cards/card/card";
 
 const SubmissionDetails = () => {
     const { studentId, projectId} = useParams();
+    const [ commentArr, setCommentArr ] = useState([]);
+
     const selectedStudent = students[studentId];
     
-    const selectedProject = projects[projectId];
+    const selectedProject = projects[projectId]; 
+
+    const readText = (e) =>{
+        e.preventDefault();
+        setCommentArr([...commentArr, e.target[0].value]);
+    }
+
 
     return (
         <div className="projects">
             <div className="container-fluid mx-auto">
                 <div className="row">
-                    <div className="col-md-12 projects__header mx-auto d-flex">
+                    <div className="col-12 projects__header mx-auto d-flex">
                         <h2>{selectedStudent.studentName} - {selectedProject.title}</h2>
                         <p>
                             <button className="col-3 btn btn-tertiary mx-2">
@@ -34,14 +42,12 @@ const SubmissionDetails = () => {
                 </div>
 
                 <div className="row">
-                    <div className="col-md-4">
-                        <div className="row">
-                            <div className="col-md-12">
+                    <div className="col-4">
+                            <div className="col-12 mx-auto">
                                 <Card project={projects[projectId]} btnText="Intialize Project" />
                             </div>
-                        </div>
                         <div className="row">
-                            <div className="col-md-12 d-flex projects__overview-buttons mx-auto mt-4">
+                            <div className="col-12 d-flex projects__overview-buttons mx-auto mt-4">
                                 <button className="btn btn-dark mx-auto">
                                     <FaGithub />&nbsp;View Repo
                                 </button>
@@ -51,29 +57,30 @@ const SubmissionDetails = () => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-md-12 projects__additional-notes mt-4 mx-auto px-4">
+                            <div className="col-12 projects__additional-notes mt-4 mx-auto px-4">
                                 <h6 className="mt-4">Additional Notes:</h6>
                                 <div className="projects__additional-notes-input row d-flex mt-3">
-                                    <div className="col-md-9 px-1">
-                                        <input type="text" placeholder="lorem ipsum..." 
-                                        className="form-control" />
-                                    </div>
-                                    <div className="col-md-3">
-                                        <input type="button" className="btn-secondary" value="+" />
-                                    </div>
+                                    
+                                        <form action="" onSubmit={readText}>
+                                            <div className="col-9 px-1">
+                                                <input type="text" placeholder="lorem ipsum..."  className="form-control" name="add-comment"/>
+                                                <button className="btn-secondary" type="submit">+</button>               
+                                            </div>
+                                        </form>                                  
+                                        
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-8">
                         <div className="row">
-                            <div className="col-md-12 projects__review px-4">
+                            <div className="col-12 projects__review px-4">
                                 <h6 className="mt-4">Review</h6>
                                 <p className="mt-3">No Review Submitted</p>
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-md-12 projects__challenge-brief mt-4 px-4">
+                            <div className="col-12 projects__challenge-brief mt-4 px-4">
                                 <h6 className="mt-4">Challenge Brief</h6>
                                 <p className="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing 
                                 elit. Dui convallis feugiat vel, sit malesuada commodo nullam. Urna, 
@@ -92,13 +99,18 @@ const SubmissionDetails = () => {
                                     <li>Break it down</li>
                                     <li>Do what you can do first</li>
                                 </ul>
+                                <h6 className="mt-4">Additional Notes</h6>
+                                <ul className="mt-4">
+                                    {commentArr.map(note => <li>{note}</li>)}
+                                </ul>
+                                
                                 <p className="mt-4">Good Luck from the coaches!</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-12 mt-4 mb-4">
+                    <div className="col-12 mt-4 mb-4">
                         <Cards />
                     </div>
                 </div>
