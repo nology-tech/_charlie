@@ -3,7 +3,7 @@ import StudentsTopNav from "./students-top-nav/students-top-nav"
 import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './student-searchbar/student-searchbar';
 import "./students-list.scss"; 
-import Data from "../../../data/data.js"; 
+import Data from "../../../data/students.js"; 
 
 const StudentsList = () => {
     const [studentsData, setStudentsData] = useState([]); 
