@@ -15,6 +15,8 @@ const StudentsList = () => {
     const [toggleView, setToggleView] = useState(false); 
     const [enrollmentData, setEnrollmentData] = useState(Data); 
     const [option, setOption] = useState("1");
+    const [option2, setOption2] = useState("1");
+    const [courseFilter, setCourseFilter] = useState(enrollmentData)
 
     const fetchStudentData = () => {
         setStudentsData(Data.sort((a,b) => a.studentName.localeCompare(b.studentName)));
@@ -54,6 +56,7 @@ const StudentsList = () => {
     }
     const filterDataByAll = () => {
         setOption("1");
+        setOption2("1");
         setPageNumber(1);
         setEnrolledFilter("All");
         fetchStudentData();
@@ -61,6 +64,7 @@ const StudentsList = () => {
         }
     const filterDataByFullTime = () => {
         setOption("1");
+        setOption2("1");
         setPageNumber(1);
         setEnrolledFilter("Full-Time");
         setStudentsData(Data.filter(student => student.enrolledType.includes("Full-Time")));
@@ -68,6 +72,7 @@ const StudentsList = () => {
     }
     const filterDataBySelfPaced = () => {
         setOption("1");
+        setOption2("1");
         setPageNumber(1);
         setEnrolledFilter("Self-Paced");
         setStudentsData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
@@ -75,6 +80,7 @@ const StudentsList = () => {
     }
     const filterDataByCorporate = () => {
         setOption("1");
+        setOption2("1");
         setEnrolledFilter("Corporate");
         setPageNumber(1);
         setStudentsData(Data.filter(student =>student.enrolledType.includes("Corporate")));
@@ -127,6 +133,25 @@ const StudentsList = () => {
         }
     }
 
+    const filterFunction = (e) => {
+        if(e.target.value === "1"){
+            setOption2("1");
+            setStudentsData(enrollmentData)
+        }else if(e.target.value === "2"){
+            setOption2("2");
+            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Mariana"))));
+        }else if(e.target.value === "3"){
+            setOption2("3");
+            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Ibiza"))));
+        }else if(e.target.value === "4"){
+            setOption2("4");
+            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Jersey"))));
+        }else{
+            setOption2("5");
+            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Hawaii"))));
+        }
+    }
+
     // useEffect Calls
 
     useEffect(fetchStudentData, []); 
@@ -152,7 +177,9 @@ const StudentsList = () => {
                     sortFunction={sortFunction}
                     changeToGridView={changeToGridView}
                     changeToBurgerView={changeToBurgerView}
-                    option={option}/>
+                    option={option}
+                    filterFunction={filterFunction}
+                    option2={option2}/>
                     <StudentTable 
                     studentsData={studentsData} 
                     pageData={pageData}

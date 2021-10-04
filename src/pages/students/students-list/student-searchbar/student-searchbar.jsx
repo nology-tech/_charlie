@@ -9,7 +9,8 @@ import "./student-searchbar.scss";
 const StudentSearchBar = (props) => {
 
   
-  const {generateSearchResults, changeToGridView, changeToBurgerView, sortFunction, option} = props;
+  const {generateSearchResults, changeToGridView, changeToBurgerView, sortFunction, 
+    option, filterFunction, option2} = props;
   return (
     <div className="search-bar row d-flex align-items-center text-start ms-0 me-0">
   
@@ -21,16 +22,22 @@ const StudentSearchBar = (props) => {
       <input className="search-bar__input col-2 offset-3" onInput={generateSearchResults} placeholder="Course, Name..."></input>
       <div className="search-bar__sort-filter-buttons col-3 d-flex align-items-center justify-content-end"> 
         <img className = "search-bar__sort-filter-buttons-btn p-0" src={Sort} alt="sort"></img>
-        <select name="rows" value={option} className="sort-menu" onChange={e => {
-          sortFunction(e);
-        }}>
+        <select name="rows" value={option} className="sort-menu" onChange={sortFunction}>
           <optgroup label="Sort">
             <option value="1">A-Z</option>
             <option value="2">Z-A</option>
           </optgroup>
         </select>
         <img src={Filter} alt="filter" className = "search-bar__sort-filter-buttons-btn p-0"></img>
-        <p className="search-bar__sort-filter-buttons-label">Filter</p>
+        <select name="rows" value={option2} className="sort-menu" onChange={filterFunction}>
+          <optgroup label="Filter">
+            <option value="1">All</option>  
+            <option value="2">Mariana</option>
+            <option value="3">Ibiza</option>
+            <option value="4">Jersey</option>
+            <option value="5">Hawaii</option>
+          </optgroup>
+        </select>
       </div>
     </div>
   )
