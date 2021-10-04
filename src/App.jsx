@@ -39,8 +39,8 @@ function App() {
               <Students />
             </Route>
             
-            <Route path="/projects">
-            <SubmissionDetails />
+            <Route path="/projects/:studentId/:projectId">
+              <SubmissionDetails />
             </Route>
 
             <Route path="/settings">

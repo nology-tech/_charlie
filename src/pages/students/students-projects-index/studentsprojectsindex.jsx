@@ -1,20 +1,27 @@
 import React from 'react';
+import { useParams } from "react-router";
+
 import "./studentsprojectsindex.scss";
 import projects from "../../../data/projects";
+import students from "../../../data/students";
 import { FaGithub, FaEye } from 'react-icons/fa';
 import "../student-add/addstudenttopnav/addstudenttopnav.scss";
-
 
 import Cards from "../../../components/cards/cards";
 import Card from "../../../components/cards/card/card";
 
 const SubmissionDetails = () => {
+    const { studentId, projectId} = useParams();
+    const selectedStudent = students[studentId];
+    
+    const selectedProject = projects[projectId];
+
     return (
         <div className="projects">
             <div className="container-fluid mx-auto">
                 <div className="row">
                     <div className="col-md-12 projects__header mx-auto d-flex">
-                        <h2>[Student name] - Calculator</h2>
+                        <h2>{selectedStudent.studentName} - {selectedProject.title}</h2>
                         <p>
                             <button className="col-3 btn btn-tertiary mx-2">
                                 Go Back
@@ -30,7 +37,7 @@ const SubmissionDetails = () => {
                     <div className="col-md-4">
                         <div className="row">
                             <div className="col-md-12">
-                                <Card project={projects[0]} btnText="Intialize Project" />
+                                <Card project={projects[projectId]} btnText="Intialize Project" />
                             </div>
                         </div>
                         <div className="row">
