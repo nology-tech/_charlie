@@ -31,9 +31,9 @@ const SubmissionDetails = () => {
                     <div className="col-12 projects__header mx-auto d-flex">
                         <h2>{selectedStudent.studentName} - {selectedProject.title}</h2>
                         <p>
-                            <button className="col-3 btn btn-tertiary mx-2">
+                            {/* <button className="col-3 btn btn-tertiary mx-2">
                                 Go Back
-                            </button>
+                            </button> */}
                             <button className="col-4 btn btn-primary mx-2 projects__header__review">
                                 Leave Review
                             </button>
