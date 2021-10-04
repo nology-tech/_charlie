@@ -5,9 +5,6 @@ import Morse from "../assets/images/morse-code-translator.png";
 import ClientProject from "../assets/images/client-project.png";
 import PunkApi from "../assets/images/punk-api.png";
 
-
-
-
 const projects = [
   {
     id: 0,
@@ -32,7 +29,7 @@ const projects = [
   },
   { 
     id: 3,
-    title: "Punk Api",
+    title: "Punk API",
     imgSrc: PunkApi,
     languagesUsed: ["React"],
     hasStarted: false
@@ -43,8 +40,14 @@ const projects = [
     imgSrc: JSgame,
     languagesUsed: ["HTML", "CSS", "JavaScript"],
     hasStarted: false
-  }
+  },
+  {
+    id: 5,
+    title: "Client Project",
+    imgSrc: ClientProject,
+    languagesUsed: ["React"],
+    hasStarted: false
+  },
+];
 
-]
-
-export default projects
+export default projects;
