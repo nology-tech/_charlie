@@ -41,7 +41,7 @@ const ReviewForm = ({ onSubmit }) => {
                     starColor="#724BCB"  />
                     <br/>
                       <label htmlFor="moduleKnowledge">Additional Notes:</label>
-                     <Controller control={control} name="moduleKnowledge" render={ ( { value, onChange } ) => (<input
+                     <Controller control={control} name="moduleKnowledge" render={ ( {field : { value, onChange }} ) => (<input
                       value={value} onChange={onChange}
                       className="form-control form__input  my-2"
                       type="text"
@@ -56,7 +56,7 @@ const ReviewForm = ({ onSubmit }) => {
                     starColor="#724BCB"  />
                     <br/>
                     <label htmlFor="HTML-CSSKnowledge">Additional Notes:</label>
-                    <Controller control={control} name="HTML-CSSKnowledge" render={ ( { value, onChange } ) => (<input
+                    <Controller control={control} name="HTML-CSSKnowledge" render={ ( {field: { value, onChange }} ) => (<input
                       value={value} onChange={onChange}
                       className="form-control form__input  my-2"
                       type="text"
@@ -72,7 +72,7 @@ const ReviewForm = ({ onSubmit }) => {
                     starColor="#724BCB"  />
                     <br/>
                     <label htmlFor="jsKnowledge">Additional Notes:</label>
-                    <Controller control={control} name="jsKnowledge" render={ ( { value, onChange } ) => (<input
+                    <Controller control={control} name="jsKnowledge" render={ ( {field: { value, onChange }} ) => (<input
                       value={value} onChange={onChange}
                       className="form-control form__input  my-2"
                       type="text"
@@ -86,10 +86,10 @@ const ReviewForm = ({ onSubmit }) => {
             <div className="col-6">
                 <div className="col-12 mt-4">
                   <h6>Summary</h6>
-                  <Controller control={control} name="summary" render={ ({ value, onChange }) => (<textarea
+                  <Controller control={control} name="summary" render={ ({field: { value, onChange }}) => (<textarea
                       value={value} onChange={onChange}
                       className="form-control form__input  my-2 summary"
-                      type="text"
+                      
                     /> )} />
                   
                 
