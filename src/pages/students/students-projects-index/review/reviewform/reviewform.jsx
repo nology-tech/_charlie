@@ -1,13 +1,12 @@
 // import React, { useState } from "react";
-// //import studentData from '../../data/studentForm';
 import './reviewform.scss';
 import { useForm, Controller } from "react-hook-form";
-// import { useHistory } from "react-router";
-import { FaStar } from 'react-icons/fa';
+
+// import { FaStar } from 'react-icons/fa';
 // import Star from '../../../../../components/star/star';
 import StarRatingComponent from 'react-star-rating-component';
 
-const ReviewForm = () => {
+const ReviewForm = ({ onSubmit }) => {
     const {control, handleSubmit,  reset } = useForm();
     // const history = useHistory();
 
@@ -15,34 +14,23 @@ const ReviewForm = () => {
     // formState: { errors },
 
     // console.log(errors);
-    // const [{ alt, src }, setImg] = useState({
-    //     src: "https://via.placeholder.com/150",
-    //     alt: "",
-    // });
+    
 
-    const onSubmit = (data) => {
-        console.log(data);
-        alert(JSON.stringify(data));
-    };
+    // const onSubmit = (data) => {
+    //     console.log(data);
+    //     alert(JSON.stringify(data));
+    // };
     
     const handleClick = () => {
         reset();
         // history.goBack();
     };
 
-    // const readURL = (e) => {
-    //     if (e.target.files[0]) {
-    //     setImg({
-    //         src: URL.createObjectURL(e.target.files[0]),
-    //         alt: e.target.files[0].name,
-    //     });
-    //     }
-    // };
-
+    
     
 
     return (
-        <div className="row mt-4 my-4 px-4 offset-1 form__container">
+        <div className="row my-4 px-4 offset-1 form__container">
         <form className="row" onSubmit={handleSubmit(onSubmit)}>
             <div className="col-6">
                 <div className="col-12 mt-4">
