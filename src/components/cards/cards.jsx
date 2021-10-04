@@ -1,11 +1,16 @@
-import "./cards.scss"
-import React from 'react'
+import "./cards.scss";
+import React from 'react';
+import { useParams } from "react-router";
 import Card from "./card/card";
-import projects from "../../data/projects"
+import projects from "../../data/projects";
 
 const Cards = () => {
-    const filteredProjects = projects.slice(1);
-    const cards = filteredProjects.map((elem, i) => <Card key={i} project={elem} btnText="Not Started" />)
+    const { projectId} = useParams();
+    
+    const cards = projects.filter(({ id }) => id != projectId).map((elem, i) => {
+        return <Card key={i} project={elem} btnText="Not Started" />;
+    });
+
     return (
         <div className="cards">
             {cards}
