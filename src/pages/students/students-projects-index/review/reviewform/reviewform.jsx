@@ -1,13 +1,15 @@
 // import React, { useState } from "react";
 // //import studentData from '../../data/studentForm';
 import './reviewform.scss';
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router";
-import Star from '../../../../../components/star/star';
+import { useForm, Controller } from "react-hook-form";
+// import { useHistory } from "react-router";
+import { FaStar } from 'react-icons/fa';
+// import Star from '../../../../../components/star/star';
+import StarRatingComponent from 'react-star-rating-component';
 
 const ReviewForm = () => {
-    const {register, handleSubmit,  reset } = useForm();
-    const history = useHistory();
+    const {control, handleSubmit,  reset } = useForm();
+    // const history = useHistory();
 
 
     // formState: { errors },
@@ -20,13 +22,12 @@ const ReviewForm = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4));
-        history.goBack();
+        alert(JSON.stringify(data));
     };
     
     const handleClick = () => {
         reset();
-        history.goBack();
+        // history.goBack();
     };
 
     // const readURL = (e) => {
@@ -38,60 +39,71 @@ const ReviewForm = () => {
     //     }
     // };
 
+    
+
     return (
         <div className="row mt-4 my-4 px-4 offset-1 form__container">
         <form className="row" onSubmit={handleSubmit(onSubmit)}>
             <div className="col-6">
                 <div className="col-12 mt-4">
                     <h6>Knowledge of Module</h6>
-                    <Star />
+                    
+                    <StarRatingComponent 
+                    name="module-rating"
+                    starColor="#724BCB"  />
                     <br/>
                       <label htmlFor="moduleKnowledge">Additional Notes:</label>
-                      <input
-                      {...register("moduleKnowledge")}
-                      name="moduleKnowledge"
+                     <Controller control={control} name="moduleKnowledge" render={ ( { value, onChange } ) => (<input
+                      value={value} onChange={onChange}
                       className="form-control form__input  my-2"
                       type="text"
                       id="moduleKnowledge"
-                      />
-                      {/* {errors.firstName && <div className="text-danger">*Required</div>} */}
+                      /> )} />
+                      
                 </div>
 
                 <div className="col-12 mt-3">
                     <h6>Quality of HTML/CSS</h6>
-                    <Star />
+                    <StarRatingComponent name="HtmlCss-rating"
+                    starColor="#724BCB"  />
                     <br/>
                     <label htmlFor="HTML-CSSKnowledge">Additional Notes:</label>
-                    <input
-                {...register("HTML-CSSKnowledge")}
-                    name="HTML-CSSKnowledge"
-                    className="form-control form__input my-2"
-                    type="text"
-                    id="HTML-CSSKnowledge"
-                    />
-                    {/* {errors.lastName && <p className="text-danger">*Required</p>} */}
+                    <Controller control={control} name="HTML-CSSKnowledge" render={ ( { value, onChange } ) => (<input
+                      value={value} onChange={onChange}
+                      className="form-control form__input  my-2"
+                      type="text"
+                      id="HTML-CSSKnowledge"
+                      /> )} />
+                    
+                
                 </div>
 
                 <div className="col-12 mt-3">
                     <h6>Quality of Javascript</h6>
-                    <Star />
+                    <StarRatingComponent name="js-rating"
+                    starColor="#724BCB"  />
                     <br/>
                     <label htmlFor="jsKnowledge">Additional Notes:</label>
-                    <input
-                {...register("jsKnowledge")}
-                    name="jsKnowledge"
-                    className="form-control form__input my-2"
-                    type="text"
-                    id="jsKnowledge"
-                    />
-                {/* {errors.lastName && <p className="text-danger">*Required</p>} */}
+                    <Controller control={control} name="jsKnowledge" render={ ( { value, onChange } ) => (<input
+                      value={value} onChange={onChange}
+                      className="form-control form__input  my-2"
+                      type="text"
+                      id="jsKnowledge"
+                      /> )} />
+                    
+                    
                 </div>
 
             </div>
             <div className="col-6">
                 <div className="col-12 mt-4">
                   <h6>Summary</h6>
-                  <textarea {...register("summary")} type="text" className="summary form-control my-2" />
+                  <Controller control={control} name="summary" render={ ({ value, onChange }) => (<textarea
+                      value={value} onChange={onChange}
+                      className="form-control form__input  my-2 summary"
+                      type="text"
+                    /> )} />
+                  
                 
                 </div>
             <div className="col-12 mt-5">
