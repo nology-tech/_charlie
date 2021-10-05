@@ -21,13 +21,12 @@
     }
     
     &__additional-notes {
-        width: 250px;
         height: 120px;
 
         &-input {
             box-shadow: 0px 30px 40px 0px #724BCB0F;
             border: 1px solid lightgray;
-            width: 220px;
+            max-width: 220px;
             border-radius: 7px;
 
             .btn-plus {
@@ -65,12 +64,12 @@
 
     &__overview {
         &-buttons {
-            width: 250px;
+            //width: 250px;
             height: 55px;
             
             button {
-                font-size: 10px;
-                min-width: unset;
+                font-size: 8px;
+                //min-width: unset;
                 height: 40px;
             }
         }

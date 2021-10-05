@@ -24,7 +24,7 @@ const SubmissionDetails = () => {
     }
 
     return (
-        <div className="projects mx-auto">
+        <div className="projects">
             <div className="row projects__header d-flex mb-4 p-5 align-items-center justify-content-between">
                 <h2 className="col-7">
                     <div className="row">
@@ -43,27 +43,26 @@ const SubmissionDetails = () => {
                     </button>
                 </p>
             </div>
-
             <div className="row mx-5">
-                <div className="row">
-                    <h6 className="mb-4">Overview</h6>
-                </div>
-                <div className="col-4">
-                        <div className="col-12 mx-auto">
-                            <Card project={projects[projectId]} />
-                        </div>
-                    <div className="row">
-                        <div className="col-12 d-flex align-items-center projects__overview-buttons mx-auto mt-4">
-                            <button className="btn btn-dark mx-auto">
+                <h6 className="mx-4 mb-4">Overview</h6>
+            </div>
+            <div className="row mx-5 justify-content-center overview-section">
+                <div className="col-3 ml-2">
+                    <div className="row mx-4">
+                        <Card project={projects[projectId]} />
+                    </div>
+                    <div className="row mx-4">
+                        <div className="col-12 d-flex align-items-center projects__overview-buttons mx-1 mt-4">
+                            <button className="btn-dark btn-project  mx-auto">
                                 <FaGithub />&nbsp;View Repo
                             </button>
-                            <button className="btn btn-secondary mx-auto">
+                            <button className="btn-secondary btn-project mx-auto">
                                 <FaEye />&nbsp;Live preview
                             </button>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-12 projects__additional-notes mt-4 mx-auto px-4">
+                    <div className="row mr-2 mx-4">
+                        <div className="col-12 projects__additional-notes mt-4 px-4">
                             <h6 className="mt-4">Additional Notes:</h6>
                             <div className="projects__additional-notes-input row mt-3">
                                     <form action="" onSubmit={readText}>
@@ -76,14 +75,14 @@ const SubmissionDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-8">
-                    <div className="row">
+                <div className="col-9">
+                    <div className="row mx-4">
                         <div className="col-12 projects__review px-4">
                             <h6 className="mt-4">Review</h6>
                             <p className="mt-3">No Review Submitted</p>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row mx-4">
                         <div className="col-12 projects__challenge-brief mt-4 px-4">
                             <h6 className="mt-4">Challenge Brief</h6>
                             <p className="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing 
@@ -115,7 +114,10 @@ const SubmissionDetails = () => {
             </div>
 
             <div className="row mx-5">
-                <div className="col-12 mt-4 mb-4">
+            <div className="row mx-5">
+                <h6 className="mx-4 mt-5">Other Projects</h6>
+            </div>
+                <div className="mt-2 mb-4">
                     <Cards />
                 </div>
             </div>

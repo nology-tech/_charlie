@@ -14,7 +14,7 @@ const Card = ({ project }) => {
   else btnText = "Not Started";
   
   return (
-    <div className="card col-3" key={project.title}>
+    <div className="card h-200" key={project.title}>
       <img src={project.imgSrc} alt={project.title} />
       
       <Link to={path} >
