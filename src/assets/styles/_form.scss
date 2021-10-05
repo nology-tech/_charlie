@@ -1,6 +1,6 @@
 @import "./typography.scss";
 
-.form{
+.form {
   &__input {
     width: 350px;
     height: 50px;
@@ -9,47 +9,58 @@
   &__container {
     height: 658px;
     width: 918px;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
     border-radius: 7px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
 
-  &__button{
-    height:50px;
+  &__button {
+    height: 50px;
     width: 168px;
   }
 }
 
-.form-control:focus{
+.form-control:focus {
   box-shadow: none;
 }
 
 .student-thumbnail {
   height: 270px;
   width: 350px;
-  border: 1px solid #E2e8f0;
+  border: 1px solid #e2e8f0;
   border-radius: 7px;
 }
 
 .upload-btn {
-  background: #F5F5F5;
+  background: #f5f5f5;
   border-radius: 7px;
   height: 40px;
   width: 145px;
 }
 
-.text-danger{
+.text-danger {
   font-size: small;
 }
 
-.project-form-input{
+.project-form-input {
   height: 50px;
   width: 90%;
+  border: 1px solid #e2e8f0;
 }
 
-.doubleHeight{
+.text-area-styling {
   height: 100px;
-  width: 90%; 
+  width: 90%;
   resize: none;
+  border-radius: 7px;
+  border: solid 1px #e2e8f0;
+}
+
+.project-thumbnail {
+  border: 1px solid #e2e8f0;
+  width: 350px;
+  height: 270px;
+  box-sizing: border-box;
+  border-radius: 7px;
 }

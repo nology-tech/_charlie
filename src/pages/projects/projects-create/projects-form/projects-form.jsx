@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import "./projects-form.scss";
-import placeHolderThumb from "../../../../assets/images/thumbnail-placeholder.png"
+import placeHolderThumb from "../../../../assets/images/project-thumbnail.png"
 
 const ProjectsForm = () => {
     const {register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -42,17 +42,17 @@ const ProjectsForm = () => {
                         <label className="project-form__left__label" htmlFor="projectName">Project Name</label>
                         <input
                         {...register("projectName", {
-                            required: true,
+                            required: true, pattern: /^[A-Za-z]+$/i
                         })}
-                        name="project-form__left__projectName"
-                        className="form-control project-form-input "
+                        name="projectName"
+                        className="form-control project-form-input project-form__left__projectName "
                         type="text"
                         id="projectName"
                         />
-                        {errors.firstName && <div className="text-danger">*Required</div>}
+                        {errors.projectName && <div className="text-danger">*Required</div>}
                     </div>
 
-                    <div className="mt-3 ">
+                    <div className="mt-3">
                         <label className="project-form__left__label"  htmlFor="">Language</label>
                         <select
                         {...register("language", { required: true })}
@@ -74,10 +74,10 @@ const ProjectsForm = () => {
                         <textarea
                         {...register("projectBrief", {
                             required: true,
-                            // pattern: /^[A-Za-z]+$/i,
+                            pattern: /^[A-Za-z]+$/i,
                         })}
                         name="projectBrief"
-                        className="doubleHeight"
+                        className="text-area-styling"
                         type="text"
                         id="projectBrief"
                         />
@@ -85,12 +85,12 @@ const ProjectsForm = () => {
                     </div>
 
 
-                    <div className="mt-3 d-flex flex-column ">
+                    <div className="mt-3 d-flex flex-column">
                         <label className="project-form__left__label"  htmlFor="coachesTips">Coaches Tips</label>
                         <textarea
-                        {...register("coachesTips", { required: true })}
+                        {...register("coachesTips", { required: true, pattern: /^[A-Za-z]+$/i })}
                         name="coachesTips"
-                        className="doubleHeight"
+                        className="text-area-styling"
                         type="text"
                         id="coachesTips"
                         />
@@ -108,7 +108,7 @@ const ProjectsForm = () => {
                         id="projectThumb"
                         hidden
                         />
-                        <div className="project-form__right-image d-flex justify-content-center align-items-center">
+                        <div className="project-form__right-image-div d-flex justify-content-center align-items-center">
                             <img id="projectImage" src={src} alt={alt} className="project-thumbnail" />
                         </div>
                         <label htmlFor="projectThumb" className="btn upload-btn mt-4">
@@ -116,9 +116,9 @@ const ProjectsForm = () => {
                         </label>
                     </div>
 
-                    <div className="buttons">
-                        <input type="reset" className="button_cancel" value="Cancel" onClick={handleCancel} />
-                        <input type="submit" className="button_submit" value="Save"/>
+                    <div className="project-form__right__buttons">
+                        <input type="reset" className="project-form__right__buttons-cancel" value="Cancel" onClick={handleCancel} />
+                        <input type="submit" className="project-form__right__buttons-submit" value="Save"/>
                     </div>
                 </div>
             </form>
