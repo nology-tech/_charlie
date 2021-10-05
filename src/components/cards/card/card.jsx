@@ -2,9 +2,16 @@ import "./card.scss";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-const Card = ({project, btnText}) => {
+const Card = ({ project }) => {
   const { studentId } = useParams();
   const path = "/projects/"+studentId+"/"+project.id;
+
+  const { reviewNeeded, reviewed } = project;
+  let btnText;
+        
+  if(reviewNeeded) btnText = "Review Needed";
+  else if(reviewed) btnText = "Reviewed";
+  else btnText = "Not Started";
   
   return (
     <div className="card col-3" key={project.title}>

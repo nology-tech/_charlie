@@ -2,17 +2,18 @@
 @import "../../../assets/styles/typography";
 
 .projects {
-    margin: 0 65px;
+    // margin: 0 65px;
     
     &__header {
+        width: 100%;
         font: $font-primary;
-        padding: 60px 0;
-        justify-content: space-evenly;
-        align-items: center;
+        background-color: white;
 
         &__review {width: 150px;}
-        h2 {font-weight: 700;}
     }
+    
+    h2 {font-weight: 700;}
+    h6 {font-weight: 600;}
 
     &__additional-notes, &__review, &__challenge-brief, &__overview-buttons {
         background-color: white;
@@ -23,30 +24,25 @@
         width: 250px;
         height: 120px;
 
-        h6 {font-weight: 600;}
-        
         &-input {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             box-shadow: 0px 30px 40px 0px #724BCB0F;
             border: 1px solid lightgray;
             width: 220px;
             border-radius: 7px;
 
+            .btn-plus {
+                font-size: larger;
+                background-color: none;
+                font-weight: 0;
+
+                &:hover {border: none; background-color: none; color: #95ACCB;}
+            }
+
             input {
-                padding: 10px;
-                border: 1px solid black;
-                border: none;
                 color: #95ACCB;
+                border: none;
                 
                 &[type="text"] {font-size: 12px; color: #95ACCB;}
-                &[type="button"] {
-                    background-color: none;
-                    font-size: x-large;
-
-                    &:hover {border: none; background-color: none; color: #95ACCB;}
-                }
             }
         }
     }
@@ -54,7 +50,6 @@
     &__review {
         height: 120px;
         
-        h6 {font-weight: 600;}
         p {color: #95ACCB; font-size: 12px;}
     }
     
@@ -62,7 +57,6 @@
         height: 390px;
         overflow-y: auto;
         
-        h6 {font-weight: 600;}
         p, li {
             color: #95ACCB;
             font-size: 12px;
@@ -73,8 +67,6 @@
         &-buttons {
             width: 250px;
             height: 55px;
-            display: flex;
-            align-items: center;
             
             button {
                 font-size: 10px;

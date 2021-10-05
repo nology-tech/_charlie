@@ -10,7 +10,7 @@ const Cards = () => {
     const filtered = projects.filter(({ id }) => id !== parseInt(projectId));
 
     const cards = filtered.map((elem, i) => {
-        return <Card key={i} project={elem} btnText="Not Started" />;
+        return <Card key={i} project={elem} />;
     });
 
     return <div className="cards">{cards}</div>;

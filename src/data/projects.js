@@ -11,42 +11,48 @@ const projects = [
     title: "Calculator",
     imgSrc: Calculator,
     languagesUsed: ["HTML", "CSS", "JavaScript"],
-    hasStarted: false
+    reviewNeeded: true,
+    reviewed: false,
   },
   {
     id: 1,
     title: "Portfolio",
     imgSrc: Portfolio,
     languagesUsed: ["HTML", "CSS", "JavaScript"],
-    hasStarted:  false
+    reviewNeeded: false,
+    reviewed: true,
   },
   {
     id: 2,
     title: "Morse Code Translator",
     imgSrc: Morse,
     languagesUsed: ["HTML", "CSS", "JavaScript"],
-    hasStarted: false
+    reviewNeeded: true,
+    reviewed: false,
   },
   { 
     id: 3,
     title: "Punk API",
     imgSrc: PunkApi,
     languagesUsed: ["React"],
-    hasStarted: false
+    reviewNeeded: true,
+    reviewed: false,
   },
   {
     id: 4,
     title: "Tic Tac Toe",
     imgSrc: JSgame,
     languagesUsed: ["HTML", "CSS", "JavaScript"],
-    hasStarted: false
+    reviewNeeded: false,
+    reviewed: true,
   },
   {
     id: 5,
     title: "Client Project",
     imgSrc: ClientProject,
     languagesUsed: ["React"],
-    hasStarted: false
+    reviewNeeded: false,
+    reviewed: false,
   },
 ];
 
