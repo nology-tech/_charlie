@@ -13,28 +13,32 @@ const ProjectsForm = () => {
         <div>
         <form action="" className="row d-flex flex-row" onSubmit={handleSubmit(onSubmit)}>
             <div className= "col-6">
+                <label htmlFor="projectName">Project Name</label>
+                <input 
+                {...register({
+                    required: true,
+                })}
+                name= "projectName"
+                className
+                id= "projectName"
+                type="text" />
+                {errors.projectName && <div className="text-danger">*Required</div>}
 
-            <label htmlFor="projectName">Project Name</label>
-            <input 
-            name= "projectName"
-            id= "projectName"
-            type="text" 
-            ref={register({required: true})}/>
-            {errors.projectName && <div className="text-danger">*Required</div>}
+                <label htmlFor="" >Language</label>
+                <input type="text" ref={register({required: true})}/>
 
-            <label htmlFor="" >Language</label>
-            <input type="text" ref={register({required: true})}/>
+                <label htmlFor="" >Project Brief</label>
+                <input type="text" 
+                ref={register({required: true})}/>
 
-            <label htmlFor="" >Project Brief</label>
-            <input type="text" 
-            ref={register({required: true})}/>
+                <label htmlFor="" >Coaches Tips</label>
+                <input type="text" 
+                ref={register({required: true})}/>
 
-            <label htmlFor="" >Coaches Tips</label>
-            <input type="text" 
-            ref={register({required: true})}/>
-
+                </div>
+                <div className= "col -6">
             </div>
-            <div className= "col -6">
+            <div className="col-12">
 
             </div>
         </form>

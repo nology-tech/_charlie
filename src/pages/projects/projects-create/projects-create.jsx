@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectCreateTopNav from "./projects-create-top-nav/projects-create-top-nav";
-
+import "./projects-create.scss";
 
 const ProjectsCreate = () => {
   return (

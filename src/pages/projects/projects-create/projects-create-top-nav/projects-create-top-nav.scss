@@ -8,12 +8,11 @@
     background:#FFFFFF;
     margin-bottom: 50px; 
     border-bottom: 1px #EDE8F8 solid;
-    border: 1px black solid;
     &__header {
         width: 100%; 
         height: 50px;
         padding-bottom: 48px;
-        margin-top: 20px; 
+        margin-top: 20px;
         &-title {
             font-weight: 700;
             color: $color-quaternary; 
