@@ -18,7 +18,7 @@ const StudentListTopNav = (props) => {
                 <div className={languageFilter === "HTML/CSS" ? "top-nav__language-types__htmlcss selectedFilterClass" : "top-nav__language-types__htmlcss"}  onClick={filterDataByHTMLandCSS}>HTML/CSS</div>
                 <div className={languageFilter === "Javascript" ? "top-nav__language-types__javascript selectedFilterClass" : "top-nav__language-types__javascript"}  onClick={filterDataByJavascript}>Javascript</div>
                 <div className={languageFilter === "React" ? "top-nav__language-types__react selectedFilterClass" : "top-nav__language-types__react"}  onClick={filterDataByReact}>React</div>
-                <div className={languageFilter === "Java" ? "top-nav__language-types__java selectedFilterClass" : "top-nav__language-types__java"}  onClick={filterDataByJava}>Java</div>
+                <div className={languageFilter === "Java" ? "top-nav__language-types__java selectedFilterClass" : "top-nav__language-types__java"}  onClick={filterDataByJava} data-testid="javaButton">Java</div>
             </div> 
         </nav>
     )

@@ -6,7 +6,7 @@ import {within} from '@testing-library/dom';
 
 // Integration tests carried out as it avoids the need to pass down props again. It also simulates user experience more accurately. 
 
-it("should render 7 projects on the page when the page is first rendered", async() => {
+it("should render 8 projects on the page when the page is first rendered", async() => {
   // 1. Arrange
   render(
   <BrowserRouter>
@@ -15,7 +15,7 @@ it("should render 7 projects on the page when the page is first rendered", async
   // 2. Act
   const projectsArr = await screen.findAllByTestId("project");
   // 3. Assert
-  expect(projectsArr.length).toBe(7); 
+  expect(projectsArr.length).toBe(8); 
 }); 
 
 it("should render every _nology project on the page when the page is first rendered", async() => {
@@ -32,6 +32,7 @@ it("should render every _nology project on the page when the page is first rende
   const morseCode = await screen.findByText("Morse-Code");
   const brewdogApi = await screen.findByText("Brewdog-API");
   const clientProject = await screen.findByText("Client Project");
+  const javaGame = await screen.findByText("Client Project");
   // 3. Assert
   expect(preCoursework).toBeInTheDocument();  
   expect(portfolio).toBeInTheDocument(); 
@@ -40,6 +41,7 @@ it("should render every _nology project on the page when the page is first rende
   expect(morseCode).toBeInTheDocument(); 
   expect(brewdogApi).toBeInTheDocument(); 
   expect(clientProject).toBeInTheDocument(); 
+  expect(javaGame).toBeInTheDocument(); 
 });
 
 
@@ -89,4 +91,20 @@ it("should filter projects to only the React projects when pressing the React bu
   // 3. Assert 
   expect(reactTextArr.length).toBe(3); 
   // 2 projects with the text and 1 label, therefore should be 3. 
+});
+
+it("should filter projects to only the Java projects when pressing the Java button after the page loads", async() => {
+  // 1. Arrange
+  render(
+  <BrowserRouter>
+  <ProjectList/>
+  </BrowserRouter> );
+  // 2. Act
+  const navigation = screen.getByRole('navigation');
+  const javaButton = within(navigation).getByTestId("javaButton");
+  userEvent.click(javaButton);
+  const javaTextArr = await screen.findAllByText("Java"); 
+  // 3. Assert 
+  expect(javaTextArr.length).toBe(2); 
+  // 1 project with the text and 1 label, therefore should be 2. 
 });
