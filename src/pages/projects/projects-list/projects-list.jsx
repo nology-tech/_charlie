@@ -34,8 +34,9 @@ const ProjectsList = () => {
         setProjectsData(projectsDataFile.filter(project =>project.language.includes("React")));
     }
 
-    const filterDataByLanguage = () => {
-        
+    const filterDataByJava = () => {
+        setLanguageFilter("Java");
+        setProjectsData(projectsDataFile.filter(project =>project.language === "Java"));
     }
 
     // useEffect Calls
@@ -53,7 +54,8 @@ const ProjectsList = () => {
                     filterDataByHTMLandCSS={filterDataByHTMLandCSS}
                     filterDataByJavascript={filterDataByJavascript}
                     filterDataByReact={filterDataByReact}
-                    languageFilter={languageFilter }
+                    filterDataByJava={filterDataByJava}
+                    languageFilter={languageFilter}
                     />
                     <ProjectTable className="projects__list d-flex justify-content-start" 
                     projectsData={projectsData} 

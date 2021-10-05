@@ -28,17 +28,22 @@
             margin-right: 36px;
             cursor: pointer;
         }
-        &__full-time {
+        &__htmlcss {
             margin-right: 40px;
             cursor: pointer;
         }
-        &__self-paced {
+        &__javascript {
             margin-right: 33px;
             cursor: pointer;
         }
-        &__corporate {
+        &__react {
+            cursor: pointer;
+            margin-right: 33px;
+        }
+        &__java {
             cursor: pointer;
         }
+        
     }
 }
 .selectedFilterClass {

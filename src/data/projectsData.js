@@ -42,6 +42,13 @@ const projectsData = [
         percentageReviewed: "85%"
     },
     {
+        projectName: "Java Game",
+        language: "Java",
+        studentsEnrolled: "325",
+        numberReviewed: "278",
+        percentageReviewed: "85%"
+    },
+    {
         projectName: "Client Project",
         language: "React",
         studentsEnrolled: "325",
