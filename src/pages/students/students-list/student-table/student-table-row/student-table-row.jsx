@@ -5,7 +5,7 @@ import StudentRight from "../../../../../assets/images/studentRight.png";
 import Adobe from "../../../../../assets/images/adobe.png";
 
 const StudentTableRow = (props) => {
-  const { studentName, enrolledOn, githubAccount, portfolio, resume, pictureLink } = props.student; 
+  const { studentName, enrolledOn, githubAccount, portfolio, pictureLink } = props.student; 
   const { toggleView } = props; 
   if (toggleView === false) {
   return (

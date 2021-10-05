@@ -35,10 +35,10 @@ const ProjectsForm = () => {
     };
 
     return (
-        <div className="row project-form-container mt-4">
-            <form className="row" onSubmit={handleSubmit(onSubmit)}>
-                <div className="col-6 project-form-container__left">
-                    <div className="p-0  mt-4">
+        <div className="project-form-container mt-4">
+            <form className="d-flex justify-content-around w-100" onSubmit={handleSubmit(onSubmit)}>
+                <div className="project-form-container__left">
+                    <div className="p-0 mt-4">
                         <label className="project-form-container__left__label" htmlFor="projectName">Project Name</label>
                         <input
                         {...register("firstNprojectNameame", {
@@ -69,7 +69,7 @@ const ProjectsForm = () => {
                         </select>
                     </div> 
 
-                    <div className="mt-3 ">
+                    <div className="mt-3 d-flex flex-column">
                         <label className="project-form-container__left__label"  htmlFor="projectBrief">Project Brief</label>
                         <textarea
                         {...register("projectBrief", {
@@ -77,7 +77,7 @@ const ProjectsForm = () => {
                             // pattern: /^[A-Za-z]+$/i,
                         })}
                         name="projectBrief"
-                        className="form-control project-form-input doubleHeight"
+                        className="doubleHeight"
                         type="text"
                         id="projectBrief"
                         />
@@ -85,12 +85,12 @@ const ProjectsForm = () => {
                     </div>
 
 
-                    <div className="mt-3 ">
+                    <div className="mt-3 d-flex flex-column ">
                         <label className="project-form-container__left__label"  htmlFor="coachesTips">Coaches Tips</label>
                         <textarea
                         {...register("coachesTips", { required: true })}
                         name="coachesTips"
-                        className="form-control project-form-input doubleHeight"
+                        className="doubleHeight"
                         type="text"
                         id="coachesTips"
                         />
@@ -98,8 +98,8 @@ const ProjectsForm = () => {
                     </div>
                 </div>
 
-                <div className="col-6 project-form-container__right justify-content-between h-100">
-                    <div className="col-12 d-flex flex-column mt-4">
+                <div className="project-form-container__right justify-content-between h-100">
+                    <div className="d-flex flex-column mt-4">
                         <label className="project-form-container__right__label"  htmlFor="projectThumb">Project Thumbnail</label>
                         <input {...register("projectThumb")}
                         type="file"
@@ -116,9 +116,9 @@ const ProjectsForm = () => {
                         </label>
                     </div>
 
-                    <div className="col-12 mt-5">
-                        <input type="reset" className="btn btn-secondary mx-2 form__button" value="Cancel" onClick={cancel} />
-                        <input type="submit" className="btn btn-primary form__button" value="Save" />
+                    <div className="buttons">
+                        <input type="reset" className="button_cancel" value="Cancel" onClick={cancel} />
+                        <input type="submit" className="button_submit" value="Save" onClick={onSubmit} />
                     </div>
                 </div>
             </form>

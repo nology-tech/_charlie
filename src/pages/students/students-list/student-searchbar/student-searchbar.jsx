@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Filter from "../../../../assets/images/filter.png";
 import GridView from "../../../../assets/images/grid-view.png";
 import HamburgerMenu from "../../../../assets/images/hamburger-menu.png";

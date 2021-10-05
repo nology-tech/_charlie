@@ -3,12 +3,16 @@
 .project-form-container{
     width: 100%;
     height: 565px;
-    border: black 1px solid;
+    border: transparent 1px solid;
+    border-radius: 7px;
+    box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
     background-color: white;
     // margin-top: 50px;
     margin-bottom: 127px;
     &__left{
         padding: 40px;
+        padding-left: 100px; 
+        width: 100%;
 
         &__label{
             font-weight: 600;
@@ -19,10 +23,12 @@
     }
     &__right{
         padding: 40px;
+        width: 100%;
         &-image{
             border: 1px black solid;
-            height:350px;
-            width:270px;
+            width:350px;
+            height:270px;
+            box-sizing: border-box;
         }
         &__label{
             font-weight: 600;
@@ -31,5 +37,32 @@
             letter-spacing: 0.03em;
         }
     }
+}
+
+.project-form__button {
+    margin-bottom: 55px; 
+}
+.button_cancel {
+    width: 168.385px;
+    height: 50px;
+    background: white;
+    border-radius: 7px;
+    color: $accent-primary;
+    border: 1px solid $accent-primary;
+    margin-right: 13.82px; 
+    margin-left: 0px; 
+}
+
+.button_submit {
+    width: 168.385px;
+    height: 50px;
+    background: $accent-primary;
+    border-radius: 7px;
+    color: white;
+    border: 1px solid transparent;
+}
+
+.buttons {
+    margin-top: 33px; 
 }
 
