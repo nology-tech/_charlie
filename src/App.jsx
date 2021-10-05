@@ -1,7 +1,7 @@
 import './App.scss';
 
 import Navbar from "./components/navbar/navbar";
-import Review from "./pages/students/students-projects-index/review/review";
+import ProjectReview from "./pages/students/students-projects-index/review/projectreview";
 
 import Dashboard from "./pages/dashboard/dashboard";
 
@@ -39,6 +39,10 @@ function App() {
               <SubmissionDetails />
             </Route>
 
+            <Route path="/student/:id/project/:id/review">
+              <ProjectReview />
+            </Route>
+
             <Route path="/students">
               <Students />
             </Route>
@@ -52,7 +56,7 @@ function App() {
             </Route>
 
             <Route path="/settings">
-              <Review />
+              <ProjectReview />
             </Route>
 
             <Route path="/">

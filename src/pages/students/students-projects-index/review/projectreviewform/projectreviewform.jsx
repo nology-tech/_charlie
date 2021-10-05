@@ -1,8 +1,8 @@
-import './reviewform.scss';
+import './projectreviewform.scss';
 import { useForm, Controller } from "react-hook-form";
 import ReactStars from "react-rating-stars-component";
 
-const ReviewForm = ({ onSubmit }) => {
+const ProjectReviewForm = ({ onSubmit }) => {
     const {control, handleSubmit, formState: { errors },  reset } = useForm();
     
     const handleClick = () => {
@@ -62,4 +62,4 @@ const ReviewForm = ({ onSubmit }) => {
     );
 };
 
-export default ReviewForm;
+export default ProjectReviewForm;

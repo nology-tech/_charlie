@@ -1,7 +1,7 @@
 import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 
-const ReviewTopNav = ( {onSubmit} ) => {
+const ProjectReviewTopNav = ( {onSubmit} ) => {
  const { handleSubmit } = useForm();
 
   const history = useHistory();  
@@ -17,4 +17,4 @@ const ReviewTopNav = ( {onSubmit} ) => {
   )
 }
 
-export default ReviewTopNav;
+export default ProjectReviewTopNav;
