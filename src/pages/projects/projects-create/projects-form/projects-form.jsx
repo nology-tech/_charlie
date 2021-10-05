@@ -42,7 +42,7 @@ const ProjectsForm = () => {
                         <label className="project-form__left__label" htmlFor="projectName">Project Name</label>
                         <input
                         {...register("projectName", {
-                            required: true, pattern: /^[A-Za-z]+$/i
+                            required: true
                         })}
                         name="projectName"
                         className="form-control project-form-input project-form__left__projectName "
@@ -73,8 +73,7 @@ const ProjectsForm = () => {
                         <label className="project-form__left__label"  htmlFor="projectBrief">Project Brief</label>
                         <textarea
                         {...register("projectBrief", {
-                            required: true,
-                            pattern: /^[A-Za-z]+$/i,
+                            required: true
                         })}
                         name="projectBrief"
                         className="text-area-styling"
@@ -88,7 +87,7 @@ const ProjectsForm = () => {
                     <div className="mt-3 d-flex flex-column">
                         <label className="project-form__left__label"  htmlFor="coachesTips">Coaches Tips</label>
                         <textarea
-                        {...register("coachesTips", { required: true, pattern: /^[A-Za-z]+$/i })}
+                        {...register("coachesTips", { required: true})}
                         name="coachesTips"
                         className="text-area-styling"
                         type="text"
