@@ -11,7 +11,7 @@ const ProjectsForm = () => {
     console.log(errors);
     const [{ alt, src }, setImg] = useState({
         src: placeHolderThumb,
-        alt: placeHolderThumb,
+        alt: "",
     });
 
     const onSubmit = (data) => {
@@ -20,7 +20,7 @@ const ProjectsForm = () => {
         history.goBack();
     };
     
-    const cancel = () => {
+    const handleCancel = () => {
         reset();
         history.goBack();
     };
@@ -37,14 +37,14 @@ const ProjectsForm = () => {
     return (
         <div className="project-form-container mt-4">
             <form className="d-flex justify-content-around w-100" onSubmit={handleSubmit(onSubmit)}>
-                <div className="project-form-container__left">
+                <div className="project-form__left">
                     <div className="p-0 mt-4">
-                        <label className="project-form-container__left__label" htmlFor="projectName">Project Name</label>
+                        <label className="project-form__left__label" htmlFor="projectName">Project Name</label>
                         <input
-                        {...register("firstNprojectNameame", {
+                        {...register("projectName", {
                             required: true,
                         })}
-                        name="project-form-container__left__projectName"
+                        name="project-form__left__projectName"
                         className="form-control project-form-input "
                         type="text"
                         id="projectName"
@@ -53,14 +53,14 @@ const ProjectsForm = () => {
                     </div>
 
                     <div className="mt-3 ">
-                        <label className="project-form-container__left__label"  htmlFor="">Language</label>
+                        <label className="project-form__left__label"  htmlFor="">Language</label>
                         <select
                         {...register("language", { required: true })}
                         name="language"
                         className="form-select form-control project-form-input "
                         id="language"
                         >
-                        <optgroup label = "Select a language">
+                        <optgroup label = "Select a Language">
                             <option value="htmlcss">HTML/CSS</option>
                             <option value="javascript">Javascript</option>
                             <option value="react">React</option>
@@ -70,7 +70,7 @@ const ProjectsForm = () => {
                     </div> 
 
                     <div className="mt-3 d-flex flex-column">
-                        <label className="project-form-container__left__label"  htmlFor="projectBrief">Project Brief</label>
+                        <label className="project-form__left__label"  htmlFor="projectBrief">Project Brief</label>
                         <textarea
                         {...register("projectBrief", {
                             required: true,
@@ -86,7 +86,7 @@ const ProjectsForm = () => {
 
 
                     <div className="mt-3 d-flex flex-column ">
-                        <label className="project-form-container__left__label"  htmlFor="coachesTips">Coaches Tips</label>
+                        <label className="project-form__left__label"  htmlFor="coachesTips">Coaches Tips</label>
                         <textarea
                         {...register("coachesTips", { required: true })}
                         name="coachesTips"
@@ -98,9 +98,9 @@ const ProjectsForm = () => {
                     </div>
                 </div>
 
-                <div className="project-form-container__right justify-content-between h-100">
+                <div className="project-form__right justify-content-between h-100">
                     <div className="d-flex flex-column mt-4">
-                        <label className="project-form-container__right__label"  htmlFor="projectThumb">Project Thumbnail</label>
+                        <label className="project-form__right__label"  htmlFor="projectThumb">Project Thumbnail</label>
                         <input {...register("projectThumb")}
                         type="file"
                         onChange={readURL}
@@ -108,7 +108,7 @@ const ProjectsForm = () => {
                         id="projectThumb"
                         hidden
                         />
-                        <div className="project-form-container__right-image d-flex justify-content-center align-items-center">
+                        <div className="project-form__right-image d-flex justify-content-center align-items-center">
                             <img id="projectImage" src={src} alt={alt} className="project-thumbnail" />
                         </div>
                         <label htmlFor="projectThumb" className="btn upload-btn mt-4">
@@ -117,8 +117,8 @@ const ProjectsForm = () => {
                     </div>
 
                     <div className="buttons">
-                        <input type="reset" className="button_cancel" value="Cancel" onClick={cancel} />
-                        <input type="submit" className="button_submit" value="Save" onClick={onSubmit} />
+                        <input type="reset" className="button_cancel" value="Cancel" onClick={handleCancel} />
+                        <input type="submit" className="button_submit" value="Save"/>
                     </div>
                 </div>
             </form>
