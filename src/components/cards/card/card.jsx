@@ -22,10 +22,12 @@ const Card = ({ project }) => {
   }
   
   return (
-    <div className="card flex-column justify-content-evenly h-200" key={project.title}>
-      <img src={project.imgSrc} alt={project.title} />
+    <div className="card d-flex flex-column justify-content-evenly h-200" key={project.title}>
+      <Link to={path}>
+        <img src={project.imgSrc} alt={project.title} />
+      </Link>
       
-      <Link to={path} >
+      <Link to={path}>
         <h5 className="mt-3">{project.title}</h5>
       </Link>
       
