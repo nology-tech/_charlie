@@ -20,11 +20,11 @@ const ProjectReviewForm = ({ onSubmit }) => {
                 
                 <div className="col-12 mt-4">
                     <h6>Knowledge of Module</h6>
-                    <Controller control={control} name="module-rating" defaultValue={3} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="module-rating" activeColor="#724BCB" size={16} /> )} />
+                    <Controller control={control} name="module-rating" defaultValue={3} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="module-rating" activeColor="#724BCB" size={16}  /> )} />
                     
                      <label htmlFor="moduleKnowledge">Additional Notes:</label>
                      <Controller control={control} name="moduleKnowledge" render={ ( {field : { value, onChange }} ) => (<input
-                      value={value} onChange={onChange} className="form-control form__input  my-2" type="text" id="moduleKnowledge" /> )} />
+                      value={value} onChange={onChange} className="form-control form__input  my-2" type="text" id="moduleKnowledge" data-testid="moduleKnowledge" /> )} />
                 </div>
 
                 <div className="col-12 mt-3">
