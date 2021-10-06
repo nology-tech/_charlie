@@ -33,7 +33,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
                     
                     <label htmlFor="HTML-CSSKnowledge">Additional Notes:</label>
                     <Controller control={control} name="HTML-CSSKnowledge"  render={ ( {field: { value, onChange }} ) => (<input
-                      value={value} onChange={onChange} className="form-control form__input  my-2" type="text" id="HTML-CSSKnowledge" />)} />
+                      value={value} onChange={onChange} className="form-control form__input  my-2" type="text" id="HTML-CSSKnowledge" data-testid="HTML-CSSKnowledge" />)} />
                 </div>
 
                 <div className="col-12 mt-3">
@@ -42,7 +42,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
                     
                     <label htmlFor="jsKnowledge">Additional Notes:</label>
                     <Controller control={control} name="jsKnowledge" render={ ( {field: { value, onChange }} ) => (<input 
-                    value={value} onChange={onChange} className="form-control form__input  my-2" type="text" id="jsKnowledge" /> )} />
+                    value={value} onChange={onChange} className="form-control form__input  my-2" type="text" id="jsKnowledge" data-testid="jsKnowledge" /> )} />
                 </div>
             </div>
             
@@ -50,8 +50,8 @@ const ProjectReviewForm = ({ onSubmit }) => {
                 
                 <div className="col-12 mt-4">
                      <h6>Summary</h6>
-                    <Controller control={control} name="summary" rules={{ required: true }} render={ ({field: { value, onChange }}) => (<textarea value={value} onChange={onChange} className="form-control form__input  my-2 summary" /> )} />
-                    {errors.summary && <p className="text-danger">*Required</p>}
+                    <Controller control={control} name="summary" rules={{ required: true }} render={ ({field: { value, onChange }}) => (<textarea value={value} onChange={onChange} className="form-control form__input  my-2 summary" data-testid="summary" /> )} />
+                    {errors.summary && <p className="text-danger">* Required</p>}
                 </div>
                 
                 <div className="col-12 mt-5">
