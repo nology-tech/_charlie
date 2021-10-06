@@ -16,7 +16,13 @@
     margin: 0 auto;
   }
 
-  h5 {font-weight: 700;}
+  //text moves to new line if it exceeds a certain width
+  h5 {
+    font-weight: 700;
+    max-width: 11em;
+    word-wrap:break-word;
+  }
+
   p {
     font-weight: 400;
     color:#95accb;
