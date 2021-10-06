@@ -7,12 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 it("should render the Input fields", () => {
     // .. Write your code here..
-    //1. Act
+    //1. Arrange
     render(
     <BrowserRouter>
         <ProjectsCreate/>
     </BrowserRouter>)
-    //2. Arrange
+    //2. Act
     const projectNameInput = screen.getByRole('textbox', {name: /project name/i})
     const languageSelector = screen.getByRole('combobox')
     const projectBriefInput = screen.getByRole('textbox', {name: /project brief/i})
@@ -27,13 +27,13 @@ it("should render the Input fields", () => {
 
 it ("should show required for an empty input on save", async() => {
     // .. Write your code here..
-    //1. Act
+    //1. Arrange
     render(
         <BrowserRouter>
             <ProjectsCreate/>
         </BrowserRouter>)
 
-    //2. Arrange
+    //2. Act
     const saveButton = await screen.findByRole('button', {name: /save/i});
     userEvent.click(saveButton);
     
