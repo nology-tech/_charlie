@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
 import "./studentsprojectsindex.scss";
+import "../student-add/addstudenttopnav/addstudenttopnav.scss";
+import { FaGithub, FaEye } from 'react-icons/fa';
+
 import projects from "../../../data/projects";
 import students from "../../../data/students";
-import { FaGithub, FaEye } from 'react-icons/fa';
-import "../student-add/addstudenttopnav/addstudenttopnav.scss";
-
 import Cards from "../../../components/cards/cards";
 import Card from "../../../components/cards/card/card";
 
@@ -23,6 +24,8 @@ const SubmissionDetails = () => {
         setCommentArr([...commentArr, e.target[0].value]);
     }
 
+    const reviewPagePath = `/projects/${studentId}/${projectId}/review`;
+
     return (
         <div className="projects">
             <div className="row projects__header d-flex mb-4 p-5 align-items-center justify-content-between">
@@ -38,9 +41,10 @@ const SubmissionDetails = () => {
                     <button className="col-3 btn btn-tertiary mx-2">
                         Go Back
                     </button>
-                    <button className="col-4 btn btn-primary mx-2 projects__header__review">
+
+                    <Link className="col-4 btn btn-primary mx-2 projects__header__review" to={reviewPagePath} >
                         Leave Review
-                    </button>
+                    </Link>
                 </p>
             </div>
             <div className="row mx-5">
