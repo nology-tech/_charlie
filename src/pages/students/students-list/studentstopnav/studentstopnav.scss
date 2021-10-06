@@ -17,6 +17,11 @@
             font-weight: 700;
             color: $color-quaternary; 
         }
+
+        &-button {
+            text-align: center;
+            line-height: 50px;
+        }
     }
     &__student-types {
         width: 50%;
