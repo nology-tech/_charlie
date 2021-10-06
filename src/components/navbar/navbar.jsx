@@ -6,10 +6,9 @@ import { FaHome, FaFileAlt, FaUsers, FaAward, FaCog } from 'react-icons/fa';
 
 const Navbar = () => {
     const navItems = [
-        {link: "/", text: "Dashboard", icon: <FaHome />},
         {link: "/students", text: "Students", icon: <FaFileAlt />},
         {link: "/projects", text: "Projects", icon: <FaUsers />},
-        {link: "/enrollment", text: "Enrollment", icon: <FaAward/>}
+        {link: "/reviews", text: "Reviews", icon: <FaAward/>}
     ];
     
     // using Navlink in order to add an active class for the current page

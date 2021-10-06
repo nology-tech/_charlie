@@ -1,24 +1,24 @@
 import React from 'react';
-import StudentTableRow from './student-table-row/student-table-row';
 import "./student-table.scss";
+import StudentTableRow from './student-table-row/student-table-row';
 
 const StudentTable = (props) => {
 
-    const {pageData} = props; 
-
-    const students = pageData && pageData.map(student => <StudentTableRow student={student}/>);
-
-    return (
+    const {pageData, toggleView} = props; 
+    const students = pageData && pageData.map(student => <StudentTableRow student={student} toggleView = {toggleView}/>)
+    return ( 
         <>
-            <div className = "studentList row d-flex align-items-center text-center">
-                <p className="col studentList__property-label">Student Name</p>
-                <p className="col studentList__property-label">Enrolled On</p>
-                <p className="col studentList__property-label">Github Account</p>
-                <p className="col studentList__property-label">Portfolio</p>
-                <p className="col studentList__property-label">Resume</p>
-                <p className="col-1 studentList__property-label m-0 p-0"></p>
-            </div>
+        <div className={toggleView === false ? "studentList d-flex align-items-center text-center": "hide-student-list-labels"}>
+            <p className="col studentList__property-label">Student Name</p>
+            <p className="col studentList__property-label">Enrolled On</p>
+            <p className="col studentList__property-label">Github Account</p>
+            <p className="col studentList__property-label">Portfolio</p>
+            <p className="col studentList__property-label">Resume</p>
+            <p className="col-1 studentList__property-label"></p>
+        </div>
+        <div className={toggleView === false ? "hamburger-styling" : "student-grid"}>
             {students}
+        </div>
         </>
     )
 }
