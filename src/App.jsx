@@ -39,6 +39,10 @@ function App() {
               <Students />
             </Route>
             
+            <Route path="/projects/:studentId/:projectId/review">
+              <Dashboard />
+            </Route>
+
             <Route path="/projects/:studentId/:projectId">
               <SubmissionDetails />
             </Route>
