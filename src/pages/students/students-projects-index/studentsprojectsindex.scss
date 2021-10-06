@@ -1,13 +1,9 @@
 @use "../../../assets/styles/variables" as *;
 @import "../../../assets/styles/typography";
 
-.projects{
-    width: 95%;
-}
+.projects{width: 95%;}
 
 .header {
-    // width: 100%;
-
     &__review {width: 150px;}
 }
 

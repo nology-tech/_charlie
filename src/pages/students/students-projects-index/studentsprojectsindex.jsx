@@ -114,11 +114,8 @@ const SubmissionDetails = () => {
                                 
                                 <h6 className="mt-4">Additional Notes</h6>
                                 {commentArr.length === 0 ? 
-                                    <p>{"No notes given..."}</p> : 
-                                    
-                                    <ul>
-                                        {commentArr.map(note => <li>{note}</li>)}
-                                    </ul>
+                                    <p>{"No notes given..."}</p> :
+                                    <ul>{commentArr.map(note => <li>{note}</li>)}</ul>
                                 }
                                 
                                 <p className="mt-4">Good Luck from the coaches!</p>
