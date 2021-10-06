@@ -28,7 +28,7 @@ const SubmissionDetails = () => {
 
     return (
         <div className="projects">
-            <div className="row header d-flex mb-4 p-5 align-items-center justify-content-between">
+            {/* <div className="row header mb-4 p-5 align-items-center justify-content-between">
                 <h2 className="col-7">
                     <div className="row">
                         {selectedStudent.studentName}
@@ -46,21 +46,35 @@ const SubmissionDetails = () => {
                         Leave Review
                     </Link>
                 </p>
+            </div> */}
+
+            <div className="row topnav header d-flex align-items-center">
+                <h1 className="col-3 offset-1 topnav__title">
+                    <div className="row">{selectedStudent.studentName}</div>
+                    <div className="row">{selectedProject.title}</div>
+                </h1>
+                <div className="top-nav__buttons col-5 offset-3">
+                    <button className="col-3 btn btn-secondary topnav__button mx-2"> Go Back</button>
+                    <Link className="col-4 btn btn-primary mx-2 header__review" to={reviewPagePath} >
+                        Leave Review
+                    </Link>
+                </div>
             </div>
+
             <div className="row mx-5">
                 <h6 className="mx-4 mb-4">Overview</h6>
             </div>
-            <div className="row mx-5 justify-content-center overview-section">
+            <div className="row mx-5 d-flex justify-content-center overview-section">
                 <div className="col-3 ml-2">
                     <div className="row mx-4">
                         <Card project={projects[projectId]} />
                     </div>
                     <div className="row mx-4">
                         <div className="col-12 d-flex align-items-center overview-buttons mx-1 mt-4">
-                            <button className="btn-dark btn-project mx-auto">
+                            <button className="btn-dark btn-project col-5 mx-auto">
                                 <FaGithub />&nbsp;View Repo
                             </button>
-                            <button className="btn-secondary btn-project mx-auto">
+                            <button className="btn-secondary btn-project col-5 mx-auto">
                                 <FaEye />&nbsp;Live preview
                             </button>
                         </div>
