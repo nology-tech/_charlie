@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import ProjectsCreate from "../projects-create";
+// import Projects from "../../projects-list"
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -40,5 +41,3 @@ it ("should show required for an empty input on save", async() => {
     const alert = await screen.findAllByText("*Required");
     expect(alert.length).toBe(3);
 });
-
-
