@@ -133,7 +133,7 @@ it("should update the items to a grid view when pressing the grid button after t
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const gridButton = screen.getByRole('img', {name: /grid view/i}); 
@@ -149,7 +149,7 @@ it("should update the items back to a hamburger view from a grid view when press
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const gridButton = screen.getByRole('img', {name: /grid view/i}); 
@@ -167,7 +167,7 @@ it("should filter students to only the self-paced students when pressing the Sel
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const selfPacedButton = screen.getByText(/self\-paced/i);
@@ -183,7 +183,7 @@ it("should filter students to only the full-time students when pressing the full
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const fullTimeButton = screen.getByText(/full\-time/i);
@@ -199,7 +199,7 @@ it("should filter students to only the corporate students when pressing the Corp
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const corporateButton = screen.getByText(/corporate/i)
@@ -215,7 +215,7 @@ it("should display 1 student on the page when the row selector value is updated 
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const rowsSelector = screen.getByTestId("rows-selector");
@@ -230,7 +230,7 @@ it("should display 5 students on the page when the row selector value is updated
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const rowsSelector = screen.getByTestId("rows-selector");
@@ -245,7 +245,7 @@ it("should display 9 students on the page when the row selector value is updated
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const rowsSelector = screen.getByTestId("rows-selector");
@@ -260,7 +260,7 @@ it("should filter students to only the Mariana students when pressing the Marian
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const courseSelector = screen.getByTestId("course-selector");

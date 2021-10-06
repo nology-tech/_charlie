@@ -30,8 +30,8 @@
     color: $accent-primary;
 }
 
-
-.btn-secondary, .btn-secondary:hover{
+.btn-secondary,
+.btn-secondary:hover {
     background-color: white;
     color: $accent-primary;
     border: $accent-primary solid 2px;
@@ -40,21 +40,23 @@
 .btn-upload {
     background-color: #f5f5f5;
     border: 1px solid $accent-primary;
-    font-weight: 600; 
+    font-weight: 600;
     color: black;
-    font-size: 12px; 
+    font-size: 12px;
 }
 
 .btn-quaternary .violet {
-    background-color: #Ebebf5;
+    background-color: #ebebf5;
     color: $accent-primary;
 }
 
-.btn-back{
+.btn-back {
     width: 130px;
     height: 50px;
     background: white;
     border-radius: 7px;
     color: $accent-primary;
     border: 1px solid $accent-primary;
+    text-align: center;
+    line-height: 50px;
 }

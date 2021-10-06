@@ -21,25 +21,10 @@ const ProjectsList = () => {
         setLanguageFilter("All");
         fetchProjectsData();
         }
-    const filterDataByHTMLandCSS = () => {
-        setLanguageFilter("HTML/CSS");
-        setProjectsData(projectsDataFile.filter(project => project.language.includes("HTML/CSS")));
+    const filterDataByLanguage = (languageChoice) => {
+        setLanguageFilter(languageChoice);
+        setPageData(projectsDataFile.filter(project => project.language.includes(languageChoice)));
     }
-    const filterDataByJavascript = () => {
-        setLanguageFilter("Javascript");
-        setProjectsData(projectsDataFile.filter(project => project.language.includes("Javascript")));
-    }
-    const filterDataByReact = () => {
-        setLanguageFilter("React");
-        setProjectsData(projectsDataFile.filter(project =>project.language.includes("React")));
-    }
-
-    const filterDataByJava = () => {
-        setLanguageFilter("Java");
-        setProjectsData(projectsDataFile.filter(project =>project.language === "Java"));
-    }
-
-    // useEffect Calls
 
     useEffect(fetchProjectsData, []); 
     useEffect(displayProjects, [projectsData]);
@@ -51,10 +36,7 @@ const ProjectsList = () => {
                 <div className="projects d-flex flex-column align-items-center p-0 ">
                     <ProjectsTopNav className="projects__topNav" 
                     filterDataByAll={filterDataByAll}
-                    filterDataByHTMLandCSS={filterDataByHTMLandCSS}
-                    filterDataByJavascript={filterDataByJavascript}
-                    filterDataByReact={filterDataByReact}
-                    filterDataByJava={filterDataByJava}
+                    filterDataByLanguage={filterDataByLanguage}
                     languageFilter={languageFilter}
                     />
                     <ProjectTable className="projects__list d-flex justify-content-start" 
