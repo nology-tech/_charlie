@@ -9,7 +9,7 @@ it("8 students render on the page when the page is first rendered", async() => {
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const firstPageStudents = await screen.findAllByTestId("student");
@@ -21,7 +21,7 @@ it("should populate the first page with 8 students on the Ibiza course when sear
    // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const searchInput = screen.getByRole("textbox");
@@ -36,7 +36,7 @@ it("should only display students of a specific course when it is searched for, e
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const searchInput = screen.getByRole("textbox");
@@ -57,7 +57,7 @@ it("should return one student on the page when searching for a student with a un
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const searchInput = screen.getByRole("textbox");
@@ -73,7 +73,7 @@ it("should return one student on the page when searching for a student with a un
   // 1. Arrange
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const searchInput = screen.getByRole("textbox");
@@ -90,7 +90,7 @@ it("should update the row selection text to 1-1 of 1 when searching for a unique
   // 1. Arrange 
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act 
   const searchInput = screen.getByRole("textbox");
@@ -104,7 +104,7 @@ it("should lock the row selection to 0 when pressing the left arrow after the pa
   // 1. Arrange 
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const leftArrow = screen.getByRole('img', {name: /left arrow/i});
@@ -119,7 +119,7 @@ it("should update the row selection to 9-16 when pressing the right arrow after 
   // 1. Arrange 
   render(
   <BrowserRouter>
-  <StudentList/>
+    <StudentList/>
   </BrowserRouter> );
   // 2. Act
   const rightArrow = screen.getByRole('img', {name: /right arrow/i});
