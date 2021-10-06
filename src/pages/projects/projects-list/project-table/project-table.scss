@@ -1,0 +1,14 @@
+@use "../../../../assets/styles/_typography" as *; 
+
+a{
+  text-decoration: none;
+}
+.project-list {
+  width: 100%;
+  margin-bottom: 11px; 
+  font-family: $font-primary;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  color: #595959;
+}
