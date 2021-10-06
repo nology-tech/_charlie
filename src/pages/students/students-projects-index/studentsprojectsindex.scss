@@ -1,77 +1,71 @@
 @use "../../../assets/styles/variables" as *;
 @import "../../../assets/styles/typography";
 
-.projects {
-    // margin: 0 65px;
-    
-    &__header {
-        width: 100%;
-        font: $font-primary;
-        background-color: white;
+.header {
+    width: 100%;
+    font: $font-primary;
+    background-color: white;
 
-        &__review {width: 150px;}
-    }
-    
-    h2 {font-weight: 700;}
-    h6 {font-weight: 600;}
+    &__review {width: 150px;}
+}
 
-    &__additional-notes, &__review, &__challenge-brief, &__overview-buttons {
-        background-color: white;
+h2 {font-weight: 700;}
+h6 {font-weight: 600;}
+
+.additional-notes, .review, .challenge-brief, .overview-buttons {
+    background-color: white;
+    border-radius: 7px;
+}
+
+.additional-notes {
+    height: 120px;
+
+    &-input {
+        box-shadow: 0px 30px 40px 0px #724BCB0F;
+        border: 1px solid lightgray;
+        max-width: 220px;
         border-radius: 7px;
-    }
-    
-    &__additional-notes {
-        height: 120px;
 
-        &-input {
-            box-shadow: 0px 30px 40px 0px #724BCB0F;
-            border: 1px solid lightgray;
-            max-width: 220px;
-            border-radius: 7px;
+        .btn-plus {
+            font-size: larger;
+            background-color: none;
+            font-weight: 0;
 
-            .btn-plus {
-                font-size: larger;
-                background-color: none;
-                font-weight: 0;
-
-                &:hover {border: none; background-color: none; color: #95ACCB;}
-            }
-
-            input {
-                color: #95ACCB;
-                border: none;
-                
-                &[type="text"] {font-size: 12px; color: #95ACCB;}
-            }
+            &:hover {border: none; background-color: none; color: #95ACCB;}
         }
-    }
 
-    &__review {
-        height: 120px;
-        
-        p {color: #95ACCB; font-size: 12px;}
-    }
-    
-    &__challenge-brief {
-        height: 390px;
-        overflow-y: auto;
-        
-        p, li {
+        input {
             color: #95ACCB;
-            font-size: 12px;
+            border: none;
+            
+            &[type="text"] {font-size: 12px; color: #95ACCB;}
         }
     }
+}
 
-    &__overview {
-        &-buttons {
-            //width: 250px;
-            height: 55px;
-            
-            button {
-                font-size: 8px;
-                //min-width: unset;
-                height: 40px;
-            }
+.review {
+    height: 120px;
+    
+    p {color: #95ACCB; font-size: 12px;}
+}
+
+.challenge-brief {
+    height: 390px;
+    overflow-y: auto;
+    
+    p, li {
+        color: #95ACCB;
+        font-size: 12px;
+    }
+}
+
+.overview {
+    &-buttons {
+        height: 55px;
+        
+        button {
+            font-size: 8px;
+            height: 40px;
         }
     }
 }

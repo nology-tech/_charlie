@@ -28,7 +28,7 @@ const SubmissionDetails = () => {
 
     return (
         <div className="projects">
-            <div className="row projects__header d-flex mb-4 p-5 align-items-center justify-content-between">
+            <div className="row header d-flex mb-4 p-5 align-items-center justify-content-between">
                 <h2 className="col-7">
                     <div className="row">
                         {selectedStudent.studentName}
@@ -42,7 +42,7 @@ const SubmissionDetails = () => {
                         Go Back
                     </button>
 
-                    <Link className="col-4 btn btn-primary mx-2 projects__header__review" to={reviewPagePath} >
+                    <Link className="col-4 btn btn-primary mx-2 header__review" to={reviewPagePath} >
                         Leave Review
                     </Link>
                 </p>
@@ -56,8 +56,8 @@ const SubmissionDetails = () => {
                         <Card project={projects[projectId]} />
                     </div>
                     <div className="row mx-4">
-                        <div className="col-12 d-flex align-items-center projects__overview-buttons mx-1 mt-4">
-                            <button className="btn-dark btn-project  mx-auto">
+                        <div className="col-12 d-flex align-items-center overview-buttons mx-1 mt-4">
+                            <button className="btn-dark btn-project mx-auto">
                                 <FaGithub />&nbsp;View Repo
                             </button>
                             <button className="btn-secondary btn-project mx-auto">
@@ -66,9 +66,9 @@ const SubmissionDetails = () => {
                         </div>
                     </div>
                     <div className="row mr-2 mx-4">
-                        <div className="col-12 projects__additional-notes mt-4 px-4">
+                        <div className="col-12 additional-notes mt-4 px-4">
                             <h6 className="mt-4">Additional Notes:</h6>
-                            <div className="projects__additional-notes-input row mt-3">
+                            <div className="additional-notes-input row mt-3">
                                     <form action="" onSubmit={readText}>
                                         <div className="col-9 px-1 d-flex justify-content-between align-items-center input-group">
                                             <input type="text" placeholder="Write a note..." className="form-control p-10" name="add-comment"/>
@@ -81,13 +81,13 @@ const SubmissionDetails = () => {
                 </div>
                 <div className="col-9">
                     <div className="row mx-4">
-                        <div className="col-12 projects__review px-4">
+                        <div className="col-12 review px-4">
                             <h6 className="mt-4">Review</h6>
                             <p className="mt-3">No Review Submitted</p>
                         </div>
                     </div>
                     <div className="row mx-4">
-                        <div className="col-12 projects__challenge-brief mt-4 px-4">
+                        <div className="col-12 challenge-brief mt-4 px-4">
                             <h6 className="mt-4">Challenge Brief</h6>
                             <p className="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing 
                             elit. Dui convallis feugiat vel, sit malesuada commodo nullam. Urna, 
