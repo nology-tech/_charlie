@@ -33,7 +33,13 @@ h6 {font-weight: 600;}
             background-color: none;
             font-weight: 0;
 
-            &:hover {border: none; background-color: none; color: #95ACCB;}
+            &:hover, &:focus, &:active {
+                border: none; 
+                background: none; 
+                outline: none;
+                color: #95ACCB;
+
+            }
         }
 
         input {

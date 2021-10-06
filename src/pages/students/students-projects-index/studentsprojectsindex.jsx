@@ -19,9 +19,16 @@ const SubmissionDetails = () => {
     
     const selectedProject = projects[projectId]; 
 
-    const readText = (e) =>{
+    //update array of notes in state when new one is submitted
+    const submitAdditionalNotes = (e) =>{
         e.preventDefault();
-        setCommentArr([...commentArr, e.target[0].value]);
+
+        const txtNote = e.target[0].value;
+
+        if(txtNote) {
+            setCommentArr([...commentArr, txtNote]);
+            e.target[0].value = "";
+        }
     }
 
     const reviewPagePath = `/projects/${studentId}/${projectId}/review`;
@@ -67,7 +74,7 @@ const SubmissionDetails = () => {
                             <div className="col-12 additional-notes mt-4 px-4">
                                 <h6 className="mt-4">Additional Notes:</h6>
                                 <div className="additional-notes-input row mt-3">
-                                        <form action="" onSubmit={readText}>
+                                        <form action="" onSubmit={submitAdditionalNotes}>
                                             <div className="col-9 px-1 d-flex justify-content-between align-items-center input-group">
                                                 <input type="text" placeholder="Write a note..." className="form-control p-10" name="add-comment"/>
                                                 <input type="submit" className="col-3 btn-secondary btn-plus p-10" value="+" />
@@ -104,10 +111,15 @@ const SubmissionDetails = () => {
                                     <li>Break it down</li>
                                     <li>Do what you can do first</li>
                                 </ul>
+                                
                                 <h6 className="mt-4">Additional Notes</h6>
-                                <ul className="mt-4">
-                                    {commentArr.map(note => <li>{note}</li>)}
-                                </ul>
+                                {commentArr.length === 0 ? 
+                                    <p>{"No notes given..."}</p> : 
+                                    
+                                    <ul>
+                                        {commentArr.map(note => <li>{note}</li>)}
+                                    </ul>
+                                }
                                 
                                 <p className="mt-4">Good Luck from the coaches!</p>
                             </div>
