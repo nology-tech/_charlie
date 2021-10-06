@@ -40,7 +40,7 @@ const App = () => {
             </Route>
 
             {/* 1. Student routes for list, create, and details */}
-            <Route path={["/students", "/"]}>
+            <Route path="/students">
               <Students />
             </Route>
             <Route path="/student/create">
