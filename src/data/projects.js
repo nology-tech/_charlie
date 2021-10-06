@@ -20,7 +20,7 @@ const projects = [
     imgSrc: Portfolio,
     languagesUsed: ["HTML", "CSS", "JavaScript"],
     reviewNeeded: false,
-    reviewed: true,
+    reviewed: false,
   },
   {
     id: 2,

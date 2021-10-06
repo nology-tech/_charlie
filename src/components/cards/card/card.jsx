@@ -7,11 +7,19 @@ const Card = ({ project }) => {
   const path = "/projects/"+studentId+"/"+project.id;
 
   const { reviewNeeded, reviewed } = project;
-  let btnText;
+  
+  //not started by default
+  let btnText = "Not Started";
+  let buttonClass = "btn-quaternary";
         
-  if(reviewNeeded) btnText = "Review Needed";
-  else if(reviewed) btnText = "Reviewed";
-  else btnText = "Not Started";
+  if(reviewNeeded) {
+    btnText = <>&#10060; {" Review Needed"}</>;
+    buttonClass = "btn-danger";
+  }
+  else if(reviewed) {
+    btnText = <>&#10003; {" Reviewed"}</>;
+    buttonClass = "btn-success";
+  }
   
   return (
     <div className="card h-200" key={project.title}>
@@ -23,7 +31,7 @@ const Card = ({ project }) => {
       
       <p>{project.languagesUsed.join("/")}</p>
       
-      <button className="btn btn-quaternary mx-auto mt-2">{btnText}</button>
+      <button className={`btn ${buttonClass} mx-auto mt-2`}>{btnText}</button>
     </div>
   );
 }

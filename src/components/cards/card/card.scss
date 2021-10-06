@@ -33,4 +33,16 @@
   }
 
   a, a:visited {color: unset;}
+
+  .btn {padding: 0;}
+  
+  .btn-success {
+    background-color: #2FF5961A;
+    color: #47DE96;
+  }
+
+  .btn-danger {
+    background-color: #EE61611A;
+    color: #ee6161;
+  }
 }
