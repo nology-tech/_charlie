@@ -1,12 +1,9 @@
 import Calculator from "../assets/images/calculator.png";
 import Portfolio from "../assets/images/portfolio.png";
 import JSgame from "../assets/images/js-game.png";
-import Morse from "../assets/images/morse-code-translator.png";
+import Morse from "assets/images/morse-code-translator.png";
 import ClientProject from "../assets/images/client-project.png";
-import PunkApi from "../assets/images/punk-api.png";
-
-
-
+import PunkApi from "assets/images/punk-api.png";
 
 const projects = [
   {
@@ -47,4 +44,4 @@ const projects = [
 
 ]
 
-export default projects
+export default projects;
