@@ -3,11 +3,10 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 import "./student-table-row.scss";
-import StudentRight from "../../../../../assets/images/studentRight.png";
-import Adobe from "../../../../../assets/images/adobe.png";
+import StudentRight from "assets/images/studentRight.png";
+import Adobe from "assets/images/adobe.png";
 
 const StudentTableRow = (props) => {
-
   const { studentName, enrolledOn, githubAccount, portfolio, resume } = props.student;
 
   return (
@@ -26,4 +25,4 @@ const StudentTableRow = (props) => {
   )
 }
 
-export default StudentTableRow
+export default StudentTableRow;
