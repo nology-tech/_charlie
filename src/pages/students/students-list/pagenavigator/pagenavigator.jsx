@@ -1,6 +1,6 @@
 import React from 'react';
-import LeftArrow from "../../../../assets/images/left.png";
-import RightArrow from "../../../../assets/images/right.png";
+import LeftArrow from "assets/images/left.png";
+import RightArrow from "assets/images/right.png";
 import "./pagenavigator.scss";
 
 const PageNavigator = (props) => {

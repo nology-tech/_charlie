@@ -1,19 +1,19 @@
-import './App.scss';
+import 'App.scss';
 
-import Navbar from "./components/navbar/navbar";
-import ProjectReview from "./pages/students/students-projects-index/review/projectreview";
+import Navbar from "components/navbar/navbar";
+import ProjectReview from "pages/students/students-projects-index/review/projectreview";
 
-import Dashboard from "./pages/dashboard/dashboard";
+import Dashboard from "pages/dashboard/dashboard";
 
-import SubmissionDetails from "./pages/students/students-projects-index/studentsprojectsindex";
-import Enrollment from "./pages/enrollment/enrollment";
-import Settings from "./pages/settings/settings";
+import SubmissionDetails from "pages/students/students-projects-index/studentsprojectsindex";
+import Enrollment from "pages/enrollment/enrollment";
+import Settings from "pages/settings/settings";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Students from "./pages/students/students-list/students";
-import StudentDetails from './pages/students/student-details/studentdetails';
-import AddStudent from './pages/students/student-add/addstudent';
+import Students from "pages/students/students-list/students";
+import StudentDetails from 'pages/students/student-details/studentdetails';
+import AddStudent from 'pages/students/student-add/addstudent';
 
 function App() {
 
@@ -50,7 +50,7 @@ function App() {
             
 
             <Route path="/students">
-            <ProjectReview />
+            <Students />
             </Route>
             
             <Route path="/projects">

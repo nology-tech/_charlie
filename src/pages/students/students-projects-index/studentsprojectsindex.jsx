@@ -1,11 +1,11 @@
 import React from 'react';
 import "./studentsprojectsindex.scss";
-import projects from "../../../data/projects";
+import projects from "data/projects";
 import { FaGithub } from 'react-icons/fa';
 
 
-import Cards from "../../../components/cards/cards";
-import Card from "../../../components/cards/card/card";
+import Cards from "components/cards/cards";
+import Card from "components/cards/card/card";
 
 const SubmissionDetails = () => {
     return (
