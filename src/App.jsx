@@ -16,7 +16,6 @@ import StudentDetails from 'pages/students/student-details/studentdetails';
 import AddStudent from 'pages/students/student-add/addstudent';
 
 function App() {
-
   return (
     <div className="app">
       <Router>
@@ -25,7 +24,6 @@ function App() {
         </div>
         <div className="col">
           <Switch>
-            
 
             <Route path="/student/:id/project/:id/review">
               <ProjectReview />
@@ -41,13 +39,7 @@ function App() {
 
             <Route path="/student/create">
               <AddStudent></AddStudent>
-            </Route>
-            
-            
-
-            
-
-            
+            </Route>            
 
             <Route path="/students">
             <Students />

@@ -3,26 +3,17 @@
 @import "assets/styles/_variables.scss";
 @import "assets/styles/typography.scss";
 
-
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-
 .app {
     padding: 0;
     margin: 0;
     display: grid;
     grid-template-columns: 300px auto;
-    // border: black 1px solid;
-    // width: 100vw;
-    // height: 100vh;
-    // font-family: $font-primary;
-    // padding: 0;
-    // margin: 0; 
-    // box-sizing: border-box;
 
     .main {
         height: 100%;
@@ -35,22 +26,9 @@
             height: 157px;
             width: 10%;
         }
-    } 
-    
+    }
     
     .col2 {
         margin:0 20px;
     }
 }
-// body {
-//     background-color: $color-primary;
-// }
-
-// .container {
-    
-//     padding: 0;
-//     margin: 0;
-//     display: grid;
-//     grid-template-columns: 1fr 4fr;
-    
-// }
