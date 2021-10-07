@@ -12,7 +12,6 @@ const ProjectReviewForm = ({ onSubmit }) => {
         history.goBack();
     }
 
-    
     return (
         <div className="row my-4 px-4 offset-1 form__container project-review-form">
         <form className="row" onSubmit={handleSubmit(onSubmit)}>
@@ -59,7 +58,6 @@ const ProjectReviewForm = ({ onSubmit }) => {
                     <input type="submit" className="btn btn-primary form__button" value="Save" />
                 </div>
             </div> 
-        
         </form>
         </div>
     );

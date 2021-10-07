@@ -1,8 +1,6 @@
 import { useHistory } from "react-router";
-// import { useForm } from "react-hook-form";
 
-const ProjectReviewTopNav = ( {onSubmit} ) => {
-//  const { handleSubmit } = useForm();
+const ProjectReviewTopNav = () => {
 
   const history = useHistory();  
 
