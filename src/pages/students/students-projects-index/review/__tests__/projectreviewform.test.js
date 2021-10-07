@@ -1,6 +1,5 @@
 import ProjectReviewForm from "../projectreviewform/projectreviewform";
 import { render, screen } from "@testing-library/react";
-import userEvent  from "@testing-library/user-event";
 
 it("should render the basic fields", () => {
   render(<ProjectReviewForm />)
@@ -31,18 +30,3 @@ it("should render the basic fields", () => {
   expect(summaryHeading).toBeInTheDocument()
 
 })
-
-// it ('should not submit the form with invalid credentials and show warnings', () => {
-//   render(<ProjectReviewForm />)
-
-//   const summaryTextarea = screen.getByTestId('summary')
-//   userEvent.type(summaryTextarea, "")
-
-//   const saveBtn = screen.getByRole('button', { name: /save/i })
-//   userEvent.click(saveBtn)
-
-
-//   const alert = screen.queryByText('* Required')
-
-//   expect(alert).toBeInTheDocument()
-// })
