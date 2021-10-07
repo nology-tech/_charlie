@@ -24,7 +24,7 @@ const ProjectsList = () => {
     const filterDataByLanguage = (languageChoice) => {
         setLanguageFilter(languageChoice);
         if(languageChoice === "Java"){
-            setPageData(projectsDataFile.filter(project => project.language.includes("Java")&& !project.language.includes("script")));
+            setPageData(projectsDataFile.filter(project => project.language.includes("Java") && !project.language.includes("script")));
         }else{
             setPageData(projectsDataFile.filter(project => project.language.includes(languageChoice)));
         }
