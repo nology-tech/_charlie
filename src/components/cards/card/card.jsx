@@ -1,7 +1,7 @@
-import "./card.scss"
-import Button from "../../button/button"
+import "./card.scss";
+import Button from "components/button/button";
 
-const Card = ({project, btnText}) => {
+const Card = ({ project, btnText }) => {
   const card = (
     <div className="card" key={project.title}>
       <img src={project.imgSrc} alt={project.title} />
@@ -9,13 +9,9 @@ const Card = ({project, btnText}) => {
       <h6>{project.languagesUsed.join("/")}</h6>
       <Button btnText={btnText} btnType={`btn btn-quaternary violet`} />
     </div>
-    )
-  
-  return (<>
-  {card}
-  </>
-    
-  )
-}
+  );
 
-export default Card
+  return <>{card}</>;
+};
+
+export default Card;

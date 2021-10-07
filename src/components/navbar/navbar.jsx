@@ -1,6 +1,6 @@
 import "./navbar.scss";
 
-import Logo from "../../assets/images/Logo.png";
+import Logo from "assets/images/Logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { FaHome, FaFileAlt, FaUsers, FaAward, FaCog } from 'react-icons/fa';
 
@@ -23,7 +23,6 @@ const Navbar = () => {
                     {text}
                 </span>
             </NavLink>
-
         )
     });
     

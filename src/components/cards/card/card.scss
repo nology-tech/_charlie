@@ -1,4 +1,4 @@
-@use "../../../assets/styles/variables" as *;
+@use "assets/styles/variables" as *;
 
 .card {
   width: 270px;
@@ -12,20 +12,24 @@
   background-color: white;
   border: 5px solid black;
   border-radius: 7px;
-  box-shadow: 0px 30px 40px 0px #724BCB0F; ;
+  box-shadow: 0px 30px 40px 0px #724BCB0F;
+
   img {
     width: 100%;
     height: auto;
     margin-bottom: 40px;
   }
+
   h5 {
     margin-bottom: 5px;
   }
+
   h6 {
     font-weight: 400;
     margin-bottom: 15px;
     color:#95accb;
   }
+  
   .btn.btn-quaternary.violet {
     background-color: #Ebebf5;
     color: $accent-primary;

@@ -1,7 +1,7 @@
-import "./cards.scss"
-import React from 'react'
+import "./cards.scss";
+import React from 'react';
 import Card from "./card/card";
-import projects from "../../data/projects"
+import projects from "data/projects";
 
 const Cards = () => {
     const filteredProjects = projects.slice(1);
