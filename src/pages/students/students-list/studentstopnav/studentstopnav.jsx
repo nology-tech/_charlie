@@ -1,7 +1,6 @@
 import React from 'react'
 import "./studentstopnav.scss";
 
-
 const StudentListTopNav = () => {
     return (
         <nav className="top-nav d-flex flex-column">
@@ -15,7 +14,6 @@ const StudentListTopNav = () => {
                 <p className="col top-nav__student-types__item">Self-Paced</p>
                 <p className="col top-nav__student-types__item">Corporate</p>
             </div> 
-            
         </nav>
     )
 }

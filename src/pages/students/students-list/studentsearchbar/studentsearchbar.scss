@@ -1,15 +1,18 @@
-@import "../../../../assets/styles/_variables";
+@import "assets/styles/_variables";
 
 .search-bar {
   width: 100%; 
   margin-bottom: 27px; 
+
   &__view-buttons{
+
     &-btn {
       border: none; 
       background: none;
       margin: 11px;
     }
   }
+
   &__input {
     background-image: url("../../../../assets/images/search.png");
     background-repeat: no-repeat;
@@ -18,6 +21,7 @@
     background-color: #EBEBF5;
     height: 100%
   }
+
   &__heading {
     padding: 0px; 
     margin: 0px; 
@@ -25,13 +29,16 @@
     font-weight: 600;
     line-height: 24px; 
   }
+
   &__sort-filter-buttons{
     color: #4B506D; 
+
     &-btn {
       border: none; 
       background-color: $color-primary;
       margin-left: 70px;
     }
+    
     &-label {
       margin-left: 10px;
       font-weight: 400;

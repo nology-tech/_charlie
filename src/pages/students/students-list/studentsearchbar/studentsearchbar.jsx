@@ -1,11 +1,10 @@
 import React from 'react'
 
-import Filter from "../../../../assets/images/filter.png";
-import GridView from "../../../../assets/images/grid-view.png";
-import HamburgerMenu from "../../../../assets/images/hamburger-menu.png";
-import Sort from "../../../../assets/images/sort.png";
+import Filter from "assets/images/filter.png";
+import GridView from "assets/images/grid-view.png";
+import HamburgerMenu from "assets/images/hamburger-menu.png";
+import Sort from "assets/images/sort.png";
 import "./studentsearchbar.scss"; 
-
 
 const StudentSearchBar = (props) => {
   const {generateSearchResults} = props; 
@@ -26,9 +25,8 @@ const StudentSearchBar = (props) => {
         <button className = "search-bar__sort-filter-buttons-btn p-0"> <img src={Filter} alt="filter"></img></button>
         <p className="search-bar__sort-filter-buttons-label">Filter</p>
       </div>
-
     </div>
   )
 }
 
-export default StudentSearchBar
+export default StudentSearchBar;

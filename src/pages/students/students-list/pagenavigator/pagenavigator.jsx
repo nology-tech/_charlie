@@ -4,7 +4,6 @@ import RightArrow from "assets/images/right.png";
 import "./pagenavigator.scss";
 
 const PageNavigator = (props) => {
-    
     const {totalNumberStudents, switchToPreviousPage, switchToNextPage, changeNumberOfRows, firstIndex, secondIndex} = props; 
     
     return (
@@ -30,9 +29,8 @@ const PageNavigator = (props) => {
                 <img className="page-nav__arrows__left" src={LeftArrow} alt="left arrow" onClick={switchToPreviousPage}/>
                 <img className="page-nav__arrows__right" src={RightArrow} alt="right arrow" onClick={switchToNextPage}/>
             </div>
-            
         </div>
     )
 }
 
-export default PageNavigator
+export default PageNavigator;

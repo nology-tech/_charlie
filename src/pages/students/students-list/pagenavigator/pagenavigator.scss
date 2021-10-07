@@ -1,16 +1,19 @@
-@import "../../../../assets/styles/variables"; 
+@import "assets/styles/variables"; 
 
 .page-nav {
     color: $color-tertiary;
     width: 100%;
     font-size: 14px;
+    
     &__arrows__right {
         margin-left: 30px;
     }
+
     &__arrows__right:hover, &__arrows__left:hover {
         transform: scale(1.5,1.5); 
         cursor: pointer; 
     }
+
     &__rows-selector__button {
         appearance: none; 
         background-image: url("../../../../assets/images/down.png");

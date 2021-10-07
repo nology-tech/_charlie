@@ -4,7 +4,7 @@ import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './studentsearchbar/studentsearchbar';
 import PageNavigator from './pagenavigator/pagenavigator';
 import "./students.scss"; 
-import Data from "../../../data/data"; 
+import Data from "data/data"; 
 
 const Students = () => {
     const [studentsData, setStudentsData] = useState([]); 
@@ -59,7 +59,6 @@ const Students = () => {
         fetchStudentData();  
     };
 };
-        
 
     useEffect(fetchStudentData, []); 
     useEffect(displayStudents, [studentsData, pageNumber, numberOfRows]); 
