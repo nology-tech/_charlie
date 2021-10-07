@@ -25,26 +25,32 @@ function App() {
         </div>
         <div className="col">
           <Switch>
-            <Route path="/student/create">
-              <AddStudent></AddStudent>
-            </Route>
             
-            <Route path="/student/:id">
-              <StudentDetails></StudentDetails>
-            </Route>
-            
-            
-
-            <Route path="/student/:id/project/:id">
-              <SubmissionDetails />
-            </Route>
 
             <Route path="/student/:id/project/:id/review">
               <ProjectReview />
             </Route>
 
+            <Route path="/student/:id/project/:id">
+              <SubmissionDetails />
+            </Route>
+            
+            <Route path="/student/:id">
+              <StudentDetails></StudentDetails>
+            </Route>
+
+            <Route path="/student/create">
+              <AddStudent></AddStudent>
+            </Route>
+            
+            
+
+            
+
+            
+
             <Route path="/students">
-              <Students />
+            <ProjectReview />
             </Route>
             
             <Route path="/projects">
@@ -56,7 +62,7 @@ function App() {
             </Route>
 
             <Route path="/settings">
-              <ProjectReview />
+              <Settings />
             </Route>
 
             <Route path="/">

@@ -20,7 +20,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
                 
                 <div className="col-12 mt-4">
                     <h6>Knowledge of Module</h6>
-                    <Controller control={control} name="module-rating" defaultValue={3} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="module-rating" activeColor="#724BCB" size={16}  /> )} />
+                    <Controller control={control} name="module-rating" defaultValue={0} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="module-rating" activeColor="#724BCB" size={16}  /> )} />
                     
                      <label htmlFor="moduleKnowledge">Additional Notes:</label>
                      <Controller control={control} name="moduleKnowledge" render={ ( {field : { value, onChange }} ) => (<input
@@ -29,7 +29,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
 
                 <div className="col-12 mt-3">
                     <h6>Quality of HTML/CSS</h6>
-                    <Controller control={control} name="HtmlCss-rating" defaultValue={3} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="HtmlCss-rating" activeColor="#724BCB" size={16}  /> )} />
+                    <Controller control={control} name="HtmlCss-rating" defaultValue={0} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="HtmlCss-rating" activeColor="#724BCB" size={16}  /> )} />
                     
                     <label htmlFor="HTML-CSSKnowledge">Additional Notes:</label>
                     <Controller control={control} name="HTML-CSSKnowledge"  render={ ( {field: { value, onChange }} ) => (<input
@@ -38,7 +38,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
 
                 <div className="col-12 mt-3">
                     <h6>Quality of Javascript</h6>
-                    <Controller control={control} name="js-rating" defaultValue={3} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="js-rating" activeColor="#724BCB" size={16} />)}/>
+                    <Controller control={control} name="js-rating" defaultValue={0} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="js-rating" activeColor="#724BCB" size={16} />)}/>
                     
                     <label htmlFor="jsKnowledge">Additional Notes:</label>
                     <Controller control={control} name="jsKnowledge" render={ ( {field: { value, onChange }} ) => (<input 
