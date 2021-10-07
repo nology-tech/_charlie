@@ -3,9 +3,7 @@ import StudentTableRow from './student-table-row/student-table-row';
 import "./student-table.scss";
 
 const StudentTable = (props) => {
-
     const {pageData} = props; 
-
     const students = pageData && pageData.map(student => <StudentTableRow student={student}/>);
 
     return (
@@ -23,4 +21,4 @@ const StudentTable = (props) => {
     )
 }
 
-export default StudentTable
+export default StudentTable;

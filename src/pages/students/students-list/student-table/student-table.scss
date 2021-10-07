@@ -1,8 +1,9 @@
-@use "../../../../assets/styles/_typography" as *; 
+@use "assets/styles/_typography" as *; 
 
-a{
+a {
   text-decoration: none;
 }
+
 .studentList {
   width: 100%;
   margin-bottom: 8px; 
