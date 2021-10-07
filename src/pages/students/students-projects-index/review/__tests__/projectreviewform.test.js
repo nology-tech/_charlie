@@ -32,17 +32,17 @@ it("should render the basic fields", () => {
 
 })
 
-it ('should not submit the form with invalid credentials and show warnings', () => {
-  render(<ProjectReviewForm />)
+// it ('should not submit the form with invalid credentials and show warnings', () => {
+//   render(<ProjectReviewForm />)
 
-  const summaryTextarea = screen.getByTestId('summary')
-  userEvent.type(summaryTextarea, "")
+//   const summaryTextarea = screen.getByTestId('summary')
+//   userEvent.type(summaryTextarea, "")
 
-  const saveBtn = screen.getByRole('button', { name: /save/i })
-  userEvent.click(saveBtn)
+//   const saveBtn = screen.getByRole('button', { name: /save/i })
+//   userEvent.click(saveBtn)
 
 
-  const alert = screen.queryByText('* Required')
+//   const alert = screen.queryByText('* Required')
 
-  expect(alert).toBeInTheDocument()
-})
+//   expect(alert).toBeInTheDocument()
+// })
