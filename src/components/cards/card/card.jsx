@@ -10,15 +10,15 @@ const Card = ({ project }) => {
   
   //not started by default
   let btnText = "Not Started";
-  let buttonClass = "btn-quaternary";
+  let buttonClass = "status__not-started";
         
   if(reviewNeeded) {
     btnText = <>&#10060; {" Review Needed"}</>;
-    buttonClass = "btn-danger";
+    buttonClass = "status__review-needed";
   }
   else if(reviewed) {
     btnText = <>&#10003; {" Reviewed"}</>;
-    buttonClass = "btn-success";
+    buttonClass = "status__reviewed";
   }
   
   return (
@@ -33,7 +33,7 @@ const Card = ({ project }) => {
       
       <p>{project.languagesUsed.join("/")}</p>
       
-      <button className={`btn ${buttonClass} mx-auto mt-2`}>{btnText}</button>
+      <div className={`${buttonClass} mx-auto mt-2`}>{btnText}</div>
     </div>
   );
 }
