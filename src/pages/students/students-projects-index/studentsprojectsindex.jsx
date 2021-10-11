@@ -42,15 +42,12 @@ const SubmissionDetails = () => {
                     <div className="row">{selectedStudent.studentName}</div>
                     <div className="row">{selectedProject.title}</div>
                 </h1>
-                <div className="top-nav__buttons d-flex justify-content-end col-5">
+                <div className="top-nav__buttons d-flex col-4 mx-auto">
                     <Link className="col-3 btn btn-secondary topnav__button mx-2" to={studentListPath}>
                         Go Back </Link>
-                    <Link className="col-4 btn btn-primary mx-2 header__review" to={reviewPagePath} >
-                        Leave Review
+                    <Link className="col-4 btn btn-primary topnav__button mx-2 mr-5" to={reviewPagePath} >
+                        Review
                     </Link>
-                    <div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </div>
                 </div>
             </div>
 
