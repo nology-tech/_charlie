@@ -35,7 +35,11 @@ function App() {
               <ProjectCreate></ProjectCreate>
             </Route>
 
-            <Route path="/projects/:studentId/:projectId">
+            <Route exact path="/student/:studentId/project/:projectId/review">
+              <ProjectReview />
+            </Route>            
+
+            <Route path="/student/:studentId/project/:projectId">
               <SubmissionDetails />
             </Route>
             
@@ -45,14 +49,6 @@ function App() {
 
             <Route path="/student/create">
               <AddStudent></AddStudent>
-            </Route>
-
-            <Route path="/student/:id/project/:id/review">
-              <ProjectReview />
-            </Route>
-
-            <Route path="/student/:studentId/project/:projectId">
-              <SubmissionDetails />
             </Route>
             
             {/* <Route path="/student/:studentId/project/:projectId">
