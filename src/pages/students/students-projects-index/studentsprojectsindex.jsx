@@ -31,7 +31,8 @@ const SubmissionDetails = () => {
         }
     }
 
-    const reviewPagePath = `/projects/${studentId}/${projectId}/review`;
+    //const reviewPagePath = `/projects/${studentId}/${projectId}/review`;
+    const reviewPagePath = `/student/${studentId}/project/${projectId}/review`;
 
     return (
         <>

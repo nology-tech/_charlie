@@ -35,9 +35,9 @@ function App() {
               <ProjectCreate></ProjectCreate>
             </Route>
 
-            <Route path="/projects/:studentId/:projectId">
+            {/*<Route path="/projects/:studentId/:projectId">
               <SubmissionDetails />
-            </Route>
+  </Route>*/}
             
             <Route path="/settings">
               <Settings />
@@ -47,7 +47,7 @@ function App() {
               <AddStudent></AddStudent>
             </Route>
 
-            <Route path="/student/:id/project/:id/review">
+            <Route path="/student/:studentId/project/:projectId/review">
               <ProjectReview />
             </Route>
 
