@@ -3,8 +3,9 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 const Card = ({ project }) => {
-  const { studentId } = useParams();
-  const path = "/projects/"+studentId+"/"+project.id;
+  const { studentId, projectId } = useParams();
+  //const path = "/projects/"+studentId+"/"+project.id;
+  const path = `/student/${studentId}/project/${project.id}`;
 
   const { reviewNeeded, reviewed } = project;
   

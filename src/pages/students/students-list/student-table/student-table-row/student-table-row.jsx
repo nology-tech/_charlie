@@ -6,7 +6,7 @@ import Adobe from "../../../../../assets/images/adobe.png";
 
 const StudentTableRow = (props) => {
   const { studentName, enrolledOn, githubAccount, portfolio, pictureLink } = props.student; 
-  const { toggleView } = props; 
+  const { toggleView, id } = props; 
   if (toggleView === false) {
   return (
     <div className="student row d-flex align-items-center text-center" data-testid="student">
@@ -16,7 +16,7 @@ const StudentTableRow = (props) => {
       <p className="col student__property">{portfolio}</p>
       <a className="col student__property" href ="sample.pdf" download> <img className="adobe" src={Adobe} alt="Adobe"/> </a>
       <div className="col-1 student__property student__right-arrow">
-      <Link to="/student/:id">
+      <Link to={`/student/${id}/project/0`}>
         <img className="student__right-arrow__icon" src={StudentRight} alt={StudentRight}/>
       </Link>
       </div>
