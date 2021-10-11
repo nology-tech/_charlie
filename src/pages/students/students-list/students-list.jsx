@@ -52,38 +52,23 @@ const StudentsList = () => {
             displayStudents(newPageNumber);
         }
     }
+   
     const filterDataByAll = () => {
-        setSortOption("1");
-        setFilterOption("1");
-        setPageNumber(1);
-        setEnrolledFilter("All");
-        fetchStudentData();
-        setEnrollmentData(Data);  
-        }
-    const filterDataByFullTime = () => {
-        setSortOption("1");
-        setFilterOption("1");
-        setPageNumber(1);
-        setEnrolledFilter("Full-Time");
-        setStudentsData(Data.filter(student => student.enrolledType.includes("Full-Time")));
-        setEnrollmentData(Data.filter(student => student.enrolledType.includes("Full-Time")));
-    }
-    const filterDataBySelfPaced = () => {
-        setSortOption("1");
-        setFilterOption("1");
-        setPageNumber(1);
-        setEnrolledFilter("Self-Paced");
-        setStudentsData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
-        setEnrollmentData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
-    }
-    const filterDataByCorporate = () => {
-        setSortOption("1");
-        setFilterOption("1");
-        setEnrolledFilter("Corporate");
-        setPageNumber(1);
-        setStudentsData(Data.filter(student =>student.enrolledType.includes("Corporate")));
-        setEnrollmentData(Data.filter(student =>student.enrolledType.includes("Corporate")));
-    }
+            setSortOption("1");
+            setFilterOption("1");
+            setPageNumber(1);
+            setEnrolledFilter("All");
+            fetchStudentData();
+            setEnrollmentData(Data);  
+            }
+    const filterDataByTabs = (enrolledType) => {
+            setSortOption("1");
+            setFilterOption("1");
+            setPageNumber(1);
+            setEnrolledFilter(enrolledType);
+            setStudentsData(Data.filter(student => student.enrolledType.includes(enrolledType)));
+            setEnrollmentData(Data.filter(student => student.enrolledType.includes(enrolledType)));
+        }   
 
     const generateSearchResults = (e) => { 
         if (e.target.value){
@@ -102,13 +87,13 @@ const StudentsList = () => {
                 filterDataByAll();
                 break;
             case "Self-Paced":
-                filterDataBySelfPaced();
+                filterDataByTabs("Self-Paced")
                 break;
             case "Full-Time":
-                filterDataByFullTime();
+                filterDataByTabs("Full-Time")
                 break;
             case "Corporate":
-                filterDataByCorporate();
+                filterDataByTabs("Corporate")
                 break;
             default:
                 filterDataByAll(); 
@@ -167,9 +152,7 @@ const StudentsList = () => {
                 <div className="students d-flex flex-column align-items-center p-0 ">
                     <StudentsTopNav className="students__topNav" 
                     filterDataByAll={filterDataByAll}
-                    filterDataByFullTime={filterDataByFullTime}
-                    filterDataBySelfPaced={filterDataBySelfPaced}
-                    filterDataByCorporate={filterDataByCorporate}
+                    filterDataByTabs={filterDataByTabs}
                     enrolledFilter={enrolledFilter}/>
                     <StudentSearchBar 
                     generateSearchResults={generateSearchResults} 
