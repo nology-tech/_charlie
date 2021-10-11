@@ -1,20 +1,21 @@
 @import "../../../assets/styles/variables";
 
-.main{
-        height: 100%;
-        width: 100%;
-        background-color: $color-primary;
-        padding: 0;
-        .students {
-          width: 80%;
-          background-color: $color-primary;
-          margin: 0;
+.main {
+  height: 100%;
+  width: 100%;
+  background-color: $color-primary;
+  padding: 0;
 
-          &__white-space {
-            background-color: white;
-            height: 157px;
-            width: 10%;
-            border-bottom: 1px #EDE8F8 solid;
-          }
-        }
-        }
+  .students {
+    width: 80%;
+    background-color: $color-primary;
+    margin: 0;
+
+    &__white-space {
+      background-color: white;
+      height: 157px;
+      width: 10%;
+      border-bottom: 1px #EDE8F8 solid;
+    }
+  }
+}

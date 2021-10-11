@@ -5,12 +5,9 @@
     border: none;
     outline: none;
     border-radius: 7px;
-}
 
-// .btn-primary {
-//     background-color: $accent-primary;
-//     color: $color-primary;
-// }
+
+}
 
 .btn-secondary {
     background-color: $accent-secondary;
@@ -60,3 +57,18 @@
     text-align: center;
     line-height: 50px;
 }
+
+.btn-dark {
+    color: white;
+    background-color: $color-secondary;
+}
+
+.btn-project{
+    // width: 100px;
+    // max-width: 300px;
+    max-height: 30px;
+    font-size: 8px;
+    border-radius: 7px;
+    padding: 0;
+}
+
