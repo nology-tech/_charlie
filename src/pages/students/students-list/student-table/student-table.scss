@@ -3,18 +3,16 @@
 a{
   text-decoration: none;
 }
-.studentList {
+.student-table {
   width: 100%;
   margin-bottom: 8px; 
   font-family: $font-primary;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.03em;
   color: #595959;
 }
-.hamburger-styling{
-  width: 100%; 
-}
+
 .student-grid{
   display: grid;
   width: 100%;
@@ -23,6 +21,6 @@ a{
   justify-content: space-between;
   align-items: center;
 }
-.hide-student-list-labels {
+.hide-student-table-labels {
   display: none;
 }

@@ -2,11 +2,11 @@ import "./navbar.scss";
 
 import Logo from "../../assets/images/Logo.png";
 import { Link, NavLink } from "react-router-dom";
-import { FaHome, FaFileAlt, FaUsers, FaAward, FaCog } from 'react-icons/fa';
+import { FaFileAlt, FaUsers, FaAward, FaCog } from 'react-icons/fa';
 
 const Navbar = () => {
     const navItems = [
-        {link: "/students", text: "Students", icon: <FaFileAlt />},
+        {link: "/", text: "Students", icon: <FaFileAlt />},
         {link: "/projects", text: "Projects", icon: <FaUsers />},
         {link: "/reviews", text: "Reviews", icon: <FaAward/>}
     ];

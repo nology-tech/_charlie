@@ -1,0 +1,51 @@
+@import "../../../../assets/styles/_variables";
+
+.search-bar {
+  width: 100%; 
+  margin-bottom: 27px; 
+  &__view-buttons{
+    &-btn {
+      border: none; 
+      background: none;
+      margin: 11px;
+    }
+  }
+  &__input {
+    background-image: url("../../../../assets/images/search.png");
+    background-repeat: no-repeat;
+    background-position: 97% center;
+    border: none;
+    background-color: #EBEBF5;
+    font-size: 13px; 
+    padding: 5px; 
+    margin-right: 30px; 
+    height: 100%; 
+  }
+  &__heading {
+    padding: 0px; 
+    margin: 0px; 
+    font-size: 18px; 
+    font-weight: 600;
+    line-height: 24px; 
+  }
+  &__sort-filter-buttons{
+    color: #4B506D; 
+    overflow: hidden;
+    &-img {
+      border: none; 
+      background-color: $color-primary;
+      margin-left: 20px; 
+      margin-right: 5px; 
+    }
+  }
+}
+.sort-menu {
+  width: auto; 
+  appearance: none; 
+  background-image: url("../../../../assets/images/down.png");
+  padding: 1px;
+  background-position: right 50%;
+  background-repeat: no-repeat;
+  border: transparent; 
+  background-color: $color-primary;
+}

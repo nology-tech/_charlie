@@ -5,12 +5,9 @@
     border: none;
     outline: none;
     border-radius: 7px;
-}
 
-// .btn-primary {
-//     background-color: $accent-primary;
-//     color: $color-primary;
-// }
+
+}
 
 .btn-secondary {
     background-color: $accent-secondary;
@@ -30,8 +27,8 @@
     color: $accent-primary;
 }
 
-
-.btn-secondary, .btn-secondary:hover{
+.btn-secondary,
+.btn-secondary:hover {
     background-color: white;
     color: $accent-primary;
     border: $accent-primary solid 2px;
@@ -40,9 +37,38 @@
 .btn-upload {
     background-color: #f5f5f5;
     border: 1px solid $accent-primary;
+    font-weight: 600;
+    color: black;
+    font-size: 12px;
 }
 
 .btn-quaternary .violet {
-    background-color: #Ebebf5;
+    background-color: #ebebf5;
     color: $accent-primary;
 }
+
+.btn-back {
+    width: 130px;
+    height: 50px;
+    background: white;
+    border-radius: 7px;
+    color: $accent-primary;
+    border: 1px solid $accent-primary;
+    text-align: center;
+    line-height: 50px;
+}
+
+.btn-dark {
+    color: white;
+    background-color: $color-secondary;
+}
+
+.btn-project{
+    // width: 100px;
+    // max-width: 300px;
+    max-height: 30px;
+    font-size: 8px;
+    border-radius: 7px;
+    padding: 0;
+}
+

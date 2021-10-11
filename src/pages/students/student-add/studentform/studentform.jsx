@@ -48,6 +48,7 @@ const StudentForm = () => {
                 className="form-control form__input  my-2"
                 type="text"
                 id="firstName"
+                data-testid="firstName"
                 />
                 {errors.firstName && <div className="text-danger">*Required</div>}
             </div>
@@ -63,8 +64,23 @@ const StudentForm = () => {
                 className="form-control form__input my-2"
                 type="text"
                 id="lastName"
+                data-testid="lastName"
                 />
                 {errors.lastName && <p className="text-danger">*Required</p>}
+            </div>
+
+            <div className="col-12 mt-3">
+                <label htmlFor="email">Email</label>
+                <input
+                {...register("email", {
+                    required: true
+                })}
+                name="email"
+                className="form-control form__input my-2"
+                type="email"
+                id="email"
+                />
+                {errors.email && <p className="text-danger">*Required</p>}
             </div>
 
             <div className="col-12 mt-3">
@@ -74,6 +90,7 @@ const StudentForm = () => {
                 name="enrolledOn"
                 className="form-select form-control form__input  my-2"
                 id="enrolledOn"
+                data-testid="enrolledOn"
                 >
                 <option selected="true" value="default">
                     Select on of the following
@@ -92,6 +109,7 @@ const StudentForm = () => {
                 className="form-control form__input my-2"
                 type="text"
                 id="githubAccount"
+                data-testid="githubAccount"
                 />
                 {errors.githubAccount && <p className="text-danger">*Required</p>}
             </div>
@@ -104,6 +122,7 @@ const StudentForm = () => {
                     className="form-control form__input my-2"
                     type="text"
                     id="portfolioLink"
+                    data-testid="portfolioLink"
                 />
                 {errors.portfolioLink && <p className="text-danger">*Required</p>}
             </div>
@@ -116,6 +135,7 @@ const StudentForm = () => {
                 onChange={readURL}
                 name="studentThumb"
                 id="studentThumb"
+                data-testid="studentThumb"
                 hidden
                 />
                 <img id="studentImage" src={src} alt={alt} className="student-thumbnail my-2" />
@@ -132,6 +152,7 @@ const StudentForm = () => {
                     className="btn btn-upload"
                     name="cvUpload"
                     id="cvUpload"
+                    data-testid="cvUpload"
                     hidden
                     />
                 </div>

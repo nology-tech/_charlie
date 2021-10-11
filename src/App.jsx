@@ -1,16 +1,23 @@
+import './App.scss';
+
+import Navbar from "./components/navbar/navbar";
+import ProjectReview from "./pages/students/students-projects-index/review/projectreview";
+
+import Reviews from "./pages/reviews/reviews";
+
+import SubmissionDetails from "./pages/students/students-projects-index/studentsprojectsindex";
+import Settings from "./pages/settings/settings";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import './App.scss';
-import Navbar from "./components/navbar/navbar";
-import Projects from "./pages/projects/projects";
-import Settings from "./pages/settings/settings";
-import Students from "./pages/students/students-list/students";
-import StudentDetails from './pages/students/student-details/studentdetails';
+import Students from "./pages/students/students-list/students-list";
+import StudentDetails from './pages/students/student-details/student-details';
 import AddStudent from './pages/students/student-add/addstudent';
-import ReviewList from './pages/reviews/review-list/review-list';
-import AddReview from './pages/reviews/add-review/add-review';
+import ProjectList from './pages/projects/projects-list/projects-list';
+import ProjectCreate from './pages/projects/projects-create/projects-create';
 
-const App = () => {
+function App() {
+
   return (
     <div className="app">
       <Router>
@@ -19,37 +26,43 @@ const App = () => {
         </div>
         <div className="col">
           <Switch>
-            
-
-            {/* 2. Project routes for list, create, and details */}
+                        
             <Route path="/projects">
-              <Projects />
+              <ProjectList></ProjectList>
             </Route>
 
-            {/* 3. Project routes for list and create */}
+            <Route path="/project/create">
+              <ProjectCreate></ProjectCreate>
+            </Route>
             <Route path="/reviews">
-              <ReviewList></ReviewList>
+            <ProjectReview />
             </Route>
-            <Route path="/review/create">
-              <AddReview></AddReview>
-            </Route>
-
-            {/* 4. Other Routes :) */}
+            
+            
             <Route path="/settings">
               <Settings />
             </Route>
 
-            {/* 1. Student routes for list, create, and details */}
-            <Route path={["/students", "/"]}>
-              <Students />
-            </Route>
             <Route path="/student/create">
               <AddStudent></AddStudent>
             </Route>
-            <Route path="/student/:id">
-              <StudentDetails></StudentDetails>
+
+            <Route path="/student/:id/project/:id/review">
+              <ProjectReview />
+            </Route>
+
+            <Route path="/student/:studentId/project/:projectId">
+              <SubmissionDetails />
             </Route>
             
+            {/* <Route path="/student/:studentId/project/:projectId">
+              <StudentDetails></StudentDetails>
+            </Route> */}
+       
+            <Route path={["/students", "/"]}>
+              <Students />
+            </Route>
+
           </Switch>
         </div>
       </Router>

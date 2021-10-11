@@ -1,39 +1,28 @@
 import { render, screen } from '@testing-library/react';
 import StudentForm from '../studentform/studentForm';
-import userEvent from '@testing-library/user-event';
 
-// Positive (valid) and negative tests (invalid)
-/* 
-it ('Should redirect to the student list when given valid inputs', () => {
-
+it ('should render all form elements on the page', () => {
+                render(<StudentForm />)
+              
+                const firstNameInput = screen.getByTestId('firstName')
+                const lastNameInput = screen.getByTestId('lastName')
+                const enrolledOn = screen.getByTestId('enrolledOn')
+                const githubAccount = screen.getByTestId('githubAccount')
+                const portfolioLink = screen.getByTestId('portfolioLink')
+                const studentThumb = screen.getByTestId('studentThumb')
+                const cvUpload = screen.getByTestId('cvUpload')
+                
+                const cancelBtn = screen.getByRole('button', { name: /cancel/i })
+                const saveBtn = screen.getByRole('button', { name: /save/i })
+              
+                expect(firstNameInput).toBeInTheDocument()
+                expect(lastNameInput).toBeInTheDocument()
+                expect(enrolledOn).toBeInTheDocument()
+                expect(githubAccount).toBeInTheDocument()
+                expect(portfolioLink).toBeInTheDocument()
+                expect(studentThumb).toBeInTheDocument()
+                expect(cvUpload).toBeInTheDocument()
+                
+                expect(cancelBtn).toBeInTheDocument()
+                expect(saveBtn).toBeInTheDocument()
 })
- */
-it ('should show error messages when a student name is not provided', () => {
-        // act
-        render(<StudentForm />);
-
-        // arrange
-        const nameInput = screen.getByRole("textbox", { name: /first name/i });
-        userEvent.type(nameInput, "");
-
-        const lastNameInput = screen.getByRole("textbox", { name: /last name/i });
-        userEvent.type(lastNameInput, "smith");
-
-/*         const enrolledOnInput = screen.getByRole("textbox", { name: /enrolled on/i });
-        userEvent.type(enrolledOnInput, "ibiza");
- */
-        const githubAccountInput = screen.getByRole("textbox", { name: /github account/i });
-        userEvent.type(githubAccountInput, "github.com");
-
-        const portfolioLinkInput = screen.getByRole("textbox", { name: /portfolio link/i });
-        userEvent.type(portfolioLinkInput, "whatever.com");
-
-                    // run a click on sign in button
-        userEvent.click(screen.getByRole("button", { name: /save/i }));
-
-        // assert
-        const alert = screen.getByText("*Required");
-        expect(alert).toBeTruthy();
-})
-
-

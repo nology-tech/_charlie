@@ -1,10 +1,9 @@
 import React from 'react'
 import "./page-header.scss";
 
-
 const PageHeader = (props) => {
 
-    const { title, tabs, handleClick, createLink } = props;
+    const { title, tabs, createLink } = props;
 
     let selectedIndex = 0;
 
@@ -16,8 +15,9 @@ const PageHeader = (props) => {
             </div>
             <div className="top-nav__student-types d-flex justify-content-start align-items-center">
                 {
-                    tabs && tabs.map((tab, i) => (
-                        <div className={`top-nav__student-types__all ${selectedIndex == i}`} onClick={() => handleClick(i)}>All</div>
+                    tabs.map((tab, i) => (
+                        // <div className={enrolledFilter === "All" ? "top-nav__student-types__all selectedFilterClass" : "top-nav__student-types__all"} onClick={filterDataByAll}>All</div>
+                        <div className={`top-nav__student-types__all ${selectedIndex == i}`}>All</div>
                     ))
                 }
             </div> 
