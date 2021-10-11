@@ -19,11 +19,16 @@ const ProjectsList = () => {
 
     const filterDataByAll = () => {
         setLanguageFilter("All");
-        fetchProjectsData();
+        setPageData(projectsData);
         }
     const filterDataByLanguage = (languageChoice) => {
         setLanguageFilter(languageChoice);
-        setPageData(projectsDataFile.filter(project => project.language.includes(languageChoice)));
+        if(languageChoice === "Java"){
+            setPageData(projectsDataFile.filter(project => project.language.includes("Java") && !project.language.includes("script")));
+        }else{
+            setPageData(projectsDataFile.filter(project => project.language.includes(languageChoice)));
+        }
+        
     }
 
     useEffect(fetchProjectsData, []); 
