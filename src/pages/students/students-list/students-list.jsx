@@ -53,21 +53,23 @@ const StudentsList = () => {
         }
     }
    
-    const filterDataByAll = () => {
+
+    const filterDataByTabs = (enrolledType) => {
+        if (enrolledType == "All") {
             setSortOption("1");
             setFilterOption("1");
             setPageNumber(1);
             setEnrolledFilter("All");
             fetchStudentData();
-            setEnrollmentData(Data);  
-            }
-    const filterDataByTabs = (enrolledType) => {
+            setEnrollmentData(Data);
+        } else {
             setSortOption("1");
             setFilterOption("1");
             setPageNumber(1);
             setEnrolledFilter(enrolledType);
             setStudentsData(Data.filter(student => student.enrolledType.includes(enrolledType)));
             setEnrollmentData(Data.filter(student => student.enrolledType.includes(enrolledType)));
+        }  
         }   
 
     const generateSearchResults = (e) => { 
@@ -84,7 +86,7 @@ const StudentsList = () => {
     } else {
         switch(enrolledFilter) {
             case "All":
-                filterDataByAll();
+                filterDataByTabs("All")
                 break;
             case "Self-Paced":
                 filterDataByTabs("Self-Paced")
@@ -96,7 +98,7 @@ const StudentsList = () => {
                 filterDataByTabs("Corporate")
                 break;
             default:
-                filterDataByAll(); 
+                filterDataByTabs("All") 
         }
     }
 };
@@ -151,7 +153,6 @@ const StudentsList = () => {
             <div className="students__white-space"></div>
                 <div className="students d-flex flex-column align-items-center p-0 ">
                     <StudentsTopNav className="students__topNav" 
-                    filterDataByAll={filterDataByAll}
                     filterDataByTabs={filterDataByTabs}
                     enrolledFilter={enrolledFilter}/>
                     <StudentSearchBar 
