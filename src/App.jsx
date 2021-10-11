@@ -1,6 +1,7 @@
 import './App.scss';
 
 import Navbar from "./components/navbar/navbar";
+import ProjectReview from "./pages/students/students-projects-index/review/projectreview";
 
 import Dashboard from "./pages/dashboard/dashboard";
 
@@ -24,18 +25,28 @@ function App() {
         </div>
         <div className="col">
           <Switch>
-            <Route path="/student/create">
-              <AddStudent></AddStudent>
+            
+
+            <Route path="/student/:id/project/:id/review">
+              <ProjectReview />
+            </Route>
+
+            <Route path="/student/:id/project/:id">
+              <SubmissionDetails />
             </Route>
             
             <Route path="/student/:id">
               <StudentDetails></StudentDetails>
             </Route>
 
-            <Route path="/student/:id/project/:id">
-              <SubmissionDetails />
+            <Route path="/student/create">
+              <AddStudent></AddStudent>
             </Route>
-
+       
+            <Route path={["/students", "/"]}>
+              <Students />
+            </Route>
+            
             <Route path="/projects">
               <ProjectList></ProjectList>
             </Route>
@@ -44,14 +55,11 @@ function App() {
               <SubmissionDetails />
             </Route>
             
-
             <Route path="/settings">
               <Settings />
             </Route>
 
-            <Route path={["/students", "/"]}>
-              <Students />
-            </Route>
+          
           </Switch>
         </div>
       </Router>
