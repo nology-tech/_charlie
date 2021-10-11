@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Card = ({ project }) => {
   const { studentId, projectId } = useParams();
   //const path = "/projects/"+studentId+"/"+project.id;
-  const path = `/student/${studentId}/project/${projectId}`;
+  const path = `/student/${studentId}/project/${project.id}`;
 
   const { reviewNeeded, reviewed } = project;
   

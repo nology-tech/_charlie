@@ -33,6 +33,7 @@ const SubmissionDetails = () => {
 
     //const reviewPagePath = `/projects/${studentId}/${projectId}/review`;
     const reviewPagePath = `/student/${studentId}/project/${projectId}/review`;
+    const studentListPath = "/students";
 
     return (
         <>
@@ -42,7 +43,8 @@ const SubmissionDetails = () => {
                     <div className="row">{selectedProject.title}</div>
                 </h1>
                 <div className="top-nav__buttons d-flex justify-content-end col-5">
-                    <button className="col-3 btn btn-secondary topnav__button mx-2">Go Back </button>
+                    <Link className="col-3 btn btn-secondary topnav__button mx-2" to={studentListPath}>
+                        Go Back </Link>
                     <Link className="col-4 btn btn-primary mx-2 header__review" to={reviewPagePath} >
                         Leave Review
                     </Link>
