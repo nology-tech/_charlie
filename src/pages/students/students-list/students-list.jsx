@@ -1,9 +1,9 @@
 import React,{useEffect, useState }  from 'react'
-import StudentsTopNav from "./students-top-nav/students-top-nav"
 import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './student-searchbar/student-searchbar';
 import "./students-list.scss"; 
 import Data from "../../../data/students.js"; 
+import PageHeader from "../../../components/page-header/page-header";
 
 const StudentsList = () => {
     const [studentsData, setStudentsData] = useState([]); 
@@ -152,9 +152,12 @@ const StudentsList = () => {
         <div className="main col-10 m-0 d-flex justify-content-between">
             <div className="students__white-space"></div>
                 <div className="students d-flex flex-column align-items-center p-0 ">
-                    <StudentsTopNav className="students__topNav" 
-                    filterDataByTabs={filterDataByTabs}
-                    enrolledFilter={enrolledFilter}/>
+                    <PageHeader title="Students"
+                    tabs={['All', 'Full-Time', 'Self-Paced', 'Corporate']} handleClick={filterDataByTabs} 
+                    buttonPath={"/student/create"} 
+                    filterState = {enrolledFilter} 
+                    buttonText = {"+ Create"} 
+                    buttonStyle = "btn-primary top-nav__header-button border-0 me-2"/>
                     <StudentSearchBar 
                     generateSearchResults={generateSearchResults} 
                     sortStudents={sortStudents}
