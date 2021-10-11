@@ -16,16 +16,16 @@
     display: grid;
     grid-template-columns: 300px auto;
     // border: black 1px solid;
-    // width: 100vw;
-    // height: 100vh;
-    // font-family: $font-primary;
+    width: 100vw;
+    height: 100vh;
+    font-family: $font-primary;
     // padding: 0;
     // margin: 0; 
-    // box-sizing: border-box;
+    box-sizing: border-box;
 
     .main {
         height: 100%;
-        width: 80%; 
+        width: 100%; 
         background-color: $color-primary;
         padding: 0; 
         
