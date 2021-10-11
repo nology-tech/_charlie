@@ -58,7 +58,7 @@ function App() {
             {/* <Route path="/student/:studentId/project/:projectId">
               <StudentDetails></StudentDetails>
             </Route> */}
-       
+
             <Route path={["/students", "/"]}>
               <Students />
             </Route>
