@@ -50,7 +50,7 @@ function App() {
             
 
             <Route path="/students">
-            <ProjectReview />
+            <Students />
             </Route>
             
             <Route path="/projects">
