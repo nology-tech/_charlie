@@ -1,7 +1,7 @@
 import './projectreviewform.scss';
 import { useForm, Controller } from "react-hook-form";
 import { useHistory } from "react-router";
-import ReactStars from "../../../../../components/star/star";
+import ReactStars from "react-rating-stars-component";
 
 const ProjectReviewForm = ({ onSubmit }) => {
     const {control, handleSubmit, formState: { errors },  reset } = useForm();
