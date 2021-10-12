@@ -17,7 +17,7 @@ const StudentTableRow = (props) => {
       three={githubAccount}
       four= {portfolio}
       Adobe = {Adobe}
-      rightLink = {"/student/:id"}
+      rightLink = {`/student/${id}/project/0`}
       testid={"student"}
       />
     </div>
