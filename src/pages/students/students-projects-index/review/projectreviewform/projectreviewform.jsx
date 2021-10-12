@@ -1,7 +1,7 @@
 import './projectreviewform.scss';
 import { useForm, Controller } from "react-hook-form";
 import { useHistory } from "react-router";
-import ReactStars from "../../../../../components/star/star";
+import ReactStars from "react-rating-stars-component";
 
 const ProjectReviewForm = ({ onSubmit }) => {
     const {control, handleSubmit, formState: { errors },  reset } = useForm();
@@ -21,7 +21,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
                 <div className="col-12 mt-4">
                     <h6>Knowledge of Module</h6>
                     <Controller control={control} name="module-rating" defaultValue={0} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="module-rating" activeColor="#724BCB" size={16}  /> )} />
-                    <br />
+                    
                      <label htmlFor="moduleKnowledge">Additional Notes:</label>
                      <Controller control={control} name="moduleKnowledge" render={ ( {field : { value, onChange }} ) => (<input
                       value={value} onChange={onChange} className="form-control form__input  my-2" type="text" id="moduleKnowledge" data-testid="moduleKnowledge" /> )} />
@@ -30,7 +30,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
                 <div className="col-12 mt-3">
                     <h6>Quality of HTML/CSS</h6>
                     <Controller control={control} name="HtmlCss-rating" defaultValue={0} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="HtmlCss-rating" activeColor="#724BCB" size={16}  /> )} />
-                    <br />
+                    
                     <label htmlFor="HTML-CSSKnowledge">Additional Notes:</label>
                     <Controller control={control} name="HTML-CSSKnowledge"  render={ ( {field: { value, onChange }} ) => (<input
                       value={value} onChange={onChange} className="form-control form__input  my-2" type="text" id="HTML-CSSKnowledge" data-testid="HTML-CSSKnowledge" />)} />
@@ -39,7 +39,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
                 <div className="col-12 mt-3">
                     <h6>Quality of Javascript</h6>
                     <Controller control={control} name="js-rating" defaultValue={0} rules={{ required: true }} render={ ( {field : { value, onChange }} ) => ( <ReactStars value={value} onChange={onChange} name="js-rating" activeColor="#724BCB" size={16} />)}/>
-                    <br />
+                    
                     <label htmlFor="jsKnowledge">Additional Notes:</label>
                     <Controller control={control} name="jsKnowledge" render={ ( {field: { value, onChange }} ) => (<input 
                     value={value} onChange={onChange} className="form-control form__input  my-2" type="text" id="jsKnowledge" data-testid="jsKnowledge" /> )} />
