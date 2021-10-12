@@ -45,6 +45,8 @@ h6 {font-weight: 600;}
 
 .review {
     height: 120px;
+    max-height: 390px;
+    overflow-y: auto;
     
     p {color: #95ACCB; font-size: 12px;}
 }

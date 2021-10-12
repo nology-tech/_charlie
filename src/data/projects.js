@@ -13,6 +13,7 @@ const projects = [
     languagesUsed: ["HTML", "CSS", "JavaScript"],
     reviewNeeded: true,
     reviewed: false,
+    reviews:[]
   },
   {
     id: 1,
@@ -21,6 +22,7 @@ const projects = [
     languagesUsed: ["HTML", "CSS", "JavaScript"],
     reviewNeeded: false,
     reviewed: false,
+    reviews:[]
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ const projects = [
     languagesUsed: ["HTML", "CSS", "JavaScript"],
     reviewNeeded: true,
     reviewed: false,
+    reviews:[]
   },
   { 
     id: 3,
@@ -37,6 +40,7 @@ const projects = [
     languagesUsed: ["React"],
     reviewNeeded: true,
     reviewed: false,
+    reviews:[]
   },
   {
     id: 4,
@@ -45,6 +49,10 @@ const projects = [
     languagesUsed: ["HTML", "CSS", "JavaScript"],
     reviewNeeded: false,
     reviewed: true,
+    reviews:[
+      "Good work",
+      "This can be challenging"
+    ]
   },
   {
     id: 5,
@@ -53,6 +61,7 @@ const projects = [
     languagesUsed: ["React"],
     reviewNeeded: false,
     reviewed: false,
+    reviews:[]
   },
 ];
 

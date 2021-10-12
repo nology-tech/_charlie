@@ -15,6 +15,7 @@ import StudentDetails from './pages/students/student-details/student-details';
 import AddStudent from './pages/students/student-add/addstudent';
 import ProjectList from './pages/projects/projects-list/projects-list';
 import ProjectCreate from './pages/projects/projects-create/projects-create';
+import Submission from 'pages/students/student-submission-details/studentsubmissiondetails';
 
 function App() {
 
@@ -38,6 +39,10 @@ function App() {
             <Route exact path="/student/:studentId/project/:projectId/review">
               <ProjectReview />
             </Route>            
+
+            <Route exact path="/student/:studentId/project/:projectId/reviewed">
+              <Submission />
+            </Route>
 
             <Route path="/student/:studentId/project/:projectId">
               <SubmissionDetails />
