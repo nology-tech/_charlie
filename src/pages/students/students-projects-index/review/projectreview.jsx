@@ -17,7 +17,7 @@ const ProjectReview = () => {
     //         <div className="main__white-space"></div>
     //     </div>
     <div>
-      <ProjectReviewTopNav onSubmit={onSubmit} />
+      <ProjectReviewTopNav />
       <ProjectReviewForm onSubmit={onSubmit} />
     </div>
   )
