@@ -3,11 +3,10 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 const Card = ({ project }) => {
-  const { studentId, projectId } = useParams();
-  //const path = "/projects/"+studentId+"/"+project.id;
+  const { studentId } = useParams();
   const path = `/student/${studentId}/project/${project.id}`;
-
-  const { reviewNeeded, reviewed } = project;
+  
+  const { reviewNeeded, reviewed, title } = project;
   
   //not started by default
   let btnText = "Not Started";
@@ -23,13 +22,13 @@ const Card = ({ project }) => {
   }
   
   return (
-    <div className="card d-flex flex-column justify-content-evenly h-200" key={project.title}>
+    <div data-testid={`project-${project.id}`} className="card d-flex flex-column justify-content-evenly h-200" key={title}>
       <Link to={path}>
         <img src={project.imgSrc} alt={project.title} />
       </Link>
       
       <Link to={path}>
-        <h5 className="mt-3">{project.title}</h5>
+        <h5 className="mt-3">{title}</h5>
       </Link>
       
       <p>{project.languagesUsed.join("/")}</p>
