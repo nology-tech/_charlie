@@ -149,7 +149,7 @@ const StudentsList = () => {
     pageData.length < numberOfRows ? secondIndex = pageData.length + firstIndex : secondIndex = numberOfRows*pageNumber;
     
     return (
-        <div className="main col-10 m-0 d-flex justify-content-between">
+        <div className="main m-0 d-flex justify-content-between">
             <div className="students__white-space"></div>
                 <div className="students d-flex flex-column align-items-center p-0 ">
                     <PageHeader title="Students"

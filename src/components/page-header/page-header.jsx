@@ -18,7 +18,7 @@ const PageHeader = (props) => {
                     tabs.map((tab, i) => (
                         <div className=
                         {filterState && filterState === tab ? `top-nav__tabs-${i} selectedFilterClass` : `top-nav__tabs-${i}`} onClick={() => handleClick(tab)}>
-                            {tabs[i]}
+                            {tab}
                         </div>
                     ))
                 }   
