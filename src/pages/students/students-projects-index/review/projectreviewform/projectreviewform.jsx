@@ -1,4 +1,3 @@
-import './projectreviewform.scss';
 import { useForm, Controller } from "react-hook-form";
 import { useHistory } from "react-router";
 import ReactStars from "react-rating-stars-component";

@@ -143,7 +143,7 @@ const StudentForm = () => {
                 Upload
                 </label>
             </div>
-            <div className="col-12 mt-3">
+            <div className="col-12 mt-4">
                 <label className="my-3">CV Upload</label>
                 <div>
                     <label htmlFor="cvUpload" className="btn upload-btn mt-2">Upload</label>
@@ -158,8 +158,8 @@ const StudentForm = () => {
                 </div>
             </div>
             <div className="col-12 mt-5">
-                <input type="reset" className="btn btn-secondary mx-2 form__button" value="Cancel" onClick={handleClick} />
-                <input type="submit" className="btn btn-primary form__button" value="Save" />
+                <input type="reset" className="btn btn-secondary my-5 mx-2 form__button" value="Cancel" onClick={handleClick} />
+                <input type="submit" className="btn btn-primary my-5 form__button" value="Save" />
             </div>
             </div>
         </form>
