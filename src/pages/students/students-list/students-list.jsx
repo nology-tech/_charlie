@@ -1,9 +1,9 @@
 import React,{useEffect, useState }  from 'react'
-import StudentsTopNav from "./students-top-nav/students-top-nav"
 import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './student-searchbar/student-searchbar';
 import "./students-list.scss"; 
 import Data from "../../../data/students.js"; 
+import PageHeader from "../../../components/page-header/page-header";
 
 const StudentsList = () => {
     const [studentsData, setStudentsData] = useState([]); 
@@ -52,38 +52,25 @@ const StudentsList = () => {
             displayStudents(newPageNumber);
         }
     }
-    const filterDataByAll = () => {
-        setSortOption("1");
-        setFilterOption("1");
-        setPageNumber(1);
-        setEnrolledFilter("All");
-        fetchStudentData();
-        setEnrollmentData(Data);  
-        }
-    const filterDataByFullTime = () => {
-        setSortOption("1");
-        setFilterOption("1");
-        setPageNumber(1);
-        setEnrolledFilter("Full-Time");
-        setStudentsData(Data.filter(student => student.enrolledType.includes("Full-Time")));
-        setEnrollmentData(Data.filter(student => student.enrolledType.includes("Full-Time")));
-    }
-    const filterDataBySelfPaced = () => {
-        setSortOption("1");
-        setFilterOption("1");
-        setPageNumber(1);
-        setEnrolledFilter("Self-Paced");
-        setStudentsData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
-        setEnrollmentData(Data.filter(student => student.enrolledType.includes("Self-Paced")));
-    }
-    const filterDataByCorporate = () => {
-        setSortOption("1");
-        setFilterOption("1");
-        setEnrolledFilter("Corporate");
-        setPageNumber(1);
-        setStudentsData(Data.filter(student =>student.enrolledType.includes("Corporate")));
-        setEnrollmentData(Data.filter(student =>student.enrolledType.includes("Corporate")));
-    }
+   
+
+    const filterDataByTabs = (enrolledType) => {
+        if (enrolledType == "All") {
+            setSortOption("1");
+            setFilterOption("1");
+            setPageNumber(1);
+            setEnrolledFilter("All");
+            fetchStudentData();
+            setEnrollmentData(Data);
+        } else {
+            setSortOption("1");
+            setFilterOption("1");
+            setPageNumber(1);
+            setEnrolledFilter(enrolledType);
+            setStudentsData(Data.filter(student => student.enrolledType.includes(enrolledType)));
+            setEnrollmentData(Data.filter(student => student.enrolledType.includes(enrolledType)));
+        }  
+        }   
 
     const generateSearchResults = (e) => { 
         if (e.target.value){
@@ -99,19 +86,19 @@ const StudentsList = () => {
     } else {
         switch(enrolledFilter) {
             case "All":
-                filterDataByAll();
+                filterDataByTabs("All")
                 break;
             case "Self-Paced":
-                filterDataBySelfPaced();
+                filterDataByTabs("Self-Paced")
                 break;
             case "Full-Time":
-                filterDataByFullTime();
+                filterDataByTabs("Full-Time")
                 break;
             case "Corporate":
-                filterDataByCorporate();
+                filterDataByTabs("Corporate")
                 break;
             default:
-                filterDataByAll(); 
+                filterDataByTabs("All") 
         }
     }
 };
@@ -162,15 +149,15 @@ const StudentsList = () => {
     pageData.length < numberOfRows ? secondIndex = pageData.length + firstIndex : secondIndex = numberOfRows*pageNumber;
     
     return (
-        <div className="main col-10 m-0 d-flex justify-content-between">
+        <div className="main m-0 d-flex justify-content-between">
             <div className="students__white-space"></div>
                 <div className="students d-flex flex-column align-items-center p-0 ">
-                    <StudentsTopNav className="students__topNav" 
-                    filterDataByAll={filterDataByAll}
-                    filterDataByFullTime={filterDataByFullTime}
-                    filterDataBySelfPaced={filterDataBySelfPaced}
-                    filterDataByCorporate={filterDataByCorporate}
-                    enrolledFilter={enrolledFilter}/>
+                    <PageHeader title="Students"
+                    tabs={['All', 'Full-Time', 'Self-Paced', 'Corporate']} handleClick={filterDataByTabs} 
+                    buttonPath={"/student/create"} 
+                    filterState = {enrolledFilter} 
+                    buttonText = {"+ Create"} 
+                    buttonStyle = "btn-primary top-nav__header-button border-0 me-2"/>
                     <StudentSearchBar 
                     generateSearchResults={generateSearchResults} 
                     sortStudents={sortStudents}
