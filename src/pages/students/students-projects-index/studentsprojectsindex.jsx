@@ -89,7 +89,7 @@ const SubmissionDetails = () => {
                                         <form action="" onSubmit={submitAdditionalNotes}>
                                             <div className="col-9 px-1 d-flex justify-content-between align-items-center input-group">
                                                 <input type="text" placeholder="Write a note..." className="form-control p-10" name="add-comment"/>
-                                                <input type="submit" className="col-3 btn-secondary btn-plus p-10" value="+" />
+                                                <input type="submit" className="col-3 btn-plus p-10" value="+" />
                                             </div>
                                         </form>
                                 </div>
