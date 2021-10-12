@@ -1,7 +1,6 @@
-import './projectreviewform.scss';
 import { useForm, Controller } from "react-hook-form";
 import { useHistory } from "react-router";
-import ReactStars from "../../../../../components/star/star";
+import ReactStars from "react-rating-stars-component";
 
 const ProjectReviewForm = ({ onSubmit }) => {
     const {control, handleSubmit, formState: { errors },  reset } = useForm();
@@ -48,13 +47,13 @@ const ProjectReviewForm = ({ onSubmit }) => {
             
             <div className="col-6">
                 
-                <div className="col-12 mt-4">
+                <div className="col-12 mt-4 mx-4">
                      <h6>Summary</h6>
                     <Controller control={control} name="summary" rules={{ required: true }} render={ ({field: { value, onChange }}) => (<textarea value={value} onChange={onChange} className="form-control form__input  my-2 summary" data-testid="summary" /> )} />
                     {errors.summary && <p className="text-danger">* Required</p>}
                 </div>
                 
-                <div className="col-12 mt-5">
+                <div className="col-12 mt-5 mx-4">
                     <input type="reset" className="btn btn-secondary mx-2 form__button" value="Cancel" onClick={handleClick} />
                     <input type="submit" className="btn btn-primary form__button" value="Save" />
                 </div>

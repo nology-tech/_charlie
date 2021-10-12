@@ -18,27 +18,35 @@
             font-weight: 700;
             color: $color-quaternary; 
         }
+        &-button {
+            text-align: center;
+            line-height: 50px;
+        }
     }
 
-    &__student-types {
+    &__tabs {
         width: 100%;
         color: $color-tertiary;
         font-size: 16px;
         letter-spacing: 0.03em;
         font-weight: normal;
-        &__all {
+        &-0 {
             margin-right: 36px;
             cursor: pointer;
         }
-        &__full-time {
+        &-1 {
             margin-right: 40px;
             cursor: pointer;
         }
-        &__self-paced {
+        &-2 {
             margin-right: 33px;
             cursor: pointer;
         }
-        &__corporate {
+        &-3 {
+            cursor: pointer;
+            margin-right: 33px; 
+        }
+        &-4 {
             cursor: pointer;
         }
     }

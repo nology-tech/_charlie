@@ -7,7 +7,7 @@
   }
 
   &__container {
-    height: 658px;
+    height: 750px;
     width: 918px;
     background: #ffffff;
     box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
@@ -67,4 +67,8 @@
   height: 270px;
   box-sizing: border-box;
   border-radius: 7px;
+}
+
+textarea.summary {
+  height: 340px;
 }

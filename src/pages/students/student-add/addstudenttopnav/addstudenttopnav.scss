@@ -1,6 +1,11 @@
 @import "../../../../assets/styles/nav.scss";
 @import "../../../../assets/styles/typography";
 
+.top-nav-padding {
+    padding-left: 100px;
+    padding-right: 120px;
+  }
+
 .topnav{
     height: 120px;
     background: #ffffff;
