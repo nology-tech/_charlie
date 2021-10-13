@@ -76,6 +76,7 @@ const SubmissionDetails = () => {
                                 <button className="btn-dark btn-project">
                                     <FaGithub />&nbsp;View Repo
                                 </button>
+                                &nbsp;
                                 <button className="btn-secondary btn-project">
                                     <FaEye />&nbsp;Live preview
                                 </button>
