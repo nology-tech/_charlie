@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/projects/")
+@RequestMapping("/projects")
 public class ProjectController {
     @Autowired
     private IProjectRepository repo;
 
-    @GetMapping("")
+    @GetMapping("/")
     public ResponseEntity<List> getProjects() {
         return ResponseEntity.status(HttpStatus.OK).body(this.repo.findAll());
     }
@@ -29,7 +29,7 @@ public class ProjectController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find project with id: " + id));
     }
 
-    @PostMapping("")
+    @PostMapping("/")
     public ResponseEntity<Message> createAProject(@RequestBody Project newProject) {
         this.repo.save(newProject);
         return ResponseEntity.status(HttpStatus.CREATED).body(new Message("Successfully added a new project"));
