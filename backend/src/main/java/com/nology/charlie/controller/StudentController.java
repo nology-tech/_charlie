@@ -24,8 +24,11 @@ public class StudentController {
     }
 
     @GetMapping("/students/{id}")
-    public ResponseEntity<Student> getOneStudent(@PathVariable int id) throws ResourceNotFoundException {
-        return ResponseEntity.status(HttpStatus.OK).body(this.studentRepository.findById(id).get());
+    public ResponseEntity<Object> getOneStudent(@PathVariable int id) {
+        if(this.studentRepository.existsById(id))
+            return ResponseEntity.status(HttpStatus.OK).body(this.studentRepository.findById(id));
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find student with id: " + id));
     }
 
     @DeleteMapping("/students/{id}")
@@ -41,23 +44,13 @@ public class StudentController {
     }
 
     @PutMapping("/students/{id}")
-    public ResponseEntity <Message> updatedStudent(@PathVariable int id, @RequestBody Student newStudent) throws ResourceNotFoundException{
-        // Get recipe from database
-        Student existingstudent = studentRepository.getById(id);
+    public ResponseEntity <Object> updatedStudent(@PathVariable int id, @RequestBody Student newStudent) {
+        if(this.studentRepository.existsById(id)) {
+            this.studentRepository.deleteById(id);
+            this.studentRepository.save(newStudent);
+            return ResponseEntity.status(HttpStatus.OK).body(newStudent);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find student with id: " + id));
 
-
-        // Edit recipe
-        existingstudent.setStudentName(newStudent.getStudentName());
-        existingstudent.setEnrolledOn(newStudent.getEnrolledOn());
-        existingstudent.setGithubAccount(newStudent.getGithubAccount());
-        existingstudent.setPortfolio(newStudent.getPortfolio());
-        existingstudent.setResume(newStudent.getResume());
-        existingstudent.setEnrolledType(newStudent.getEnrolledType());
-        existingstudent.setPictureLink(newStudent.getPictureLink());
-        // Store recipe back in database
-        studentRepository.save(existingstudent);
-
-        // Send back to client
-        return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully updated Student"));
     }
 }
