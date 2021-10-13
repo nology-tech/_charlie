@@ -1,10 +1,12 @@
 package com.nology.charlie.controller;
 
+import com.nology.charlie.entity.Message;
 import com.nology.charlie.entity.Project;
 import com.nology.charlie.repository.IProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,8 +16,19 @@ public class ProjectController {
     private IProjectRepository repo;
 
     @GetMapping("projects")
-    public List<Project> getProjects() {
-        return this.repo.findAll();
+    public ResponseEntity<List> getProjects() {
+        return ResponseEntity.status(HttpStatus.OK).body(this.repo.findAll());
+    }
+
+    @GetMapping("/projects/{id}")
+    public ResponseEntity<Object> getAProject(@PathVariable int id) {
+       return ResponseEntity.status(HttpStatus.OK).body(this.repo.findById(id));
+    }
+
+    @PostMapping("/projects")
+    public ResponseEntity<Message> createAProject(@RequestBody Project newProject) {
+        this.repo.save(newProject);
+        return ResponseEntity.status(HttpStatus.CREATED).body(new Message("Successfully added a new project"));
     }
 
 
