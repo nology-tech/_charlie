@@ -13,7 +13,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
 
     
     return (
-        <div className="row my-4 px-4 offset-1 form__container project-review-form">
+        <div className="row my-5 px-4 mx-auto offset-1 form__container project-review-form">
         <form className="row" onSubmit={handleSubmit(onSubmit)}>
             <div className="col-6">
                 
