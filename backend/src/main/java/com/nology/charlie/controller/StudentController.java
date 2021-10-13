@@ -13,17 +13,19 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/students")
 public class StudentController {
 
     @Autowired
     IStudentRepository studentRepository;
 
-    @GetMapping("/students")
+
+    @GetMapping("")
     public ResponseEntity<List<Student>> getStudents() {
         return ResponseEntity.status(HttpStatus.OK).body(this.studentRepository.findAll());
     }
 
-    @GetMapping("/students/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Object> getOneStudent(@PathVariable int id) {
         if(this.studentRepository.existsById(id))
             return ResponseEntity.status(HttpStatus.OK).body(this.studentRepository.findById(id));
@@ -31,19 +33,19 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find student with id: " + id));
     }
 
-    @DeleteMapping("/students/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Message> deleteStudent(@PathVariable int id) {
         studentRepository.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully deleted a student"));
     }
-    @PostMapping("/students")
+    @PostMapping("")
     public ResponseEntity <Message> addStudent (@RequestBody Student newStudent) {
         this.studentRepository.save(newStudent);
         Message successMessage = new Message("Successfully added a student to the database.");
         return ResponseEntity.status(HttpStatus.CREATED).body(successMessage);
     }
 
-    @PutMapping("/students/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity <Object> updatedStudent(@PathVariable int id, @RequestBody Student newStudent) {
         if(this.studentRepository.existsById(id)) {
             this.studentRepository.deleteById(id);
