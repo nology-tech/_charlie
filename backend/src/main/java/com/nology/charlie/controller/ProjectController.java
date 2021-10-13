@@ -18,11 +18,16 @@ public class ProjectController {
     @Autowired
     private IProjectRepository repo;
 
+<<<<<<< HEAD
     @GetMapping("/")
+=======
+    @GetMapping("projects")
+>>>>>>> 531e3d5f7f7f9747d214d78abb7cc9e16f9c38a9
     public ResponseEntity<List> getProjects() {
         return ResponseEntity.status(HttpStatus.OK).body(this.repo.findAll());
     }
 
+<<<<<<< HEAD
     @GetMapping("/{id}")
     public ResponseEntity<Object> getAProject(@PathVariable int id) {
         if(this.repo.findById(id) == null)
@@ -37,6 +42,18 @@ public class ProjectController {
     public Message createAProject(@RequestBody Project newProject) {
         this.repo.save(newProject);
         return new Message("Successfully added a new project");
+=======
+    @GetMapping("/projects/{id}")
+    public ResponseEntity<Object> getAProject(@PathVariable int id) {
+       return ResponseEntity.status(HttpStatus.OK).body(this.repo.findById(id));
+    }
+
+    @PostMapping("/projects")
+    public ResponseEntity<List> createAProject(@RequestBody Project newProject) {
+        this.repo.save(newProject);
+        Message successMsg = new Message("Successfully added a new project");
+        return ResponseEntity.status(HttpStatus.CREATED).body(this.repo.findAll());
+>>>>>>> 531e3d5f7f7f9747d214d78abb7cc9e16f9c38a9
     }
 
 
