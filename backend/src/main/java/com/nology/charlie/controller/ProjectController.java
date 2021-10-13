@@ -22,35 +22,35 @@ public class ProjectController {
     }
 
     @GetMapping("{id}")
-    public Object getAProject(@PathVariable int id) {
+    public ResponseEntity<Object> getAProject(@PathVariable int id) {
         if(this.repo.existsById(id))
-            return this.repo.findById(id);
+            return ResponseEntity.status(HttpStatus.OK).body(this.repo.findById(id));
 
-        return new Message("Could not find project with id: " + id);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find project with id: " + id));
     }
 
     @PostMapping("")
-    public Message createAProject(@RequestBody Project newProject) {
+    public ResponseEntity<Message> createAProject(@RequestBody Project newProject) {
         this.repo.save(newProject);
-        return new Message("Successfully added a new project");
+        return ResponseEntity.status(HttpStatus.CREATED).body(new Message("Successfully added a new project"));
     }
 
     @PutMapping("{id}")
-    public Object updateProjectById(@PathVariable int id, @RequestBody Project updatedProject) {
+    public ResponseEntity<Object> updateProjectById(@PathVariable int id, @RequestBody Project updatedProject) {
         if(this.repo.existsById(id)) {
             this.repo.deleteById(id);
             this.repo.save(updatedProject);
-            return updatedProject;
+            return ResponseEntity.status(HttpStatus.OK).body(updatedProject);
         }
-        return new Message("Could not find project with id: " + id);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find project with id: " + id));
     }
 
     @DeleteMapping("{id}")
-    public Message deleteProjectById(@PathVariable int id) {
+    public ResponseEntity<Message> deleteProjectById(@PathVariable int id) {
         if(this.repo.existsById(id)) {
             this.repo.deleteById(id);
-            return new Message("Successfully deleted project with id: " + id);
+            return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully deleted project with id: " + id));
         }
-        return new Message("Could not find project with id: " + id);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find project with id: " + id));
     }
 }
