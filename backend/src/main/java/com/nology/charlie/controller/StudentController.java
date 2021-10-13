@@ -4,11 +4,13 @@ import com.nology.charlie.entity.Message;
 import com.nology.charlie.entity.Student;
 import com.nology.charlie.exception.ResourceNotFoundException;
 import com.nology.charlie.repository.IStudentRepository;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class StudentController {
@@ -17,13 +19,13 @@ public class StudentController {
     IStudentRepository studentRepository;
 
     @GetMapping("/students")
-    public List<Student> getStudents() {
-        return this.studentRepository.findAll();
+    public ResponseEntity<List<Student>> getStudents() {
+        return ResponseEntity.status(HttpStatus.OK).body(this.studentRepository.findAll());
     }
 
     @GetMapping("/students/{id}")
-    public ResponseEntity<Student> getOneStudent(@PathVariable int id) throws ResourceNotFoundException {
-        return ResponseEntity.status(HttpStatus.OK).body(studentRepository.getById(id));
+    public ResponseEntity<Object> getOneStudent(@PathVariable int id) throws ResourceNotFoundException {
+        return ResponseEntity.status(HttpStatus.OK).body(this.studentRepository.findById(id));
     }
 
     @DeleteMapping("/students/{id}")
@@ -32,15 +34,16 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully deleted a student"));
     }
     @PostMapping("/students")
-    public List <Student> addStudent (@RequestBody Student newStudent) {
+    public ResponseEntity <Message> addStudent (@RequestBody Student newStudent) {
         this.studentRepository.save(newStudent);
-        return this.studentRepository.findAll();
+        Message successMessage = new Message("Successfully added a student to the database.");
+        return ResponseEntity.status(HttpStatus.CREATED).body(successMessage);
     }
 
     @PutMapping("/students/{id}")
     public ResponseEntity <Message> updatedStudent(@PathVariable int id, @RequestBody Student newStudent) throws ResourceNotFoundException{
         /*// Get recipe from database
-        Student student = repository.getById(id);
+        // Student student = repository.getById(id);
 
         // Edit recipe
         existingRecipe.setDuration(newRecipe.getDuration());
@@ -49,17 +52,15 @@ public class StudentController {
 
         // Store recipe back in database
         repository.save(newStudent);
+        */
 
-        // Send back to client
-        return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully updated Student"));*/
-        Student student = updateStudentById(id, newStudent);
-        return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully updated Student"));
+        Student updatedStudent = updateStudentById(id, newStudent);
+        return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully updated Student with id of " + updatedStudent.getId()));
     }
 
     public Student updateStudentById(int id, Student newStudent) {
-        Student existingStudent = studentRepository.getById(id);
         studentRepository.findAll().set(id, newStudent);
-        Student foundStudent = studentRepository.getById(id);
-        return foundStudent;
+        Student updatedStudent = studentRepository.getById(id);
+        return updatedStudent;
     }
 }
