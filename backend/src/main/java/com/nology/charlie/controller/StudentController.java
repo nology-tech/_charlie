@@ -15,12 +15,12 @@ public class StudentController {
     @Autowired
     IStudentRepository repository;
 
-    @GetMapping("students")
+    @GetMapping("/students")
     public List<Student> getStudents() {
         return this.repository.findAll();
     }
 
-    @DeleteMapping("students/{id}")
+    @DeleteMapping("/students/{id}")
     public ResponseEntity<Message> deleteStudent(@PathVariable int id) {
         repository.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully deleted a student"));
