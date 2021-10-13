@@ -1,0 +1,79 @@
+@use "../../../assets/styles/variables" as *;
+@import "../../../assets/styles/typography";
+
+.projects{width: 95%;}
+
+h2 {font-weight: 700;}
+h6 {font-weight: 600;}
+
+.additional-notes, .review, .challenge-brief, .overview-buttons {
+    background-color: white;
+    border-radius: 7px;
+}
+
+.additional-notes {
+    //height: 120px;
+    max-height: 390px;
+    &-input {
+        box-shadow: 0px 30px 40px 0px #724BCB0F;
+        border: 1px solid lightgray;
+        max-width: 220px;
+        border-radius: 7px;
+
+        .btn-plus {
+            font-size: larger;
+            background-color: none;
+            font-weight: 0;
+
+            &:hover, &:focus, &:active {
+                border: none; 
+                background: none; 
+                outline: none;
+                color: #95ACCB;
+
+            }
+        }
+
+        input {
+            color: #95ACCB;
+            border: none;
+            
+            &[type="text"] {font-size: 12px; color: #95ACCB;}
+        }
+    }
+
+    &__output{
+        p, li {
+            font-size: 12px;
+        }
+    }
+}
+
+.review {
+    height: 120px;
+    max-height: 390px;
+    overflow-y: auto;
+    
+    p {color: #95ACCB; font-size: 12px;}
+}
+
+.challenge-brief {
+    height: 390px;
+    overflow-y: auto;
+    
+    p, li {
+        color: #95ACCB;
+        font-size: 12px;
+    }
+}
+
+.overview {
+    &-buttons {
+        height: 55px;
+        
+        button {
+            font-size: 8px;
+            height: 40px;
+        }
+    }
+}
