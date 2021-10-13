@@ -39,27 +39,21 @@ public class StudentController {
 
     @PutMapping("/students/{id}")
     public ResponseEntity <Message> updatedStudent(@PathVariable int id, @RequestBody Student newStudent) throws ResourceNotFoundException{
-        /*// Get recipe from database
-        Student student = repository.getById(id);
+        // Get recipe from database
+        Student exitingstudent = studentRepository.getById(id);
 
         // Edit recipe
-        existingRecipe.setDuration(newRecipe.getDuration());
-        existingRecipe.setServings(newRecipe.getServings());
-        existingRecipe.setTitle(newRecipe.getTitle());
-
+        exitingstudent.setStudentName(newStudent.getStudentName());
+        exitingstudent.setEnrolledOn(newStudent.getEnrolledOn());
+        exitingstudent.setGithubAccount(newStudent.getGithubAccount());
+        exitingstudent.setPortfolio(newStudent.getPortfolio());
+        exitingstudent.setResume(newStudent.getResume());
+        exitingstudent.setEnrolledType(newStudent.getEnrolledType());
+        exitingstudent.setPictureLink(newStudent.getPictureLink());
         // Store recipe back in database
-        repository.save(newStudent);
+        studentRepository.save(exitingstudent);
 
         // Send back to client
-        return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully updated Student"));*/
-        Student student = updateStudentById(id, newStudent);
         return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully updated Student"));
-    }
-
-    public Student updateStudentById(int id, Student newStudent) {
-        Student existingStudent = studentRepository.getById(id);
-        studentRepository.findAll().set(id, newStudent);
-        Student foundStudent = studentRepository.getById(id);
-        return foundStudent;
     }
 }
