@@ -26,9 +26,10 @@ public class ProjectController {
     }
 
     @PostMapping("/projects")
-    public ResponseEntity<Message> createAProject(@RequestBody Project newProject) {
+    public ResponseEntity<List> createAProject(@RequestBody Project newProject) {
         this.repo.save(newProject);
-        return ResponseEntity.status(HttpStatus.CREATED).body(new Message("Successfully added a new project"));
+        Message successMsg = new Message("Successfully added a new project");
+        return ResponseEntity.status(HttpStatus.CREATED).body(this.repo.findAll());
     }
 
 
