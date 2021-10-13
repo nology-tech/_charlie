@@ -31,6 +31,17 @@ const SubmissionDetails = () => {
         }
     }
 
+    
+    const reviews = selectedProject.reviews;
+    let reviewJSX;
+    if(reviews.length === 0){
+        reviewJSX = "No Review Submitted";        
+    }else{
+        selectedProject.reviewNeeded = false;
+        selectedProject.reviewed = true;
+        reviewJSX = reviews.map(review => <p className="review__comment mb-3">{review}</p>);
+    }
+
    //const reviewPagePath = `/projects/${studentId}/${projectId}/review`;
     const reviewPagePath = `/student/${studentId}/project/${projectId}/review`;
     const studentListPath = "/students";
@@ -78,9 +89,15 @@ const SubmissionDetails = () => {
                                         <form action="" onSubmit={submitAdditionalNotes}>
                                             <div className="col-9 px-1 d-flex justify-content-between align-items-center input-group">
                                                 <input type="text" placeholder="Write a note..." className="form-control p-10" name="add-comment"/>
-                                                <input type="submit" className="col-3 btn-secondary btn-plus p-10" value="+" />
+                                                <input type="submit" className="col-3 btn-plus p-10" value="+" />
                                             </div>
                                         </form>
+                                </div>
+                                <div className="row mt-4 additional-notes__output">
+                                    {commentArr.length === 0 ? 
+                                        <p>{"No notes given..."}</p> :
+                                        <ul>{commentArr.map(note => <li>{note}</li>)}</ul>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -89,7 +106,7 @@ const SubmissionDetails = () => {
                         <div className="row mx-4">
                             <div className="col-12 review px-4">
                                 <h6 className="mt-4">Review</h6>
-                                <p className="mt-3">No Review Submitted</p>
+                                <p className="mt-3">{reviewJSX}</p>
                             </div>
                         </div>
                         <div className="row mx-4">
@@ -111,14 +128,7 @@ const SubmissionDetails = () => {
                                     <li>Pseudo-code your thoughts</li>
                                     <li>Break it down</li>
                                     <li>Do what you can do first</li>
-                                </ul>
-                                
-                                <h6 className="mt-4">Additional Notes</h6>
-                                {commentArr.length === 0 ? 
-                                    <p>{"No notes given..."}</p> :
-                                    <ul>{commentArr.map(note => <li>{note}</li>)}</ul>
-                                }
-                                
+                                </ul>                                
                                 <p className="mt-4">Good Luck from the coaches!</p>
                             </div>
                         </div>
