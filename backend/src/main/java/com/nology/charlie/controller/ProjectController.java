@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("projects")
@@ -28,7 +27,7 @@ public class ProjectController {
         if(this.repo.findById(id) == null)
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
-                    .body(new ResourceNotFoundException("that was bad"));
+                    .body(new ResourceNotFoundException("Could not find project with id: " + id));
 
         return ResponseEntity.status(HttpStatus.OK).body(this.repo.findById(id));
     }
@@ -39,5 +38,17 @@ public class ProjectController {
         return new Message("Successfully added a new project");
     }
 
+    @PutMapping("/{id}")
+    public Project updateProjectById(@PathVariable int id, @RequestBody Project updatedProject) {
+        this.repo.deleteById(id);
+        this.repo.save(updatedProject);
+        return updatedProject;
+    }
+
+    @DeleteMapping("/{id}")
+    public Message deleteProjectById(@PathVariable int id) {
+        this.repo.deleteById(id);
+        return new Message("Successfully deleted project with id: " + id);
+    }
 
 }
