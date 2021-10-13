@@ -28,12 +28,12 @@ const Card = ({ project }) => {
       </Link>
       
       <Link to={path}>
-        <h5 className="mt-3">{title}</h5>
+        <h6 className="mt-3">{title}</h6>
       </Link>
       
       <p>{project.languagesUsed.join("/")}</p>
       
-      <div className={`${buttonClass} mx-auto mt-2`}>{btnText}</div>
+      <p className={`${buttonClass} mx-auto mt-2`}>{btnText}</p>
     </div>
   );
 }
