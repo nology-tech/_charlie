@@ -26,9 +26,7 @@ public class Student {
         this.pictureLink = pictureLink;
     }
 
-    public Student() {
-        // An empty constructor
-    }
+
 
     public int getId() {
         return id;
@@ -94,4 +92,7 @@ public class Student {
         this.pictureLink = pictureLink;
     }
 
+    public Student() {
+        // An empty constructor
+    }
 }

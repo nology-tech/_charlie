@@ -24,8 +24,8 @@ public class StudentController {
     }
 
     @GetMapping("/students/{id}")
-    public ResponseEntity<Object> getOneStudent(@PathVariable int id) throws ResourceNotFoundException {
-        return ResponseEntity.status(HttpStatus.OK).body(this.studentRepository.findById(id));
+    public ResponseEntity<Student> getOneStudent(@PathVariable int id) throws ResourceNotFoundException {
+        return ResponseEntity.status(HttpStatus.OK).body(this.studentRepository.findById(id).get());
     }
 
     @DeleteMapping("/students/{id}")
@@ -60,7 +60,7 @@ public class StudentController {
 
     public Student updateStudentById(int id, Student newStudent) {
         studentRepository.findAll().set(id, newStudent);
-        Student updatedStudent = studentRepository.getById(id);
+        Student updatedStudent = studentRepository.findById(id).get();
         return updatedStudent;
     }
 }
