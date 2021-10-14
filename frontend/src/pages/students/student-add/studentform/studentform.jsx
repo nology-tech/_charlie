@@ -16,7 +16,30 @@ const StudentForm = () => {
     const onSubmit = (data) => {
         console.log(data);
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4));
-        history.goBack();
+        fetch("http://localhost:3000/students", {
+            method: "POST",
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+
+            //make sure to serialize your JSON body
+            body: JSON.stringify({
+                id: 5,
+                studentName: `${data.firstName} ${data.lastName}`,
+                enrolledOn: data.enrolledOn,
+                githubAccount: data.githubAccount,
+                portfolio: data.portfolioLink,
+                resume: "www.wei.com/cv",
+                enrolledType: "Corporate",
+                pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+            })
+        })
+        .then((response) => { 
+        
+        });
+        
+        // history.goBack();
     };
     
     const handleClick = () => {

@@ -18,7 +18,10 @@ const StudentsList = () => {
     const [filterOption, setFilterOption] = useState("1");
 
     const fetchStudentData = () => {
-        setStudentsData(Data.sort((a,b) => a.studentName.localeCompare(b.studentName)));
+        fetch("http://localhost:8080/students/")
+        .then(response => response.json())
+        .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        .catch(err => console.log(err)); 
     }
     const changeToGridView =() => {
         setToggleView(true);
