@@ -14,12 +14,12 @@ import Card from "../../../components/cards/card/card";
 
 const SubmissionDetails = () => {
     const { studentId, projectId} = useParams();
-    const [project, setProject] = useState("");
+    const [projectArr, setProject] = useState({});
 
     const getProjectDetails = () => {
         fetch("http://localhost:8080/projects/")
             .then(response => response.json())
-            .then(jsonResponse => console.log(jsonResponse[projectId].name))
+            .then(jsonResponse => setProject(jsonResponse[projectId]))
             .catch(error => console.log(error));
     }
 
@@ -29,8 +29,7 @@ const SubmissionDetails = () => {
     const [ commentArr, setCommentArr ] = useState([]);
 
     const selectedStudent = students[studentId];
-    
-    const selectedProject = projects[projectId]; 
+    const selectedProject = projects[projectId];
 
     //update array of notes in state when new one is submitted
     const submitAdditionalNotes = (e) =>{
@@ -82,7 +81,7 @@ const SubmissionDetails = () => {
                 <div className="row mx-5 d-flex justify-content-center overview-section">
                     <div className="col-4 ml-2">
                         <div className="row mx-4">
-                            <Card project={projects[projectId]} />
+                            <Card project={projectArr} />
                         </div>
                         <div className="row mx-4">
                             <div className="d-flex align-items-center overview-buttons mt-4">
