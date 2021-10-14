@@ -2,22 +2,21 @@ import React,{useEffect, useState }  from 'react'
 import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './student-searchbar/student-searchbar';
 import "./students-list.scss"; 
-import Data from "../../../data/students.js"; 
 import PageHeader from "../../../components/page-header/page-header";
 
 const StudentsList = () => {
-    const fetchStudentData = () => {
-        fetch("http://localhost:8080/students/")
-        .then(response => response.json())
-        .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-        fetch("http://localhost:8080/students/")
-        .then(raw => raw.json())
-        .then(jsonRawData => setRawData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-        .catch(err => console.log(err)); 
-    }
+    // const fetchRawData = () => {
+    //     fetch("http://localhost:8080/students/")
+    //     .then(response => response.json())
+    //     .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+    //     fetch("http://localhost:8080/students/")
+    //     .then(raw => raw.json())
+    //     .then(jsonRawData => setRawData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+    //     .catch(err => console.log(err));  
+    // }
 
     //watch raw data
-    const [rawData, setRawData] = useState(() => fetchStudentData())
+    const [rawData, setRawData] = useState([]); 
     const [studentsData, setStudentsData] = useState([]); 
     const [pageData, setPageData] = useState([]);
     const [pageNumber, setPageNumber] = useState(1);  
@@ -25,9 +24,23 @@ const StudentsList = () => {
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length); 
     const [enrolledFilter, setEnrolledFilter] = useState("All");
     const [toggleView, setToggleView] = useState(false); 
-    const [enrollmentData, setEnrollmentData] = useState(() => fetchStudentData()); 
+    const [enrollmentData, setEnrollmentData] = useState([]); 
     const [sortOption, setSortOption] = useState("1");
     const [filterOption, setFilterOption] = useState("1");
+
+    const fetchStudentData = () => {
+        fetch("http://localhost:8080/students/")
+        .then(response => response.json())
+        .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        fetch("http://localhost:8080/students/")
+        .then(raw => raw.json())
+        .then(jsonRawData => setRawData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        .catch(err => console.log(err));
+        fetch("http://localhost:8080/students/")
+        .then(raw => raw.json())
+        .then(jsonRawData => setEnrollmentData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        .catch(err => console.log(err));  
+    }
 
     const changeToGridView =() => {
         setToggleView(true);
@@ -135,19 +148,19 @@ const StudentsList = () => {
         }else if (e.target.value === "2") {
             setFilterOption("2");
             setSortOption("1");
-            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Mariana"))));
+            setStudentsData((enrollmentData.filter(student => student.enrolledOn.match(/Mariana/i))));
         }else if (e.target.value === "3") {
             setFilterOption("3");
             setSortOption("1");
-            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Ibiza"))));
+            setStudentsData((enrollmentData.filter(student => student.enrolledOn.match(/Ibiza/i))));
         }else if (e.target.value === "4") {
             setFilterOption("4");
             setSortOption("1");
-            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Jersey"))));
+            setStudentsData((enrollmentData.filter(student => student.enrolledOn.match(/Jersey/i))));
         } else {
             setFilterOption("5");
             setSortOption("1");
-            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Hawaii"))));
+            setStudentsData((enrollmentData.filter(student => student.enrolledOn.match(/Hawaii/i))));
         }
     }
 
