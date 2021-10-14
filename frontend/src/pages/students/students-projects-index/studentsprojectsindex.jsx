@@ -6,30 +6,30 @@ import "./studentsprojectsindex.scss";
 import "../student-add/addstudenttopnav/addstudenttopnav.scss";
 import { FaGithub, FaEye } from 'react-icons/fa';
 
-// import projects from "../../../data/projects";
+import projects from "../../../data/projects";
 import students from "../../../data/students";
 import Cards from "../../../components/cards/cards";
 import Card from "../../../components/cards/card/card";
 
-
 const SubmissionDetails = () => {
-    const { studentId, projectId} = useParams();
-    const [projectArr, setProject] = useState({});
+    const { studentId, projectId} = useParams(); //from URL query string
 
+    //TODO: fetching projects from API, might use once table are linked
+    const [projectStateArr, setProjectState] = useState([]);
     const getProjectDetails = () => {
         fetch("http://localhost:8080/projects/")
             .then(response => response.json())
-            .then(jsonResponse => setProject(jsonResponse[projectId]))
+            .then(jsonResponse => setProjectState(jsonResponse))
             .catch(error => console.log(error));
     }
-
-    useEffect(() => {getProjectDetails()}, []); //invoke on page load, avoiding infinite loop
-
+    useEffect(() => {getProjectDetails()}, []);
+    console.log(projectStateArr);
 
     const [ commentArr, setCommentArr ] = useState([]);
 
     const selectedStudent = students[studentId];
-    const selectedProject = projectArr;
+    
+    const selectedProject = projects[projectId]; 
 
     //update array of notes in state when new one is submitted
     const submitAdditionalNotes = (e) =>{
@@ -44,16 +44,15 @@ const SubmissionDetails = () => {
     }
 
     
-    // const reviews = selectedProject.reviews;
-    const reviews = "you did good";
-    let reviewJSX = reviews;
-    // if(reviews.length === 0){
-    //     reviewJSX = "No Review Submitted";        
-    // }else{
-    //     selectedProject.reviewNeeded = false;
-    //     selectedProject.reviewed = true;
-    //     reviewJSX = reviews.map(review => <p className="review__comment mb-3">{review}</p>);
-    // }
+    const reviews = selectedProject.reviews;
+    let reviewJSX;
+    if(reviews.length === 0){
+        reviewJSX = "No Review Submitted";        
+    }else{
+        selectedProject.reviewNeeded = false;
+        selectedProject.reviewed = true;
+        reviewJSX = reviews.map(review => <p className="review__comment mb-3">{review}</p>);
+    }
 
    //const reviewPagePath = `/projects/${studentId}/${projectId}/review`;
     const reviewPagePath = `/student/${studentId}/project/${projectId}/review`;
@@ -64,7 +63,7 @@ const SubmissionDetails = () => {
             <div className="row topnav mb-4 header d-flex align-items-center justify-content-between">
                 <h1 className="col-6 display-6 offset-1 topnav__title">
                     <div className="row">{selectedStudent.studentName}</div>
-                    <div className="row">{selectedProject.name}</div>
+                    <div className="row">{selectedProject.title}</div>
                 </h1>
                 <div className="top-nav__buttons d-flex col-4 mx-auto">
                     <Link className="col-3 btn btn-secondary topnav__button mx-2" to={studentListPath}>
@@ -82,7 +81,7 @@ const SubmissionDetails = () => {
                 <div className="row mx-5 d-flex justify-content-center overview-section">
                     <div className="col-4 ml-2">
                         <div className="row mx-4">
-                            <Card project={projectArr} />
+                            <Card project={projects[projectId]} />
                         </div>
                         <div className="row mx-4">
                             <div className="d-flex align-items-center overview-buttons mt-4">
