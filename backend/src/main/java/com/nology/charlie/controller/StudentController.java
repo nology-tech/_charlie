@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,10 +36,14 @@ public class StudentController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Message> deleteStudent(@PathVariable int id) {
-        studentRepository.deleteById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully deleted a student"));
+    public ResponseEntity<Object> deleteStudent(@PathVariable int id) {
+        if(this.studentRepository.existsById(id)){
+            this.studentRepository.deleteById(id);
+            return ResponseEntity.status(HttpStatus.OK).body(new Message("Successfully deleted a student"));
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not delete student with id: " + id));
     }
+
     @PostMapping("")
     public ResponseEntity <Message> addStudent (@RequestBody Student newStudent) {
         this.studentRepository.save(newStudent);
@@ -55,4 +61,7 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find student with id: " + id));
 
     }
+
+
+
 }
