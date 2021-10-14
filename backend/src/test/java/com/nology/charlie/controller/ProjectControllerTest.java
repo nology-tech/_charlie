@@ -105,17 +105,31 @@ public class ProjectControllerTest {
     }
 
 
+//    @Test
+//    @DisplayName("Delete Route should delete an existing project and return a message")
+//    public void deleteAnExistingRecipeAndReturnAMessage() throws Exception {
+//        List<Project> projects = new ArrayList();
+//        projects.add(new Project(1, "Calculator", "string two", "string three", "string four", "string five"));
+//        mockMvc.perform(delete("/projects/1"))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.message", is("Successfully deleted project with id: 2")))
+//                .andReturn();
+//
+//
+//    }
+
     @Test
-    @DisplayName("Delete Route should delete an existing project and return a message")
-    public void deleteAnExistingRecipeAndReturnAMessage() throws Exception {
+    @DisplayName("Delete Route should delete a project and return a success message")
+    public void DeleteRouteShouldDeleteAStudentAndReturnASuccessMessage() throws Exception{
         List<Project> projects = new ArrayList();
         projects.add(new Project(1, "Calculator", "string two", "string three", "string four", "string five"));
+        when(mockRepo.existsById(1)).thenReturn(true);
+//        when(mockRepo.deleteById(1)).thenReturn(new Message("Successfully deleted project with id: 1"));
+
         mockMvc.perform(delete("/projects/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.message", is("Successfully deleted project with id: 2")))
+                .andExpect(jsonPath("$.message", is("Successfully deleted project with id: 1")))
                 .andReturn();
-
-
     }
 
 
