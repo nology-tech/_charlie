@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 
 const row = (props) => {
 
-    const {one, two, three, threeRating, four, fourRating, five, fiveRating, Adobe, rightLink} = props
+    const {one, two, three, four, five, email, AdobeIcon, rightLink, resume} = props
     
     return (
             <>
                 <p className="col container__property container__name">{one}</p>
                 <p className="col container__property">{two}</p>
-
                 <p className="col container__property">{three}</p>
                 <p className="col container__property">{four}</p>
-                {Adobe && <a className="col student__property" href ="sample.pdf" download> <img className="adobe" src={Adobe} alt="Adobe"/> </a>}
+                {email && <p className="col container__property">{email}</p>}
+                {AdobeIcon && <a className="col student__property" href ={resume} download> <img className="adobe" src={AdobeIcon} alt="AdobeIcon"/> </a>}
                 {five && <p className="col container__property">{five}</p>}
                 <div className="col-1 container__property container__right-arrow">
                 <Link to={rightLink}>

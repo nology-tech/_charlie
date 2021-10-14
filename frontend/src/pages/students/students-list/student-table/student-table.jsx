@@ -15,6 +15,7 @@ const StudentTable = (props) => {
             <p className="col student-table__property-label">Enrolled On</p>
             <p className="col student-table__property-label">Github Account</p>
             <p className="col student-table__property-label">Portfolio</p>
+            <p className="col student-table__property-label">Email</p>
             <p className="col student-table__property-label">Resume</p>
             <p className="col-1 student-table__property-label"></p>
         </div>

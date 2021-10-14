@@ -6,6 +6,13 @@ import Data from "../../../data/students.js";
 import PageHeader from "../../../components/page-header/page-header";
 
 const StudentsList = () => {
+    const fetchStudentData = () => {
+        fetch("http://localhost:8080/students/")
+        .then(response => response.json())
+        .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        .catch(err => console.log(err)); 
+    }
+
     const [studentsData, setStudentsData] = useState([]); 
     const [pageData, setPageData] = useState([]);
     const [pageNumber, setPageNumber] = useState(1);  
@@ -13,16 +20,10 @@ const StudentsList = () => {
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length); 
     const [enrolledFilter, setEnrolledFilter] = useState("All");
     const [toggleView, setToggleView] = useState(false); 
-    const [enrollmentData, setEnrollmentData] = useState(Data); 
+    const [enrollmentData, setEnrollmentData] = useState(() => fetchStudentData()); 
     const [sortOption, setSortOption] = useState("1");
     const [filterOption, setFilterOption] = useState("1");
 
-    const fetchStudentData = () => {
-        fetch("http://localhost:8080/students/")
-        .then(response => response.json())
-        .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-        .catch(err => console.log(err)); 
-    }
     const changeToGridView =() => {
         setToggleView(true);
         setPageNumber(1);
