@@ -31,18 +31,18 @@ const ProjectsForm = () => {
             },
 
             body: JSON.stringify({
-                
                 projectName: data.projectName,
                 language: data.language,
-                // studentsEnrolled: 325,
-                // numberReviewed: 278,
-                // percentageReviewed: "85%",
+                studentsEnrolled: 325,
+                numberReviewed: 278,
+                percentageReviewed: "85%",
                 projectBrief: data.projectBrief,
                 coachesTips: data.coachesTips,
-                // projectThumb: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png"
+                projectThumb: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png"
             })
         })
-        .then((response) => response.json());
+        .then((response) => response.json())
+        .catch(error => alert(error));
         
         history.goBack();
     };
