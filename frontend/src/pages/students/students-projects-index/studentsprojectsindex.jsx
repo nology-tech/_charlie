@@ -6,7 +6,7 @@ import "./studentsprojectsindex.scss";
 import "../student-add/addstudenttopnav/addstudenttopnav.scss";
 import { FaGithub, FaEye } from 'react-icons/fa';
 
-import projects from "../../../data/projects";
+// import projects from "../../../data/projects";
 import students from "../../../data/students";
 import Cards from "../../../components/cards/cards";
 import Card from "../../../components/cards/card/card";
@@ -29,7 +29,7 @@ const SubmissionDetails = () => {
     const [ commentArr, setCommentArr ] = useState([]);
 
     const selectedStudent = students[studentId];
-    const selectedProject = projects[projectId];
+    const selectedProject = projectArr;
 
     //update array of notes in state when new one is submitted
     const submitAdditionalNotes = (e) =>{
@@ -44,15 +44,16 @@ const SubmissionDetails = () => {
     }
 
     
-    const reviews = selectedProject.reviews;
-    let reviewJSX;
-    if(reviews.length === 0){
-        reviewJSX = "No Review Submitted";        
-    }else{
-        selectedProject.reviewNeeded = false;
-        selectedProject.reviewed = true;
-        reviewJSX = reviews.map(review => <p className="review__comment mb-3">{review}</p>);
-    }
+    // const reviews = selectedProject.reviews;
+    const reviews = "you did good";
+    let reviewJSX = reviews;
+    // if(reviews.length === 0){
+    //     reviewJSX = "No Review Submitted";        
+    // }else{
+    //     selectedProject.reviewNeeded = false;
+    //     selectedProject.reviewed = true;
+    //     reviewJSX = reviews.map(review => <p className="review__comment mb-3">{review}</p>);
+    // }
 
    //const reviewPagePath = `/projects/${studentId}/${projectId}/review`;
     const reviewPagePath = `/student/${studentId}/project/${projectId}/review`;
@@ -63,7 +64,7 @@ const SubmissionDetails = () => {
             <div className="row topnav mb-4 header d-flex align-items-center justify-content-between">
                 <h1 className="col-6 display-6 offset-1 topnav__title">
                     <div className="row">{selectedStudent.studentName}</div>
-                    <div className="row">{selectedProject.title}</div>
+                    <div className="row">{selectedProject.name}</div>
                 </h1>
                 <div className="top-nav__buttons d-flex col-4 mx-auto">
                     <Link className="col-3 btn btn-secondary topnav__button mx-2" to={studentListPath}>
