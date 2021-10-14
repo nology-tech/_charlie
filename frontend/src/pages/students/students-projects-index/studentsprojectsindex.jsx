@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useParams} from "react-router";
 
@@ -11,8 +11,21 @@ import students from "../../../data/students";
 import Cards from "../../../components/cards/cards";
 import Card from "../../../components/cards/card/card";
 
+
 const SubmissionDetails = () => {
     const { studentId, projectId} = useParams();
+    const [project, setProject] = useState("");
+
+    const getProjectDetails = () => {
+        fetch("http://localhost:8080/projects/")
+            .then(response => response.json())
+            .then(jsonResponse => console.log(jsonResponse[projectId].name))
+            .catch(error => console.log(error));
+    }
+
+    useEffect(() => {getProjectDetails()}, []); //invoke on page load, avoiding infinite loop
+
+
     const [ commentArr, setCommentArr ] = useState([]);
 
     const selectedStudent = students[studentId];

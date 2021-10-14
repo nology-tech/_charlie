@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/projects")
 public class ProjectController {
     @Autowired
@@ -54,3 +55,4 @@ public class ProjectController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find project with id: " + id));
     }
 }
+
