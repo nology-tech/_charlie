@@ -99,6 +99,7 @@ public class ProjectControllerTest {
         List<Project> projects = new ArrayList();
         Project newProject = new Project(1, "Calculator", "Java", "string three", "string four", "string five");
         Project updatedProject = new Project(1, "Calculator", "JavaScript", "string three", "string four", "string five");
+        Project secondProjectToUpdate = new Project(2, "Tic Tac Toe", "JavaScript", "string three", "string four", "string five");
         projects.add(newProject);
 
         when(mockRepo.existsById(1)).thenReturn(true);
@@ -115,7 +116,10 @@ public class ProjectControllerTest {
 
         when(mockRepo.existsById(2)).thenReturn(false);
 
-        mockMvc.perform(put("/projects/2"))
+        mockMvc.perform(put("/projects/2")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(toJson(secondProjectToUpdate))
+                        .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.message", is("Could not find project with id: 2")))
                 .andReturn();
