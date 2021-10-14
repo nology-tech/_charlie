@@ -6,6 +6,18 @@ import Data from "../../../data/students.js";
 import PageHeader from "../../../components/page-header/page-header";
 
 const StudentsList = () => {
+    const fetchStudentData = () => {
+        fetch("http://localhost:8080/students/")
+        .then(response => response.json())
+        .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        fetch("http://localhost:8080/students/")
+        .then(raw => raw.json())
+        .then(jsonRawData => setRawData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        .catch(err => console.log(err)); 
+    }
+
+    //watch raw data
+    const [rawData, setRawData] = useState(() => fetchStudentData())
     const [studentsData, setStudentsData] = useState([]); 
     const [pageData, setPageData] = useState([]);
     const [pageNumber, setPageNumber] = useState(1);  
@@ -13,16 +25,10 @@ const StudentsList = () => {
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length); 
     const [enrolledFilter, setEnrolledFilter] = useState("All");
     const [toggleView, setToggleView] = useState(false); 
-    const [enrollmentData, setEnrollmentData] = useState(Data); 
+    const [enrollmentData, setEnrollmentData] = useState(() => fetchStudentData()); 
     const [sortOption, setSortOption] = useState("1");
     const [filterOption, setFilterOption] = useState("1");
 
-    const fetchStudentData = () => {
-        fetch("http://localhost:8080/students/")
-        .then(response => response.json())
-        .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-        .catch(err => console.log(err)); 
-    }
     const changeToGridView =() => {
         setToggleView(true);
         setPageNumber(1);
@@ -64,16 +70,16 @@ const StudentsList = () => {
             setPageNumber(1);
             setEnrolledFilter("All");
             fetchStudentData();
-            setEnrollmentData(Data);
+            setEnrollmentData(rawData);
         } else {
             setSortOption("1");
             setFilterOption("1");
             setPageNumber(1);
             setEnrolledFilter(enrolledType);
-            setStudentsData(Data.filter(student => student.enrolledType.includes(enrolledType)));
-            setEnrollmentData(Data.filter(student => student.enrolledType.includes(enrolledType)));
+            setStudentsData(rawData.filter(student => student.enrolledType.includes(enrolledType)));
+            setEnrollmentData(rawData.filter(student => student.enrolledType.includes(enrolledType)));
         }  
-        }   
+    }   
 
     const generateSearchResults = (e) => { 
         if (e.target.value){

@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import "./student-table-row.scss";
 import StudentRight from "../../../../../assets/images/studentRight.png";
-import Adobe from "../../../../../assets/images/adobe.png";
+import AdobeIcon from "../../../../../assets/images/adobe.png";
 import Row from "../../../../../components/rows/row"
 
 const StudentTableRow = (props) => {
   
-  const { studentName, enrolledOn, githubAccount, portfolio, pictureLink } = props.student; 
+  const { studentName, enrolledOn, githubAccount, portfolio, pictureLink, resume, email } = props.student; 
 
   const { toggleView, id } = props; 
 
@@ -19,7 +19,9 @@ const StudentTableRow = (props) => {
       two = {enrolledOn}
       three={githubAccount}
       four= {portfolio}
-      Adobe = {Adobe}
+      email={email}
+      resume={resume}
+      AdobeIcon = {AdobeIcon}
       rightLink = {`/student/${id}/project/0`}
       testid={"student"}
       />
