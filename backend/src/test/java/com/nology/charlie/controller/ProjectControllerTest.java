@@ -37,10 +37,11 @@ public class ProjectControllerTest {
     public void indexRouteShouldReturnAListOfProjects() throws Exception {
 
         // Create a list of fake projects for our mock repo to return
-        List<Project> projects = new ArrayList();
-        projects.add(new Project(1, "string one", "string two", "string three", "string four", "string five"));
-        projects.add(new Project(2, "string one", "string two", "string three", "string four", "string five"));
-        when(mockRepo.findAll()).thenReturn(projects);
+        List<Project> projectsList = new ArrayList();
+        projectsList.add(new Project(1, "Calculator", "string two", "string three", "string four", "string five"));
+        projectsList.add(new Project(2, "Tic Tac Toe", "string two", "string three", "string four", "string five"));
+
+        when(mockRepo.findAll()).thenReturn(projectsList);
 
         //
         mockMvc.perform(get("/projects/"))
@@ -49,14 +50,16 @@ public class ProjectControllerTest {
                 .andReturn();
     }
 
+
     @Test
     @DisplayName("Show route should return a selected project using its id")
     public void showRouteShouldReturnTheCorrectProject() throws Exception {
-        List<Project> projects = new ArrayList();
-        projects.add(new Project(1, "Calculator", "string two", "string three", "string four", "string five"));
-        projects.add(new Project(2, "Tic Tac Toe", "string two", "string three", "string four", "string five"));
+        List<Project> projectsList = new ArrayList();
+        projectsList.add(new Project(1, "Calculator", "string two", "string three", "string four", "string five"));
+        projectsList.add(new Project(2, "Tic Tac Toe", "string two", "string three", "string four", "string five"));
+
         when(mockRepo.existsById(1)).thenReturn(true);
-        when(mockRepo.findById(1)).thenReturn(java.util.Optional.of(projects.get(0)));
+        when(mockRepo.findById(1)).thenReturn(java.util.Optional.of(projectsList.get(0)));
 
         mockMvc.perform(get("/projects/1"))
                 .andExpect(status().isOk())
@@ -64,14 +67,22 @@ public class ProjectControllerTest {
                 .andExpect(jsonPath("$.name", is("Calculator")))
                 .andReturn();
 
+        when(mockRepo.existsById(3)).thenReturn(false);
 
+        mockMvc.perform(get("/projects/3"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.message", is("Could not find project with id: 3")))
+                .andReturn();
     }
+
 
     @Test
     @DisplayName("Create Route should create a new project and returns a message")
     public void createRouteShouldCreateARecipeAndReturnASuccessMessage() throws Exception {
-        Project newProject = new Project(2, "Tic Tac Toe", "string two", "string three", "string four", "string five");
+        Project newProject = new Project(1, "Calculator", "string two", "string three", "string four", "string five");
+
 //        when(mockRepo.save(newProject)).thenReturn(new Message("Successfully added a new project"));
+
         mockMvc.perform(post("/projects/")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(toJson(newProject))
@@ -86,9 +97,10 @@ public class ProjectControllerTest {
     @DisplayName("Update Route should update an existing project and returns updated project")
     public void updateRouteShouldUpdateARecipeAndReturnASuccessMessage() throws Exception {
         List<Project> projects = new ArrayList();
-        Project newProject = new Project(1, "Tic Tac Toe", "string two", "string three", "string four", "string five");
-        Project updatedProject = new Project(1, "Calculator", "string two", "string three", "string four", "string five");
+        Project newProject = new Project(1, "Calculator", "Java", "string three", "string four", "string five");
+        Project updatedProject = new Project(1, "Calculator", "JavaScript", "string three", "string four", "string five");
         projects.add(newProject);
+
         when(mockRepo.existsById(1)).thenReturn(true);
         when(mockRepo.save(updatedProject)).thenReturn(updatedProject);
 
@@ -98,31 +110,25 @@ public class ProjectControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
-                .andExpect(jsonPath("$.name", is("Calculator")))
+                .andExpect(jsonPath("$.language", is("JavaScript")))
                 .andReturn();
 
+        when(mockRepo.existsById(2)).thenReturn(false);
 
+        mockMvc.perform(put("/projects/2"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.message", is("Could not find project with id: 2")))
+                .andReturn();
     }
 
 
-//    @Test
-//    @DisplayName("Delete Route should delete an existing project and return a message")
-//    public void deleteAnExistingRecipeAndReturnAMessage() throws Exception {
-//        List<Project> projects = new ArrayList();
-//        projects.add(new Project(1, "Calculator", "string two", "string three", "string four", "string five"));
-//        mockMvc.perform(delete("/projects/1"))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.message", is("Successfully deleted project with id: 2")))
-//                .andReturn();
-//
-//
-//    }
 
     @Test
     @DisplayName("Delete Route should delete a project and return a success message")
     public void DeleteRouteShouldDeleteAStudentAndReturnASuccessMessage() throws Exception{
         List<Project> projects = new ArrayList();
         projects.add(new Project(1, "Calculator", "string two", "string three", "string four", "string five"));
+
         when(mockRepo.existsById(1)).thenReturn(true);
 //        when(mockRepo.deleteById(1)).thenReturn(new Message("Successfully deleted project with id: 1"));
 
@@ -130,16 +136,18 @@ public class ProjectControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.message", is("Successfully deleted project with id: 1")))
                 .andReturn();
+
+        when(mockRepo.existsById(2)).thenReturn(false);
+
+        mockMvc.perform(delete("/projects/2"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.message", is("Could not find project with id: 2")))
+                .andReturn();
     }
-
-
-
 
 
     private static String toJson(Project newProject) throws JsonProcessingException {
         System.out.println(new ObjectMapper().writeValueAsString(newProject));
         return new ObjectMapper().writeValueAsString(newProject);
     }
-
-
 }
