@@ -96,11 +96,11 @@ public class ProjectControllerTest {
     @Test
     @DisplayName("Update Route should update an existing project and returns updated project")
     public void updateRouteShouldUpdateARecipeAndReturnASuccessMessage() throws Exception {
-        List<Project> projects = new ArrayList();
+        List<Project> projectsList = new ArrayList();
         Project newProject = new Project(1, "Calculator", "Java", "string three", "string four", "string five");
         Project updatedProject = new Project(1, "Calculator", "JavaScript", "string three", "string four", "string five");
         Project secondProjectToUpdate = new Project(2, "Tic Tac Toe", "JavaScript", "string three", "string four", "string five");
-        projects.add(newProject);
+        projectsList.add(newProject);
 
         when(mockRepo.existsById(1)).thenReturn(true);
         when(mockRepo.save(updatedProject)).thenReturn(updatedProject);
@@ -130,8 +130,8 @@ public class ProjectControllerTest {
     @Test
     @DisplayName("Delete Route should delete a project and return a success message")
     public void DeleteRouteShouldDeleteAStudentAndReturnASuccessMessage() throws Exception{
-        List<Project> projects = new ArrayList();
-        projects.add(new Project(1, "Calculator", "string two", "string three", "string four", "string five"));
+        List<Project> projectsList = new ArrayList();
+        projectsList.add(new Project(1, "Calculator", "string two", "string three", "string four", "string five"));
 
         when(mockRepo.existsById(1)).thenReturn(true);
 //        when(mockRepo.deleteById(1)).thenReturn(new Message("Successfully deleted project with id: 1"));
