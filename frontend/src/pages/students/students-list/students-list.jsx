@@ -5,17 +5,6 @@ import "./students-list.scss";
 import PageHeader from "../../../components/page-header/page-header";
 
 const StudentsList = () => {
-    // const fetchRawData = () => {
-    //     fetch("http://localhost:8080/students/")
-    //     .then(response => response.json())
-    //     .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-    //     fetch("http://localhost:8080/students/")
-    //     .then(raw => raw.json())
-    //     .then(jsonRawData => setRawData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-    //     .catch(err => console.log(err));  
-    // }
-
-    //watch raw data
     const [rawData, setRawData] = useState([]); 
     const [studentsData, setStudentsData] = useState([]); 
     const [pageData, setPageData] = useState([]);
@@ -24,22 +13,21 @@ const StudentsList = () => {
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length); 
     const [enrolledFilter, setEnrolledFilter] = useState("All");
     const [toggleView, setToggleView] = useState(false); 
-    const [enrollmentData, setEnrollmentData] = useState([]); 
+    const [enrollmentData, setEnrollmentData] = useState(rawData); 
     const [sortOption, setSortOption] = useState("1");
     const [filterOption, setFilterOption] = useState("1");
+
+    const fetchRawData = () => {
+        fetch("http://localhost:8080/students/")
+        .then(raw => raw.json())
+        .then(jsonRawData => setRawData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        .catch(err => console.log(err));  
+    }
 
     const fetchStudentData = () => {
         fetch("http://localhost:8080/students/")
         .then(response => response.json())
         .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-        fetch("http://localhost:8080/students/")
-        .then(raw => raw.json())
-        .then(jsonRawData => setRawData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-        .catch(err => console.log(err));
-        fetch("http://localhost:8080/students/")
-        .then(raw => raw.json())
-        .then(jsonRawData => setEnrollmentData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-        .catch(err => console.log(err));  
     }
 
     const changeToGridView =() => {
@@ -77,7 +65,7 @@ const StudentsList = () => {
    
 
     const filterDataByTabs = (enrolledType) => {
-        if (enrolledType == "All") {
+        if (enrolledType === "All") {
             setSortOption("1");
             setFilterOption("1");
             setPageNumber(1);
@@ -167,6 +155,7 @@ const StudentsList = () => {
     // useEffect Calls
 
     useEffect(fetchStudentData, []); 
+    useEffect(fetchRawData, []); 
     useEffect(displayStudents, [studentsData, pageNumber, numberOfRows]);
     
     // The following logic is for the row selection portion of the PageNavigator component. It is placed here as PageNavigator is a presentational component. 
