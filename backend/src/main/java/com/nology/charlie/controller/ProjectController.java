@@ -21,7 +21,7 @@ public class ProjectController {
         return ResponseEntity.status(HttpStatus.OK).body(this.repo.findAll());
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Object> getAProject(@PathVariable int id) {
         if(this.repo.existsById(id))
             return ResponseEntity.status(HttpStatus.OK).body(this.repo.findById(id));
@@ -35,7 +35,7 @@ public class ProjectController {
         return ResponseEntity.status(HttpStatus.CREATED).body(new Message("Successfully added a new project"));
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Object> updateProjectById(@PathVariable int id, @RequestBody Project updatedProject) {
         if(this.repo.existsById(id)) {
             this.repo.deleteById(id);
@@ -45,7 +45,7 @@ public class ProjectController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find project with id: " + id));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Message> deleteProjectById(@PathVariable int id) {
         if(this.repo.existsById(id)) {
             this.repo.deleteById(id);
