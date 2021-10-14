@@ -121,18 +121,23 @@ const StudentsList = () => {
     const filterStudentsByCourse = (e) => {
         if (e.target.value === "1") {
             setFilterOption("1");
+            setSortOption("1");
             setStudentsData(enrollmentData)
         }else if (e.target.value === "2") {
             setFilterOption("2");
+            setSortOption("1");
             setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Mariana"))));
         }else if (e.target.value === "3") {
             setFilterOption("3");
+            setSortOption("1");
             setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Ibiza"))));
         }else if (e.target.value === "4") {
             setFilterOption("4");
+            setSortOption("1");
             setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Jersey"))));
         } else {
             setFilterOption("5");
+            setSortOption("1");
             setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Hawaii"))));
         }
     }
