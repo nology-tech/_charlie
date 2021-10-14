@@ -22,6 +22,28 @@ const ProjectsForm = () => {
     const onSubmit = (data) => {
         console.log(data);
         alert("SUCCESS!! :-)\n\n" + JSON.stringify(data, null, 4));
+
+        fetch("http://localhost:8080/projects/", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({
+                
+                projectName: data.projectName,
+                language: data.language,
+                // studentsEnrolled: 325,
+                // numberReviewed: 278,
+                // percentageReviewed: "85%",
+                projectBrief: data.projectBrief,
+                coachesTips: data.coachesTips,
+                // projectThumb: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png"
+            })
+        })
+        .then((response) => response.json());
+        
         history.goBack();
     };
 
