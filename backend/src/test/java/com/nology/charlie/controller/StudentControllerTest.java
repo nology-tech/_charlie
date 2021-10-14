@@ -63,9 +63,6 @@ public class StudentControllerTest {
     @Test
     @DisplayName("Create Route should create a new student and return a success message")
     public void CreateRouteShouldCreateStudentAndReturnASuccessMessage() throws Exception{
-        Student student = new Student(1, "Martin Harrison", "Ibiza", "github.com/mharrison98", "www.wei.com", "www.wei.com/cv", "Full-Time", "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png");
-        when(mockRepo.existsById(1)).thenReturn(true);
-        when(mockRepo.findById(1)).thenReturn(java.util.Optional.of(student));
         mockMvc.perform(post("/students")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(toJson(new Student(2, "Marasdftin Harrasdfaison", "Ibizasdfa", "github.com/mharrison98", "www.weasdfai.com", "www.wei.casdfasdom/cv", "Full-Tasdfaime", "https://nolasdfasogy.io/wp-content/uploads/2019/12/NOLOGY7.png")))
@@ -81,7 +78,7 @@ public class StudentControllerTest {
     public void UpdateRouteShouldUpdateAndReturnSuccessMessage() throws Exception{
         Student student = new Student(1, "Martin Harrison", "Ibiza", "github.com/mharrison98", "www.wei.com", "www.wei.com/cv", "Full-Time", "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png");
         when(mockRepo.existsById(1)).thenReturn(true);
-//        when(mockRepo.findById(1)).thenReturn(java.util.Optional.of(student));
+        when(mockRepo.findById(1)).thenReturn(java.util.Optional.of(student));
 
         mockMvc.perform(put("/students/1")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -89,7 +86,6 @@ public class StudentControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.studentName", is("Marasdftin Harrasdfaison")))
-//                .andExpect(jsonPath("$.quote", is("You teach a child to read, and he or her will be able to pass a literacy test.")))
                 .andReturn();
     }
 
