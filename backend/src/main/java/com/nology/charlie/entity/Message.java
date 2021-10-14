@@ -1,16 +1,15 @@
 package com.nology.charlie.entity;
 
 public class Message {
-  
-    private final String test;
 
-    public Message(String message) {
-        this.test = message;
+    private final String text;
+
+    public Message(String text) {
+        this.text = text;
     }
 
-
-    public String getMessage() {
-        return test;
+    public String getText() {
+        return text;
     }
 }
 

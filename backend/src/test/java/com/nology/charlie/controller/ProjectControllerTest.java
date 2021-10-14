@@ -71,7 +71,7 @@ public class ProjectControllerTest {
 
         mockMvc.perform(get("/projects/3"))
                 .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.message", is("Could not find project with id: 3")))
+                .andExpect(jsonPath("$.text", is("Could not find project with id: 3")))
                 .andReturn();
     }
 
@@ -88,7 +88,7 @@ public class ProjectControllerTest {
                         .content(toJson(newProject))
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.message", is("Successfully added a new project")))
+                .andExpect(jsonPath("$.text", is("Successfully added a new project")))
                 .andReturn();
 
     }
@@ -121,7 +121,7 @@ public class ProjectControllerTest {
                         .content(toJson(secondProjectToUpdate))
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.message", is("Could not find project with id: 2")))
+                .andExpect(jsonPath("$.text", is("Could not find project with id: 2")))
                 .andReturn();
     }
 
@@ -138,14 +138,14 @@ public class ProjectControllerTest {
 
         mockMvc.perform(delete("/projects/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.message", is("Successfully deleted project with id: 1")))
+                .andExpect(jsonPath("$.text", is("Successfully deleted project with id: 1")))
                 .andReturn();
 
         when(mockRepo.existsById(2)).thenReturn(false);
 
         mockMvc.perform(delete("/projects/2"))
                 .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.message", is("Could not find project with id: 2")))
+                .andExpect(jsonPath("$.text", is("Could not find project with id: 2")))
                 .andReturn();
     }
 
