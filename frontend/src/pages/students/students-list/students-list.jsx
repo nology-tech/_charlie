@@ -15,19 +15,16 @@ const StudentsList = () => {
     const [toggleView, setToggleView] = useState(false); 
     const [enrollmentData, setEnrollmentData] = useState(rawData); 
     const [sortOption, setSortOption] = useState("1");
-    const [filterOption, setFilterOption] = useState("1");
-
-    const fetchRawData = () => {
-        fetch("http://localhost:8080/students/")
-        .then(raw => raw.json())
-        .then(jsonRawData => setRawData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-        .catch(err => console.log(err));  
-    }
+    const [filterOption, setFilterOption] = useState("1");  
 
     const fetchStudentData = () => {
         fetch("http://localhost:8080/students/")
         .then(response => response.json())
         .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        fetch("http://localhost:8080/students/")
+        .then(raw => raw.json())
+        .then(jsonRawData => setRawData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        .catch(err => console.log(err));  
     }
 
     const changeToGridView =() => {
@@ -155,7 +152,6 @@ const StudentsList = () => {
     // useEffect Calls
 
     useEffect(fetchStudentData, []); 
-    useEffect(fetchRawData, []); 
     useEffect(displayStudents, [studentsData, pageNumber, numberOfRows]);
     
     // The following logic is for the row selection portion of the PageNavigator component. It is placed here as PageNavigator is a presentational component. 
