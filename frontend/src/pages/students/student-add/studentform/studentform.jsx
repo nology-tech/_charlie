@@ -37,7 +37,7 @@ const StudentForm = () => {
         })
         .then((response) => response.json());
         
-        // history.goBack();
+        history.goBack();
     };
     
     const handleClick = () => {
