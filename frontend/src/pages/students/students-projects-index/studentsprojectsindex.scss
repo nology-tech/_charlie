@@ -4,25 +4,28 @@
 .projects{width: 95%;}
 
 h2 {font-weight: 700;}
-h6 {font-weight: 600;}
+h5, h6 {font-weight: 600;}
 
 .additional-notes, .review, .challenge-brief, .overview-buttons {
     background-color: white;
     border-radius: 7px;
 }
 
+p, li {color: #95ACCB; font-size: 13px;}
+
 .additional-notes {
-    //height: 120px;
     max-height: 390px;
+
     &-input {
         box-shadow: 0px 30px 40px 0px #724BCB0F;
         border: 1px solid lightgray;
-        max-width: 220px;
+        width: 100%;
         border-radius: 7px;
+        margin: 0 auto;
 
         .btn-plus {
             font-size: larger;
-            background-color: none;
+            background: none;
             font-weight: 0;
 
             &:hover, &:focus, &:active {
@@ -30,41 +33,33 @@ h6 {font-weight: 600;}
                 background: none; 
                 outline: none;
                 color: #95ACCB;
-
             }
         }
 
         input {
-            color: #95ACCB;
             border: none;
+            color: #95ACCB;
+
             
-            &[type="text"] {font-size: 12px; color: #95ACCB;}
+            &[type="text"] {
+                color: #95ACCB;
+                font-size: 12px;
+            }
         }
     }
 
-    &__output{
-        p, li {
-            font-size: 12px;
-        }
-    }
+    &__output {font-size: 12px;}
 }
 
 .review {
     height: 120px;
     max-height: 390px;
     overflow-y: auto;
-    
-    p {color: #95ACCB; font-size: 12px;}
 }
 
 .challenge-brief {
     height: 390px;
     overflow-y: auto;
-    
-    p, li {
-        color: #95ACCB;
-        font-size: 12px;
-    }
 }
 
 .overview {
@@ -72,7 +67,8 @@ h6 {font-weight: 600;}
         height: 55px;
         
         button {
-            font-size: 8px;
+            font-size: 10px;
+            width: 50%;
             height: 40px;
         }
     }

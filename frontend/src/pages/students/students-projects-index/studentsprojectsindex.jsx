@@ -46,7 +46,6 @@ const SubmissionDetails = () => {
     const reviewPagePath = `/student/${studentId}/project/${projectId}/review`;
     const studentListPath = "/students";
 
-
     return (
         <>
             <div className="row topnav mb-4 header d-flex align-items-center justify-content-between">
@@ -65,19 +64,20 @@ const SubmissionDetails = () => {
 
             <div className="projects">  
                 <div className="row mx-5">
-                    <h6 className="mx-4 mb-4">Overview</h6>
+                    <h5 className="mx-4 mb-4">Overview</h5>
                 </div>
                 <div className="row mx-5 d-flex justify-content-center overview-section">
-                    <div className="col-3 ml-2">
+                    <div className="col-4 ml-2">
                         <div className="row mx-4">
                             <Card project={projects[projectId]} />
                         </div>
                         <div className="row mx-4">
-                            <div className="col-12 d-flex align-items-center overview-buttons mx-1 mt-4">
-                                <button className="btn-dark btn-project col-5 mx-auto">
+                            <div className="d-flex align-items-center overview-buttons mt-4">
+                                <button className="btn-dark btn-project">
                                     <FaGithub />&nbsp;View Repo
                                 </button>
-                                <button className="btn-secondary btn-project col-5 mx-auto">
+                                &nbsp;
+                                <button className="btn-secondary btn-project">
                                     <FaEye />&nbsp;Live preview
                                 </button>
                             </div>
@@ -88,21 +88,23 @@ const SubmissionDetails = () => {
                                 <div className="additional-notes-input row mt-3">
                                         <form action="" onSubmit={submitAdditionalNotes}>
                                             <div className="col-9 px-1 d-flex justify-content-between align-items-center input-group">
-                                                <input type="text" placeholder="Write a note..." className="form-control p-10" name="add-comment"/>
+                                                <input type="text" className="form-control p-10" name="add-comment"/>
                                                 <input type="submit" className="col-3 btn-plus p-10" value="+" />
                                             </div>
                                         </form>
                                 </div>
                                 <div className="row mt-4 additional-notes__output">
-                                    {commentArr.length === 0 ? 
-                                        <p>{"No notes given..."}</p> :
-                                        <ul>{commentArr.map(note => <li>{note}</li>)}</ul>
-                                    }
+                                    <p>
+                                        {commentArr.length === 0 ? 
+                                            <>{"No notes given..."}</> :
+                                            <ul>{commentArr.map(note => <li>{note}</li>)}</ul>
+                                        }
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-9">
+                    <div className="col-8">
                         <div className="row mx-4">
                             <div className="col-12 review px-4">
                                 <h6 className="mt-4">Review</h6>
@@ -136,7 +138,7 @@ const SubmissionDetails = () => {
                 </div>
 
                 <div className="row mx-5">
-                    <h6 className="mx-4 mt-5">Other Projects</h6>
+                    <h5 className="mx-4 mt-5">Other Projects</h5>
                 </div>
                 <div className="row mx-auto">
                     <div className="mt-2 mb-4">

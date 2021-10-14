@@ -34,7 +34,7 @@ const StudentForm = () => {
     };
 
     return (
-        <div className="row mt-4 my-4 px-4 offset-1 form__container">
+        <div className="row mt-4 my-4 px-4 mx-auto offset-1 form__container">
         <form className="row" onSubmit={handleSubmit(onSubmit)}>
             <div className="col-6">
             <div className="col-12 mt-4">

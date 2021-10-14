@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+.projects {
+  width: 95%;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+h5, h6 {
+  font-weight: 600;
+}
+
+.additional-notes, .review, .challenge-brief, .overview-buttons {
+  background-color: white;
+  border-radius: 7px;
+}
+
+p, li {
+  color: #95ACCB;
+  font-size: 13px;
+}
+
+.additional-notes {
+  max-height: 390px;
+}
+.additional-notes-input {
+  box-shadow: 0px 30px 40px 0px #724BCB0F;
+  border: 1px solid lightgray;
+  width: 100%;
+  border-radius: 7px;
+  margin: 0 auto;
+}
+.additional-notes-input .btn-plus {
+  font-size: larger;
+  background: none;
+  font-weight: 0;
+}
+.additional-notes-input .btn-plus:hover, .additional-notes-input .btn-plus:focus, .additional-notes-input .btn-plus:active {
+  border: none;
+  background: none;
+  outline: none;
+  color: #95ACCB;
+}
+.additional-notes-input input {
+  border: none;
+  color: #95ACCB;
+}
+.additional-notes-input input[type=text] {
+  color: #95ACCB;
+  font-size: 12px;
+}
+.additional-notes__output {
+  font-size: 12px;
+}
+
+.review {
+  height: 120px;
+  max-height: 390px;
+  overflow-y: auto;
+}
+
+.challenge-brief {
+  height: 390px;
+  overflow-y: auto;
+}
+
+.overview-buttons {
+  height: 55px;
+}
+.overview-buttons button {
+  font-size: 10px;
+  width: 50%;
+  height: 40px;
+}
