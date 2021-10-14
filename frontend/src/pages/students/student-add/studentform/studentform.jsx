@@ -16,7 +16,7 @@ const StudentForm = () => {
     const onSubmit = (data) => {
         console.log(data);
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4));
-        fetch("http://localhost:3000/students", {
+        fetch("http://localhost:8080/students/", {
             method: "POST",
             headers: {
             'Accept': 'application/json',
@@ -25,7 +25,7 @@ const StudentForm = () => {
 
             //make sure to serialize your JSON body
             body: JSON.stringify({
-                id: 5,
+                id: 1,
                 studentName: `${data.firstName} ${data.lastName}`,
                 enrolledOn: data.enrolledOn,
                 githubAccount: data.githubAccount,
@@ -35,9 +35,7 @@ const StudentForm = () => {
                 pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
             })
         })
-        .then((response) => { 
-        
-        });
+        .then((response) => response.json());
         
         // history.goBack();
     };
