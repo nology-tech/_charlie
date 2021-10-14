@@ -6,6 +6,7 @@ import thumbnail from "../../../assets/images/thumbnail-placeholder.png";
 
 const StudentOverview = () => {
     const [studentsData, setStudentsData] = useState({});
+    const [githubData, setGithubData] = useState({});
 
     const fetchStudentData = () => {
         fetch("http://localhost:8080/students/2")
@@ -14,7 +15,20 @@ const StudentOverview = () => {
         .catch(err => console.log(err));  
     }
 
+    const getGithubData = () =>{
+        fetch('https://api.github.com/users/{noorncho}', {
+            headers:{
+                'Accept': 'application/vnd/github.v3+json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => setGithubData(data))
+		.then(data => console.log(data))
+		.catch(error => console.log(error));
+    } 
+
     useEffect(fetchStudentData, {}); 
+    useEffect(getGithubData, {});
 
     return (
         <>
@@ -33,7 +47,7 @@ const StudentOverview = () => {
                     <h4>GitHub</h4>
                     GitHub: {studentsData.githubAccount}
                     <div className="overview__github-info">
-                        
+                        {githubData.public_repos} {githubData.location} {githubData.followers} {githubData.following}
                     </div>
                     <button className="btn-dark btn-project">
                         <FaGithub />&nbsp;View Repo
