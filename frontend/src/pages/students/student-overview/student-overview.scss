@@ -16,4 +16,62 @@
         width: 10%;
         border-bottom: 1px #EDE8F8 solid;
     }
+    .overview{
+      margin:0;
+      &__title{
+        font-weight: 600;
+        // font-size: 16px;
+      }
+      &__card{
+        width: 30%;
+        height: auto;
+        min-height: 270px;
+        &-image{
+          border-radius: 50%;
+          height: 170px;
+          width: 170px;
+        }
+        &-name{
+          font-weight: 600;
+          font-size: 24px;
+        }
+        &-course{
+          color: $text-grey;
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+      &__github{
+        height: auto;
+        min-height: 270px;
+        padding: 25px;
+        &-head{
+          &-text{
+  
+          }
+          &-icon{
+            width: 64px;
+            height: 69px;
+          }
+        }
+        &-info{
+          background: rgba(149, 172, 203, 0.1);
+          border-radius: 7px;
+          width: auto;
+          height: 71px;
+        }
+        &-btn{
+
+        }
+      }
+    }
+    .other-projects{
+      margin-top: 96px;
+      &__title{
+        margin-bottom: 32px;
+        font-style: normal;
+        font-weight: 600;
+        // font-size: 16px;
+      }
+    }
   }

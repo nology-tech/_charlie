@@ -140,8 +140,8 @@ const SubmissionDetails = () => {
                 <div className="row mx-5">
                     <h5 className="mx-4 mt-5">Other Projects</h5>
                 </div>
-                <div className="row mx-auto">
-                    <div className="mt-2 mb-4">
+                <div className="row mx-auto ">
+                    <div className="mt-2 mb-4 ">
                         <Cards />
                     </div>
                 </div>
