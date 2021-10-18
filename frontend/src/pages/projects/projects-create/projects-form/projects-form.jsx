@@ -20,8 +20,7 @@ const ProjectsForm = () => {
     });
 
     const onSubmit = (data) => {
-        console.log(data);
-        alert("SUCCESS!! :-)\n\n" + JSON.stringify(data, null, 4));
+        console.log("SUCCESS!! :-)\n\n" + JSON.stringify(data, null, 4));
 
         fetch("http://localhost:8080/projects/", {
             method: "POST",
@@ -44,7 +43,7 @@ const ProjectsForm = () => {
         .then((response) => response.json())
         .catch(error => alert(error));
         
-        history.goBack();
+        global.window.location.href = "/projects";
     };
 
     const handleCancel = () => {
