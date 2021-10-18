@@ -23,6 +23,12 @@ const ProjectOverview = () => {
     studentsEnrolled, numberReviewed, percentageReviewed
   } = projectData;
 
+  let languageText = language;
+  if(language === "htmlcss") languageText = "HTML/CSS";
+  else if(language === "javascript") languageText = "Javascript";
+  else if(language === "java") languageText = "Java";
+  else if(language === "react") languageText = "React";
+
   return (
     <>
       <div className="row topnav mb-4 header d-flex align-items-center justify-content-between">
@@ -45,12 +51,27 @@ const ProjectOverview = () => {
 
               <h6 className="mt-3">{projectName}</h6>
 
-              <p>{language}</p>
+              <p>{languageText}</p>
             </div>
           </div>
         </div>
         <div className="col-8">
           {/* TODO: insert challenge data (stats) here */}
+          <div className="row mx-4">
+              <div className="col-12 review px-4">
+                  <h6 className="mt-4">Challenge Data</h6>
+                  <div className="row d-flex justify-content-between text-center align-items-center">
+                    <div className="col "><h6>{studentsEnrolled}</h6></div>
+                    <div className="col"><h6>{numberReviewed}</h6></div>
+                    <div className="col"><h6>{percentageReviewed}</h6></div>
+                  </div>
+                  <div className="row d-flex justify-content-between text-center">
+                    <div className="col">Students Enrolled</div>
+                    <div className="col">Number Reviewed</div>
+                    <div className="col text-success">Reviewed</div>
+                  </div>
+              </div>
+          </div>
 
           <div className="row mx-4">
             <div className="col-12 challenge-brief mt-4 px-4">

@@ -2,7 +2,6 @@ import React from 'react'
 import "./row.scss"
 import Right from "../../assets/images/right.png";
 import { Link } from 'react-router-dom';
-import { FaTimes, FaEdit } from 'react-icons/fa';
 
 const row = (props) => {
 

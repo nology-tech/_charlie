@@ -41,25 +41,22 @@ const ProjectsList = () => {
                     return lowercase(project.language).includes("html")
                 }));
             }
-            else if(languageChoice == "Java" || languageChoice == "Javascript" || languageChoice == "React"){
+            else if(languageChoice === "Java" || languageChoice === "Javascript" || languageChoice === "React") {
                 setPageData(projectsData.filter(project => {
-                    return lowercase(project.language) == lowercase(languageChoice)
+                    return lowercase(project.language) === lowercase(languageChoice)
                 }));
             }
             else {
                 setPageData(projectsData.filter(project => {
                     return (
-                        lowercase(project.language) == lowercase(languageChoice) || 
+                        lowercase(project.language) === lowercase(languageChoice) || 
                         project.language.includes(languageChoice)
                     )
                 }));
             }
         }
-        
-        
     }
 
-    // useEffect(fetchProjectsData, []); 
     useEffect(displayProjects, [projectsData]);
 
     return (
