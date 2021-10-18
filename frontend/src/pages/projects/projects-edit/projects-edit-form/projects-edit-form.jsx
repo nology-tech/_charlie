@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router";
 import "./projects-edit-form.scss";
-import placeHolderThumb from "../../../../assets/images/thumbnail-placeholder.png";
+import placeHolderThumb from "../../../../assets/images/project-thumbnail.png";
 
 const ProjectsEditForm = () => {
   const {projectId} = useParams();
@@ -60,8 +60,16 @@ const ProjectsEditForm = () => {
         }
     };
 
+    const deleteProject = () => {
+        fetch("http://localhost:8080/projects/"+projectId, {
+            method: "DELETE"
+        })
+        .then((response) => global.window.location.href = "/projects")
+        .catch(error => console.log(error));
+    };
+
     return (
-        <div className="project-form-container mt-4">
+        <div className="project-form-container mt-4 mb-5">
             <form
                 className="d-flex justify-content-around w-100"
                 onSubmit={handleSubmit(onSubmit)}
@@ -194,7 +202,9 @@ const ProjectsEditForm = () => {
                         />
                     </div>
                     <div className="my-4">
-                      <a className="text-danger text-decoration-underline">Delete Project</a>
+                        <button onClick={() => {deleteProject()}} className="btn text-danger text-decoration-underline">
+                            Delete Project
+                        </button>
                     </div>
                 </div>
             </form>

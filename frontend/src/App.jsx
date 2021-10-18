@@ -30,17 +30,17 @@ function App() {
         <div className="col">
           <Switch>
                         
-            <Route path="/projects">
-              <ProjectList></ProjectList>
+            <Route path="/project/create">
+              <ProjectCreate></ProjectCreate>
             </Route>
-
-      //TODO: re-build page for project-overview
+            
+            {/*TODO: re-build page for project-overview */}
             <Route exact path="/project/:projectId">
               <ProjectOverview />
             </Route>
 
-            <Route path="/project/create">
-              <ProjectCreate></ProjectCreate>
+            <Route path="/projects">
+              <ProjectList></ProjectList>
             </Route>
 
             <Route exact path="/project/:projectId/edit">
