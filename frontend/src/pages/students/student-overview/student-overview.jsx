@@ -49,14 +49,14 @@ const StudentOverview = () => {
                     <div className="overview__card card d-flex flex-column col-3 ">
                         <img src={studentsData.pictureLink} alt="Student Thumbnail" className="overview__card-image" />
                         <h1 className="overview__card-name">{studentsData.studentName}</h1>
-                        <p className="overview__card-course">{studentsData.enrolledOn}</p>                
+                        <p className="overview__card-course">{studentsData.enrolledOn} Student</p>                
                     </div>
                     <div className="overview__github card d-flex flex-column m-0 col-8 justify-content-between">
                         <div className="overview__github-head d-flex justify-content-between">
                             <div className="overview__github-head-text text-start">
                                 <h4>GitHub Account</h4>
                                 <h5>Bio:</h5>
-                                <p>Developing tech to make the world a better place.</p>
+                                <p>{githubData.bio}</p>
                             </div>
                             <img className="overview__github-head-icon m-0" src={gitHubIcon} alt="github icon" />
                         </div>
