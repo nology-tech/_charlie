@@ -14,7 +14,7 @@ import Students from "./pages/students/students-list/students-list";
 import AddStudent from './pages/students/student-add/addstudent';
 import ProjectList from './pages/projects/projects-list/projects-list';
 import ProjectCreate from './pages/projects/projects-create/projects-create';
-import StudentOverview from 'pages/students/student-overview/studentoverview';
+import StudentOverview from 'pages/students/student-overview/student-overview';
 
 function App() {
 
