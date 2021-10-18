@@ -39,7 +39,7 @@ public class ProjectController {
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateProjectById(@PathVariable int id, @RequestBody Project updatedProject) {
         if(this.repo.existsById(id)) {
-            this.repo.deleteById(id);
+//            this.repo.deleteById(id);
             this.repo.save(updatedProject);
             return ResponseEntity.status(HttpStatus.OK).body(updatedProject);
         }
