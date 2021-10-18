@@ -97,10 +97,10 @@ const ProjectsForm = () => {
                             id="language"
                         >
                             <optgroup label="Select a Language">
-                                <option value="HTML/CSS">HTML/CSS</option>
-                                <option value="Javascript">Javascript</option>
-                                <option value="React">React</option>
-                                <option value="Java">Java</option>
+                                <option value="htmlcss">HTML/CSS</option>
+                                <option value="javascript">Javascript</option>
+                                <option value="react">React</option>
+                                <option value="java">Java</option>
                             </optgroup>
                         </select>
                     </div>

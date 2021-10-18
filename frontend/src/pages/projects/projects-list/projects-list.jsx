@@ -25,16 +25,34 @@ const ProjectsList = () => {
         setPageData(projectsData);
     }
 
+    const lowercase = (language) => {
+        return language.toLowerCase();
+    }
+
     const filterDataByLanguage = (languageChoice) => {
         if (languageChoice === "All") {
             setLanguageFilter("All");
             setPageData(projectsData);
         } else {
             setLanguageFilter(languageChoice);
-            if(languageChoice === "Java"){
-                setPageData(projectsData.filter(project => project.language.includes("Java") && !project.language.includes("script")));
-            }else{
-                setPageData(projectsData.filter(project => project.language.includes(languageChoice)));
+            
+            if(languageChoice === "HTML/CSS"){
+                setPageData(projectsData.filter(project => {
+                    return lowercase(project.language).includes("html")
+                }));
+            }
+            else if(languageChoice == "Java" || languageChoice == "Javascript" || languageChoice == "React"){
+                setPageData(projectsData.filter(project => {
+                    return lowercase(project.language) == lowercase(languageChoice)
+                }));
+            }
+            else {
+                setPageData(projectsData.filter(project => {
+                    return (
+                        lowercase(project.language) == lowercase(languageChoice) || 
+                        project.language.includes(languageChoice)
+                    )
+                }));
             }
         }
         
