@@ -16,6 +16,27 @@ const StudentForm = () => {
     const onSubmit = (data) => {
         console.log(data);
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4));
+        fetch("http://localhost:8080/students/", {
+            method: "POST",
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+
+            //make sure to serialize your JSON body
+            body: JSON.stringify({
+                studentName: `${data.firstName} ${data.lastName}`,
+                enrolledOn: data.enrolledOn,
+                githubAccount: data.githubAccount,
+                portfolio: data.portfolioLink,
+                resume: "sample.pdf",
+                enrolledType: data.enrolledType,
+                pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png",
+                email: data.email
+            })
+        })
+        .then((response) => response.json());
+        
         history.goBack();
     };
     
@@ -93,13 +114,33 @@ const StudentForm = () => {
                 data-testid="enrolledOn"
                 >
                 <option selected="true" value="default">
-                    Select on of the following
+                    Select one of the following
                 </option>
                 <option value="ibiza">Ibiza</option>
                 <option value="hawaii">Hawaii</option>
                 <option value="jersey">Jersey</option>
                 </select>
             </div> 
+
+            <div className="col-12 mt-3">
+                <label htmlFor="">Enrolled Type</label>
+                <select
+                {...register("enrolledType", { required: true })}
+                name="enrolledType"
+                className="form-select form-control form__input  my-2"
+                id="enrolledType"
+                data-testid="enrolledType"
+                >
+                <option selected="true" value="default">
+                    Select one of the following
+                </option>
+                <option value="Full-Time">Full Time</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Self-Paced">Self Paced</option>
+                </select>
+            </div> 
+            
+            
 
             <div className="col-12 mt-3">
                 <label htmlFor="githubAccount">Github Account</label>

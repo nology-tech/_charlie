@@ -40,10 +40,8 @@ const ProjectsForm = () => {
                 projectThumb: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png"
             })
         })
-        .then((response) => response.json())
+        .then((response) => global.window.location.href = "/projects")
         .catch(error => alert(error));
-        
-        global.window.location.href = "/projects";
     };
 
     const handleCancel = () => {
