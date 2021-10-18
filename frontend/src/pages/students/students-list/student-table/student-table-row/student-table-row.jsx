@@ -1,7 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 import "./student-table-row.scss";
-import StudentRight from "../../../../../assets/images/studentRight.png";
 import AdobeIcon from "../../../../../assets/images/adobe.png";
 import Row from "../../../../../components/rows/row"
 
@@ -23,7 +21,6 @@ const StudentTableRow = (props) => {
       resume={resume}
       AdobeIcon = {AdobeIcon}
       rightLink = {`/student/${id}/overview`}
-      // {`/student/${id}/project/0`}
       testid={"student"}
       />
     </div>

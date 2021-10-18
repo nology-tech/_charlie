@@ -59,6 +59,10 @@
           border-radius: 7px;
           width: auto;
           height: 71px;
+          &-labels {
+            color: black; 
+            font-weight: 500; 
+          }
         }
         &-btn{
 

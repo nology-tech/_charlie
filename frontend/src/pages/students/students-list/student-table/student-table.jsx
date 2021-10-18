@@ -6,7 +6,7 @@ import PageNavigator from '../page-navigator/page-navigator';
 const StudentTable = (props) => {
 
     const {pageData, toggleView, totalNumberStudents, switchToPreviousPage, switchToNextPage, changeNumberOfRows, numberOfRows, firstIndex, secondIndex} = props; 
-    const students = pageData.map((student, i) => <React.Fragment key={student.studentName}><StudentTableRow student={student} id = {i} toggleView = {toggleView}/></React.Fragment>)
+    const students = pageData.map((student) => <React.Fragment key={student.studentName}><StudentTableRow student={student} id = {student.id} toggleView = {toggleView}/></React.Fragment>)
     
     return ( 
         <>

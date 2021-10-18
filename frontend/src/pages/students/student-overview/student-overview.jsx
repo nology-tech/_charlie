@@ -3,14 +3,13 @@ import React, { useState, useEffect } from 'react'
 import { FaGithub } from 'react-icons/fa';
 import { useParams} from 'react-router-dom';
 import PageHeader from "../../../components/page-header/page-header"
-import thumbnail from "../../../assets/images/thumbnail-placeholder.png";
 import "./student-overview.scss";
 import gitHubIcon from "../../../assets/images/githubicon.png";
 
 const StudentOverview = () => {
     const { studentId } = useParams();
     const [studentsData, setStudentsData] = useState({});
-    const [githubData, setGithubData] = useState([]);
+    const [githubData, setGithubData] = useState({});
 
     const fetchStudentData = () => {
         fetch(`http://localhost:8080/students/${studentId}`)
@@ -20,18 +19,18 @@ const StudentOverview = () => {
     }
 
     const getGithubData = () =>{
-        fetch('https://api.github.com/users/{angaar96}', {
+        fetch(`https://api.github.com/users/${studentsData.githubAccount}`, {
             headers:{
-                'Content-Type': 'application/vnd/github.v3+json',
-                'Accept': 'application/vnd/github.v3+json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             }})
         .then(response => response.json())
         .then(data => setGithubData(data))
 		.catch(error => console.log(error));
     } 
 
-    useEffect(fetchStudentData, []); 
-    useEffect(getGithubData, []);
+    useEffect(fetchStudentData, [studentId]); 
+    useEffect(getGithubData, [studentsData.githubAccount]);
 
     return (
         <div className ="main m-0 d-flex justify-content-between">
@@ -40,8 +39,10 @@ const StudentOverview = () => {
                 <PageHeader title = {studentsData.studentName} 
                 buttonText = "Go Back" 
                 buttonStyle = {"btn-back top-nav__header-button me-2"} 
+                buttonPath={"/students"}
                 button2Text = "Edit" 
                 button2Style = {"btn-primary top-nav__header-button border-0"}
+                button2Path = {"/student/create"}
                 />
                 <div className="overview row mt-4 p-0 justify-content-between gx-0 d-flex">
                     <h3 className="overview__title">Overview</h3>
@@ -52,19 +53,31 @@ const StudentOverview = () => {
                     </div>
                     <div className="overview__github card d-flex flex-column m-0 col-8 justify-content-between">
                         <div className="overview__github-head d-flex justify-content-between">
-                            <div className="overview__github-head-text ">
+                            <div className="overview__github-head-text text-start">
                                 <h4>GitHub Account</h4>
                                 <h5>Bio:</h5>
-                                <p>place text</p>
+                                <p>Developing tech to make the world a better place.</p>
                             </div>
-                            <img className="overview__github-head-icon m-0" src={gitHubIcon} alt={gitHubIcon} />
+                            <img className="overview__github-head-icon m-0" src={gitHubIcon} alt="github icon" />
                         </div>
-                        {/* GitHub: {studentsData.githubAccount} */}
-                        <div className="overview__github-info" id="root">
-                            {githubData.id} {githubData.location} {githubData.followers} {githubData.following}
+                        <div className="overview__github-info d-flex flex-column justify-content-around">
+                            <div className = "row text-center">
+                                <p className = "col overview__github-info-labels">Repos</p> 
+                                <p className = "col overview__github-info-labels">Location</p> 
+                                <p className = "col overview__github-info-labels">Followers</p> 
+                                <p className = "col overview__github-info-labels">Following</p> 
+                            </div> 
+                            <div className = "row text-center">
+                                <p className = "col">{githubData.public_repos}</p> 
+                                <p className = "col">{githubData.location}</p> 
+                                <p className = "col">{githubData.followers} </p> 
+                                <p className = "col">{githubData.following}</p> 
+                            </div> 
                         </div>
                         <button className="btn-dark btn-project overview__github-btn">
-                            <FaGithub/>&nbsp;View Repo
+                            <a href = {studentsData.githubAccount}>
+                            <FaGithub/>&nbsp;View Github
+                            </a> 
                         </button>
                     </div>                
                 </div>
