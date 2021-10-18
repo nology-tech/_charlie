@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router";
-import "./projects-form.scss";
-import placeHolderThumb from "../../../../assets/images/project-thumbnail.png";
+import { useHistory, useParams } from "react-router";
+import "./projects-edit-form.scss";
+import placeHolderThumb from "../../../../assets/images/thumbnail-placeholder.png";
 
-const ProjectsForm = () => {
+const ProjectsEditForm = () => {
+  const {projectId} = useParams();
     const {
         register,
         handleSubmit,
@@ -22,14 +23,15 @@ const ProjectsForm = () => {
     const onSubmit = (data) => {
         console.log("SUCCESS!! :-)\n\n" + JSON.stringify(data, null, 4));
 
-        fetch("http://localhost:8080/projects/", {
-            method: "POST",
+        fetch("http://localhost:8080/projects/"+ projectId, {
+            method: "PUT",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
 
             body: JSON.stringify({
+                id: projectId,
                 projectName: data.projectName,
                 language: data.language,
                 studentsEnrolled: 325,
@@ -40,7 +42,7 @@ const ProjectsForm = () => {
                 projectThumb: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png"
             })
         })
-        .then((response) => global.window.location.href = "/projects")
+        .then((response) => global.window.location.href="/projects")
         .catch(error => alert(error));
     };
 
@@ -97,10 +99,10 @@ const ProjectsForm = () => {
                             id="language"
                         >
                             <optgroup label="Select a Language">
-                                <option value="HTML/CSS">HTML/CSS</option>
-                                <option value="Javascript">Javascript</option>
-                                <option value="React">React</option>
-                                <option value="Java">Java</option>
+                                <option value="htmlcss">HTML/CSS</option>
+                                <option value="javascript">Javascript</option>
+                                <option value="react">React</option>
+                                <option value="java">Java</option>
                             </optgroup>
                         </select>
                     </div>
@@ -191,10 +193,13 @@ const ProjectsForm = () => {
                             value="Save"
                         />
                     </div>
+                    <div className="my-4">
+                      <a className="text-danger text-decoration-underline">Delete Project</a>
+                    </div>
                 </div>
             </form>
         </div>
     );
 };
 
-export default ProjectsForm;
+export default ProjectsEditForm;

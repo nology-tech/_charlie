@@ -15,6 +15,7 @@ import StudentDetails from './pages/students/student-details/student-details';
 import AddStudent from './pages/students/student-add/addstudent';
 import ProjectList from './pages/projects/projects-list/projects-list';
 import ProjectCreate from './pages/projects/projects-create/projects-create';
+import ProjectsEdit from './pages/projects/projects-edit/projects-edit'
 
 function App() {
 
@@ -35,6 +36,10 @@ function App() {
 
             <Route path="/project/create">
               <ProjectCreate></ProjectCreate>
+            </Route>
+
+            <Route exact path="/project/:projectId/edit">
+              <ProjectsEdit />
             </Route>
 
 
