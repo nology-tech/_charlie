@@ -32,7 +32,7 @@ const SubmissionDetails = () => {
     const selectedProject = projects[projectId]; 
 
     //update array of notes in state when new one is submitted
-    const submitAdditionalNotes = (e) =>{
+    const submitAdditionalNotes = (e) => {
         e.preventDefault();
 
         const txtNote = e.target[0].value;

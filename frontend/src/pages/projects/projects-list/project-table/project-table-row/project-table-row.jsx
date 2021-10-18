@@ -24,7 +24,7 @@ const ProjectTableRow = (props) => {
         three = {studentsEnrolled}
         four = {numberReviewed}
         five ={percentageReviewed}
-        rightLink={"javascript: alert('Project: ' + projectName)"}
+        rightLink={"/project/" + props.project.id}
         deleteLink={deleteProject}
       />
     </div>

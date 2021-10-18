@@ -33,5 +33,4 @@ const row = (props) => {
     )
 }
 
-
-export default row
+export default row;
