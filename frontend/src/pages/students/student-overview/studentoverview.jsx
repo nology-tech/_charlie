@@ -1,15 +1,17 @@
 import Cards from 'components/cards/cards';
 import React, { useState, useEffect } from 'react'
 import { FaGithub } from 'react-icons/fa';
+import { useParams} from 'react-router-dom';
 
 import thumbnail from "../../../assets/images/thumbnail-placeholder.png";
 
 const StudentOverview = () => {
+    const { studentId } = useParams();
     const [studentsData, setStudentsData] = useState({});
     const [githubData, setGithubData] = useState({});
 
     const fetchStudentData = () => {
-        fetch("http://localhost:8080/students/2")
+        fetch(`http://localhost:8080/students/${studentId}`)
         .then(response => response.json())
         .then(jsonData => setStudentsData(jsonData))
         .catch(err => console.log(err));  

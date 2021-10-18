@@ -22,7 +22,8 @@ const StudentTableRow = (props) => {
       email={email}
       resume={resume}
       AdobeIcon = {AdobeIcon}
-      rightLink = {`/student/${id}/project/0`}
+      rightLink = {`/student/${id}/overview`}
+      // {`/student/${id}/project/0`}
       testid={"student"}
       />
     </div>
