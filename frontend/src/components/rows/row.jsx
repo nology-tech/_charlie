@@ -10,22 +10,22 @@ const row = (props) => {
     return (
             <>
                 <p className="col container__property container__name">
-                    <Link className="default-link" to={rightLink}>
+                    <Link className="default-link" to={rightLink} onClick={() => global.window.location.href = rightLink}>
                         {one}
                     </Link>
                 </p>
                 <p className="col container__property">
-                    <Link className="default-link" to={rightLink}>
+                    <Link className="default-link" to={rightLink} onClick={() => global.window.location.href = rightLink}>
                         {two}
                     </Link>
                 </p>
                 <p className="col container__property">
-                    <Link className="default-link" to={rightLink}>
+                    <Link className="default-link" to={rightLink} onClick={() => global.window.location.href = rightLink}>
                         {three}
                     </Link>
                 </p>
                 <p className="col container__property">
-                    <Link className="default-link" to={rightLink}>
+                    <Link className="default-link" to={rightLink} onClick={() => global.window.location.href = rightLink}>
                         {four}
                     </Link>
                 </p>
