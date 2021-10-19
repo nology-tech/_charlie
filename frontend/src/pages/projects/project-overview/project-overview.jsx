@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import "../";
+import { useLocation, Switch } from 'react-router-dom'; 
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import "../../students/student-add/addstudenttopnav/addstudenttopnav.scss";
@@ -12,6 +12,7 @@ import "./project-overview.scss";
 const ProjectOverview = () => {
   const [allProjectsData, setAllProjectsData] = useState([]); 
   const [projectData, setProjectData] = useState({});
+  
   const { projectId } = useParams();
   
   const getProjectDetails = () => {
@@ -27,10 +28,10 @@ const ProjectOverview = () => {
         .then(response => response.json())
         .then(jsonResponse => setAllProjectsData(jsonResponse))
         .catch(error => console.log(error));
-}
+  }
 
-useEffect(() => {getAllProjectDetails()}, []);
-  
+  useEffect(() => {getAllProjectDetails()}, []);
+
   const {
     projectName, language, projectBrief, coachesTips, projectThumb,
     studentsEnrolled, numberReviewed, percentageReviewed
@@ -41,8 +42,6 @@ useEffect(() => {getAllProjectDetails()}, []);
   else if(language === "javascript") languageText = "Javascript";
   else if(language === "java") languageText = "Java";
   else if(language === "react") languageText = "React";
-
-  const projects = allProjectsData.map(project => <ProjectTableRow project={project}/>)
 
   return (
     <>
@@ -58,6 +57,7 @@ useEffect(() => {getAllProjectDetails()}, []);
         </div>
       </div>
 
+      {/* project card */}
       <div className="row mx-5 d-flex justify-content-center overview-section">
         <div className="col-4 ml-2">
           <div className="row mx-4">
@@ -118,15 +118,10 @@ useEffect(() => {getAllProjectDetails()}, []);
         <h5 className="offset-1">Other Projects</h5>
       </div>
       <div className="main col-10 m-0 d-flex justify-content-between">
-        {/* <div className="projects__white-space"></div> */}
-        
         <div className="projects d-flex flex-column align-items-center p-0 mx-auto ">
           <ProjectTable pageData={allProjectsData} />
         </div>
-        {/* <div className="projects__white-space"></div> */}
       </div>
-      
-
     </>
   );
 };
