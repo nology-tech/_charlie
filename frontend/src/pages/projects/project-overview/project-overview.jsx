@@ -117,7 +117,7 @@ const ProjectOverview = () => {
       <div className="row mt-5 mb-4">
         <h5 className="offset-1">Other Projects</h5>
       </div>
-      <div className="main col-10 m-0 d-flex justify-content-between">
+      <div className="main col-10 h-auto mb-5 m-0 d-flex justify-content-between">
         <div className="projects d-flex flex-column align-items-center p-0 mx-auto ">
           <ProjectTable pageData={allProjectsData} />
         </div>
