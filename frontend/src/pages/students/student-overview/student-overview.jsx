@@ -46,7 +46,7 @@ const StudentOverview = () => {
                 button2Path = {"/student/create"}
                 />
                 <div className="overview row mt-4 p-0 justify-content-between gx-0 d-flex">
-                    <h3 className="overview__title">Overview</h3>
+                    <h4 className="overview__title mb-4">Overview</h4>
                     <div className="overview__card card d-flex flex-column col-3 ">
                         <img src={studentsData.pictureLink} alt="Student Thumbnail" className="overview__card-image" />
                         <h1 className="overview__card-name">{studentsData.studentName}</h1>
@@ -83,7 +83,7 @@ const StudentOverview = () => {
                     </div>                
                 </div>
                 <div className="other-projects row p-0 w-100 gx-0">
-                    <h3 className="other-projects__title p-0">Projects</h3>
+                    <h4 className="other-projects__title p-0">Projects</h4>
                     <Cards />
                 </div>
             </div>

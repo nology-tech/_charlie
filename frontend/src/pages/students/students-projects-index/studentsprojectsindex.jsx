@@ -69,7 +69,7 @@ const SubmissionDetails = () => {
         />
         <div className="projects w-100">
           <div className="row">
-            <h3 className="mb-4 p-0">Overview</h3>
+            <h4 className="mb-4 p-0 heading-label">Overview</h4>
           </div>
           <div className="row d-flex justify-content-center overview-section">
             <div className="col-4">
@@ -92,7 +92,7 @@ const SubmissionDetails = () => {
                 </div>
               </div>
               <div className="row">
-                <div className="col-12 additional-notes mt-4 px-4">
+                <div className="col-12 additional-notes mt-4 px-4 pb-2">
                   <h6 className="mt-4">Additional Notes:</h6>
                   <div className="additional-notes-input row mt-3">
                     <form action="" onSubmit={submitAdditionalNotes}>
@@ -162,7 +162,7 @@ const SubmissionDetails = () => {
           </div>
 
           <div className="row ms-0">
-            <h3 className="mt-5 p-0">Other Projects</h3>
+            <h4 className="mt-5 p-0 heading-label">Other Projects</h4>
           </div>
           <div className="row">
             <div className="mt-2 mb-4 p-0 ">
