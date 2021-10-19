@@ -26,7 +26,7 @@ const SubmissionDetails = () => {
 
     useEffect(fetchStudentData, [studentId]); 
 
-  //update array of notes in state when new one is submitted
+  // update array of notes in state when new one is submitted
   const submitAdditionalNotes = (e) => {
     e.preventDefault();
 
@@ -55,7 +55,7 @@ const SubmissionDetails = () => {
   const studentListPath = "/students";
 
   return (
-    <div className="main m-0 d-flex justify-content-between">
+    <div className="main m-0 d-flex justify-content-between gx-0">
       <div className="projects__white-space"></div>
       <div className="main__content d-flex flex-column align-items-center p-0">
         <PageHeader
@@ -69,7 +69,7 @@ const SubmissionDetails = () => {
         />
         <div className="projects w-100">
           <div className="row">
-            <h5 className=" mb-4">Overview</h5>
+            <h3 className="mb-4 p-0">Overview</h3>
           </div>
           <div className="row d-flex justify-content-center overview-section">
             <div className="col-4">
@@ -161,10 +161,10 @@ const SubmissionDetails = () => {
             </div>
           </div>
 
-          <div className="row">
-            <h5 className="mx-4 mt-5">Other Projects</h5>
+          <div className="row ms-0">
+            <h3 className="mt-5 p-0">Other Projects</h3>
           </div>
-          <div className="row ">
+          <div className="row">
             <div className="mt-2 mb-4 p-0 ">
               <Cards />
             </div>
