@@ -5,6 +5,7 @@ import { useParams} from 'react-router-dom';
 import PageHeader from "../../../components/page-header/page-header"
 import "./student-overview.scss";
 import gitHubIcon from "../../../assets/images/githubicon.png";
+import mapPin from "assets/images/map-pin.png";
 
 const StudentOverview = () => {
     const { studentId } = useParams();
@@ -18,7 +19,7 @@ const StudentOverview = () => {
         .catch(err => console.log(err));  
     }
 
-    const getGithubData = () =>{
+    const getGithubData = (async) =>{
         fetch(`https://api.github.com/users/${studentsData.githubAccount}`, {
             headers:{
                 'Content-Type': 'application/json',
@@ -60,14 +61,14 @@ const StudentOverview = () => {
                             </div>
                             <img className="overview__github-head-icon m-0" src={gitHubIcon} alt="github icon" />
                         </div>
-                        <div className="overview__github-info d-flex flex-column justify-content-around">
-                            <div className = "row text-center">
+                        <div className="overview__github-info d-flex flex-column justify-content-center">
+                            <div className = "row text-center mb-1">
                                 <p className = "col overview__github-info-labels">Repos</p> 
-                                <p className = "col overview__github-info-labels">Location</p> 
+                                <p className = "col overview__github-info-labels"><img className="mappin" src={mapPin} alt="" />Location</p> 
                                 <p className = "col overview__github-info-labels">Followers</p> 
                                 <p className = "col overview__github-info-labels">Following</p> 
                             </div> 
-                            <div className = "row text-center">
+                            <div className = "row text-center mt-1">
                                 <p className = "col">{githubData.public_repos}</p> 
                                 <p className = "col">{githubData.location}</p> 
                                 <p className = "col">{githubData.followers} </p> 
@@ -75,8 +76,8 @@ const StudentOverview = () => {
                             </div> 
                         </div>
                         <button className="btn-dark btn-project overview__github-btn">
-                            <a href = {studentsData.githubAccount}>
-                            <FaGithub/>&nbsp;View Github
+                            <a href = {`https://www.github.com/${studentsData.githubAccount}`} target="_blank" rel="noreferrer">
+                                <FaGithub/>&nbsp;View Github
                             </a> 
                         </button>
                     </div>                

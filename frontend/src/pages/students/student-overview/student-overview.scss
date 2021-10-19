@@ -59,13 +59,19 @@
           border-radius: 7px;
           width: auto;
           height: 71px;
+          .mappin{
+            width: 6px;
+            height: 9px;
+            margin-right: 7.75px;
+          }
           &-labels {
             color: black; 
             font-weight: 500; 
           }
         }
         &-btn{
-
+          font-size: 10px;
+          font-weight: 600;
         }
       }
     }
