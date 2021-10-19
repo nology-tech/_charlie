@@ -19,8 +19,8 @@ const StudentOverview = () => {
         .catch(err => console.log(err));  
     }
 
-    const getGithubData = (async) =>{
-        fetch(`https://api.github.com/users/${studentsData.githubAccount}`, {
+    const getGithubData = async () =>{
+        await fetch(`https://api.github.com/users/${studentsData.githubAccount}`, {
             headers:{
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

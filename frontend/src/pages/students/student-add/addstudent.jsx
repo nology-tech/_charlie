@@ -1,5 +1,4 @@
 import React from 'react'
-import AddStudentTopNav from './addstudenttopnav/addstudenttopnav';
 import StudentForm from './studentform/studentform';
 import "./addstudent.scss";
 import PageHeader from 'components/page-header/page-header';
