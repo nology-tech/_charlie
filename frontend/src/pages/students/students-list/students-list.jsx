@@ -17,18 +17,18 @@ const StudentsList = () => {
     const [sortOption, setSortOption] = useState("1");
     const [filterOption, setFilterOption] = useState("All");  
 
+    // This function is used in conjunction with fetchStudentData to set multiple states at once in the same .then() call. 
+    const setStartingStates = (jsonData) => {
+        setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName)));
+        setRawData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName)));
+        setEnrollmentData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName)));
+    }
 
     const fetchStudentData = async () => {
         await fetch("http://localhost:8080/students/")
         .then(response => response.json())
-        .then(jsonData => setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
+        .then(jsonData => setStartingStates(jsonData))
         .catch(err=> console.log("Failed to fetch students data."));
-        // Second fetch is necessary to act as raw data which will never be altered. 
-        await fetch("http://localhost:8080/students/")
-        .then(raw => raw.json())
-        .then(jsonRawData => setRawData(jsonRawData.sort((a,b) => a.studentName.localeCompare(b.studentName))))
-        .catch(err => console.log(err));  
-        setEnrollmentData(rawData);
     }
 
     const changeToGridView =() => {
@@ -63,7 +63,6 @@ const StudentsList = () => {
             displayStudents(newPageNumber);
         }
     }
-   
 
     const filterDataByTabs = (enrolledType) => {
         if (enrolledType === "All") {
@@ -115,16 +114,18 @@ const StudentsList = () => {
 };
 
     const sortStudents = (e) => {
-        if(e.target.value === "1"){
-            setSortOption("1");
-            const studentCopy = [...studentsData];
-            studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName))
-            setStudentsData(studentCopy);
-        }else if (e.target.value === "2"){
-            setSortOption("2");
-            const studentCopy = [...studentsData];
-            studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName)).reverse()
-            setStudentsData(studentCopy);
+        const studentCopy = [...studentsData];
+        switch (e.target.value) {
+            case "1":
+                setSortOption("1");
+                studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName));
+                setStudentsData(studentCopy); 
+                break;
+            case "2":
+                setSortOption("2");
+                studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName)).reverse();
+                setStudentsData(studentCopy);
+                break; 
         }
     }
 

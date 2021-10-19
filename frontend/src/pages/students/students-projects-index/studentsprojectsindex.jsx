@@ -52,7 +52,6 @@ const SubmissionDetails = () => {
 
   //const reviewPagePath = `/projects/${studentId}/${projectId}/review`;
   const reviewPagePath = `/student/${studentId}/project/${projectId}/review`;
-  const studentListPath = "/students";
 
   return (
     <div className="main m-0 d-flex justify-content-between gx-0">
@@ -60,7 +59,7 @@ const SubmissionDetails = () => {
       <div className="main__content d-flex flex-column align-items-center p-0">
         <PageHeader
           title={selectedStudent.studentName + "'s " + selectedProject.title}
-          buttonPath={studentListPath}
+          buttonPath="javascript:history.go(-1)"
           buttonText="Go Back"
           buttonStyle="btn-back top-nav__header-button me-2"
           button2Path={reviewPagePath}

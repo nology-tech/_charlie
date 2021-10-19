@@ -40,7 +40,7 @@ const StudentOverview = () => {
                 <PageHeader title = {studentsData.studentName} 
                 buttonText = "Go Back" 
                 buttonStyle = {"btn-back top-nav__header-button me-2"} 
-                buttonPath={"/students"}
+                buttonPath={"javascript:history.go(-1)"}
                 button2Text = "Edit" 
                 button2Style = {"btn-primary top-nav__header-button border-0"}
                 button2Path = {"/student/create"}

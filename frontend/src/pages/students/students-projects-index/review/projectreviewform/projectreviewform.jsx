@@ -13,7 +13,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
 
     
     return (
-        <div className="row my-5 px-4 mx-auto offset-1 form__container project-review-form">
+        <div className="row my-5 px-4 mx-auto offset-1 form__container project-review-form w-100">
         <form className="row" onSubmit={handleSubmit(onSubmit)}>
             <div className="col-6">
                 
@@ -49,7 +49,7 @@ const ProjectReviewForm = ({ onSubmit }) => {
                 
                 <div className="col-12 mt-4 mx-4">
                      <h6>Summary</h6>
-                    <Controller control={control} name="summary" rules={{ required: true }} render={ ({field: { value, onChange }}) => (<textarea value={value} onChange={onChange} className="form-control form__input  my-2 summary" data-testid="summary" /> )} />
+                    <Controller control={control} name="summary" rules={{ required: true }} render={ ({field: { value, onChange }}) => (<textarea style={{ resize : 'none' }} value={value} onChange={onChange} className="form-control form__input my-2 summary" data-testid="summary"/> )} />
                     {errors.summary && <p className="text-danger">* Required</p>}
                 </div>
                 

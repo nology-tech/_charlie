@@ -5,7 +5,7 @@ const PageHeader = (props) => {
 
 
 
-    const { title, tabs, handleClick, buttonText, buttonPath, filterState, buttonStyle, button2Path, button2Text, button2Style } = props;
+    const {title, tabs, handleClick, buttonText, buttonPath, filterState, buttonStyle, button2Path, button2Text, button2Style} = props;
     return (
         <nav className="top-nav d-flex flex-column justify-content-between">
             <div className="top-nav__header d-flex align-items-center justify-content-between">
