@@ -27,7 +27,7 @@ function App() {
           <Navbar />
         </div>
         
-        <div className="col">
+        <div className="col fix-overflow-x">
           <Switch>
                         
             <Route path="/project/create">
@@ -51,12 +51,10 @@ function App() {
             <Route path="/reviews">
               <Reviews />
             </Route>
-
             
             <Route path="/settings">
               <Settings />
             </Route>
-
 
             <Route exact path="/student/:studentId/project/:projectId/review">
               <ProjectReview />
