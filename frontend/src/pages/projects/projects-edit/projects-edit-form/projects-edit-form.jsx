@@ -61,6 +61,7 @@ const ProjectsEditForm = () => {
     };
 
     const deleteProject = () => {
+        // e.preventDefault();
         fetch("http://localhost:8080/projects/"+projectId, {
             method: "DELETE"
         })
@@ -201,13 +202,18 @@ const ProjectsEditForm = () => {
                             value="Save"
                         />
                     </div>
-                    <div className="my-4">
+                    {/* <div className="my-4">
                         <button onClick={() => {deleteProject()}} className="btn text-danger text-decoration-underline">
                             Delete Project
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </form>
+            <div className="mb-5 row">
+                        <button onClick={() => {deleteProject()}} className="btn text-danger text-decoration-underline offset-7 col-2">
+                            Delete Project
+                        </button>
+            </div>
         </div>
     );
 };
