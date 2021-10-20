@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router";
 import "./projects-edit-form.scss";
@@ -18,6 +18,25 @@ const ProjectsEditForm = () => {
     const [{ alt, src }, setImg] = useState({
         src: placeHolderThumb,
         alt: "",
+    });
+
+    const [projectsData, setProjectsData] = useState({}); 
+    const { projectName, projectBrief, coachesTips } = projectsData;
+
+    const getProjectById = () => {
+        fetch("http://localhost:8080/projects/"+projectId)
+            .then(response => response.json())
+            .then(jsonResponse => setProjectsData(jsonResponse))
+            .catch(error => console.log(error));
+    }
+    useEffect(() => {getProjectById()}, []);
+
+    let languages = ["HTML/CSS"," Javascript", "React", "Java"];
+    let languageArr = [projectsData.language];
+    languages.forEach(language => {
+        if(!language.includes(projectsData.language)) {
+            languageArr.push(language);
+        }
     });
 
     const onSubmit = (data) => {
@@ -61,12 +80,13 @@ const ProjectsEditForm = () => {
     };
 
     const deleteProject = () => {
-        // e.preventDefault();
-        fetch("http://localhost:8080/projects/"+projectId, {
-            method: "DELETE"
-        })
-        .then((response) => global.window.location.href = "/projects")
-        .catch(error => console.log(error));
+        if(window.confirm("Are you want to delete this project?")) {
+            fetch("http://localhost:8080/projects/"+projectId, {
+                method: "DELETE"
+            })
+            .then((response) => global.window.location.href = "/projects")
+            .catch(error => console.log(error));
+        }
     };
 
     return (
@@ -91,12 +111,13 @@ const ProjectsEditForm = () => {
                             className="form-control project-form-input project-form__left__projectName "
                             type="text"
                             id="projectName"
+                            value={projectName}
                         />
                         {errors.projectName && (
                             <div className="text-danger">*Required</div>
                         )}
                     </div>
-
+                    
                     <div className="mt-3">
                         <label className="project-form__left__label" htmlFor="">
                             Language
@@ -107,11 +128,12 @@ const ProjectsEditForm = () => {
                             className="form-select form-control project-form-input "
                             id="language"
                         >
+                            {/*language*/}
                             <optgroup label="Select a Language">
-                                <option value="htmlcss">HTML/CSS</option>
-                                <option value="javascript">Javascript</option>
-                                <option value="react">React</option>
-                                <option value="java">Java</option>
+                                <option value={languageArr[0]}>{languageArr[0]}</option>
+                                <option value={languageArr[1]}>{languageArr[1]}</option>
+                                <option value={languageArr[2]}>{languageArr[2]}</option>
+                                <option value={languageArr[3]}>{languageArr[3]}</option>
                             </optgroup>
                         </select>
                     </div>
@@ -131,6 +153,7 @@ const ProjectsEditForm = () => {
                             className="text-area-styling"
                             type="text"
                             id="projectBrief"
+                            value={projectBrief}
                         />
                         {errors.projectBrief && (
                             <p className="text-danger">*Required</p>
@@ -150,6 +173,7 @@ const ProjectsEditForm = () => {
                             className="text-area-styling"
                             type="text"
                             id="coachesTips"
+                            value={coachesTips}
                         />
                         {errors.coachesTips && (
                             <p className="text-danger">*Required</p>
