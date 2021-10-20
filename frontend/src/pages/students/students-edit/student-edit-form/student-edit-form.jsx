@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router";
 import Thumb from "assets/images/project-thumbnail.png";
-import students from "data/students";
 
 const StudentEditForm = () => {
     const {register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -169,9 +168,6 @@ const StudentEditForm = () => {
                         data-testid="enrolledOn"
                         value = {studentData.enrolledOn}
                         >
-                        {/* <option value="default">
-                            Select one of the following:
-                        </option> */}
                         <option value="Ibiza">Ibiza</option>
                         <option value="Hawaii">Hawaii</option>
                         <option value="Jersey">Jersey</option>
@@ -190,9 +186,6 @@ const StudentEditForm = () => {
                         data-testid="enrolledType"
                         value={studentData.enrolledType}
                         >
-                        {/* <option value="default">
-                            Select one of the following:
-                        </option> */}
                         <option value="Full-Time">Full-Time</option>
                         <option value="Corporate">Corporate</option>
                         <option value="Self-Paced">Self-Paced</option>
@@ -260,7 +253,6 @@ const StudentEditForm = () => {
                     <div className="col-12 mt-5 d-flex align-items-end">
                         <input type="reset" className="form__button-cancel" value="Cancel" onClick={handleClick} />
                         <input type="submit" className="form__button-save" value="Save" />
-                        {/* <input type="submit" className="form__button-danger" value="Delete" /> */}
                     </div>
                     <div className = "w-100"> 
                       <input type="button" className="form__button-danger" value="Delete" onClick={onDelete}/>
