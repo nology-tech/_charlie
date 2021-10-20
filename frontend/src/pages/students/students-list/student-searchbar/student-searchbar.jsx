@@ -39,11 +39,11 @@ const StudentSearchBar = (props) => {
         <div className="d-flex align-items-center">
           <img src={Filter} alt="filter" className = "search-bar__sort-filter-buttons-img p-0"></img>
           <select name="rows" value={filterOption} className="sort-menu" onChange={filterStudentsByCourse} data-testid="course-selector">
-              <option value="1">All Courses</option>  
-              <option value="2">Mariana</option>
-              <option value="3">Ibiza</option>
-              <option value="4">Jersey</option>
-              <option value="5">Hawaii</option>
+              <option value="All">All Courses</option>  
+              <option value="Mariana">Mariana</option>
+              <option value="Ibiza">Ibiza</option>
+              <option value="Jersey">Jersey</option>
+              <option value="Hawaii">Hawaii</option>
           </select>
           </div>
         </div>

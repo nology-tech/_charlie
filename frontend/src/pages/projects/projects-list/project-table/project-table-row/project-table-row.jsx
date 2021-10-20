@@ -1,7 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 import "./project-table-row.scss";
-import StudentRight from "../../../../../assets/images/studentRight.png";
 import Row from "../../../../../components/rows/row"
 
 const ProjectTableRow = (props) => {

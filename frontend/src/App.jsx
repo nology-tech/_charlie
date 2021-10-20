@@ -11,10 +11,11 @@ import Settings from "./pages/settings/settings";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Students from "./pages/students/students-list/students-list";
-import StudentDetails from './pages/students/student-details/student-details';
 import AddStudent from './pages/students/student-add/addstudent';
 import ProjectList from './pages/projects/projects-list/projects-list';
 import ProjectCreate from './pages/projects/projects-create/projects-create';
+import StudentOverview from 'pages/students/student-overview/student-overview';
+import EditStudent from 'pages/students/students-edit/edit-student';
 
 function App() {
 
@@ -56,9 +57,19 @@ function App() {
               <SubmissionDetails />
             </Route>
 
+            <Route exact path="/student/:studentId/overview">
+              <StudentOverview />
+            </Route>
+
+            <Route path="/student/:studentId/edit">
+              <EditStudent></EditStudent>
+            </Route>
+
             <Route path="/student/create">
               <AddStudent></AddStudent>
             </Route>
+
+            
             
             {/* <Route path="/student/:studentId/project/:projectId">
               <StudentDetails></StudentDetails>

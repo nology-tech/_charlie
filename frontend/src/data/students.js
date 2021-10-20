@@ -6,7 +6,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv", 
         enrolledType: "Full-Time", 
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png", 
+        email: "martin@martin.com"
     },
     {
         studentName: "Isher Sagay",
@@ -15,7 +16,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "isher@isher.com"
     },
     {
         studentName: "Sarah Holland",
@@ -24,7 +26,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Corporate",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "sarah@sarah.com"
     },
     {
         studentName: "Helen Khor",
@@ -33,7 +36,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "helen@helen.com"
     },
     {
         studentName: "James Nowecki",
@@ -42,7 +46,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "james@james.com"
     },
     {
         studentName: "Severine Legon",
@@ -51,7 +56,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "severine@gmail.com"
     },
     {
         studentName: "Vuli Russell",
@@ -60,7 +66,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "vuli@gmail.com"
     },
     {
         studentName: "Salim Abdala",
@@ -69,7 +76,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Corporate",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "salim@gmail.com"
     },
     {
         studentName: "Matthew Bickell",
@@ -78,7 +86,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "matt@gmail.com"
     },
     {
         studentName: "Rebecca Fennelly",
@@ -87,7 +96,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "bex@gmail.com"
     },
     {
         studentName: "Salvador Vives",
@@ -96,25 +106,28 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "salva@gmail.com"
     },
     {
         studentName: "Joaquin Ginzo",
-        enrolledOn: "Ibiza",
+        enrolledOn: "Hawaii",
         githubAccount: "github.com/jouquin91",
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "joaquin@gmail.com"
     },
     {
         studentName: "Reshmy Devaraju",
-        enrolledOn: "Ibiza",
+        enrolledOn: "Hawaii",
         githubAccount: "github.com/reshmyd",
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png", 
+        email: "reshmy@gmail.com"
     },
     {
         studentName: "Angaar Uriakhil",
@@ -123,7 +136,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "angar@gmail.com"
     },
     {
         studentName: "Nick Truby",
@@ -132,7 +146,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Corporate",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "nick@gmail.com"
     },
     {
         studentName: "Jerome Kithinji",
@@ -141,7 +156,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "jerome@gmail.com"
     },
     {
         studentName: "Noor Ncho",
@@ -150,7 +166,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "noor@gmail.com"
     },
     {
         studentName: "Saagar Shah",
@@ -159,7 +176,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "saagar@gmail.com"
     },
     {
         studentName: "Alexander Wower",
@@ -168,7 +186,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "alex@gmail.com"
     },
     {
         studentName: "Alexa Smith",
@@ -177,7 +196,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "alexa@gmail.com"
     },
     {
         studentName: "Malwina Wower",
@@ -186,7 +206,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "malwina@gmail.com"
     },
     {
         studentName: "Sara Margulo",
@@ -195,7 +216,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "sara@gmail.com"
     },
     {
         studentName: "Kat Kolomycew",
@@ -204,7 +226,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "kat@gmail.com"
     },
     {
         studentName: "Maya Keeley",
@@ -213,7 +236,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Corporate",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "maya@gmail.com"
     },
     {
         studentName: "Clara Fitzgerald",
@@ -222,7 +246,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Full-Time",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "maya@gmail.com"
     },
     {
         studentName: "Charlie Richardson",
@@ -231,7 +256,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "charlie@gmail.com"
     },
     {
         studentName: "Sam Joyce",
@@ -240,7 +266,8 @@ const students= [
         portfolio : "www.wei.com",
         resume: "www.wei.com/cv",
         enrolledType: "Self-Paced",
-        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"
+        pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png",
+        email: "sam@gmail.com"
     }
 ];
 export default students;

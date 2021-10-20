@@ -1,23 +1,74 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //import studentData from '../../data/studentForm';
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router";
-import Thumb from "assets/images/project-thumbnail.png"
-const StudentForm = () => {
+import { useHistory, useParams } from "react-router";
+import Thumb from "assets/images/project-thumbnail.png";
+
+const StudentEditForm = () => {
     const {register, handleSubmit, formState: { errors }, reset } = useForm();
     const history = useHistory();
+    const [studentData, setStudentData] = useState({}); 
+    const { studentId } = useParams();
+    const [studentNameArr, setStudentNameArr] = useState([]);
 
-    console.log(errors);
+    const setupStates = (jsonData) => {
+        setStudentData(jsonData);
+        const studentName = jsonData.studentName.split(" ");
+        setStudentNameArr([studentName[0], studentName[studentName.length-1]])
+    }
+
+    const fetchStudentData = () => {
+        fetch(`http://localhost:8080/students/${studentId}`)
+        .then(response => response.json())
+        .then(jsonData => {
+            setupStates(jsonData);
+        })
+        .catch(err => console.log("Failed to grab students data"));
+    }
+
+    useEffect(fetchStudentData, []); 
+
     const [{ alt, src }, setImg] = useState({
         src: "https://via.placeholder.com/150",
         alt: "",
     });
 
+    const onDelete = (data) => {
+        console.log(data);
+        if (window.confirm('Are you sure about that?')) {
+            fetch(`http://localhost:8080/students/${studentId}`, {
+                method: "DELETE",
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+    
+                //make sure to serialize your JSON body
+                body: JSON.stringify({
+                    studentName: `${data.firstName} ${data.lastName}`,
+                    enrolledOn: data.enrolledOn,
+                    githubAccount: data.githubAccount,
+                    portfolio: data.portfolioLink,
+                    resume: "sample.pdf",
+                    enrolledType: data.enrolledType,
+                    pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png",
+                    email: data.email
+                })
+            })
+            .then((response) => response.json());
+            history.goBack();
+        } else {
+            history.goBack();
+        }
+    };
+
+
+
     const onSubmit = (data) => {
         console.log(data);
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4));
-        fetch("http://localhost:8080/students/", {
-            method: "POST",
+        fetch(`http://localhost:8080/students/${studentId}`, {
+            method: "PUT",
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -70,6 +121,7 @@ const StudentForm = () => {
                         type="text"
                         id="firstName"
                         data-testid="firstName"
+                        defaultValue={studentNameArr[0]}
                         />
                         {errors.firstName && <div className="text-danger">*Required</div>}
                     </div>
@@ -86,7 +138,8 @@ const StudentForm = () => {
                         type="text"
                         id="lastName"
                         data-testid="lastName"
-                        />
+                        defaultValue = {studentNameArr[1]}
+                        ></input> 
                         {errors.lastName && <p className="text-danger">*Required</p>}
                     </div>
 
@@ -100,6 +153,7 @@ const StudentForm = () => {
                         className="form-control form__input my-2"
                         type="email"
                         id="email"
+                        defaultValue= {studentData.email}
                         />
                         {errors.email && <p className="text-danger">*Required</p>}
                     </div>
@@ -112,13 +166,13 @@ const StudentForm = () => {
                         className="form-select form-control form__input  my-2"
                         id="enrolledOn"
                         data-testid="enrolledOn"
+                        value = {studentData.enrolledOn}
                         >
-                        <option selected="true" value="default">
-                            Select one of the following
-                        </option>
-                        <option value="ibiza">Ibiza</option>
-                        <option value="hawaii">Hawaii</option>
-                        <option value="jersey">Jersey</option>
+                        <option value="Ibiza">Ibiza</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Jersey">Jersey</option>
+                        <option value="Mariana">Mariana</option>
+                        <option value="Florida">Florida</option>
                         </select>
                     </div> 
 
@@ -130,13 +184,11 @@ const StudentForm = () => {
                         className="form-select form-control form__input  my-2"
                         id="enrolledType"
                         data-testid="enrolledType"
+                        value={studentData.enrolledType}
                         >
-                        <option selected="true" value="default">
-                            Select one of the following
-                        </option>
-                        <option value="Full-Time">Full Time</option>
+                        <option value="Full-Time">Full-Time</option>
                         <option value="Corporate">Corporate</option>
-                        <option value="Self-Paced">Self Paced</option>
+                        <option value="Self-Paced">Self-Paced</option>
                         </select>
                     </div> 
                     
@@ -149,6 +201,7 @@ const StudentForm = () => {
                         type="text"
                         id="githubAccount"
                         data-testid="githubAccount"
+                        defaultValue = {studentData.githubAccount}
                         />
                         {errors.githubAccount && <p className="text-danger">*Required</p>}
                     </div>
@@ -162,6 +215,7 @@ const StudentForm = () => {
                             type="text"
                             id="portfolioLink"
                             data-testid="portfolioLink"
+                            defaultValue = {studentData.portfolio}
                         />
                         {errors.portfolioLink && <p className="text-danger">*Required</p>}
                     </div>
@@ -200,10 +254,13 @@ const StudentForm = () => {
                         <input type="reset" className="form__button-cancel" value="Cancel" onClick={handleClick} />
                         <input type="submit" className="form__button-save" value="Save" />
                     </div>
+                    <div className = "w-100"> 
+                      <input type="button" className="form__button-danger" value="Delete" onClick={onDelete}/>
+                    </div>
                 </div>
             </form>
         </div>
     );
 };
 
-export default StudentForm;
+export default StudentEditForm;
