@@ -72,8 +72,8 @@ const ProjectOverview = () => {
         </div>
         <div className="col-8">
           {/* TODO: insert challenge data (stats) here */}
-          <div className="row mx-4">
-              <div className="col-12 review px-4">
+          <div className="row mx-4 ">
+              <div className="col-12 challenge-data bg-white px-5">
                   <h6 className="mt-4">Challenge Data</h6>
                   <div className="row d-flex justify-content-between text-center align-items-center">
                     <div className="col "><h6>{studentsEnrolled}</h6></div>

@@ -31,7 +31,7 @@ const ProjectsEditForm = () => {
     }
     useEffect(() => {getProjectById()}, []);
 
-    let languages = ["HTML/CSS"," Javascript", "React", "Java"];
+    let languages = ["htmlcss"," Javascript", "React", "Java"];
     let languageArr = [projectsData.language];
     languages.forEach(language => {
         if(!language.includes(projectsData.language)) {
@@ -51,13 +51,13 @@ const ProjectsEditForm = () => {
 
             body: JSON.stringify({
                 id: projectId,
-                projectName: data.projectName,
-                language: data.language,
+                projectName: data.projectName || projectName,
+                language: data.language || projectsData.language,
                 studentsEnrolled: 325,
                 numberReviewed: 278,
                 percentageReviewed: "85%",
-                projectBrief: data.projectBrief,
-                coachesTips: data.coachesTips,
+                projectBrief: data.projectBrief || projectBrief,
+                coachesTips: data.coachesTips || coachesTips,
                 projectThumb: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png"
             })
         })
@@ -104,9 +104,7 @@ const ProjectsEditForm = () => {
                             Project Name
                         </label>
                         <input
-                            {...register("projectName", {
-                                required: true,
-                            })}
+                            {...register("projectName")}
                             name="projectName"
                             className="form-control project-form-input project-form__left__projectName "
                             type="text"
@@ -123,17 +121,18 @@ const ProjectsEditForm = () => {
                             Language
                         </label>
                         <select
-                            {...register("language", { required: true })}
+                            {...register("language")}
                             name="language"
                             className="form-select form-control project-form-input "
                             id="language"
                         >
                             {/*language*/}
                             <optgroup label="Select a Language">
-                                <option value={languageArr[0]}>{languageArr[0]}</option>
-                                <option value={languageArr[1]}>{languageArr[1]}</option>
-                                <option value={languageArr[2]}>{languageArr[2]}</option>
-                                <option value={languageArr[3]}>{languageArr[3]}</option>
+                                {
+                                    languageArr.map(currentLanguage => {
+                                        return <option value={currentLanguage}>{currentLanguage}</option>
+                                    })
+                                }
                             </optgroup>
                         </select>
                     </div>
@@ -146,15 +145,15 @@ const ProjectsEditForm = () => {
                             Project Brief
                         </label>
                         <textarea
-                            {...register("projectBrief", {
-                                required: true,
-                            })}
+                            {...register("projectBrief", {required: true})}
                             name="projectBrief"
                             className="text-area-styling"
                             type="text"
                             id="projectBrief"
-                            value={projectBrief}
-                        />
+                            defaultValue={coachesTips}
+                        >
+                        </textarea>
+
                         {errors.projectBrief && (
                             <p className="text-danger">*Required</p>
                         )}
@@ -168,13 +167,15 @@ const ProjectsEditForm = () => {
                             Coaches Tips
                         </label>
                         <textarea
-                            {...register("coachesTips", { required: true })}
+                            {...register("coachesTips", {required: true})}
                             name="coachesTips"
                             className="text-area-styling"
                             type="text"
                             id="coachesTips"
-                            value={coachesTips}
-                        />
+                            defaultValue={coachesTips}
+                        >
+                        </textarea>
+
                         {errors.coachesTips && (
                             <p className="text-danger">*Required</p>
                         )}
