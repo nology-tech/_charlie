@@ -1,10 +1,13 @@
 package com.nology.charlie.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Student {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
     private String studentName;
@@ -14,8 +17,9 @@ public class Student {
     private String resume;
     private String enrolledType;
     private String pictureLink;
+    private String email;
 
-    public Student(int id, String studentName, String enrolledOn, String githubAccount, String portfolio, String resume, String enrolledType, String pictureLink) {
+    public Student(int id, String studentName, String enrolledOn, String githubAccount, String portfolio, String resume, String enrolledType, String pictureLink, String email) {
         this.id = id;
         this.studentName = studentName;
         this.enrolledOn = enrolledOn;
@@ -24,6 +28,7 @@ public class Student {
         this.resume = resume;
         this.enrolledType = enrolledType;
         this.pictureLink = pictureLink;
+        this.email = email;
     }
 
 
@@ -90,6 +95,13 @@ public class Student {
 
     public void setPictureLink(String pictureLink) {
         this.pictureLink = pictureLink;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Student() {

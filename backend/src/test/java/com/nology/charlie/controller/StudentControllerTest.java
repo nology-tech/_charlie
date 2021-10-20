@@ -38,7 +38,7 @@ public class StudentControllerTest {
     public void indexRouteShouldReturnListOfStudents()throws Exception{
 
         List<Student> students = new ArrayList();
-        students.add(new Student(1, "Martin Harrison", "Ibiza", "github.com/mharrison98", "www.wei.com", "www.wei.com/cv", "Full-Time", "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png"));
+        students.add(new Student(1, "Martin Harrison", "Ibiza", "github.com/mharrison98", "www.wei.com", "www.wei.com/cv", "Full-Time", "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png", "wei@gmail.com"));
         when(mockRepo.findAll()).thenReturn(students);
 
         mockMvc.perform(get("/students"))
@@ -50,7 +50,7 @@ public class StudentControllerTest {
     @Test
     @DisplayName("Show Route should return a selected student by Id")
     public void ShowRouteShouldReturnTheCorrectStudent() throws Exception{
-        Student student = new Student(1, "Martin Harrison", "Ibiza", "github.com/mharrison98", "www.wei.com", "www.wei.com/cv", "Full-Time", "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png");
+        Student student = new Student(1, "Martin Harrison", "Ibiza", "github.com/mharrison98", "www.wei.com", "www.wei.com/cv", "Full-Time", "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png", "wei@gmail.com");
         when(mockRepo.existsById(1)).thenReturn(true);
         when(mockRepo.findById(1)).thenReturn(java.util.Optional.of(student));
         mockMvc.perform(get("/students/1/"))
@@ -65,7 +65,7 @@ public class StudentControllerTest {
     public void CreateRouteShouldCreateStudentAndReturnASuccessMessage() throws Exception{
         mockMvc.perform(post("/students")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(toJson(new Student(2, "Marasdftin Harrasdfaison", "Ibizasdfa", "github.com/mharrison98", "www.weasdfai.com", "www.wei.casdfasdom/cv", "Full-Tasdfaime", "https://nolasdfasogy.io/wp-content/uploads/2019/12/NOLOGY7.png")))
+                        .content(toJson(new Student(2, "Marasdftin Harrasdfaison", "Ibizasdfa", "github.com/mharrison98", "www.weasdfai.com", "www.wei.casdfasdom/cv", "Full-Tasdfaime", "https://nolasdfasogy.io/wp-content/uploads/2019/12/NOLOGY7.png", "wei@gmail.com")))
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.text", is("Successfully added a student to the database.")))
@@ -76,13 +76,13 @@ public class StudentControllerTest {
     @Test
     @DisplayName("Update Route should return update student and return a success message")
     public void UpdateRouteShouldUpdateAndReturnSuccessMessage() throws Exception{
-        Student student = new Student(1, "Martin Harrison", "Ibiza", "github.com/mharrison98", "www.wei.com", "www.wei.com/cv", "Full-Time", "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png");
+        Student student = new Student(1, "Martin Harrison", "Ibiza", "github.com/mharrison98", "www.wei.com", "www.wei.com/cv", "Full-Time", "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png", "wei@gmail.com");
         when(mockRepo.existsById(1)).thenReturn(true);
         when(mockRepo.findById(1)).thenReturn(java.util.Optional.of(student));
 
         mockMvc.perform(put("/students/1")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(toJson(new Student(1, "Marasdftin Harrasdfaison", "Ibizasdfa", "github.com/mharrison98", "www.weasdfai.com", "www.wei.casdfasdom/cv", "Full-Tasdfaime", "https://nolasdfasogy.io/wp-content/uploads/2019/12/NOLOGY7.png")))
+                        .content(toJson(new Student(1, "Marasdftin Harrasdfaison", "Ibizasdfa", "github.com/mharrison98", "www.weasdfai.com", "www.wei.casdfasdom/cv", "Full-Tasdfaime", "https://nolasdfasogy.io/wp-content/uploads/2019/12/NOLOGY7.png", "wei@gmial.com")))
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.studentName", is("Marasdftin Harrasdfaison")))
@@ -92,7 +92,7 @@ public class StudentControllerTest {
     @Test
     @DisplayName("Delete Route should delete a student and return a success message")
     public void DeleteRouteShouldDeleteAStudentAndReturnASuccessMessage() throws Exception{
-        Student student = new Student(1, "Martin Harrison", "Ibiza", "github.com/mharrison98", "www.wei.com", "www.wei.com/cv", "Full-Time", "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png");
+        Student student = new Student(1, "Martin Harrison", "Ibiza", "github.com/mharrison98", "www.wei.com", "www.wei.com/cv", "Full-Time", "https://nology.io/wp-content/uploads/2019/12/NOLOGY7.png", "www.wei@gmail.com");
         when(mockRepo.existsById(1)).thenReturn(true);
         mockMvc.perform(delete("/students/1"))
                 .andExpect(status().isOk())

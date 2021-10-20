@@ -2,10 +2,10 @@ import React,{useEffect, useState }  from 'react'
 import StudentTable from "./student-table/student-table";
 import StudentSearchBar from './student-searchbar/student-searchbar';
 import "./students-list.scss"; 
-import Data from "../../../data/students.js"; 
 import PageHeader from "../../../components/page-header/page-header";
 
 const StudentsList = () => {
+    const [rawData, setRawData] = useState([]); 
     const [studentsData, setStudentsData] = useState([]); 
     const [pageData, setPageData] = useState([]);
     const [pageNumber, setPageNumber] = useState(1);  
@@ -13,13 +13,24 @@ const StudentsList = () => {
     const [totalNumberStudents, setTotalNumberStudents] = useState(studentsData.length); 
     const [enrolledFilter, setEnrolledFilter] = useState("All");
     const [toggleView, setToggleView] = useState(false); 
-    const [enrollmentData, setEnrollmentData] = useState(Data); 
+    const [enrollmentData, setEnrollmentData] = useState([]); 
     const [sortOption, setSortOption] = useState("1");
-    const [filterOption, setFilterOption] = useState("1");
+    const [filterOption, setFilterOption] = useState("All");  
+
+    // This function is used in conjunction with fetchStudentData to set multiple states at once in the same .then() call. 
+    const setStartingStates = (jsonData) => {
+        setStudentsData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName)));
+        setRawData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName)));
+        setEnrollmentData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName)));
+    }
 
     const fetchStudentData = () => {
-        setStudentsData(Data.sort((a,b) => a.studentName.localeCompare(b.studentName)));
+        fetch("http://localhost:8080/students/")
+        .then(response => response.json())
+        .then(jsonData => setStartingStates(jsonData))
+        .catch(err=> console.log("Failed to fetch students data."));
     }
+
     const changeToGridView =() => {
         setToggleView(true);
         setPageNumber(1);
@@ -52,25 +63,24 @@ const StudentsList = () => {
             displayStudents(newPageNumber);
         }
     }
-   
 
     const filterDataByTabs = (enrolledType) => {
-        if (enrolledType == "All") {
+        if (enrolledType === "All") {
             setSortOption("1");
-            setFilterOption("1");
+            setFilterOption("All");
             setPageNumber(1);
             setEnrolledFilter("All");
             fetchStudentData();
-            setEnrollmentData(Data);
+            setEnrollmentData(rawData);
         } else {
             setSortOption("1");
-            setFilterOption("1");
+            setFilterOption("All");
             setPageNumber(1);
             setEnrolledFilter(enrolledType);
-            setStudentsData(Data.filter(student => student.enrolledType.includes(enrolledType)));
-            setEnrollmentData(Data.filter(student => student.enrolledType.includes(enrolledType)));
+            setStudentsData(rawData.filter(student => student.enrolledType.includes(enrolledType)));
+            setEnrollmentData(rawData.filter(student => student.enrolledType.includes(enrolledType)));
         }  
-        }   
+    }   
 
     const generateSearchResults = (e) => { 
         if (e.target.value){
@@ -103,42 +113,53 @@ const StudentsList = () => {
     }
 };
 
-// Sorting logic (A-Z, Z-A) - THIS NEEDS FIXING // needs fixing man-0--
     const sortStudents = (e) => {
-        if(e.target.value === "1"){
-            setSortOption("1");
-            const studentCopy = [...studentsData];
-            studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName))
-            setStudentsData(studentCopy);
-        }else if (e.target.value === "2"){
-            setSortOption("2");
-            const studentCopy = [...studentsData];
-            studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName)).reverse()
-            setStudentsData(studentCopy);
+        const studentCopy = [...studentsData];
+        switch (e.target.value) {
+            case "1":
+                setSortOption("1");
+                studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName));
+                setStudentsData(studentCopy); 
+                break;
+            case "2":
+                setSortOption("2");
+                studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName)).reverse();
+                setStudentsData(studentCopy);
+                break; 
+            default: 
+                break; 
         }
     }
 
     const filterStudentsByCourse = (e) => {
-        if (e.target.value === "1") {
-            setFilterOption("1");
-            setSortOption("1");
-            setStudentsData(enrollmentData)
-        }else if (e.target.value === "2") {
-            setFilterOption("2");
-            setSortOption("1");
-            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Mariana"))));
-        }else if (e.target.value === "3") {
-            setFilterOption("3");
-            setSortOption("1");
-            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Ibiza"))));
-        }else if (e.target.value === "4") {
-            setFilterOption("4");
-            setSortOption("1");
-            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Jersey"))));
-        } else {
-            setFilterOption("5");
-            setSortOption("1");
-            setStudentsData((enrollmentData.filter(student => student.enrolledOn.includes("Hawaii"))));
+        switch (e.target.value) {
+            case "All":
+                setFilterOption("All");
+                setSortOption("1");
+                setStudentsData(enrollmentData);
+                break;
+            case "Mariana":
+                setFilterOption("Mariana");
+                setSortOption("1");
+                setStudentsData((enrollmentData.filter(student => student.enrolledOn.match(/Mariana/i)))); 
+                break;
+            case "Ibiza":
+                setFilterOption("Ibiza");
+                setSortOption("1");
+                setStudentsData((enrollmentData.filter(student => student.enrolledOn.match(/Ibiza/i)))); 
+                break;
+            case "Jersey":
+                setFilterOption("Jersey");
+                setSortOption("1");
+                setStudentsData((enrollmentData.filter(student => student.enrolledOn.match(/Jersey/i))));
+                break;
+            case "Hawaii":
+                setFilterOption("Hawaii");
+                setSortOption("1");
+                setStudentsData((enrollmentData.filter(student => student.enrolledOn.match(/Hawaii/i))));
+                break;
+            default: 
+                break;  
         }
     }
 

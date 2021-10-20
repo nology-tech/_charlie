@@ -16,12 +16,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/students")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class StudentController {
 
     @Autowired
     IStudentRepository studentRepository;
-
-
     @GetMapping("")
     public ResponseEntity<List<Student>> getStudents() {
         return ResponseEntity.status(HttpStatus.OK).body(this.studentRepository.findAll());

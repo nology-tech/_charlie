@@ -181,13 +181,13 @@ const ProjectsForm = () => {
                     <div className="project-form__right__buttons">
                         <input
                             type="reset"
-                            className="project-form__right__buttons-cancel"
+                            className="form__button-cancel"
                             value="Cancel"
                             onClick={handleCancel}
                         />
                         <input
                             type="submit"
-                            className="project-form__right__buttons-submit"
+                            className="form__button-save"
                             value="Save"
                         />
                     </div>
