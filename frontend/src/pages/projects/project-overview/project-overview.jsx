@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLocation, Switch } from 'react-router-dom'; 
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
-import "../../students/student-add/addstudenttopnav/addstudenttopnav.scss";
 import placeHolderThumb from "../../../assets/images/project-thumbnail.png";
 import ProjectTable from "../projects-list/project-table/project-table";
 import ProjectTableRow from "../projects-list/project-table/project-table-row/project-table-row";
