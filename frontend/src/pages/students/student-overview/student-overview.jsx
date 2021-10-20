@@ -42,7 +42,7 @@ const StudentOverview = () => {
                 <PageHeader title = {studentsData.studentName} 
                 buttonText = "Go Back" 
                 buttonStyle = {"btn-back top-nav__header-button me-2"} 
-                buttonPath={"javascript:history.back()"}
+                buttonPath={"/students"}
                 button2Text = "Edit" 
                 button2Style = {"btn-primary top-nav__header-button border-0"}
                 button2Path = {`/student/${studentId}/edit`}
@@ -50,7 +50,7 @@ const StudentOverview = () => {
                 <div className="overview row mt-4 p-0 justify-content-between gx-0 d-flex">
                     <h4 className="overview__title mb-4">Overview</h4>
                     <div className="overview__card card d-flex flex-column col-3 ">
-                        <img src={studentsData.pictureLink} alt="Student Thumbnail" className="overview__card-image" />
+                        <img src={studentsData.pictureLink} alt="Student Thumbnail" className="overview__card-image pt-3" />
                         <h1 className="overview__card-name">{studentsData.studentName}</h1>
                         <p className="overview__card-course">{studentsData.enrolledOn} Student</p>                
                     </div>

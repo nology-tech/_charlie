@@ -59,7 +59,7 @@ const StudentForm = () => {
             <form className="row" onSubmit={handleSubmit(onSubmit)}>
                 <div className="columns col-6">
                     <div className="col-12 mt-4">
-                        <label htmlFor="firstName" className="addStudentLabel fw-bold">First Name</label>
+                        <label htmlFor="firstName" className="addStudentLabel fw-bolder">First Name</label>
                         <input
                         {...register("firstName", {
                             required: true,
@@ -75,7 +75,7 @@ const StudentForm = () => {
                     </div>
 
                     <div className="col-12 mt-3">
-                        <label htmlFor="lastName" className="addStudentLabel fw-bold">Last Name</label>
+                        <label htmlFor="lastName" className="addStudentLabel fw-bolder">Last Name</label>
                         <input
                         {...register("lastName", {
                             required: true,
@@ -91,7 +91,7 @@ const StudentForm = () => {
                     </div>
 
                     <div className="col-12 mt-3">
-                        <label htmlFor="email" className="addStudentLabel fw-bold">Email</label>
+                        <label htmlFor="email" className="addStudentLabel fw-bolder">Email</label>
                         <input
                         {...register("email", {
                             required: true
@@ -106,7 +106,7 @@ const StudentForm = () => {
 
 
                     <div className="col-12 mt-3">
-                        <label htmlFor="" className="addStudentLabel fw-bold">Enrolled on</label>
+                        <label htmlFor="" className="addStudentLabel fw-bolder">Enrolled on</label>
                         <select
                         {...register("enrolledOn", { required: true })}
                         name="enrolledOn"
@@ -124,7 +124,7 @@ const StudentForm = () => {
                     </div> 
 
                     <div className="col-12 mt-3">
-                        <label htmlFor="" className="addStudentLabel fw-bold">Enrolled Type</label>
+                        <label htmlFor="" className="addStudentLabel fw-bolder">Enrolled Type</label>
                         <select
                         {...register("enrolledType", { required: true })}
                         name="enrolledType"
@@ -142,7 +142,7 @@ const StudentForm = () => {
                     </div> 
                     
                     <div className="col-12 mt-3">
-                        <label htmlFor="githubAccount" className="addStudentLabel fw-bold">Github Account</label>
+                        <label htmlFor="githubAccount" className="addStudentLabel fw-bolder">Github Account</label>
                         <input
                         {...register("githubAccount", { required: true })}
                         name="githubAccount"
@@ -155,7 +155,7 @@ const StudentForm = () => {
                     </div>
 
                     <div className="col-12 mt-3">
-                        <label htmlFor="" className="addStudentLabel fw-bold">Portfolio Link</label>
+                        <label htmlFor="" className="addStudentLabel fw-bolder">Portfolio Link</label>
                         <input
                             {...register("portfolioLink", { required: true })}
                             name="portfolioLink"
@@ -169,7 +169,7 @@ const StudentForm = () => {
                 </div>
                 <div className="columns col-6">
                     <div className="col-12 mt-4">
-                        <label htmlFor="studentThumb" className="addStudentLabel  gx-0 row fw-bold">Student Thumbnail</label>
+                        <label htmlFor="studentThumb" className="addStudentLabel  gx-0 row fw-bolder">Student Thumbnail</label>
                         <input {...register("studentThumb")}
                         type="file"
                         onChange={readURL}
@@ -184,7 +184,7 @@ const StudentForm = () => {
                         </label>
                     </div>
                     <div className="col-12 mt-4">
-                        <label className=" addStudentLabel my-3 row gx-0 fw-bold">CV Upload</label>
+                        <label className=" addStudentLabel my-3 row gx-0 fw-bolder">CV Upload</label>
                         <div>
                             <label htmlFor="cvUpload" className="btn upload-btn mt-2">Upload</label>
                             <input {...register("cvUpload")}

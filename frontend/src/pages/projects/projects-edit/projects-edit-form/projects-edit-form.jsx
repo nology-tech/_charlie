@@ -6,6 +6,23 @@ import placeHolderThumb from "../../../../assets/images/project-thumbnail.png";
 
 const ProjectsEditForm = () => {
   const {projectId} = useParams();
+  const [projectsData, setProjectsData] = useState({}); 
+  const { projectName, projectBrief, coachesTips } = projectsData;
+  const [ dropdownData, setDropdownData] = useState(""); 
+
+  const setupStates = (jsonResponse) => {
+    setProjectsData(jsonResponse);
+    setDropdownData(jsonResponse.language);
+  }
+
+  const getProjectById = () => {
+    fetch(`http://localhost:8080/projects/${projectId}`)
+        .then(response => response.json())
+        .then(jsonResponse => setupStates(jsonResponse))
+        .catch(error => console.log(error));
+}
+
+let languages = ["HTML/CSS","Javascript", "React", "Java"];
     const {
         register,
         handleSubmit,
@@ -20,29 +37,12 @@ const ProjectsEditForm = () => {
         alt: "",
     });
 
-    const [projectsData, setProjectsData] = useState({}); 
-    const { projectName, projectBrief, coachesTips } = projectsData;
-
-    const getProjectById = () => {
-        fetch("http://localhost:8080/projects/"+projectId)
-            .then(response => response.json())
-            .then(jsonResponse => setProjectsData(jsonResponse))
-            .catch(error => console.log(error));
-    }
-    useEffect(() => {getProjectById()}, []);
-
-    let languages = ["htmlcss"," Javascript", "React", "Java"];
-    let languageArr = [projectsData.language];
-    languages.forEach(language => {
-        if(!language.includes(projectsData.language)) {
-            languageArr.push(language);
-        }
-    });
+    useEffect(getProjectById, [projectId]);
 
     const onSubmit = (data) => {
         console.log("SUCCESS!! :-)\n\n" + JSON.stringify(data, null, 4));
 
-        fetch("http://localhost:8080/projects/"+ projectId, {
+        fetch(`http://localhost:8080/projects/${projectId}`, {
             method: "PUT",
             headers: {
                 'Accept': 'application/json',
@@ -80,8 +80,8 @@ const ProjectsEditForm = () => {
     };
 
     const deleteProject = () => {
-        if(window.confirm("Are you want to delete this project?")) {
-            fetch("http://localhost:8080/projects/"+projectId, {
+        if(window.confirm("Are you sure you want to delete this project? It will be deleted permanently.")) {
+            fetch(`http://localhost:8080/projects/${projectId}`, {
                 method: "DELETE"
             })
             .then((response) => global.window.location.href = "/projects")
@@ -125,11 +125,12 @@ const ProjectsEditForm = () => {
                             name="language"
                             className="form-select form-control project-form-input "
                             id="language"
+                            value = {dropdownData}
+                            onChange={ev => setDropdownData(ev)}
                         >
-                            {/*language*/}
                             <optgroup label="Select a Language">
                                 {
-                                    languageArr.map(currentLanguage => {
+                                    languages.map(currentLanguage => {
                                         return <option value={currentLanguage}>{currentLanguage}</option>
                                     })
                                 }
@@ -150,7 +151,7 @@ const ProjectsEditForm = () => {
                             className="text-area-styling"
                             type="text"
                             id="projectBrief"
-                            defaultValue={coachesTips}
+                            defaultValue={projectBrief}
                         >
                         </textarea>
 
@@ -227,20 +228,13 @@ const ProjectsEditForm = () => {
                             value="Save"
                         />
                     </div>
-                    {/* <div className="my-4">
-                        <button onClick={() => {deleteProject()}} className="btn text-danger text-decoration-underline">
-                            Delete Project
-                        </button>
-                    </div> */}
+                    <button className="form__button-danger" onClick={() => {deleteProject()}}>Delete</button>
                 </div>
             </form>
-            <div className="mb-5 row">
-                        <button onClick={() => {deleteProject()}} className="btn text-danger text-decoration-underline offset-7 col-2">
-                            Delete Project
-                        </button>
-            </div>
+            
         </div>
     );
 };
+
 
 export default ProjectsEditForm;

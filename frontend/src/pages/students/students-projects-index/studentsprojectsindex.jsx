@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
 import { useParams} from "react-router";
 
 
@@ -46,35 +45,40 @@ const grabGithubLinks = () => {
     case "Morse Code Translator":
       regexSearchTerm = "Morse";
       break;
-    case "Morse-Code":
-    regexSearchTerm = "Morse";
-    break;
     case "Client Project":
       regexSearchTerm = "Client";
       break;
     case "Punk API":
       regexSearchTerm = "Punk";
       break;
-    case "Brewdog-API":
-    regexSearchTerm = "Punk";
-    break;
-    case "JS Game":
+    case "JavaScript Game":
       regexSearchTerm = "Game";
       break;
     case "Pre-coursework":
       regexSearchTerm = "Pre";   
       break;
+    case "Ticket Tracker":
+    regexSearchTerm = "Ticket";
+    break;
+    case "Pre-Coursework":
+    regexSearchTerm = "coursework";
+    break;
     default: 
       break; 
   }
   let projectTitleRegex = new RegExp(regexSearchTerm, 'i'); 
   try {
-    const repositoryData = githubRepoData.filter(repo => {return repo.name.match(projectTitleRegex)}); 
+    let repositoryData = []; 
+    if (selectedProject.title === "OOP Text Game") {
+      repositoryData = githubRepoData.filter(repo => {return repo.language.match("Java")}); 
+    } else {
+      repositoryData = githubRepoData.filter(repo => {return repo.name.match(projectTitleRegex)}); 
+    }
     const livePageLink = repositoryData[0].homepage;
     const repoPageLink = repositoryData[0].html_url;
-    setGithubLinks([repoPageLink, livePageLink])
+    setGithubLinks([repoPageLink, livePageLink]);
   } catch {
-      window.alert("This project doesn't seem to exist. Please try searching for it manually, on the student's Github page.");
+      window.alert("This project doesn't seem to exist yet. Please try searching for it manually, on the student's Github page.");
   }
 }
     useEffect(fetchStudentData, [studentId]); 
@@ -113,7 +117,7 @@ const grabGithubLinks = () => {
       <div className="main__content d-flex flex-column align-items-center p-0">
         <PageHeader
           title={studentsData.studentName + "'s " + selectedProject.title}
-          buttonPath="javascript:history.go(-1)"
+          buttonPath={`/student/${studentId}/overview`}
           buttonText="Go Back"
           buttonStyle="btn-back top-nav__header-button me-2"
           button2Path={reviewPagePath}

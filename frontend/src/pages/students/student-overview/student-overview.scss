@@ -24,12 +24,11 @@
       }
       &__card{
         width: 30%;
-        height: auto;
         min-height: 270px;
         &-image{
           border-radius: 50%;
-          height: 170px;
-          width: 170px;
+          height: 200px;
+          width: 200px;
         }
         &-name{
           font-weight: 600;

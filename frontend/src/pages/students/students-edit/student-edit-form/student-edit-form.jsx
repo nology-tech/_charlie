@@ -10,11 +10,13 @@ const StudentEditForm = () => {
     const [studentData, setStudentData] = useState({}); 
     const { studentId } = useParams();
     const [studentNameArr, setStudentNameArr] = useState([]);
+    const [dropdownData, setDropdownData] = useState([]); 
 
     const setupStates = (jsonData) => {
         setStudentData(jsonData);
         const studentName = jsonData.studentName.split(" ");
         setStudentNameArr([studentName[0], studentName[studentName.length-1]])
+        setDropdownData([jsonData.enrolledOn, jsonData.enrolledType])
     }
 
     const fetchStudentData = () => {
@@ -26,7 +28,7 @@ const StudentEditForm = () => {
         .catch(err => console.log("Failed to grab students data"));
     }
 
-    useEffect(fetchStudentData, []); 
+    useEffect(fetchStudentData, [studentId]); 
 
     const [{ alt, src }, setImg] = useState({
         src: "https://via.placeholder.com/150",
@@ -35,7 +37,7 @@ const StudentEditForm = () => {
 
     const onDelete = (data) => {
         console.log(data);
-        if (window.confirm('Are you sure about that?')) {
+        if (window.confirm('Are you sure about that? This student will be permanently deleted.')) {
             fetch(`http://localhost:8080/students/${studentId}`, {
                 method: "DELETE",
                 headers: {
@@ -86,9 +88,8 @@ const StudentEditForm = () => {
                 email: data.email
             })
         })
-        .then((response) => response.json());
-        
-        history.goBack();
+        .then((response) => global.window.location.href="/students")
+        .catch(error => alert(error));
     };
     
     const handleClick = () => {
@@ -106,7 +107,7 @@ const StudentEditForm = () => {
     };
 
     return (
-        <div className="row mt-4 w-100 my-4 px-4 mx-auto offset-1 form__container">
+        <div className="row mt-3 w-100 my-4 px-4 mx-auto offset-1 form__container pb-3">
             <form className="row" onSubmit={handleSubmit(onSubmit)}>
                 <div className="columns col-6">
                     <div className="col-12 mt-4">
@@ -166,7 +167,8 @@ const StudentEditForm = () => {
                         className="form-select form-control form__input  my-2"
                         id="enrolledOn"
                         data-testid="enrolledOn"
-                        value = {studentData.enrolledOn}
+                        defaultValue = {dropdownData[0]}
+                        onChange = {ev=> setDropdownData([ev, dropdownData[1]])}
                         >
                         <option value="Ibiza">Ibiza</option>
                         <option value="Hawaii">Hawaii</option>
@@ -184,7 +186,8 @@ const StudentEditForm = () => {
                         className="form-select form-control form__input  my-2"
                         id="enrolledType"
                         data-testid="enrolledType"
-                        value={studentData.enrolledType}
+                        defaultValue={dropdownData[1]}
+                        onChange = {ev=> setDropdownData([dropdownData[0], ev])}
                         >
                         <option value="Full-Time">Full-Time</option>
                         <option value="Corporate">Corporate</option>
@@ -255,7 +258,7 @@ const StudentEditForm = () => {
                         <input type="submit" className="form__button-save" value="Save" />
                     </div>
                     <div className = "w-100"> 
-                      <input type="button" className="form__button-danger" value="Delete" onClick={onDelete}/>
+                      <button className="form__button-danger" onClick={onDelete}>Delete</button>
                     </div>
                 </div>
             </form>
