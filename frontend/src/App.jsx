@@ -15,6 +15,7 @@ import AddStudent from './pages/students/student-add/addstudent';
 import ProjectList from './pages/projects/projects-list/projects-list';
 import ProjectCreate from './pages/projects/projects-create/projects-create';
 import StudentOverview from 'pages/students/student-overview/student-overview';
+import EditStudent from 'pages/students/students-edit/edit-student';
 
 function App() {
 
@@ -60,9 +61,15 @@ function App() {
               <StudentOverview />
             </Route>
 
+            <Route path="/student/:studentId/edit">
+              <EditStudent></EditStudent>
+            </Route>
+
             <Route path="/student/create">
               <AddStudent></AddStudent>
             </Route>
+
+            
             
             {/* <Route path="/student/:studentId/project/:projectId">
               <StudentDetails></StudentDetails>

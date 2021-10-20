@@ -45,7 +45,7 @@ const StudentOverview = () => {
                 buttonPath={"javascript:history.back()"}
                 button2Text = "Edit" 
                 button2Style = {"btn-primary top-nav__header-button border-0"}
-                button2Path = {"/student/create"}
+                button2Path = {`/student/${studentId}/edit`}
                 />
                 <div className="overview row mt-4 p-0 justify-content-between gx-0 d-flex">
                     <h4 className="overview__title mb-4">Overview</h4>
