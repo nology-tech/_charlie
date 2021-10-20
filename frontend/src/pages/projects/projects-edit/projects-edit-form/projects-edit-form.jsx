@@ -109,7 +109,7 @@ const ProjectsEditForm = () => {
                             className="form-control project-form-input project-form__left__projectName "
                             type="text"
                             id="projectName"
-                            value={projectName}
+                            defaultValue={projectName}
                         />
                         {errors.projectName && (
                             <div className="text-danger">*Required</div>
