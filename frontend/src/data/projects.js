@@ -11,9 +11,9 @@ const projects = [
     title: "Calculator",
     imgSrc: Calculator,
     languagesUsed: ["HTML", "CSS", "JavaScript"],
-    reviewNeeded: true,
-    reviewed: false,
-    reviews:[]
+    reviewNeeded: false,
+    reviewed: true,
+    reviews:["Nice design!"]
   },
   {
     id: 1,

@@ -1,5 +1,6 @@
 import "./navbar.scss";
 
+import DarkModeSwitch from "../darkmodeswitch/darkmodeswitch";
 import Logo from "../../assets/images/Logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { FaHome, FaFileAlt, FaUsers, FaAward, FaCog } from 'react-icons/fa';
@@ -36,14 +37,16 @@ const Navbar = () => {
             {mappedNavItems}
 
             <hr />
-            <NavLink exact to="/settings" activeClassName="active" className="navbar__settings navbar__link">
+            {/* <NavLink exact to="/settings" activeClassName="active" className="navbar__settings navbar__link">
                 <span className="navbar__link-icon">
                     <FaCog />
                 </span>
                 <span className="navbar__link-text">
                     Settings
                 </span>
-            </NavLink>
+            </NavLink> */}
+
+            <DarkModeSwitch />
         </div>  
     );
 }
