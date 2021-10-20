@@ -44,7 +44,7 @@ const projects = [
   },
   {
     id: 4,
-    title: "Tic Tac Toe",
+    title: "Javascript Game",
     imgSrc: JSgame,
     languagesUsed: ["HTML", "CSS", "JavaScript"],
     reviewNeeded: false,
@@ -63,6 +63,33 @@ const projects = [
     reviewed: false,
     reviews:[]
   },
+  {
+    id: 6,
+    title: "Pre-Coursework",
+    imgSrc: ClientProject,
+    languagesUsed: ["HTML", "CSS", "JavaScript"],
+    reviewNeeded: false,
+    reviewed: false,
+    reviews:[]
+  },
+  {
+    id: 7,
+    title: "OOP Text Game",
+    imgSrc: ClientProject,
+    languagesUsed: ["Java"],
+    reviewNeeded: false,
+    reviewed: false,
+    reviews:[]
+  },
+  {
+    id: 8,
+    title: "Ticket Tracker",
+    imgSrc: ClientProject,
+    languagesUsed: ["React"],
+    reviewNeeded: false,
+    reviewed: false,
+    reviews:[]
+  }
 ];
 
 export default projects;

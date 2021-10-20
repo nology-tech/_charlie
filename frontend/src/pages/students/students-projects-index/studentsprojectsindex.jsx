@@ -9,6 +9,7 @@ import projects from "../../../data/projects";
 import Cards from "../../../components/cards/cards";
 import Card from "../../../components/cards/card/card";
 import PageHeader from "../../../components/page-header/page-header";
+import studentData from 'data/studentForm';
 
 const SubmissionDetails = () => {
 
@@ -40,8 +41,8 @@ const fetchGithubRepoData = () =>{
 }
 
 const grabGithubLinks = () => {
-  let regexSearchTerm = selectedProject.title;
-  switch(regexSearchTerm) {
+  let regexSearchTerm = ""
+  switch(selectedProject.title) {
     case "Morse Code Translator":
       regexSearchTerm = "Morse";
       break;
@@ -51,8 +52,8 @@ const grabGithubLinks = () => {
     case "Punk API":
       regexSearchTerm = "Punk";
       break;
-    case "JavaScript Game":
-      regexSearchTerm = "Game";
+    case "Javascript Game":
+      regexSearchTerm = "game";
       break;
     case "Pre-coursework":
       regexSearchTerm = "Pre";   
@@ -63,14 +64,25 @@ const grabGithubLinks = () => {
     case "Pre-Coursework":
     regexSearchTerm = "coursework";
     break;
+    case "OOP Text Game":
+    regexSearchTerm = "game";
+    break;
     default: 
-      break; 
+    break; 
   }
   let projectTitleRegex = new RegExp(regexSearchTerm, 'i'); 
   try {
     let repositoryData = []; 
     if (selectedProject.title === "OOP Text Game") {
-      repositoryData = githubRepoData.filter(repo => {return repo.language.match("Java")}); 
+      repositoryData = githubRepoData.filter(repo => {return repo.language === "Java"});
+      if (repositoryData.length > 1) {
+        repositoryData = repositoryData.filter(repo => {return repo.description && repo.description.split(" ").includes(regexSearchTerm)});
+      }
+    } else if (selectedProject.title === "Javascript Game") {
+      repositoryData = githubRepoData.filter(repo => {return repo.language === "JavaScript"});
+      if (repositoryData.length > 1) {
+        repositoryData = repositoryData.filter(repo => {return repo.description && repo.description.split(" ").includes(regexSearchTerm)});
+      }
     } else {
       repositoryData = githubRepoData.filter(repo => {return repo.name.match(projectTitleRegex)}); 
     }
@@ -78,7 +90,7 @@ const grabGithubLinks = () => {
     const repoPageLink = repositoryData[0].html_url;
     setGithubLinks([repoPageLink, livePageLink]);
   } catch {
-      window.alert("This project doesn't seem to exist yet. Please try searching for it manually, on the student's Github page.");
+      window.alert("Could not find the project.\nThis does not necessarily mean that it does not exist.\nPlease try searching for it manually, on the student's Github page.\nThis can be accessed at https://www.github.com/" + studentsData.githubAccount);
   }
 }
     useEffect(fetchStudentData, [studentId]); 
