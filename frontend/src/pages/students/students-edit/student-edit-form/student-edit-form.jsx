@@ -34,6 +34,35 @@ const StudentEditForm = () => {
         alt: "",
     });
 
+    const onDelete = (data) => {
+        console.log(data);
+        if (window.confirm('Are you sure about that?')) {
+            fetch(`http://localhost:8080/students/${studentId}`, {
+                method: "DELETE",
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+    
+                //make sure to serialize your JSON body
+                body: JSON.stringify({
+                    studentName: `${data.firstName} ${data.lastName}`,
+                    enrolledOn: data.enrolledOn,
+                    githubAccount: data.githubAccount,
+                    portfolio: data.portfolioLink,
+                    resume: "sample.pdf",
+                    enrolledType: data.enrolledType,
+                    pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png",
+                    email: data.email
+                })
+            })
+            .then((response) => response.json());
+            history.goBack();
+        } else {
+            history.goBack();
+        }
+    };
+
 
 
     const onSubmit = (data) => {
@@ -231,6 +260,10 @@ const StudentEditForm = () => {
                     <div className="col-12 mt-5 d-flex align-items-end">
                         <input type="reset" className="form__button-cancel" value="Cancel" onClick={handleClick} />
                         <input type="submit" className="form__button-save" value="Save" />
+                        {/* <input type="submit" className="form__button-danger" value="Delete" /> */}
+                    </div>
+                    <div className = "w-100"> 
+                      <input type="button" className="form__button-danger" value="Delete" onClick={onDelete}/>
                     </div>
                 </div>
             </form>

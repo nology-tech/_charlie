@@ -39,6 +39,19 @@
     color: white;
     border: 1px solid transparent;
   }
+
+  &__button-danger {
+    width: 168.385px;
+    height: 50px;
+    background: red;
+    border-radius: 7px;
+    color: white;
+    border: 1px solid transparent;
+    // margin-left: 13.82px;
+    margin-top: 10px;  
+  }
+
+  
 }
 
 .form-control:focus {
