@@ -16,18 +16,20 @@ const StudentOverview = () => {
         fetch(`http://localhost:8080/students/${studentId}`)
         .then(response => response.json())
         .then(jsonData => setStudentsData(jsonData))
-        .catch(err => console.log(err));  
+        .catch(err => console.log("Failed to grab students data"));
     }
 
     const getGithubData = () =>{
-        fetch(`https://api.github.com/users/${studentsData.githubAccount}`, {
-            headers:{
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }})
-        .then(response => response.json())
-        .then(data => setGithubData(data))
-		.catch(error => console.log(error));
+        if (studentsData.githubAccount) {
+            fetch(`https://api.github.com/users/${studentsData.githubAccount}`, {
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }})
+            .then(response => response.json())
+            .then(data => setGithubData(data))
+            .catch(error => console.log(error));
+        }  
     } 
 
     useEffect(fetchStudentData, [studentId]); 
@@ -40,7 +42,7 @@ const StudentOverview = () => {
                 <PageHeader title = {studentsData.studentName} 
                 buttonText = "Go Back" 
                 buttonStyle = {"btn-back top-nav__header-button me-2"} 
-                buttonPath={"javascript:history.go(-1)"}
+                buttonPath={"javascript:history.back()"}
                 button2Text = "Edit" 
                 button2Style = {"btn-primary top-nav__header-button border-0"}
                 button2Path = {"/student/create"}

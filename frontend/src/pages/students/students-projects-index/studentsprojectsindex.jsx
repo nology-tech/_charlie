@@ -5,7 +5,6 @@ import "./studentsprojectsindex.scss";
 import { FaGithub, FaEye } from "react-icons/fa";
 
 import projects from "../../../data/projects";
-import students from "../../../data/students";
 import Cards from "../../../components/cards/cards";
 import Card from "../../../components/cards/card/card";
 import PageHeader from "../../../components/page-header/page-header";
@@ -13,10 +12,11 @@ import PageHeader from "../../../components/page-header/page-header";
 const SubmissionDetails = () => {
   const { studentId, projectId } = useParams();
   const [commentArr, setCommentArr] = useState([]);
-  const selectedStudent = students[studentId];
   const selectedProject = projects[projectId];
-  const [studentsData, setStudentsData] = useState({});
-
+  const [studentsData, setStudentsData] = useState([]);
+  const [githubRepoData, setGithubRepoData] = useState([]); 
+  const [githubLinks, setGithubLinks] = useState([]); 
+  
   const fetchStudentData = () => {
     fetch(`http://localhost:8080/students/${studentId}`)
     .then(response => response.json())
@@ -24,7 +24,59 @@ const SubmissionDetails = () => {
     .catch(err => console.log(err));  
 }
 
+const fetchGithubRepoData = () =>{
+  if (studentsData.githubAccount) {
+    fetch(`https://api.github.com/users/${studentsData.githubAccount}/repos`, {
+        headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }})
+    .then(response => response.json())
+    .then(data => setGithubRepoData(data))
+    .catch(error => console.log("Could not fetch github data for the student."));
+  }
+}
+
+const grabGithubLinks = () => {
+  let regexSearchTerm = selectedProject.title;
+  switch(regexSearchTerm) {
+    case "Morse Code Translator":
+      regexSearchTerm = "Morse";
+      break;
+    case "Morse-Code":
+    regexSearchTerm = "Morse";
+    break;
+    case "Client Project":
+      regexSearchTerm = "Client";
+      break;
+    case "Punk API":
+      regexSearchTerm = "Punk";
+      break;
+    case "Brewdog-API":
+    regexSearchTerm = "Punk";
+    break;
+    case "JS Game":
+      regexSearchTerm = "Game";
+      break;
+    case "Pre-coursework":
+      regexSearchTerm = "Pre";   
+      break;
+    default: 
+      break; 
+  }
+  let projectTitleRegex = new RegExp(regexSearchTerm, 'i'); 
+  try {
+    const repositoryData = githubRepoData.filter(repo => {return repo.name.match(projectTitleRegex)}); 
+    const livePageLink = repositoryData[0].homepage;
+    const repoPageLink = repositoryData[0].html_url;
+    setGithubLinks([repoPageLink, livePageLink])
+  } catch {
+      window.alert("This project doesn't seem to exist. Please try searching for it manually, on the student's Github page.");
+  }
+}
+
     useEffect(fetchStudentData, [studentId]); 
+    useEffect(fetchGithubRepoData, [studentsData.githubAccount]);  
 
   // update array of notes in state when new one is submitted
   const submitAdditionalNotes = (e) => {
@@ -58,7 +110,7 @@ const SubmissionDetails = () => {
       <div className="projects__white-space"></div>
       <div className="main__content d-flex flex-column align-items-center p-0">
         <PageHeader
-          title={selectedStudent.studentName + "'s " + selectedProject.title}
+          title={studentsData.studentName + "'s " + selectedProject.title}
           buttonPath="javascript:history.go(-1)"
           buttonText="Go Back"
           buttonStyle="btn-back top-nav__header-button me-2"
@@ -77,16 +129,18 @@ const SubmissionDetails = () => {
               </div>
               <div className="row">
                 <div className="d-flex align-items-center overview-buttons mt-4">
-                  <button className="btn-dark btn-project">
-                      <a href = {`https://github.com/${studentsData.githubAccount}?tab=repositories`} target = "_blank" rel="noreferrer">
+                  <button className="btn-dark btn-project" onClick = {grabGithubLinks}>
+                      <a href = {githubLinks[0]} target = "_blank" rel="noreferrer">
                     <FaGithub />
                     &nbsp;View Repo
                     </a> 
                   </button>
                   &nbsp;
                   <button className="btn-secondary btn-project">
+                  <a href = {githubLinks[1]} target = "_blank" rel="noreferrer">
                     <FaEye />
                     &nbsp;Live preview
+                  </a> 
                   </button>
                 </div>
               </div>

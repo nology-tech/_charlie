@@ -24,8 +24,8 @@ const StudentsList = () => {
         setEnrollmentData(jsonData.sort((a,b) => a.studentName.localeCompare(b.studentName)));
     }
 
-    const fetchStudentData = async () => {
-        await fetch("http://localhost:8080/students/")
+    const fetchStudentData = () => {
+        fetch("http://localhost:8080/students/")
         .then(response => response.json())
         .then(jsonData => setStartingStates(jsonData))
         .catch(err=> console.log("Failed to fetch students data."));
@@ -126,6 +126,8 @@ const StudentsList = () => {
                 studentCopy.sort((a, b)=> a.studentName.localeCompare(b.studentName)).reverse();
                 setStudentsData(studentCopy);
                 break; 
+            default: 
+                break; 
         }
     }
 
@@ -155,7 +157,9 @@ const StudentsList = () => {
                 setFilterOption("Hawaii");
                 setSortOption("1");
                 setStudentsData((enrollmentData.filter(student => student.enrolledOn.match(/Hawaii/i))));
-                break; 
+                break;
+            default: 
+                break;  
         }
     }
 
