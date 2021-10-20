@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import { useParams} from "react-router";
+
 
 import "./studentsprojectsindex.scss";
 import { FaGithub, FaEye } from "react-icons/fa";
@@ -10,6 +12,7 @@ import Card from "../../../components/cards/card/card";
 import PageHeader from "../../../components/page-header/page-header";
 
 const SubmissionDetails = () => {
+
   const { studentId, projectId } = useParams();
   const [commentArr, setCommentArr] = useState([]);
   const selectedProject = projects[projectId];
@@ -74,7 +77,6 @@ const grabGithubLinks = () => {
       window.alert("This project doesn't seem to exist. Please try searching for it manually, on the student's Github page.");
   }
 }
-
     useEffect(fetchStudentData, [studentId]); 
     useEffect(fetchGithubRepoData, [studentsData.githubAccount]);  
 

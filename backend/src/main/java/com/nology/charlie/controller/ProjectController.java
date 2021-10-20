@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/projects")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProjectController {
     @Autowired
     private IProjectRepository repo;
@@ -38,7 +39,7 @@ public class ProjectController {
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateProjectById(@PathVariable int id, @RequestBody Project updatedProject) {
         if(this.repo.existsById(id)) {
-            this.repo.deleteById(id);
+//            this.repo.deleteById(id);
             this.repo.save(updatedProject);
             return ResponseEntity.status(HttpStatus.OK).body(updatedProject);
         }
@@ -54,3 +55,4 @@ public class ProjectController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find project with id: " + id));
     }
 }
+

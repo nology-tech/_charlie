@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router";
-import "./projects-form.scss";
+import { useHistory, useParams } from "react-router";
+import "./projects-edit-form.scss";
 import placeHolderThumb from "../../../../assets/images/project-thumbnail.png";
 
-const ProjectsForm = () => {
+const ProjectsEditForm = () => {
+  const {projectId} = useParams();
     const {
         register,
         handleSubmit,
@@ -19,28 +20,48 @@ const ProjectsForm = () => {
         alt: "",
     });
 
+    const [projectsData, setProjectsData] = useState({}); 
+    const { projectName, projectBrief, coachesTips } = projectsData;
+
+    const getProjectById = () => {
+        fetch("http://localhost:8080/projects/"+projectId)
+            .then(response => response.json())
+            .then(jsonResponse => setProjectsData(jsonResponse))
+            .catch(error => console.log(error));
+    }
+    useEffect(() => {getProjectById()}, []);
+
+    let languages = ["htmlcss"," Javascript", "React", "Java"];
+    let languageArr = [projectsData.language];
+    languages.forEach(language => {
+        if(!language.includes(projectsData.language)) {
+            languageArr.push(language);
+        }
+    });
+
     const onSubmit = (data) => {
         console.log("SUCCESS!! :-)\n\n" + JSON.stringify(data, null, 4));
 
-        fetch("http://localhost:8080/projects/", {
-            method: "POST",
+        fetch("http://localhost:8080/projects/"+ projectId, {
+            method: "PUT",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
 
             body: JSON.stringify({
-                projectName: data.projectName,
-                language: data.language,
+                id: projectId,
+                projectName: data.projectName || projectName,
+                language: data.language || projectsData.language,
                 studentsEnrolled: 325,
                 numberReviewed: 278,
                 percentageReviewed: "85%",
-                projectBrief: data.projectBrief,
-                coachesTips: data.coachesTips,
+                projectBrief: data.projectBrief || projectBrief,
+                coachesTips: data.coachesTips || coachesTips,
                 projectThumb: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png"
             })
         })
-        .then((response) => global.window.location.href = "/projects")
+        .then((response) => global.window.location.href="/projects")
         .catch(error => alert(error));
     };
 
@@ -58,8 +79,18 @@ const ProjectsForm = () => {
         }
     };
 
+    const deleteProject = () => {
+        if(window.confirm("Are you want to delete this project?")) {
+            fetch("http://localhost:8080/projects/"+projectId, {
+                method: "DELETE"
+            })
+            .then((response) => global.window.location.href = "/projects")
+            .catch(error => console.log(error));
+        }
+    };
+
     return (
-        <div className="project-form-container mt-4">
+        <div className="project-form-container mt-4 mb-5">
             <form
                 className="d-flex justify-content-around w-100"
                 onSubmit={handleSubmit(onSubmit)}
@@ -73,34 +104,35 @@ const ProjectsForm = () => {
                             Project Name
                         </label>
                         <input
-                            {...register("projectName", {
-                                required: true,
-                            })}
+                            {...register("projectName")}
                             name="projectName"
                             className="form-control project-form-input project-form__left__projectName "
                             type="text"
                             id="projectName"
+                            value={projectName}
                         />
                         {errors.projectName && (
                             <div className="text-danger">*Required</div>
                         )}
                     </div>
-
+                    
                     <div className="mt-3">
                         <label className="project-form__left__label" htmlFor="">
                             Language
                         </label>
                         <select
-                            {...register("language", { required: true })}
+                            {...register("language")}
                             name="language"
                             className="form-select form-control project-form-input "
                             id="language"
                         >
+                            {/*language*/}
                             <optgroup label="Select a Language">
-                                <option value="htmlcss">HTML/CSS</option>
-                                <option value="javascript">Javascript</option>
-                                <option value="react">React</option>
-                                <option value="java">Java</option>
+                                {
+                                    languageArr.map(currentLanguage => {
+                                        return <option value={currentLanguage}>{currentLanguage}</option>
+                                    })
+                                }
                             </optgroup>
                         </select>
                     </div>
@@ -113,14 +145,15 @@ const ProjectsForm = () => {
                             Project Brief
                         </label>
                         <textarea
-                            {...register("projectBrief", {
-                                required: true,
-                            })}
+                            {...register("projectBrief", {required: true})}
                             name="projectBrief"
                             className="text-area-styling"
                             type="text"
                             id="projectBrief"
-                        />
+                            defaultValue={coachesTips}
+                        >
+                        </textarea>
+
                         {errors.projectBrief && (
                             <p className="text-danger">*Required</p>
                         )}
@@ -134,12 +167,15 @@ const ProjectsForm = () => {
                             Coaches Tips
                         </label>
                         <textarea
-                            {...register("coachesTips", { required: true })}
+                            {...register("coachesTips", {required: true})}
                             name="coachesTips"
                             className="text-area-styling"
                             type="text"
                             id="coachesTips"
-                        />
+                            defaultValue={coachesTips}
+                        >
+                        </textarea>
+
                         {errors.coachesTips && (
                             <p className="text-danger">*Required</p>
                         )}
@@ -181,20 +217,30 @@ const ProjectsForm = () => {
                     <div className="project-form__right__buttons">
                         <input
                             type="reset"
-                            className="form__button-cancel"
+                            className="project-form__right__buttons-cancel"
                             value="Cancel"
                             onClick={handleCancel}
                         />
                         <input
                             type="submit"
-                            className="form__button-save"
+                            className="project-form__right__buttons-submit"
                             value="Save"
                         />
                     </div>
+                    {/* <div className="my-4">
+                        <button onClick={() => {deleteProject()}} className="btn text-danger text-decoration-underline">
+                            Delete Project
+                        </button>
+                    </div> */}
                 </div>
             </form>
+            <div className="mb-5 row">
+                        <button onClick={() => {deleteProject()}} className="btn text-danger text-decoration-underline offset-7 col-2">
+                            Delete Project
+                        </button>
+            </div>
         </div>
     );
 };
 
-export default ProjectsForm;
+export default ProjectsEditForm;

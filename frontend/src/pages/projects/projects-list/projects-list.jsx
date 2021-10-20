@@ -1,7 +1,7 @@
 import React,{useEffect, useState }  from 'react'
 import ProjectTable from "./project-table/project-table";
 import "./projects-list.scss"; 
-import projectsDataFile from "../../../data/projectsData"; 
+// import projectsDataFile from "../../../data/projectsData"; 
 import PageHeader from "../../../components/page-header/page-header"; 
 
 const ProjectsList = () => {
@@ -9,11 +9,24 @@ const ProjectsList = () => {
     const [pageData, setPageData] = useState([]);  
     const [languageFilter, setLanguageFilter] = useState("All");
 
-    const fetchProjectsData = () => {
-        setProjectsData(projectsDataFile);
+    const getProjectDetails = () => {
+        fetch("http://localhost:8080/projects/")
+            .then(response => response.json())
+            .then(jsonResponse => setProjectsData(jsonResponse))
+            .catch(error => console.log(error));
     }
+
+    useEffect(() => {getProjectDetails()}, []);
+
+    // const fetchProjectsData = () => {
+    //     setProjectsData(projectsDataFile);
+    // }
     const displayProjects = () => {
         setPageData(projectsData);
+    }
+
+    const lowercase = (language) => {
+        return language.toLowerCase();
     }
 
     const filterDataByLanguage = (languageChoice) => {
@@ -22,17 +35,28 @@ const ProjectsList = () => {
             setPageData(projectsData);
         } else {
             setLanguageFilter(languageChoice);
-            if(languageChoice === "Java"){
-                setPageData(projectsDataFile.filter(project => project.language.includes("Java") && !project.language.includes("script")));
-            }else{
-                setPageData(projectsDataFile.filter(project => project.language.includes(languageChoice)));
+            
+            if(languageChoice === "HTML/CSS"){
+                setPageData(projectsData.filter(project => {
+                    return lowercase(project.language).includes("html")
+                }));
+            }
+            else if(languageChoice === "Java" || languageChoice === "Javascript" || languageChoice === "React") {
+                setPageData(projectsData.filter(project => {
+                    return lowercase(project.language) === lowercase(languageChoice)
+                }));
+            }
+            else {
+                setPageData(projectsData.filter(project => {
+                    return (
+                        lowercase(project.language) === lowercase(languageChoice) || 
+                        project.language.includes(languageChoice)
+                    )
+                }));
             }
         }
-        
-        
     }
 
-    useEffect(fetchProjectsData, []); 
     useEffect(displayProjects, [projectsData]);
 
     return (

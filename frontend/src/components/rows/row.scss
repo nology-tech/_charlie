@@ -1,5 +1,6 @@
 @import "../../assets/styles/variables";
 
+.default-link, .default-link:visited {color: unset;}
 
 .container{
     width: 100%;
@@ -14,6 +15,8 @@
     letter-spacing: 0.03em;
     padding-top: 18px;
     padding-bottom: 17px;
+
+    
         
     &__property {
         margin: 0; 

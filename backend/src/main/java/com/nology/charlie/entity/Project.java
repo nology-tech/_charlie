@@ -1,18 +1,41 @@
 package com.nology.charlie.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Project {
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
 
-    private String name;
+    private String projectName;
     private String language;
-    private String brief;
-    private String coaches_tips;
-    private String thumbnail;
+    private int studentsEnrolled;
+    private int numberReviewed;
+    private String percentageReviewed;
+    private String projectBrief;
+    private String coachesTips;
+    private String projectThumb;
+
+
+    public Project() {
+    }
+
+    public Project(int id, String projectName, String language, int studentsEnrolled, int numberReviewed, String percentageReviewed, String projectBrief, String coachesTips, String projectThumb) {
+        this.id = id;
+        this.projectName = projectName;
+        this.language = language;
+        this.studentsEnrolled = studentsEnrolled;
+        this.numberReviewed = numberReviewed;
+        this.percentageReviewed = percentageReviewed;
+        this.projectBrief = projectBrief;
+        this.coachesTips = coachesTips;
+        this.projectThumb = projectThumb;
+    }
 
     public int getId() {
         return id;
@@ -22,12 +45,12 @@ public class Project {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     public String getLanguage() {
@@ -38,39 +61,51 @@ public class Project {
         this.language = language;
     }
 
-    public String getBrief() {
-        return brief;
+    public int getStudentsEnrolled() {
+        return studentsEnrolled;
     }
 
-    public void setBrief(String brief) {
-        this.brief = brief;
+    public void setStudentsEnrolled(int studentsEnrolled) {
+        this.studentsEnrolled = studentsEnrolled;
     }
 
-    public String getCoaches_tips() {
-        return coaches_tips;
+    public int getNumberReviewed() {
+        return numberReviewed;
     }
 
-    public void setCoaches_tips(String coaches_tips) {
-        this.coaches_tips = coaches_tips;
+    public void setNumberReviewed(int numberReviewed) {
+        this.numberReviewed = numberReviewed;
     }
 
-    public String getThumbnail() {
-        return thumbnail;
+    public String getPercentageReviewed() {
+        return percentageReviewed;
     }
 
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setPercentageReviewed(String percentageReviewed) {
+        this.percentageReviewed = percentageReviewed;
     }
 
-    public Project(int id, String name, String language, String brief, String coaches_tips, String thumbnail) {
-        this.id = id;
-        this.name = name;
-        this.language = language;
-        this.brief = brief;
-        this.coaches_tips = coaches_tips;
-        this.thumbnail = thumbnail;
+    public String getProjectBrief() {
+        return projectBrief;
     }
 
-    public Project() {
+    public void setProjectBrief(String projectBrief) {
+        this.projectBrief = projectBrief;
+    }
+
+    public String getCoachesTips() {
+        return coachesTips;
+    }
+
+    public void setCoachesTips(String coachesTips) {
+        this.coachesTips = coachesTips;
+    }
+
+    public String getProjectThumb() {
+        return projectThumb;
+    }
+
+    public void setProjectThumb(String projectThumb) {
+        this.projectThumb = projectThumb;
     }
 }

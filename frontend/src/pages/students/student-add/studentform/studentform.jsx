@@ -104,6 +104,7 @@ const StudentForm = () => {
                         {errors.email && <p className="text-danger">*Required</p>}
                     </div>
 
+
                     <div className="col-12 mt-3">
                         <label htmlFor="" className="addStudentLabel fw-bold">Enrolled on</label>
                         <select

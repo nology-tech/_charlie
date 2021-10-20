@@ -14,6 +14,8 @@ import Students from "./pages/students/students-list/students-list";
 import AddStudent from './pages/students/student-add/addstudent';
 import ProjectList from './pages/projects/projects-list/projects-list';
 import ProjectCreate from './pages/projects/projects-create/projects-create';
+import ProjectsEdit from './pages/projects/projects-edit/projects-edit'
+import ProjectOverview from 'pages/projects/project-overview/project-overview';
 import StudentOverview from 'pages/students/student-overview/student-overview';
 import EditStudent from 'pages/students/students-edit/edit-student';
 
@@ -26,28 +28,34 @@ function App() {
           <Navbar />
         </div>
         
-        <div className="col">
+        <div className="col fix-overflow-x">
           <Switch>
                         
+            <Route path="/project/create">
+              <ProjectCreate></ProjectCreate>
+            </Route>
+            
+            {/*TODO: re-build page for project-overview */}
+            <Route exact path="/project/:projectId">
+              <ProjectOverview />
+            </Route>
+
             <Route path="/projects">
               <ProjectList></ProjectList>
             </Route>
 
-
-            <Route path="/project/create">
-              <ProjectCreate></ProjectCreate>
+            <Route exact path="/project/:projectId/edit">
+              <ProjectsEdit />
             </Route>
 
 
             <Route path="/reviews">
               <Reviews />
             </Route>
-
             
             <Route path="/settings">
               <Settings />
             </Route>
-
 
             <Route exact path="/student/:studentId/project/:projectId/review">
               <ProjectReview />
