@@ -55,7 +55,12 @@ const StudentEditForm = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4));
+        let formName; 
+        if (!data.firstName && !data.lastName) {
+            formName = studentData.studentName;
+        } else {
+            formName = `${data.firstName} ${data.lastName}`
+        }
         fetch(`http://localhost:8080/students/${studentId}`, {
             method: "PUT",
             headers: {
@@ -65,7 +70,7 @@ const StudentEditForm = () => {
 
             //make sure to serialize your JSON body
             body: JSON.stringify({
-                studentName: `${data.firstName} ${data.lastName}` || studentData.studentName,
+                studentName: formName,
                 enrolledOn: data.enrolledOn || studentData.enrolledOn,
                 githubAccount: data.githubAccount || studentData.githubAccount,
                 portfolio: data.portfolioLink || studentData.portfolio,
