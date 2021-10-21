@@ -7,6 +7,10 @@ import Thumb from "assets/images/project-thumbnail.png";
 const StudentEditForm = () => {
     const {register, handleSubmit, formState: { errors }, reset } = useForm();
     const history = useHistory();
+    const [{ alt, src }, setImg] = useState({
+        src: "https://via.placeholder.com/150",
+        alt: "",
+    });
     const [studentData, setStudentData] = useState({}); 
     const { studentId } = useParams();
     const [studentNameArr, setStudentNameArr] = useState([]);
@@ -30,10 +34,7 @@ const StudentEditForm = () => {
 
     useEffect(fetchStudentData, [studentId]); 
 
-    const [{ alt, src }, setImg] = useState({
-        src: "https://via.placeholder.com/150",
-        alt: "",
-    });
+    
 
     const onDelete = (data) => {
         console.log(data);
@@ -43,19 +44,7 @@ const StudentEditForm = () => {
                 headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-                },
-    
-                //make sure to serialize your JSON body
-                body: JSON.stringify({
-                    studentName: `${data.firstName} ${data.lastName}`,
-                    enrolledOn: data.enrolledOn,
-                    githubAccount: data.githubAccount,
-                    portfolio: data.portfolioLink,
-                    resume: "sample.pdf",
-                    enrolledType: data.enrolledType,
-                    pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png",
-                    email: data.email
-                })
+                }
             })
             .then((response) => response.json());
             history.goBack();
@@ -63,8 +52,6 @@ const StudentEditForm = () => {
             history.goBack();
         }
     };
-
-
 
     const onSubmit = (data) => {
         console.log(data);
@@ -78,14 +65,15 @@ const StudentEditForm = () => {
 
             //make sure to serialize your JSON body
             body: JSON.stringify({
-                studentName: `${data.firstName} ${data.lastName}`,
-                enrolledOn: data.enrolledOn,
-                githubAccount: data.githubAccount,
-                portfolio: data.portfolioLink,
+                studentName: `${data.firstName} ${data.lastName}` || studentData.studentName,
+                enrolledOn: data.enrolledOn || studentData.enrolledOn,
+                githubAccount: data.githubAccount || studentData.githubAccount,
+                portfolio: data.portfolioLink || studentData.portfolio,
                 resume: "sample.pdf",
-                enrolledType: data.enrolledType,
+                enrolledType: data.enrolledType || studentData.enrolledType,
                 pictureLink: "https://nology.io/wp-content/uploads/2019/12/NOLOGY8.png",
-                email: data.email
+                email: data.email || studentData.email
+                
             })
         })
         .then((response) => global.window.location.href="/students")

@@ -178,7 +178,7 @@ const StudentForm = () => {
                         data-testid="studentThumb"
                         hidden
                         />
-                        <img id="studentImage" src={Thumb} alt={Thumb} className="student-thumbnail  gx-0 row my-2" />
+                        <img id="studentImage" src={Thumb} alt={Thumb} className="student-thumbnail  gx-0 row my-2"/>
                         <label htmlFor="studentThumb" className="btn upload-btn mt-4">
                         Upload
                         </label>
