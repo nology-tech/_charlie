@@ -114,8 +114,7 @@ const StudentEditForm = () => {
                         <label htmlFor="firstName" className="addStudentLabel fw-bold">First Name</label>
                         <input
                         {...register("firstName", {
-                            required: true,
-                            pattern: /^[A-Za-z]+$/i,
+                            pattern: /^[A-Za-z]+$/i
                         })}
                         name="firstName"
                         className="form-control form__input  my-2"
@@ -131,7 +130,6 @@ const StudentEditForm = () => {
                         <label htmlFor="lastName" className="addStudentLabel fw-bold">Last Name</label>
                         <input
                         {...register("lastName", {
-                            required: true,
                             pattern: /^[A-Za-z]+$/i,
                         })}
                         name="lastName"
@@ -148,7 +146,6 @@ const StudentEditForm = () => {
                         <label htmlFor="email" className="addStudentLabel fw-bold">Email</label>
                         <input
                         {...register("email", {
-                            required: true
                         })}
                         name="email"
                         className="form-control form__input my-2"
@@ -162,7 +159,7 @@ const StudentEditForm = () => {
                     <div className="col-12 mt-3">
                         <label htmlFor="" className="addStudentLabel fw-bold">Enrolled on</label>
                         <select
-                        {...register("enrolledOn", { required: true })}
+                        {...register("enrolledOn")}
                         name="enrolledOn"
                         className="form-select form-control form__input  my-2"
                         id="enrolledOn"
@@ -181,7 +178,7 @@ const StudentEditForm = () => {
                     <div className="col-12 mt-3">
                         <label htmlFor="" className="addStudentLabel fw-bold">Enrolled Type</label>
                         <select
-                        {...register("enrolledType", { required: true })}
+                        {...register("enrolledType")}
                         name="enrolledType"
                         className="form-select form-control form__input  my-2"
                         id="enrolledType"
@@ -198,7 +195,7 @@ const StudentEditForm = () => {
                     <div className="col-12 mt-3">
                         <label htmlFor="githubAccount" className="addStudentLabel fw-bold">Github Account</label>
                         <input
-                        {...register("githubAccount", { required: true })}
+                        {...register("githubAccount")}
                         name="githubAccount"
                         className="form-control form__input my-2"
                         type="text"
@@ -212,7 +209,7 @@ const StudentEditForm = () => {
                     <div className="col-12 mt-3">
                         <label htmlFor="" className="addStudentLabel fw-bold">Portfolio Link</label>
                         <input
-                            {...register("portfolioLink", { required: true })}
+                            {...register("portfolioLink")}
                             name="portfolioLink"
                             className="form-control form__input my-2"
                             type="text"

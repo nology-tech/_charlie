@@ -55,7 +55,7 @@ const StudentForm = () => {
     };
 
     return (
-        <div className="row mt-4 w-100 my-4 px-4 mx-auto offset-1 form__container">
+        <div className="row mt-4 w-100 my-4 px-4 mx-auto offset-1 form__container h-100">
             <form className="row" onSubmit={handleSubmit(onSubmit)}>
                 <div className="columns col-6">
                     <div className="col-12 mt-4">

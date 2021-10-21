@@ -241,7 +241,7 @@ const grabGithubLinks = () => {
           <div className="row ms-0">
             <h4 className="mt-5 p-0 heading-label">Other Projects</h4>
           </div>
-          <div className="row">
+          <div className="row mb-5">
             <div className="mt-2 mb-4 p-0 ">
               <Cards />
             </div>

@@ -125,16 +125,16 @@ let languages = ["HTML/CSS","Javascript", "React", "Java"];
                             name="language"
                             className="form-select form-control project-form-input "
                             id="language"
-                            value = {dropdownData}
+                            defaultValue = {dropdownData}
                             onChange={ev => setDropdownData(ev)}
                         >
                             <optgroup label="Select a Language">
-                                {
+                            </optgroup>
+                            {
                                     languages.map(currentLanguage => {
                                         return <option value={currentLanguage}>{currentLanguage}</option>
                                     })
                                 }
-                            </optgroup>
                         </select>
                     </div>
 
@@ -146,7 +146,7 @@ let languages = ["HTML/CSS","Javascript", "React", "Java"];
                             Project Brief
                         </label>
                         <textarea
-                            {...register("projectBrief", {required: true})}
+                            {...register("projectBrief")}
                             name="projectBrief"
                             className="text-area-styling"
                             type="text"
@@ -168,7 +168,7 @@ let languages = ["HTML/CSS","Javascript", "React", "Java"];
                             Coaches Tips
                         </label>
                         <textarea
-                            {...register("coachesTips", {required: true})}
+                            {...register("coachesTips")}
                             name="coachesTips"
                             className="text-area-styling"
                             type="text"
