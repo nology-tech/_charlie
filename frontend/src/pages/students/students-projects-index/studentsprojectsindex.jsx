@@ -9,7 +9,7 @@ import projects from "../../../data/projects";
 import Cards from "../../../components/cards/cards";
 import Card from "../../../components/cards/card/card";
 import PageHeader from "../../../components/page-header/page-header";
-import studentData from 'data/studentForm';
+// import studentData from 'data/studentForm';
 
 const SubmissionDetails = () => {
 
@@ -45,6 +45,12 @@ const grabGithubLinks = () => {
   switch(selectedProject.title) {
     case "Morse Code Translator":
       regexSearchTerm = "Morse";
+      break;
+    case "Portfolio":
+      regexSearchTerm = "portfolio";
+      break;
+    case "Calculator":
+      regexSearchTerm = "calculator";
       break;
     case "Client Project":
       regexSearchTerm = "Client";
